@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbb42e6fskpdg"]
+
+[ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="1_utwnn"]
+
+[node name="NavigationLayer" type="Node2D"]
+script = ExtResource("1_utwnn")

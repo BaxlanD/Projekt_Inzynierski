@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgy66o5r7h2yh"]
+
+[ext_resource type="Script" uid="uid://d2odkpcdhiqhp" path="res://tools/tool_point_connector/tool_point_connector.gd" id="1_b5lan"]
+[ext_resource type="Script" uid="uid://dbcj1g1o8fvy5" path="res://resources/navigation_graph/navigation_graph.gd" id="2_lipnm"]
+[ext_resource type="Script" uid="uid://ck3m174u4n6nj" path="res://tools/astar_nav_point/astar_nav_point.gd" id="2_v4c36"]
+
+[sub_resource type="Resource" id="Resource_dljwh"]
+script = ExtResource("2_lipnm")
+points = Array[Vector2]([])
+edges = Array[Vector2i]([])
+
+[node name="ToolPointConnector" type="Node2D"]
+script = ExtResource("1_b5lan")
+nav_graph = SubResource("Resource_dljwh")
+
+[node name="AstarNavPoint" type="Marker2D" parent="."]
+position = Vector2(290.374, 52.2455)
+script = ExtResource("2_v4c36")
+
+[node name="AstarNavPoint2" type="Marker2D" parent="."]
+position = Vector2(337, 182)
+script = ExtResource("2_v4c36")
+
+[node name="AstarNavPoint3" type="Marker2D" parent="."]
+position = Vector2(496, 131)
+script = ExtResource("2_v4c36")
