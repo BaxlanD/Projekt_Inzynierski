@@ -1,58 +1,39 @@
 @tool
 extends Node2D
-class_name Connector
+class_name ToolPointConnector
 
 @export var editting: bool = false
-@export var undo_last_connection: bool = false
+@export_tool_button("Undo Connection") var undo_button: Callable = load_graph_from_resource
 
 @export_group("Load")
-@export var load_graph: bool = false
 @export var nav_graph_to_load: NavGraph
+@export_tool_button("Load Graph") var load_button: Callable = load_graph_from_resource
 
 @export_group("Save")
-@export var save_current_graph: bool = false
 @export var nav_graph: NavGraph
+@export_tool_button("Save Graph") var save_button: Callable = save_graph_to_resource
 
 # Stores connections as [(id1, id2), (id2, id3), ...]
 var connections: Array[Connection]
 
 # Variables to track selection
-var selected_point = null:
-	set(value):
-		if selected_point != value:
-			print(value)
-		selected_point = value
+var selected_point = null
 
 # Color settings for drawing connections
 const LINE_COLOR = Color.CYAN
 const POINT_COLOR = Color.PURPLE
 
+
 func _ready():
 	if not Engine.is_editor_hint():
 		set_process(false)  # Disable processing outside of the editor
 
+
 func _process(delta):
 	if Engine.is_editor_hint():
-		## Allow drawing edges only when this is turned on
 		if editting: 
 			check_editor_selection()
-			
-		if undo_last_connection:
-			undo_last_connection = false
-			connections.pop_back()
 			queue_redraw()
-		
-		## Loading up different graph to edit
-		if load_graph:
-			load_graph = false
-			load_graph_from_resource()
-		
-		## Save current setup to resource file if this is turned on
-		if save_current_graph:
-			save_current_graph = false
-			save_graph_to_resource()
-		
-		queue_redraw()
 
 
 func _draw():
@@ -101,13 +82,11 @@ func add_connection(p1: AstarNavPoint, p2: AstarNavPoint):
 
 func save_graph_to_resource() -> void:
 	## CLEARNING RESOURCE
-	nav_graph.points.clear()
-	nav_graph.edges.clear()
+	nav_graph = NavGraph.new()
 	
 	## ADDING POINTS
 	for child in get_children():
 		if child is AstarNavPoint:
-			print(child.i)
 			nav_graph.points.append(child.position)
 	
 	## ADDING EDGES
@@ -122,6 +101,11 @@ func load_graph_from_resource() -> void:
 		print_rich("[color=yellow]There is no NavGraph to load[/color]")
 		return
 	
+	## CLEAR ALL CHILDREN
+	for child in get_children():
+		child.queue_free()
+	
+	
 	## CREATING POINTS
 	for vec in nav_graph_to_load.points:
 		var point: AstarNavPoint = AstarNavPoint.new()
@@ -130,6 +114,7 @@ func load_graph_from_resource() -> void:
 		point.position = vec
 	
 	## RELOADING CONNECTIONS
+	connections.clear()
 	for edge in nav_graph_to_load.edges:
 		var connection: Connection = Connection.new(get_child(edge[0]), get_child(edge[1]))
 		connections.append(connection)
@@ -141,6 +126,9 @@ func load_graph_from_resource() -> void:
 	nav_graph_to_load = null
 	return
 
+func _undo_connection() -> void:
+	connections.pop_back()
+	queue_redraw()
 
 ## Connections dataclass - Basically just Vector2 that stores node references instead of int
 class Connection:
