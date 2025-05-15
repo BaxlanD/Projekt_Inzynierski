@@ -13,6 +13,7 @@ class_name NPC
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
+@export var schedule: Schedule
 
 ## Private variables
 const _SPEED = 120.0
@@ -26,9 +27,15 @@ var _path: PackedVector2Array = []
 var _path_point_count: int = 0
 var _next: Vector2
 
+var _time: float = 0
+
 
 # Godot method overrides
 func _physics_process(delta: float) -> void:
+	_time += delta
+	print("%4.1f - %s" % [_time, schedule.get_activity_from_schedule(int(_time))])
+	
+	
 	_npc_floor_level = ray_cast_2d.get_collision_point().y
 	
 	if Input.is_action_just_pressed("RMB"):
