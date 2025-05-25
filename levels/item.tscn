@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6t5dimvaybx3"]
+
+[ext_resource type="Script" uid="uid://bks6swqd4eurh" path="res://levels/item.gd" id="1_862ai"]
+[ext_resource type="Texture2D" uid="uid://citavnfpas0ib" path="res://assets/icon.svg" id="1_gve6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_862ai"]
+size = Vector2(21, 21)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Item" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("1_862ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+position = Vector2(0.239998, -0.375999)
+scale = Vector2(0.16, 0.166)
+texture = ExtResource("1_gve6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+position = Vector2(0.239998, -0.375999)
+shape = SubResource("RectangleShape2D_862ai")
