@@ -10,8 +10,11 @@ class_name NPC
 
 ## Public variables
 @export var nav_layer: NavLayer
+@export var item_dropoff_target: Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var pickup_area: Area2D = $PickupArea
+@onready var pickup_timer := Timer.new()
 
 
 ## Private variables
@@ -25,9 +28,17 @@ var _npc_floor_level: float = 0
 var _path: PackedVector2Array = []
 var _path_point_count: int = 0
 var _next: Vector2
-
+var _carried_item: Node2D = null
 
 # Godot method overrides
+
+func _ready() -> void:
+	pickup_timer.wait_time = 1.0
+	pickup_timer.one_shot = true
+	pickup_timer.connect("timeout", Callable(self, "_on_pickup_timer_timeout"))
+	add_child(pickup_timer)
+	
+	
 func _physics_process(delta: float) -> void:
 	_npc_floor_level = ray_cast_2d.get_collision_point().y
 	
@@ -112,6 +123,8 @@ func _handle_movement(delta: float) -> void:
 	if _snap:
 		_snap = false
 		apply_floor_snap()
+		
+	_try_pickup_item()
 
 
 func _handle_animations() -> void:
@@ -125,3 +138,35 @@ func _handle_animations() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	animated_sprite_2d.play("Idle")
+	
+	
+func _try_pickup_item() -> void:
+	if _carried_item != null:
+		return 
+
+	var overlapping_areas = $PickupArea.get_overlapping_areas()
+	for area in overlapping_areas:
+		if area.is_in_group("items"):
+			_carried_item = area
+			_carried_item.visible = false
+			_carried_item.set_deferred("monitoring", false)  
+			_carried_item.set_deferred("collision_layer", 0)
+			_carried_item.set_deferred("collision_mask", 0)
+			print("NPC picked up item: ", _carried_item.name)
+
+			_path.clear()
+			pickup_timer.start()
+			print("NPC will start new path after 1 second")
+			break
+
+func _on_pickup_timer_timeout() -> void:
+	var target_pos = Vector2.ZERO
+	if _carried_item.has_method("get_dropoff_position"):
+		target_pos = _carried_item.get_dropoff_position()
+	else:
+		target_pos = Vector2(0, 0)
+
+	if nav_layer != null:
+		_path_point_count = 0
+		_path = nav_layer.get_good_nav_path(Vector2(position.x, _npc_floor_level), target_pos)
+	print("NPC goes to position: ", target_pos)

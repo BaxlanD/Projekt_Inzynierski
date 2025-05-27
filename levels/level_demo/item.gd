@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var item_name: String = "item"
+@export var dropoff_position: Vector2 = Vector2(100, 100)
 var player_in_range: bool = false
 
 func _ready():
@@ -23,3 +24,6 @@ func _process(_delta: float) -> void:
 		if inv.has_method("add_item"):
 			if inv.add_item(item_name):
 				queue_free()
+				
+func get_dropoff_position() -> Vector2:
+	return dropoff_position
