@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyvbu7jwamhyg"]
+
+[ext_resource type="Script" uid="uid://ruu4ksqay5dc" path="res://components/schedule_entry/schedule_entry.gd" id="1_dkpah"]
+
+[node name="ScheduleEntry" type="Node"]
+script = ExtResource("1_dkpah")
+duration = 1.0

@@ -9,11 +9,9 @@ class_name NPC
 ## Enums
 
 ## Public variables
-@export var nav_layer: NavLayer
+@export var nav_layer: NavigationLayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
-
-@export var schedule: Schedule
 
 ## Private variables
 const _SPEED = 120.0
@@ -27,19 +25,31 @@ var _path: PackedVector2Array = []
 var _path_point_count: int = 0
 var _next: Vector2
 
-var _time: float = 0
-
+## Action-related
+@onready var schedule_npc: ScheduleNPC = $ScheduleNPC
+var action: Action
 
 # Godot method overrides
+func _ready() -> void:
+	_actor_setup.call_deferred()
+
 func _physics_process(delta: float) -> void:
-	_time += delta
-	print("%4.1f - %s" % [_time, schedule.get_activity_from_schedule(int(_time))])
+	if Input.is_action_just_pressed("RMB"):
+		if action:
+			action.cancel()
+		action = StandAtPointAction.new(self, get_global_mouse_position(), 0.8, Action.anchor.OVERRIDE)
+		action.action_finished.connect(_finished_callback)
 	
+	if action:
+		action.update(delta)
+		return
+	
+	# END OF TEMP AREA
 	
 	_npc_floor_level = ray_cast_2d.get_collision_point().y
 	
 	if Input.is_action_just_pressed("RMB"):
-		_generate_navigation_path()
+		_generate_navigation_path(get_global_mouse_position())
 	
 	if _path.is_empty():
 		_handle_naviation_path_finished(delta)
@@ -57,9 +67,25 @@ func _physics_process(delta: float) -> void:
 # Public methods
 
 # Private methods
-func _generate_navigation_path() -> void:
+func _actor_setup() -> void:
+	await get_tree().physics_frame
+	schedule_npc.new_shedule_entry_started.connect(_schedule_callback)
+	schedule_npc.start_schedule()
+	# At the start immidiately receive first new_schedule_entry_started signal
+
+func _schedule_callback(new_target: Vector2) -> void:
+	if action == null or action.type == Action.anchor.SCHEDULE:
+		action = StandAtPointAction.new(self, new_target, 100, Action.anchor.SCHEDULE)
+		action.action_finished.connect(_finished_callback)
+
+func _finished_callback() -> void:
+	action = StandAtPointAction.new(self, schedule_npc.get_current_target(), 100, Action.anchor.SCHEDULE)
+	action.action_finished.connect(_finished_callback)
+
+func _generate_navigation_path(target: Vector2) -> void:
+	print("Recieved")
 	_path_point_count = 0
-	_path = nav_layer.get_good_nav_path(Vector2(position.x, _npc_floor_level), get_global_mouse_position())
+	_path = nav_layer.get_good_nav_path(Vector2(position.x, _npc_floor_level), target)
 	queue_redraw()
 
 

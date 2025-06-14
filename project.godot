@@ -18,6 +18,7 @@ config/icon="uid://cxb8m30bj80l8"
 
 [debug]
 
+gdscript/warnings/unused_signal=0
 gdscript/warnings/untyped_declaration=1
 gdscript/warnings/unsafe_property_access=1
 gdscript/warnings/unsafe_method_access=1
@@ -36,13 +37,10 @@ window/stretch/mode="canvas_items"
 
 naming/script_name_casing=2
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/schedule_validator_plugin/plugin.cfg")
-
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "teal",
 "res://characters/": "orange",
 "res://components/": "green",

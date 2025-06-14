@@ -1,35 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2pldaksmm4l2"]
+[gd_scene load_steps=8 format=4 uid="uid://b2pldaksmm4l2"]
 
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="2_ope82"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="3_up1br"]
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="4_l10i5"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="5_tjlof"]
-[ext_resource type="Script" uid="uid://b3mpaoufwakwy" path="res://resources/time_block/time_block.gd" id="6_ope82"]
+[ext_resource type="Script" uid="uid://wxg2ui2pbidx" path="res://components/schedule_ncp/schedule_npc.gd" id="6_ope82"]
 [ext_resource type="PackedScene" uid="uid://dajsjvbbbj0qy" path="res://characters/npc_demo/npc_demo.tscn" id="6_pbttp"]
-[ext_resource type="Script" uid="uid://blus361isvlio" path="res://resources/schedule/schedule.gd" id="7_up1br"]
-
-[sub_resource type="Resource" id="Resource_ope82"]
-script = ExtResource("6_ope82")
-activity = "Task1"
-time = 2
-metadata/_custom_type_script = "uid://b3mpaoufwakwy"
-
-[sub_resource type="Resource" id="Resource_up1br"]
-script = ExtResource("6_ope82")
-activity = "Task2"
-time = 5
-metadata/_custom_type_script = "uid://b3mpaoufwakwy"
-
-[sub_resource type="Resource" id="Resource_l10i5"]
-script = ExtResource("6_ope82")
-activity = "Task3"
-time = 3
-metadata/_custom_type_script = "uid://b3mpaoufwakwy"
-
-[sub_resource type="Resource" id="Resource_tjlof"]
-script = ExtResource("7_up1br")
-_timeblocks = Array[ExtResource("6_ope82")]([SubResource("Resource_ope82"), SubResource("Resource_up1br"), SubResource("Resource_l10i5")])
-metadata/_custom_type_script = "uid://blus361isvlio"
+[ext_resource type="Script" uid="uid://ruu4ksqay5dc" path="res://components/schedule_entry/schedule_entry.gd" id="7_up1br"]
 
 [node name="LevelDemo" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -62,4 +39,30 @@ zoom = Vector2(2, 2)
 [node name="NPC" parent="." node_paths=PackedStringArray("nav_layer") instance=ExtResource("6_pbttp")]
 position = Vector2(104, -16)
 nav_layer = NodePath("../NavLayer")
-schedule = SubResource("Resource_tjlof")
+
+[node name="ScheduleNPC" type="Node" parent="NPC"]
+script = ExtResource("6_ope82")
+metadata/_custom_type_script = "uid://wxg2ui2pbidx"
+
+[node name="ScheduleEntry1" type="Node" parent="NPC/ScheduleNPC"]
+script = ExtResource("7_up1br")
+duration = 7.0
+target = Vector2(336, 0)
+metadata/_custom_type_script = "uid://ruu4ksqay5dc"
+
+[node name="ScheduleEntry2" type="Node" parent="NPC/ScheduleNPC"]
+script = ExtResource("7_up1br")
+duration = 7.0
+target = Vector2(304, -80)
+metadata/_custom_type_script = "uid://ruu4ksqay5dc"
+
+[node name="ScheduleEntry3" type="Node" parent="NPC/ScheduleNPC"]
+script = ExtResource("7_up1br")
+duration = 7.0
+target = Vector2(240, 96)
+metadata/_custom_type_script = "uid://ruu4ksqay5dc"
+
+[node name="ScheduleEntry4" type="Node" parent="NPC/ScheduleNPC"]
+script = ExtResource("7_up1br")
+duration = 7.0
+metadata/_custom_type_script = "uid://ruu4ksqay5dc"

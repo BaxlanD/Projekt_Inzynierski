@@ -5,7 +5,7 @@ class_name TimeBlock
 
 var _parent_schedule: Schedule = null
 
-@export_placeholder("activity") var activity: String:
+@export var activity: Vector2:
 	set(value):
 		activity = value
 		_notify_parent()
