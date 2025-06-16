@@ -1,25 +1,22 @@
 extends Action
 class_name StandAtPointAction
 
-var obj: Node2D
-var target: Vector2
-var duration: float
+@export var target: Vector2
+@export var duration: float
 
 var subaction: Action
-var restore_state: Color
 
-func _init(obj_: Node2D, target_: Vector2, duration_: float, type_: anchor) -> void:
-	# initialize
-	obj = obj_
+# Public methods
+func create(character_: CharacterBody2D, type_: anchor, target_: Vector2, duration_: float) -> StandAtPointAction:
+	character = character_
+	type = type_
 	target = target_
 	duration = duration_
-	type = type_
-	# change obj state
-	obj.modulate = Color.GREEN
-	restore_state = obj.modulate
-	# start subaction
-	subaction = GoToPointAction.new(obj, target, anchor.OVERRIDE)
-	subaction.action_finished.connect(_subaction_callback)
+	_start()
+	return self
+
+func copy() -> StandAtPointAction:
+	return StandAtPointAction.new().create(character, type, target, duration)
 
 func update(delta: float) -> void:
 	if subaction:
@@ -31,15 +28,21 @@ func update(delta: float) -> void:
 		_finish()
 
 func cancel() -> void:
+	if subaction:
+		subaction.cancel()
 	_cleanup()
+
+# Private methods
+func _start() -> void:
+	subaction = GoToPointAction.new().create(character, type, target)
+	subaction.action_finished.connect(_subaction_callback)
+
+func _cleanup() -> void:
+	pass
 
 func _finish() -> void:
 	_cleanup()
 	action_finished.emit()
 
-func _cleanup() -> void:
-	obj.modulate = Color.WHITE
-
 func _subaction_callback() -> void:
-	obj.modulate = restore_state
 	subaction = null

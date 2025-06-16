@@ -1,7 +1,7 @@
 extends Node
 class_name ScheduleNPC
 
-signal new_shedule_entry_started(target: Vector2)
+signal new_shedule_entry_started
 
 var schedule: Array[ScheduleEntry] = []
 var timer: Timer
@@ -9,14 +9,15 @@ var entry_index: int = 0
 
 @export var npc: NPC
 
-func get_current_target() -> Vector2:
+func get_current_action() -> Action:
 	if entry_index < schedule.size():
-		return schedule[entry_index].target 
-	return Vector2.ZERO
+		return schedule[entry_index].action.copy()
+	return Action.new()
 
 func _ready() -> void:
 	for i in get_child_count():
 		schedule.append(get_child(i))
+		schedule[i].action.character = npc
 		
 	timer = Timer.new()
 	add_child(timer)
@@ -27,14 +28,15 @@ func start_schedule() -> void:
 	_timer_set()
 
 func _timer_set() -> void:
-	timer.wait_time = schedule[entry_index].duration
+	var time := schedule[entry_index].duration
+	timer.wait_time = time
 	timer.start()
-	new_shedule_entry_started.emit(get_current_target())
+	new_shedule_entry_started.emit()
 
 func _on_timer_timeout() -> void:
 	entry_index += 1
 	if entry_index < schedule.size():
 		_timer_set()
 	else:
-		new_shedule_entry_started.emit(get_current_target())
+		new_shedule_entry_started.emit()
 		print("Finished schedule")

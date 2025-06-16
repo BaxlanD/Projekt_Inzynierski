@@ -1,28 +1,42 @@
 extends Action
 class_name GoToPointAction
 
-var obj: Node2D
-var target: Vector2
+@export var target: Vector2
 
-func _init(obj_: Node2D, target_: Vector2, type_: anchor) -> void:
-	obj = obj_
-	target = target_
+# Public methods
+func create(character_: CharacterBody2D, type_: anchor, target_: Vector2) -> GoToPointAction:
+	character = character_
 	type = type_
-	obj.modulate = Color.RED
+	target = target_
+	_start()
+	return self
+
+func copy() -> GoToPointAction:
+	return GoToPointAction.new().create(character, type, target)
 
 func update(delta: float) -> void:
-	var dir: Vector2 = (target - obj.position).normalized()
-	obj.position += dir * 200 * delta
-	
-	if (obj.position - target).length() < 5:
+	if character._path.is_empty():
+		character._handle_naviation_path_finished(delta)
 		_finish()
+		return
+	
+	character._next = character._path[character._path_point_count]
+	character._check_next_reached()
+	character._handle_ramps_collision()
+	character._handle_alt_platfs_collision()
+	character._handle_movement(delta)
+	character._handle_animations()
 
 func cancel() -> void:
 	_cleanup()
 
+# Private methods
+func _start() -> void:
+	character._generate_navigation_path(target)
+
+func _cleanup() -> void:
+	character.animated_sprite_2d.play("Idle")
+
 func _finish() -> void:
 	_cleanup()
 	action_finished.emit()
-
-func _cleanup() -> void:
-	obj.modulate = Color.WHITE
