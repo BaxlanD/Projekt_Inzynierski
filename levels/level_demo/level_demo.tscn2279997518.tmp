@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2pldaksmm4l2"]
+[gd_scene load_steps=13 format=4 uid="uid://b2pldaksmm4l2"]
 
 [ext_resource type="Script" uid="uid://6qpsgydk1hbm" path="res://levels/level_demo/level_demo.gd" id="1_tjlof"]
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="2_ope82"]
@@ -8,11 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://dajsjvbbbj0qy" path="res://characters/npc_demo/npc_demo.tscn" id="6_pbttp"]
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="6_wxvbj"]
 [ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="7_ope82"]
-[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="9_l10i5"]
+[ext_resource type="Script" uid="uid://dhl3a5f5g7qbr" path="res://levels/level_demo/item.gd" id="8_l10i5"]
+[ext_resource type="Texture2D" uid="uid://citavnfpas0ib" path="res://assets/icon.svg" id="8_up1br"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjlof"]
 radius = 8.0
 height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up1br"]
+size = Vector2(20, 24)
 
 [node name="LevelDemo" type="Node2D"]
 script = ExtResource("1_tjlof")
@@ -37,7 +41,7 @@ _logging = false
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("5_tjlof")]
-position = Vector2(-10, -9)
+position = Vector2(-16, -16)
 collision_mask = 23
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -173,36 +177,72 @@ stretch_mode = 5
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="ItemPopupPanel" type="PopupPanel" parent="UI/InventoryUI"]
-size = Vector2i(100, 60)
+[node name="Item" type="Area2D" parent="." groups=["items"]]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 56.0
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+position = Vector2(257.25, -174.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
 
-[node name="Use" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Use"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+position = Vector2(257.25, -174.25)
+shape = SubResource("RectangleShape2D_up1br")
 
-[node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Drop"
+[node name="Item2" type="Area2D" parent="." groups=["items"]]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
 
-[node name="Item" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(269, -173)
+[node name="Sprite2D" type="Sprite2D" parent="Item2"]
+position = Vector2(-71.75, -12.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
 
-[node name="Item2" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(262, -66)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
+position = Vector2(-71.75, -12.25)
+shape = SubResource("RectangleShape2D_up1br")
 
-[node name="Item3" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(48, -9)
+[node name="Item3" type="Area2D" parent="." groups=["items"]]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
 
-[node name="Item4" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(-91, -13)
+[node name="Sprite2D" type="Sprite2D" parent="Item3"]
+position = Vector2(46.25, -13.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
 
-[node name="Item5" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(174, -14)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item3"]
+position = Vector2(46.25, -13.25)
+shape = SubResource("RectangleShape2D_up1br")
+
+[node name="Item4" type="Area2D" parent="." groups=["items"]]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Item4"]
+position = Vector2(202.25, -12.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item4"]
+position = Vector2(202.25, -13.25)
+shape = SubResource("RectangleShape2D_up1br")
+
+[node name="Item5" type="Area2D" parent="." groups=["items"]]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Item5"]
+position = Vector2(334.25, -14.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item5"]
+position = Vector2(334.25, -14.25)
+shape = SubResource("RectangleShape2D_up1br")

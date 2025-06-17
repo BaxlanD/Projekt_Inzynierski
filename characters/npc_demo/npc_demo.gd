@@ -28,7 +28,8 @@ var _npc_floor_level: float = 0
 var _path: PackedVector2Array = []
 var _path_point_count: int = 0
 var _next: Vector2
-var _carried_item: Node2D = null
+var _carried_item: Item = null
+var _should_transform_to_sword: bool = false
 
 # Godot method overrides
 
@@ -82,6 +83,9 @@ func _check_next_reached() -> void:
 		if _path_point_count == _path.size():
 			_path_point_count = 0
 			_path.clear()
+			
+			if _should_transform_to_sword and _carried_item != null:
+				_handle_dropoff()
 		else:
 			_next = _path[_path_point_count]
 
@@ -144,7 +148,7 @@ func _try_pickup_item() -> void:
 	if _carried_item != null:
 		return 
 
-	var overlapping_areas = $PickupArea.get_overlapping_areas()
+	var overlapping_areas: Array[Area2D] = pickup_area.get_overlapping_areas()
 	for area in overlapping_areas:
 		if area.is_in_group("items"):
 			_carried_item = area
@@ -152,15 +156,19 @@ func _try_pickup_item() -> void:
 			_carried_item.set_deferred("monitoring", false)  
 			_carried_item.set_deferred("collision_layer", 0)
 			_carried_item.set_deferred("collision_mask", 0)
-			print("NPC picked up item: ", _carried_item.name)
+			print("NPC picked up item: ", _carried_item.origin_scene_path)
+			
+			_should_transform_to_sword = _carried_item.origin_scene_path == "res://items/item.tscn"
+			print(_should_transform_to_sword)
 
-			_path.clear()
-			pickup_timer.start()
-			print("NPC will start new path after 1 second")
-			break
+			if _should_transform_to_sword:
+				_path.clear()
+				pickup_timer.start()
+				print("NPC will start new path after 1 second")
+				break
 
 func _on_pickup_timer_timeout() -> void:
-	var target_pos = Vector2.ZERO
+	var target_pos: Vector2 = Vector2.ZERO
 	if _carried_item.has_method("get_dropoff_position"):
 		target_pos = _carried_item.get_dropoff_position()
 	else:
@@ -170,3 +178,25 @@ func _on_pickup_timer_timeout() -> void:
 		_path_point_count = 0
 		_path = nav_layer.get_good_nav_path(Vector2(position.x, _npc_floor_level), target_pos)
 	print("NPC goes to position: ", target_pos)
+	
+func _handle_dropoff() -> void:
+	if _carried_item == null or not _should_transform_to_sword:
+		return
+
+	await get_tree().create_timer(1.0).timeout
+
+	var old_item: Node2D = _carried_item
+	_carried_item = null
+	old_item.queue_free()
+	print("NPC dropped item: ", old_item.name)
+
+	var sword_scene: PackedScene = preload("res://items/item_sword.tscn")
+	var sword_instance: Node2D = sword_scene.instantiate()
+	if sword_instance is Item:
+		sword_instance.initialize()
+		
+	sword_instance.global_position = global_position + Vector2(16, 0)
+	get_tree().current_scene.add_child(sword_instance)
+	print("NPC placed sword at: ", sword_instance.global_position)
+
+	_should_transform_to_sword = false
