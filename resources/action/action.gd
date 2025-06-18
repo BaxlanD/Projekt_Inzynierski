@@ -4,14 +4,14 @@ class_name Action
 signal action_finished
 
 enum anchor{SCHEDULE, OVERRIDE}
-var type: anchor
+var type: anchor = anchor.SCHEDULE
 
-var character: CharacterBody2D
+var character: NPC
 
 ## Call this when duplicating action from blueprint action object
 ## Never use already existing action object
 func copy() -> Action:
-	return
+	return Action.new()
 
 ## Call every frame while action is active
 func update(_delta: float) -> void:

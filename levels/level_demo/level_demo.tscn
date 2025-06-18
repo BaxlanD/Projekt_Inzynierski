@@ -7,27 +7,31 @@
 [ext_resource type="Script" uid="uid://wxg2ui2pbidx" path="res://components/schedule_ncp/schedule_npc.gd" id="6_ope82"]
 [ext_resource type="PackedScene" uid="uid://dajsjvbbbj0qy" path="res://characters/npc_demo/npc_demo.tscn" id="6_pbttp"]
 [ext_resource type="Script" uid="uid://ruu4ksqay5dc" path="res://components/schedule_entry/schedule_entry.gd" id="7_up1br"]
-[ext_resource type="Script" uid="uid://dvusaw0nhhpfy" path="res://resources/action/actions/go_to_point_action.gd" id="8_up1br"]
+[ext_resource type="Script" uid="uid://bbx11e86k3f3d" path="res://resources/action/animate_at_point_action.gd" id="8_l10i5"]
 
 [sub_resource type="Resource" id="Resource_pbttp"]
-script = ExtResource("8_up1br")
+script = ExtResource("8_l10i5")
 target = Vector2(0, 0)
-metadata/_custom_type_script = "uid://dvusaw0nhhpfy"
-
-[sub_resource type="Resource" id="Resource_up1br"]
-script = ExtResource("8_up1br")
-target = Vector2(200, 0)
-metadata/_custom_type_script = "uid://dvusaw0nhhpfy"
+animation_name = "Death"
+metadata/_custom_type_script = "uid://bbx11e86k3f3d"
 
 [sub_resource type="Resource" id="Resource_l10i5"]
-script = ExtResource("8_up1br")
-target = Vector2(0, 0)
-metadata/_custom_type_script = "uid://dvusaw0nhhpfy"
+script = ExtResource("8_l10i5")
+target = Vector2(100, 0)
+animation_name = "Death"
+metadata/_custom_type_script = "uid://bbx11e86k3f3d"
 
-[sub_resource type="Resource" id="Resource_tjlof"]
-script = ExtResource("8_up1br")
-target = Vector2(-200, 0)
-metadata/_custom_type_script = "uid://dvusaw0nhhpfy"
+[sub_resource type="Resource" id="Resource_f6xk8"]
+script = ExtResource("8_l10i5")
+target = Vector2(0, 0)
+animation_name = "Death"
+metadata/_custom_type_script = "uid://bbx11e86k3f3d"
+
+[sub_resource type="Resource" id="Resource_up1br"]
+script = ExtResource("8_l10i5")
+target = Vector2(-100, 0)
+animation_name = "Death"
+metadata/_custom_type_script = "uid://bbx11e86k3f3d"
 
 [node name="LevelDemo" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -75,17 +79,17 @@ metadata/_custom_type_script = "uid://ruu4ksqay5dc"
 [node name="ScheduleEntry2" type="Node" parent="NPC/ScheduleNPC"]
 script = ExtResource("7_up1br")
 duration = 4.0
-action = SubResource("Resource_up1br")
+action = SubResource("Resource_l10i5")
 metadata/_custom_type_script = "uid://ruu4ksqay5dc"
 
 [node name="ScheduleEntry3" type="Node" parent="NPC/ScheduleNPC"]
 script = ExtResource("7_up1br")
 duration = 4.0
-action = SubResource("Resource_l10i5")
+action = SubResource("Resource_f6xk8")
 metadata/_custom_type_script = "uid://ruu4ksqay5dc"
 
 [node name="ScheduleEntry4" type="Node" parent="NPC/ScheduleNPC"]
 script = ExtResource("7_up1br")
 duration = 4.0
-action = SubResource("Resource_tjlof")
+action = SubResource("Resource_up1br")
 metadata/_custom_type_script = "uid://ruu4ksqay5dc"
