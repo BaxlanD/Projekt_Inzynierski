@@ -1,5 +1,5 @@
 extends Node2D
-class_name NavLayer
+class_name NavigationLayer
 ## NOTE: Soooo... ye I ain't cleaning this up
 ## This needs a rework not a clean up - I will get to it eventually 
 ## cuz it's quite important piece honestly :/
