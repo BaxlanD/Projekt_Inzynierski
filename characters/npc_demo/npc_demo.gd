@@ -35,7 +35,7 @@ func _ready() -> void:
 	pickup_timer.one_shot = true
 	pickup_timer.connect("timeout", Callable(self, "_on_pickup_timer_timeout"))
 	add_child(pickup_timer)
-  _actor_setup.call_deferred()
+	_actor_setup.call_deferred()
 
 func _physics_process(delta: float) -> void:
 	npc_floor_level = ray_cast_2d.get_collision_point().y
@@ -43,6 +43,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("RMB"):
 		set_action(AnimateAtPointAction.new().create(self, Action.anchor.OVERRIDE, get_global_mouse_position(), "Death"))
 	
+	_try_pickup_item()
+	_handle_dropoff()
 	if action:
 		action.update(delta)
 		return
@@ -87,7 +89,7 @@ func _try_pickup_item() -> void:
 				item.set_deferred("collision_mask", 0)
 				_should_transform_to_sword = true
 				if _should_transform_to_sword:
-					_path.clear()
+					#_path.clear()
 					pickup_timer.start()
 					print("NPC will go to dropoff point in 1 second")
 				break
@@ -101,8 +103,8 @@ func _on_pickup_timer_timeout() -> void:
 	if packed_scene:
 		var drop_target: Vector2 = item_data.get("dropoff_position", Vector2.ZERO)
 		
-		_path_point_count = 0
-		_path = nav_layer.get_good_nav_path(Vector2(position.x, _npc_floor_level), drop_target)
+		#_path_point_count = 0
+		#_path = nav_layer.get_good_nav_path(Vector2(position.x, _npc_floor_level), drop_target)
 		print("NPC goes to position: ", drop_target)
 
 func _handle_dropoff() -> void:
