@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2pldaksmm4l2"]
+[gd_scene load_steps=12 format=4 uid="uid://b2pldaksmm4l2"]
 
 [ext_resource type="Script" uid="uid://6qpsgydk1hbm" path="res://levels/level_demo/level_demo.gd" id="1_tjlof"]
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="2_ope82"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="4_l10i5"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="5_tjlof"]
 [ext_resource type="PackedScene" uid="uid://dajsjvbbbj0qy" path="res://characters/npc_demo/npc_demo.tscn" id="6_pbttp"]
+[ext_resource type="Script" uid="uid://cvrosqb8g4ie6" path="res://levels/level_demo/inventory.gd" id="6_tjlof"]
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="6_wxvbj"]
 [ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="7_ope82"]
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="9_l10i5"]
@@ -44,6 +45,9 @@ collision_mask = 23
 unique_name_in_owner = true
 zoom = Vector2(2, 2)
 
+[node name="Inventory" type="Node" parent="Player"]
+script = ExtResource("6_tjlof")
+
 [node name="NPC" parent="." node_paths=PackedStringArray("nav_layer") instance=ExtResource("6_pbttp")]
 position = Vector2(91, -7)
 collision_mask = 23
@@ -56,6 +60,10 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/PickupArea"]
 shape = SubResource("CapsuleShape2D_tjlof")
+
+[node name="Inventory" type="Node" parent="NPC"]
+script = ExtResource("6_tjlof")
+max_items = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 
