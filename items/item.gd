@@ -22,7 +22,8 @@ func _ready() -> void:
 	connect("body_entered", self._on_body_entered)
 	connect("body_exited", self._on_body_exited)
 	if origin_scene_path == "":
-		initialize()
+		if has_method("initialize"):
+			initialize()
 	print("origin_scene_path set to: ", origin_scene_path)
 	
 func _on_body_entered(body: Node) -> void:
@@ -36,7 +37,7 @@ func _on_body_exited(body: Node) -> void:
 		
 func _process(_delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("item_take"):
-		var inv := get_tree().get_root().get_node("LevelDemo/Player/Inventory") as Inventory
+		var inv := get_tree().get_root().get_node("LevelDemo/UI/InventoryUI") as InventoryUI
 		if inv.add_item(self):
 			queue_free()
 				
