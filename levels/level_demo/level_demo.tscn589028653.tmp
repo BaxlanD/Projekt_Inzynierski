@@ -1,22 +1,19 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2pldaksmm4l2"]
+[gd_scene load_steps=11 format=4 uid="uid://b2pldaksmm4l2"]
 
-[ext_resource type="Script" uid="uid://6qpsgydk1hbm" path="res://levels/level_demo/level_demo.gd" id="1_tjlof"]
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="2_ope82"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="3_up1br"]
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="4_l10i5"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="5_tjlof"]
 [ext_resource type="PackedScene" uid="uid://dajsjvbbbj0qy" path="res://characters/npc_demo/npc_demo.tscn" id="6_pbttp"]
-[ext_resource type="Script" uid="uid://bglcd0xi5tfge" path="res://levels/level_demo/inventory.gd" id="6_tjlof"]
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="6_wxvbj"]
 [ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="7_ope82"]
-[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="9_l10i5"]
+[ext_resource type="Script" uid="uid://dhl3a5f5g7qbr" path="res://levels/level_demo/item.gd" id="8_l10i5"]
+[ext_resource type="Texture2D" uid="uid://citavnfpas0ib" path="res://assets/icon.svg" id="8_up1br"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjlof"]
-radius = 8.0
-height = 34.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up1br"]
+size = Vector2(20, 24)
 
 [node name="LevelDemo" type="Node2D"]
-script = ExtResource("1_tjlof")
 metadata/_edit_lock_ = true
 
 [node name="Tilemaps" type="Node2D" parent="."]
@@ -38,32 +35,16 @@ _logging = false
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("5_tjlof")]
-position = Vector2(-10, -9)
+position = Vector2(-16, -16)
 collision_mask = 23
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 unique_name_in_owner = true
 zoom = Vector2(2, 2)
 
-[node name="Inventory" type="Node" parent="Player"]
-script = ExtResource("6_tjlof")
-
 [node name="NPC" parent="." node_paths=PackedStringArray("nav_layer") instance=ExtResource("6_pbttp")]
-position = Vector2(91, -7)
-collision_mask = 23
+position = Vector2(104, -16)
 nav_layer = NodePath("../NavLayer")
-
-[node name="PickupArea" type="Area2D" parent="NPC"]
-position = Vector2(0, -17)
-collision_layer = 8
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/PickupArea"]
-shape = SubResource("CapsuleShape2D_tjlof")
-
-[node name="Inventory" type="Node" parent="NPC"]
-script = ExtResource("6_tjlof")
-max_items = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -93,124 +74,86 @@ script = ExtResource("7_ope82")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
 columns = 4
 
 [node name="Button" type="Button" parent="UI/InventoryUI/Panel/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 flat = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/Panel/GridContainer/Button"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 91.0
-mouse_filter = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button"]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button"]
+layout_mode = 0
 horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="UI/InventoryUI/Panel/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 flat = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/Panel/GridContainer/Button2"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 91.0
-mouse_filter = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button2/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button2"]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button2/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button2"]
+layout_mode = 0
 horizontal_alignment = 1
 
 [node name="Button3" type="Button" parent="UI/InventoryUI/Panel/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 flat = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/Panel/GridContainer/Button3"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 91.0
-mouse_filter = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button3/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button3"]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button3/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button3"]
+layout_mode = 0
 horizontal_alignment = 1
 
 [node name="Button4" type="Button" parent="UI/InventoryUI/Panel/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 flat = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/Panel/GridContainer/Button4"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 91.0
-mouse_filter = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button4/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/Panel/GridContainer/Button4"]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button4/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="UI/InventoryUI/Panel/GridContainer/Button4"]
+layout_mode = 0
 horizontal_alignment = 1
 
-[node name="ItemPopupPanel" type="PopupPanel" parent="UI/InventoryUI"]
-size = Vector2i(100, 60)
+[node name="PopupMenu" type="PopupMenu" parent="UI/InventoryUI"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 56.0
+[node name="Item" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
 
-[node name="Use" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Use"
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+position = Vector2(172.25, -11.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
 
-[node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-text = "Drop"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+position = Vector2(172.25, -11.25)
+shape = SubResource("RectangleShape2D_up1br")
 
-[node name="Item" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(269, -173)
+[node name="Item2" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("8_l10i5")
 
-[node name="Item2" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(262, -66)
+[node name="Sprite2D" type="Sprite2D" parent="Item2"]
+position = Vector2(-71.75, -12.25)
+scale = Vector2(0.160156, 0.183594)
+texture = ExtResource("8_up1br")
 
-[node name="Item3" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(48, -9)
-
-[node name="Item4" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(-91, -13)
-
-[node name="Item5" parent="." instance=ExtResource("9_l10i5")]
-position = Vector2(174, -14)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
+position = Vector2(-71.75, -12.25)
+shape = SubResource("RectangleShape2D_up1br")
