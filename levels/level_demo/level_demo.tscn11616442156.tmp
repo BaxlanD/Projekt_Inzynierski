@@ -5,12 +5,12 @@
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="3_up1br"]
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="4_l10i5"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="5_tjlof"]
-[ext_resource type="Script" uid="uid://wxg2ui2pbidx" path="res://components/schedule_ncp/schedule_npc.gd" id="6_ope82"]
 [ext_resource type="PackedScene" uid="uid://dajsjvbbbj0qy" path="res://characters/npc_demo/npc_demo.tscn" id="6_pbttp"]
 [ext_resource type="Script" uid="uid://bglcd0xi5tfge" path="res://levels/level_demo/inventory.gd" id="6_tjlof"]
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="6_wxvbj"]
 [ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="7_ope82"]
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="9_l10i5"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjlof"]
 radius = 8.0
 height = 34.0
