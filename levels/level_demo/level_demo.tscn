@@ -70,7 +70,7 @@ collision_mask = 23
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 unique_name_in_owner = true
-zoom = Vector2(2, 2)
+position = Vector2(0, -54.285)
 
 [node name="Inventory" type="Node" parent="Player"]
 script = ExtResource("6_tjlof")

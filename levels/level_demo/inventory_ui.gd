@@ -39,6 +39,7 @@ func update_inventory_ui() -> void:
 		if i < items.size():
 			var item_data: Dictionary = items[i]
 			icon.texture = item_data["icon"]
+			@warning_ignore("unsafe_property_access")
 			icon.expand = true
 			icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			label.text = item_data["display_name"]
