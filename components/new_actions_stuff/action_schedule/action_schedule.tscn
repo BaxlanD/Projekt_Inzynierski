@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0mw7fft7fpjk"]
+
+[ext_resource type="Script" uid="uid://bgp20nv2ryxr" path="res://components/new_actions_stuff/action_schedule/action_schedule.gd" id="1_sokut"]
+
+[node name="ActionSchedule" type="Node"]
+script = ExtResource("1_sokut")

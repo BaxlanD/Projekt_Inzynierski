@@ -1,7 +1,7 @@
-extends ActionD
-class_name GoToPointAction
+extends Action
+class_name GoTo
 
-@export var target: Vector2
+@export var where: Vector2
 
 var _path: PackedVector2Array = []
 var _path_point_count: int = 0
@@ -9,21 +9,20 @@ var _next: Vector2
 var _direction: int = 0
 var _snap: bool = false
 
-# Public methods
-func create(character_: NPC, type_: anchor, target_: Vector2) -> GoToPointAction:
+func create(character_: NPCActions, where_: Vector2) -> GoTo:
 	character = character_
-	type = type_
-	target = target_
-	_start()
+	where = where_
 	return self
 
-func copy() -> GoToPointAction:
-	return GoToPointAction.new().create(character, type, target)
+func open() -> void:
+	_generate_navigation_path(where)
 
 func update(delta: float) -> void:
+	super(delta)
 	if _path.is_empty():
 		_handle_naviation_path_finished(delta)
-		_finish()
+		action_completed.emit()
+		close()
 		return
 	
 	_next = _path[_path_point_count]
@@ -33,23 +32,10 @@ func update(delta: float) -> void:
 	_handle_movement(delta)
 	_handle_animations()
 
-func cancel() -> void:
-	_cleanup()
+func close() -> void:
+	action_closed.emit()
 
-# Private methods
-func _start() -> void:
-	_generate_navigation_path(target)
-
-func _cleanup() -> void:
-	character.set_collision_mask_value(2, false)
-	character.set_collision_mask_value(3, true)
-	character.animated_sprite_2d.play("Idle")
-
-func _finish() -> void:
-	_cleanup()
-	action_finished.emit()
-
-# Helper Methods
+# HELPER METHODS
 func _generate_navigation_path(navigation_target: Vector2) -> void:
 	_path_point_count = 0
 	_path = character.nav_layer.get_good_nav_path(Vector2(character.position.x, character.npc_floor_level), navigation_target)

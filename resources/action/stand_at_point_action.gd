@@ -1,10 +1,10 @@
-extends Action
+extends ActionD
 class_name StandAtPointAction
 
 @export var target: Vector2
 @export var duration: float
 
-var subaction: Action
+var subaction: ActionD
 
 # Public methods
 func create(character_: CharacterBody2D, type_: anchor, target_: Vector2, duration_: float) -> StandAtPointAction:

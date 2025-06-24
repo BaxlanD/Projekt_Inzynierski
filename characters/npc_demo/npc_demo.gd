@@ -25,7 +25,7 @@ const _JUMP_VELOCITY = -250.0 #unused - npc can't jump
 
 ## Action-related
 @onready var schedule_npc: ScheduleNPC = $ScheduleNPC
-var action: Action = Action.new()
+var action: ActionD = ActionD.new()
 
 var _should_transform_to_sword: bool = false
 
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	npc_floor_level = ray_cast_2d.get_collision_point().y
 	
 	if Input.is_action_just_pressed("RMB"):
-		set_action(AnimateAtPointAction.new().create(self, Action.anchor.OVERRIDE, get_global_mouse_position(), "Death"))
+		set_action(AnimateAtPointAction.new().create(self, ActionD.anchor.OVERRIDE, get_global_mouse_position(), "Death"))
 	
 	_try_pickup_item()
 	_handle_dropoff()
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 # Public methods
-func set_action(new_action: Action, cancel: bool = true) -> void:
+func set_action(new_action: ActionD, cancel: bool = true) -> void:
 	if cancel:
 		action.cancel()
 	action = new_action
@@ -63,12 +63,12 @@ func _actor_setup() -> void:
 	schedule_npc.start_schedule()
 
 func _on_schedule_entry_finished() -> void:
-	if action.type != Action.anchor.OVERRIDE:
+	if action.type != ActionD.anchor.OVERRIDE:
 		set_action(schedule_npc.get_current_action())
 
 func _on_action_finished() -> void:
-	if action.type == Action.anchor.SCHEDULE:
-		set_action(Action.new(), false) # Don't call cancel - action has finished
+	if action.type == ActionD.anchor.SCHEDULE:
+		set_action(ActionD.new(), false) # Don't call cancel - action has finished
 	else:
 		set_action(schedule_npc.get_current_action(), false) # Don't call cancel - action has finished
 
