@@ -5,6 +5,7 @@ class_name Item
 @export var dropoff_position: Vector2 = Vector2(100, 100)
 var player_in_range: bool = false
 @export var origin_scene_path : String = ""
+var consumable: bool = false
 
 func get_display_name() -> String:
 	return "Item"

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 ## There is a lot of code dupe between this and NPC so that's something
 ## that should be fixed, but besides that it's mostly cleaned up
 
@@ -110,3 +111,35 @@ func _handle_landing() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	animated_sprite_2d.play("Idle")
+	
+func interact(mouse_position: Vector2) -> void:
+	var max_range := 50.0
+	if global_position.distance_to(mouse_position) > max_range:
+		print("Too far to interact.")
+		return
+
+	var space_state := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = mouse_position
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+	
+	var results: Array = space_state.intersect_point(query)
+
+	for hit: Dictionary in results:
+		var target : Node2D = hit["collider"]
+		if target is Field:
+			print("Field found!")
+			var field := target as Field
+			if field.curr_state != Field.state.destroyed:
+				field.set_state(Field.state.burning)
+				print("Field set on fire!")
+			return
+		elif target is NPC:
+			var npc := target as NPC
+			var schedule : ScheduleNPC = npc.get_node_or_null("ScheduleNPC")
+			if schedule:
+				var action : Action = schedule.schedule[schedule.entry_index].action
+				if action is ReactAtPointAction:
+					var react := action as ReactAtPointAction
+					react.comfort()

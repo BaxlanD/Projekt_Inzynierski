@@ -6,15 +6,16 @@ class_name InventoryUI
 var selected_item_index: int = -1
 
 @onready var popup: PopupPanel = $ItemPopupPanel
-@onready var use_button: Button = popup.get_node("VBoxContainer/Use")
 @onready var drop_button: Button = popup.get_node("VBoxContainer/Drop")
+@onready var use_button: Button = popup.get_node("VBoxContainer/Use")
+
 
 func _ready() -> void:
 	if inventory_node != null:
 		inventory_node.inventory_updated.connect(_on_inventory_updated)
-
-	use_button.pressed.connect(_on_use_button_pressed)
+		
 	drop_button.pressed.connect(_on_drop_button_pressed)
+	use_button.pressed.connect(_on_use_button_pressed)
 
 	update_inventory_ui()
 	
@@ -72,3 +73,4 @@ func _on_drop_button_pressed() -> void:
 	if selected_item_index < 0:
 		return
 	inventory_node.drop_item(selected_item_index)
+		

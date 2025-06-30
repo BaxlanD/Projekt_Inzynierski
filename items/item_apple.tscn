@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx0axbhj61qgs"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_7x0rt"]
+[ext_resource type="Texture2D" uid="uid://c5kssryumclq1" path="res://assets/apple.png" id="2_3toiw"]
+[ext_resource type="Script" uid="uid://c668p43a4n6vg" path="res://items/apple.gd" id="2_o530n"]
+
+[node name="Node2D" instance=ExtResource("1_7x0rt")]
+z_index = 2
+
+[node name="Item" parent="." index="0"]
+script = ExtResource("2_o530n")
+
+[node name="Sprite2D" parent="Item" index="0"]
+position = Vector2(-1, 0)
+scale = Vector2(0.0102695, 0.009453)
+texture = ExtResource("2_3toiw")

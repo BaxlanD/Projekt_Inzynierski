@@ -72,12 +72,40 @@ func drop_item(index: int) -> void:
 	print("Ready to place item in world...")
 	
 func try_place_selected_item(pos: Vector2) -> void:
-	if is_placing_item:
-		var success := place_item_in_world(pos, item_to_place, item_index_to_remove)
-		if success:
+	if not is_placing_item:
+		return
+
+	var space_state : PhysicsDirectSpaceState2D = (get_tree().current_scene as Node2D).get_world_2d().direct_space_state
+
+
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = pos
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+
+	var result : Array[Dictionary] = space_state.intersect_point(query, 1)
+
+	for r in result:
+		if r.has("collider") and r["collider"] is NPC:
+			var npc: NPC = r["collider"]
+			print(npc)
+			if npc.npc_inventory.add_item_data(item_to_place):
+				print("Item given to NPC")
+				items.remove_at(item_index_to_remove)
+				emit_signal("inventory_updated", items)
+			else:
+				print("NPC inventory full")
 			is_placing_item = false
 			item_to_place = {}
 			item_index_to_remove = -1
+			return
+
+	var success := place_item_in_world(pos, item_to_place, item_index_to_remove)
+	if success:
+		is_placing_item = false
+		item_to_place = {}
+		item_index_to_remove = -1
+
 	
 func place_item_in_world(position_a: Vector2, item_data: Dictionary, index: int) -> bool:
 	var space_state: PhysicsDirectSpaceState2D = (get_tree().current_scene as Node2D).get_world_2d().direct_space_state
@@ -116,3 +144,11 @@ func place_item_in_world(position_a: Vector2, item_data: Dictionary, index: int)
 	else:
 		print("Collision: can't place item here.")
 		return false
+		
+func add_item_data(item_data: Dictionary) -> bool:
+	if items.size() >= max_items:
+		return false
+	items.append(item_data)
+	emit_signal("inventory_updated", items)
+	return true
+			
