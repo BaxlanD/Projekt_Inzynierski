@@ -20,7 +20,7 @@ func create(character_: CharacterBody2D, type_: anchor, target_: Vector2, item_t
 	return self
 
 func copy() -> GoAndWanderAction:
-	var new_action = GoAndWanderAction.new().create(character, type, target_position, item_to_detect)
+	var new_action: GoAndWanderAction = GoAndWanderAction.new().create(character, type, target_position, item_to_detect)
 	new_action._was_successful = self._was_successful
 	return new_action
 
