@@ -18,7 +18,7 @@ script = ExtResource("1_rcvpf")
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = ExtResource("2_8gp0o")
-animation = &"Idle"
+animation = &"Use"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)

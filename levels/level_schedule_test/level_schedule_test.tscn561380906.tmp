@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://6wnhogcikohv"]
+[gd_scene load_steps=10 format=4 uid="uid://6wnhogcikohv"]
 
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="1_23q0u"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="2_06hfj"]
@@ -6,10 +6,54 @@
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="4_06hfj"]
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="5_teggt"]
 [ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="6_yno6h"]
-[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="8_hmo2e"]
-[ext_resource type="Resource" uid="uid://dcd4e8kpnagtj" path="res://characters/npc_actions/seq/morning.tres" id="9_p0rx7"]
-[ext_resource type="Resource" uid="uid://chdvtxw78xmli" path="res://characters/npc_actions/seq/noon.tres" id="10_xfcj1"]
+[ext_resource type="Resource" uid="uid://cf8damdebj7ol" path="res://characters/npc_actions/seq/morning.tres" id="9_teggt"]
 [ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="11_xfcj1"]
+
+[sub_resource type="GDScript" id="GDScript_fc8t1"]
+script/source = "extends Resource
+class_name Sequence
+
+@export var _fleeting: bool = false
+@export var _actions: Array[Action]
+
+func get_action() -> Action:
+	_flush_done_actions()
+	return _get_from_front()
+
+func is_fleeting() -> bool:
+	return _fleeting
+
+## Below Methods intended to be used during sequence creation
+## Should not be called on existing actions
+func from_actions(list: Array[Action]) -> Sequence:
+	for action in list:
+		_actions.push_back(action)
+	return self
+
+func initialize_with_character(character: NPCActions) -> void:
+	for action in _actions:
+		action.character = character
+
+func with_fleeting() -> Sequence:
+	_fleeting = true
+	return self
+
+#region Private Methods
+
+func _flush_done_actions() -> void:
+	while _actions.size() > 0 and _actions[0].is_done():
+		_actions.pop_front()
+
+func _get_from_front() -> Action:
+	if _actions.size() > 0:
+		if _actions[0].is_fleeting():
+			return _actions.pop_front()
+		else:
+			return _actions[0]
+	return null
+
+#endregion
+"
 
 [node name="LevelScheduleTest" type="Node2D"]
 
@@ -48,5 +92,5 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 
 [node name="ActionSequencer" type="Node" parent="NPCActions/SequenceController"]
 script = ExtResource("11_xfcj1")
-_stack = Array[ExtResource("8_hmo2e")]([ExtResource("9_p0rx7"), ExtResource("10_xfcj1")])
+_stack = Array[SubResource("GDScript_fc8t1")]([ExtResource("9_teggt")])
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"

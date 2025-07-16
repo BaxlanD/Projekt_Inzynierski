@@ -16,7 +16,7 @@
 
 [sub_resource type="Resource" id="Resource_u0lh5"]
 script = ExtResource("10_lhevo")
-target = null
+target = Vector2(0, 0)
 animation_name = "Death"
 metadata/_custom_type_script = "uid://bbx11e86k3f3d"
 
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://bbx11e86k3f3d"
 
 [sub_resource type="Resource" id="Resource_x43kx"]
 script = ExtResource("10_lhevo")
-target = null
+target = Vector2(0, 0)
 animation_name = "Death"
 metadata/_custom_type_script = "uid://bbx11e86k3f3d"
 

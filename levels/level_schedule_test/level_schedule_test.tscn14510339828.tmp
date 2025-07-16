@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://6wnhogcikohv"]
+[gd_scene load_steps=10 format=4 uid="uid://6wnhogcikohv"]
 
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="1_23q0u"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="2_06hfj"]
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="3_2xiy3"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="4_06hfj"]
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="5_teggt"]
-[ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="6_yno6h"]
-[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="8_hmo2e"]
-[ext_resource type="Resource" uid="uid://dcd4e8kpnagtj" path="res://characters/npc_actions/seq/morning.tres" id="9_p0rx7"]
-[ext_resource type="Resource" uid="uid://chdvtxw78xmli" path="res://characters/npc_actions/seq/noon.tres" id="10_xfcj1"]
-[ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="11_xfcj1"]
+[ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/sequence_controller/sequence_controller.gd" id="6_yno6h"]
+[ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/action_sequencer/action_sequencer.gd" id="11_xfcj1"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/sequence/sequence.gd" id="12_3yjgp"]
+[ext_resource type="Resource" uid="uid://ltr8ab4ncqlc" path="res://resources/sequence/test_sequence.tres" id="13_3yjgp"]
 
 [node name="LevelScheduleTest" type="Node2D"]
 
@@ -48,5 +47,5 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 
 [node name="ActionSequencer" type="Node" parent="NPCActions/SequenceController"]
 script = ExtResource("11_xfcj1")
-_stack = Array[ExtResource("8_hmo2e")]([ExtResource("9_p0rx7"), ExtResource("10_xfcj1")])
+_stack = Array[ExtResource("12_3yjgp")]([ExtResource("13_3yjgp")])
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"

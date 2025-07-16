@@ -14,22 +14,18 @@ func start(character_: NPCActions) -> void:
 		
 	_index = 0
 	_current_action = actions[_index]
-	_current_action.action_completed.connect(_on_action_completed)
 
 func get_current_action() -> Action:
 	# Flush any actions that timed out without finishing
-	while _current_action != null and _current_action.is_timed_out():
+	while _current_action and _current_action.is_done():
 		_advance_schedule()
 	return _current_action
 
 func _advance_schedule() -> void:
-	_current_action.action_completed.disconnect(_on_action_completed)
+	print_rich("[color=green][b]ADVANCE SCHEDULE[/b][/color]")
 	_index += 1
 	if _index < actions.size():
 		_current_action = actions[_index]
-		_current_action.action_completed.connect(_on_action_completed)
 	else:
+		print_rich("[color=red][b]FINISHED[/b][/color]")
 		_current_action = null
-
-func _on_action_completed() -> void:
-	_advance_schedule()

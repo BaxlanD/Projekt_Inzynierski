@@ -21,8 +21,7 @@ func update(delta: float) -> void:
 	super(delta)
 	if _path.is_empty():
 		_handle_naviation_path_finished(delta)
-		action_completed.emit()
-		close()
+		_complete() ## Mark action as complete, then close()
 		return
 	
 	_next = _path[_path_point_count]

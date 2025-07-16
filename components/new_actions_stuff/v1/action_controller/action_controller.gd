@@ -7,6 +7,7 @@ var current_action: Action
 
 var _schedule: ActionSchedule
 var _recall: ActionRecall
+var _sequencer: ActionSequencer
 
 var _started: bool = false
 var _queued_override: Action
@@ -21,6 +22,9 @@ func start() -> void:
 		if child is ActionRecall:
 			_recall = child
 			_recall.start(character)
+		if child is ActionSequencer:
+			_sequencer = child
+			_sequencer.start(character)
 			
 	_open_action()
 
@@ -34,8 +38,6 @@ func update(delta: float) -> void:
 func request_override(override: Action) -> void:
 	_queued_override = override
 	if current_action:
-		if _recall and current_action.recall:
-			_recall.preserve(current_action)
 		current_action.close()
 	else:
 		_open_action()
@@ -60,6 +62,10 @@ func _open_action() -> void:
 	## 3) Attempt to get from schedule if avilable
 	if not current_action and _schedule:
 		current_action = _schedule.get_current_action()
+	
+	## 4) Attempt to get from sequencer if avilable
+	if not current_action and _sequencer:
+		current_action = _sequencer.get_action()
 	
 	## If any of above succeeded, open the action (else current_action is null)
 	if current_action:
