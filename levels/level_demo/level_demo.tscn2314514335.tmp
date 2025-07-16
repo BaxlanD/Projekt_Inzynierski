@@ -122,10 +122,6 @@ position = Vector2(0, -54.285)
 [node name="Inventory" type="Node" parent="Player"]
 script = ExtResource("6_tjlof")
 
-[node name="HeldItemIcon" type="Sprite2D" parent="Player"]
-position = Vector2(0, -40)
-scale = Vector2(0.05, 0.05)
-
 [node name="NPC" parent="." node_paths=PackedStringArray("nav_layer") instance=ExtResource("6_pbttp")]
 z_index = 3
 position = Vector2(-528, -6)
@@ -196,12 +192,21 @@ max_items = 1
 [node name="Apple" parent="Items" instance=ExtResource("5_5te35")]
 z_index = 2
 position = Vector2(885, 24)
+item_name = "item"
+dropoff_position = Vector2(100, 100)
+origin_scene_path = ""
 
 [node name="Bucket" parent="Items" instance=ExtResource("6_j1bom")]
 position = Vector2(623, -171)
+item_name = "item"
+dropoff_position = Vector2(100, 100)
+origin_scene_path = ""
 
 [node name="Bucket_shop" parent="Items" instance=ExtResource("6_j1bom")]
 position = Vector2(843, 21)
+item_name = "item"
+dropoff_position = Vector2(100, 100)
+origin_scene_path = ""
 
 [node name="Bucket_Full" parent="Items" instance=ExtResource("19_xvh2u")]
 position = Vector2(-30, -11)
@@ -401,16 +406,15 @@ size = Vector2i(100, 60)
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 104.0
-offset_bottom = 70.0
+offset_right = 96.0
+offset_bottom = 56.0
 
 [node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 text = "Drop"
 
-[node name="Hold" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+[node name="Use" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-text = "Hold
-"
+text = "Use"

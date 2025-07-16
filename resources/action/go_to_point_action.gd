@@ -107,6 +107,7 @@ func _handle_movement(delta: float) -> void:
 	if _snap:
 		_snap = false
 		character.apply_floor_snap()
+	
 
 func _handle_animations() -> void:
 	if !character.is_on_floor():
