@@ -1,10 +1,10 @@
-extends Action
+extends ActionD
 class_name AnimateAtPointAction
 
 @export var target: Vector2
 @export var animation_name: String
 
-var subaction: Action
+var subaction: ActionD
 
 # Public methods
 func create(character_: NPC, type_: anchor, target_: Vector2, animation_name_: String) -> AnimateAtPointAction:

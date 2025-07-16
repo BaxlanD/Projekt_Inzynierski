@@ -1,5 +1,5 @@
 extends Resource
-class_name Action
+class_name ActionD
 
 signal action_finished
 
@@ -10,8 +10,8 @@ var character: NPC
 
 ## Call this when duplicating action from blueprint action object
 ## Never use already existing action object
-func copy() -> Action:
-	return Action.new()
+func copy() -> ActionD:
+	return ActionD.new()
 
 ## Call every frame while action is active
 func update(_delta: float) -> void:
