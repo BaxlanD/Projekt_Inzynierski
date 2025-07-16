@@ -13,6 +13,12 @@ func get_display_name() -> String:
 func get_icon() -> Texture:
 	return preload("res://assets/icon.svg")
 	
+func can_interact_with(_target: Interactable) -> bool:
+	return false  
+
+func interact_with(_target: Interactable, _player: Player) -> void:
+	print(item_name, "nie może być użyty na", _target.name)
+	
 func initialize() -> void:
 	if origin_scene_path == "":
 		var packed_scene : String = str(get_script().resource_path).replace(".gd", ".tscn")
@@ -38,11 +44,18 @@ func _on_body_exited(body: Node) -> void:
 func _process(_delta: float) -> void:
 	if player_in_range and Input.is_action_just_pressed("item_take"):
 		var inv := get_tree().get_root().get_node("LevelDemo/Player/Inventory") as Inventory
-		if inv.add_item(self):
-			queue_free()
+		var scene := load(origin_scene_path) as PackedScene
+		if scene:
+			var new_item := scene.instantiate()
+			var item_script := new_item as Item
+			if item_script and inv.add_item(item_script):
+				queue_free()
 				
 func get_dropoff_position() -> Vector2:
 	return dropoff_position
+	
+func is_same_as(path: String) -> bool:
+	return origin_scene_path == path
 	
 func use() -> void:
 	print("Item used")

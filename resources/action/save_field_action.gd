@@ -14,14 +14,12 @@ func _start() -> void:
 	print("NPC is attempting to extinguish the fire...")
 
 	var inventory: Inventory = character.npc_inventory
-	var items: Array[Dictionary] = inventory.get_items()
+	var items: Array[Item] = inventory.get_items()
 	var found := false
 
 	for i in items.size():
-		var item_data := items[i]
-		var packed_scene: PackedScene = item_data.get("packed_scene", null)
-
-		if packed_scene and packed_scene.resource_path == "res://items/item_bucket_full.tscn":
+		var item: Item = items[i]
+		if item.origin_scene_path == "res://items/item_bucket_full.tscn":
 			field_node.set_state(Field.state.destroyed)
 			inventory.remove_item(i)
 			print("Fire extinguished, field destroyed.")
@@ -32,10 +30,11 @@ func _start() -> void:
 			empty_instance.global_position = character.global_position + Vector2(30, 5)
 			character.get_tree().current_scene.add_child(empty_instance)
 			print("Empty bucket dropped.")
-			
-			planner.modify_entry_duration(3, 30.0)
-			planner.modify_entry_animation(3, "Death")
-			
+
+			if planner:
+				planner.modify_entry_duration(3, 30.0)
+				planner.modify_entry_animation(3, "Death")
+
 			found = true
 			break
 			

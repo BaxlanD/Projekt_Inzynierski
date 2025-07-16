@@ -1,4 +1,4 @@
-extends "res://items/item.gd"
+extends Item
 class_name Apple
 
 func _init() -> void:

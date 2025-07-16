@@ -1,4 +1,4 @@
-extends Area2D
+extends Interactable
 class_name Field
 
 enum state {unwatered, watered, burning, destroyed}
@@ -23,3 +23,8 @@ func update_visual() -> void:
 func set_state(new_state: state) -> void:
 	curr_state = new_state
 	update_visual()
+	
+func interact(_player: Player, item: Item) -> void:
+	if item == null and curr_state == state.unwatered:
+		set_state(state.burning)
+		print("Field set on fire!")

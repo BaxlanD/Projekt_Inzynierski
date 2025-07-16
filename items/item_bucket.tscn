@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://csm2d5qyn8gyv"]
+[gd_scene load_steps=4 format=3 uid="uid://b8dxqtafd1b3k"]
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_8a3rx"]
 [ext_resource type="Script" uid="uid://dkvtgh0sku7b8" path="res://items/bucket.gd" id="2_tvxty"]
 [ext_resource type="Texture2D" uid="uid://bsh04eu1vksjl" path="res://assets/bucket_empty.png" id="3_tvxty"]
 
-[node name="Node2D" instance=ExtResource("1_8a3rx")]
+[node name="Bucket" instance=ExtResource("1_8a3rx")]
 z_index = 2
-
-[node name="Item" parent="." index="0"]
 script = ExtResource("2_tvxty")
-is_full = false
 
-[node name="Sprite2D" parent="Item" index="0"]
-position = Vector2(-0.580113, 1.19209e-07)
-scale = Vector2(0.142749, 0.123973)
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.19209e-07, 7.45058e-09)
+scale = Vector2(0.136125, 0.136425)
 texture = ExtResource("3_tvxty")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)

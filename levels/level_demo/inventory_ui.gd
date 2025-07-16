@@ -7,7 +7,7 @@ var selected_item_index: int = -1
 
 @onready var popup: PopupPanel = $ItemPopupPanel
 @onready var drop_button: Button = popup.get_node("VBoxContainer/Drop")
-@onready var use_button: Button = popup.get_node("VBoxContainer/Use")
+@onready var hold_button: Button = popup.get_node("VBoxContainer/Hold")
 
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _ready() -> void:
 		inventory_node.inventory_updated.connect(_on_inventory_updated)
 		
 	drop_button.pressed.connect(_on_drop_button_pressed)
-	use_button.pressed.connect(_on_use_button_pressed)
+	hold_button.pressed.connect(_on_hold_button_pressed)
 
 	update_inventory_ui()
 	
@@ -23,7 +23,7 @@ func _on_inventory_updated(_new_items: Array) -> void:
 	update_inventory_ui()
 
 func update_inventory_ui() -> void:
-	var items: Array[Dictionary] = inventory_node.get_items()
+	var items: Array[Item] = inventory_node.get_items()
 	var panel: GridContainer = get_node("Panel/GridContainer") as GridContainer
 	for i in range(panel.get_child_count()):
 		var slot: Button = panel.get_child(i) as Button
@@ -38,20 +38,26 @@ func update_inventory_ui() -> void:
 			slot.pressed.connect(Callable(self, "_on_item_pressed").bind(i))
 
 		if i < items.size():
-			var item_data: Dictionary = items[i]
-			icon.texture = item_data["icon"]
+			var item: Item = items[i]
+			icon.texture = item.get_icon()
 			@warning_ignore("unsafe_property_access")
 			icon.expand = true
 			icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-			label.text = item_data["display_name"]
+			label.text = item.get_display_name()
 			slot.disabled = false
+			
+			var player := inventory_node.player_ref as Player
+			if player and player.held_item == item:
+				slot.modulate = Color(1, 1, 1, 1)
+			else:
+				slot.modulate = Color(0.8, 0.8, 0.8, 1) 
 		else:
 			icon.texture = null
 			label.text = ""
 			slot.disabled = true
 
 func _on_item_pressed(index: int) -> void:
-	var items: Array[Dictionary] = inventory_node.get_items()
+	var items: Array[Item] = inventory_node.get_items()
 	if index >= items.size():
 		return
 	selected_item_index = index
@@ -62,11 +68,11 @@ func _on_item_pressed(index: int) -> void:
 	popup.set_position(global_pos + Vector2(60, 0))
 	popup.popup()
 
-func _on_use_button_pressed() -> void:
+func _on_hold_button_pressed() -> void:
 	popup.hide()
 	if selected_item_index < 0:
 		return
-	inventory_node.use_item(selected_item_index)
+	inventory_node.hold_item(selected_item_index)
 
 func _on_drop_button_pressed() -> void:
 	popup.hide()

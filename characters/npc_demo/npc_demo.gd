@@ -68,3 +68,13 @@ func _on_action_finished() -> void:
 		set_action(Action.new(), false) # Don't call cancel - action has finished
 	else:
 		set_action(schedule_npc.get_current_action(), false) # Don't call cancel - action has finished
+		
+func interact(_player: Player, item: Item) -> void:
+	if item != null:
+		return
+
+	var schedule: ScheduleNPC = get_node_or_null("ScheduleNPC")
+	if schedule:
+		var action_to_check: ReactAtPointAction = schedule.schedule[schedule.entry_index].action
+		if action_to_check is ReactAtPointAction:
+			action_to_check.comfort()

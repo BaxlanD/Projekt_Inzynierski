@@ -26,8 +26,8 @@ func cancel() -> void:
 # Private methods
 func _npc_has_item(name: String) -> bool:
 	var inventory: Inventory = character.npc_inventory
-	for item_data in inventory.get_items():
-		if item_data.has("display_name") and item_data["display_name"] == name:
+	for item in inventory.get_items():
+		if is_instance_valid(item) and item.get_display_name() == name:
 			return true
 	return false
 
