@@ -1,4 +1,4 @@
-extends ActionD
+extends ActionV1
 class_name GoToPointAction
 
 @export var target: Vector2

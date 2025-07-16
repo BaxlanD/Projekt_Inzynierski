@@ -80,9 +80,10 @@ func update_held_item_icon() -> void:
 	if held_item:
 		held_item_icon.texture = held_item.get_icon()
 		held_item_icon.visible = true
-	else:
-		held_item_icon.texture = null
-		held_item_icon.visible = false
+	#else:
+		## lol, if item is null, then dont access it's properties
+		#held_item_icon.texture = null
+		#held_item_icon.visible = false
 		
 func clear_held_item() -> void:
 	held_item = null

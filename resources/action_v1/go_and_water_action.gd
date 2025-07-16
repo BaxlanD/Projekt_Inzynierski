@@ -1,9 +1,9 @@
-extends Action
+extends ActionV1
 class_name GoAndWaterAction
 
 @export var target_position: Vector2
 
-var current_subaction: Action
+var current_subaction: ActionV1
 
 func create(character_: CharacterBody2D, target_: Vector2) -> GoAndWaterAction:
 	character = character_

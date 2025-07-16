@@ -1,18 +1,20 @@
-extends Action
-class_name GoAndFullAction
+extends ActionV1
+class_name GoToAndPickupAction
+
+signal pickup_successful
 
 @export var target_position: Vector2
 
-var current_subaction: Action
+var current_subaction: ActionV1
 
-func create(character_: CharacterBody2D, target_: Vector2) -> GoAndFullAction:
+func create(character_: CharacterBody2D, target_: Vector2) -> GoToAndPickupAction:
 	character = character_
 	target_position = target_
 	_start()
 	return self
 
-func copy() -> GoAndFullAction:
-	return GoAndFullAction.new().create(character, target_position)
+func copy() -> GoToAndPickupAction:
+	return GoToAndPickupAction.new().create(character, target_position)
 
 func update(delta: float) -> void:
 	if current_subaction:
@@ -29,10 +31,11 @@ func _start() -> void:
 	current_subaction.action_finished.connect(_on_goto_finished)
 
 func _on_goto_finished() -> void:
-	current_subaction = TurnBucketFullAction.new().create(character)
-	current_subaction.action_finished.connect(_on_full_finished)
+	current_subaction = TryPickupItemAction.new().create(character)
+	current_subaction.action_finished.connect(_on_pickup_finished)
 
-func _on_full_finished() -> void:
+func _on_pickup_finished() -> void:
+	emit_signal("pickup_successful")
 	_finish()
 
 func _cleanup() -> void:

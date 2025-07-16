@@ -1,4 +1,4 @@
-extends Action
+extends ActionV1
 class_name ReactAtPointAction
 
 @export var target_position: Vector2
@@ -6,7 +6,7 @@ class_name ReactAtPointAction
 #@export var anim_name_1 := ""
 #@export var anim_name_2 := ""
 
-var current_subaction: Action
+var current_subaction: ActionV1
 var _elapsed_time := 0.0
 var _anim_started := false
 var animation_name := ""

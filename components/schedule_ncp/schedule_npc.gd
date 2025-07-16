@@ -10,10 +10,10 @@ var entry_index: int = 0
 
 @export var npc: NPC
 
-func get_current_action() -> ActionD:
+func get_current_action() -> ActionV1:
 	if entry_index < schedule.size():
 		return schedule[entry_index].action.copy()
-	return ActionD.new()
+	return ActionV1.new()
 
 func _ready() -> void:
 	for i in get_child_count():

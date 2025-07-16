@@ -1,4 +1,4 @@
-extends Action
+extends ActionV1
 class_name UseItemAction
 
 @export var item_name: String = ""

@@ -1,4 +1,4 @@
-extends Action
+extends ActionV1
 class_name PaceAroundAction
 
 signal request_pickup(item_position: Vector2)

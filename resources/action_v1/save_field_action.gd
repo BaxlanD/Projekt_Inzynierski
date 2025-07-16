@@ -1,4 +1,4 @@
-extends Action
+extends ActionV1
 class_name SaveFieldAction
 
 var field_node: Field

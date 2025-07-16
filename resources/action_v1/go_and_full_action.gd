@@ -1,20 +1,18 @@
-extends Action
-class_name GoAndUseItemAction
+extends ActionV1
+class_name GoAndFullAction
 
 @export var target_position: Vector2
-@export var item_name: String
 
-var current_subaction: Action
+var current_subaction: ActionV1
 
-func create(character_: CharacterBody2D, target_: Vector2, item_name_: String) -> GoAndUseItemAction:
+func create(character_: CharacterBody2D, target_: Vector2) -> GoAndFullAction:
 	character = character_
 	target_position = target_
-	item_name = item_name_
 	_start()
 	return self
 
-func copy() -> GoAndUseItemAction:
-	return GoAndUseItemAction.new().create(character, target_position, item_name)
+func copy() -> GoAndFullAction:
+	return GoAndFullAction.new().create(character, target_position)
 
 func update(delta: float) -> void:
 	if current_subaction:
@@ -31,10 +29,10 @@ func _start() -> void:
 	current_subaction.action_finished.connect(_on_goto_finished)
 
 func _on_goto_finished() -> void:
-	current_subaction = UseItemAction.new().create(character, item_name)
-	current_subaction.action_finished.connect(_on_use_finished)
+	current_subaction = TurnBucketFullAction.new().create(character)
+	current_subaction.action_finished.connect(_on_full_finished)
 
-func _on_use_finished() -> void:
+func _on_full_finished() -> void:
 	_finish()
 
 func _cleanup() -> void:

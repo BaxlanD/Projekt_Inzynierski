@@ -1,4 +1,4 @@
-extends Action
+extends ActionV1
 class_name GoAndWanderAction
 
 @export var target_position: Vector2
@@ -8,7 +8,7 @@ class_name GoAndWanderAction
 @export_range(0.1, 5) var pause_duration_max: float = 1.5
 @export var item_to_detect: String = ""
 
-var current_subaction: Action
+var current_subaction: ActionV1
 var _was_successful := false
 
 func create(character_: CharacterBody2D, type_: anchor, target_: Vector2, item_to_detect_: String) -> GoAndWanderAction:

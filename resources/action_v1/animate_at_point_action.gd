@@ -1,31 +1,29 @@
-extends ActionD
-class_name StandAtPointAction
+extends ActionV1
+class_name AnimateAtPointAction
 
 @export var target: Vector2
-@export var duration: float
+@export var animation_name: String
 
-var subaction: ActionD
+var subaction: ActionV1
 
 # Public methods
-func create(character_: CharacterBody2D, type_: anchor, target_: Vector2, duration_: float) -> StandAtPointAction:
+func create(character_: NPC, type_: anchor, target_: Vector2, animation_name_: String) -> AnimateAtPointAction:
 	character = character_
 	type = type_
 	target = target_
-	duration = duration_
+	animation_name = animation_name_
 	_start()
 	return self
 
-func copy() -> StandAtPointAction:
-	return StandAtPointAction.new().create(character, type, target, duration)
+func copy() -> AnimateAtPointAction:
+	return AnimateAtPointAction.new().create(character, type, target, animation_name)
 
 func update(delta: float) -> void:
 	if subaction:
 		subaction.update(delta)
 		return
 	
-	duration -= delta
-	if duration <= 0:
-		_finish()
+	character.animated_sprite_2d.play(animation_name)
 
 func cancel() -> void:
 	if subaction:
@@ -46,3 +44,7 @@ func _finish() -> void:
 
 func _subaction_callback() -> void:
 	subaction = null
+	character.animated_sprite_2d.animation_finished.connect(_on_animation_finished)
+
+func _on_animation_finished() -> void:
+	_finish()

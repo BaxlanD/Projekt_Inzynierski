@@ -1,4 +1,4 @@
-extends Action
+extends ActionV1
 class_name TurnBucketFullAction
 
 func create(character_: CharacterBody2D) -> TurnBucketFullAction:
