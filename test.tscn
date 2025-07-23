@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b444b4wmx1rjp"]
+
+[ext_resource type="Script" uid="uid://cyydpcrcfmqh2" path="res://test.gd" id="1_37kl0"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_37kl0")
+number_of_edges = 1000
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)

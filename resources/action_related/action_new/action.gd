@@ -30,7 +30,7 @@ func update(_delta: float) -> void:
 func close() -> void:
 	action_closed.emit()
 
-## METHODS BELOW ARE IMPLEMENTED AND SHOULD BE CHANGED IN SUBCLASSES
+## METHODS BELOW ARE IMPLEMENTED AND SHOULDN'T BE CHANGED IN SUBCLASSES
 ## CALLED INTERNALLY
 func _complete() -> void:
 	_done = true

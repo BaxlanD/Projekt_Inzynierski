@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://be2lgygamcrkd"]
+
+[ext_resource type="Script" uid="uid://c88ggfjg5jrv0" path="res://components/navigation_related/navigation_agent/navigation_agent.gd" id="1_xrax5"]
+
+[node name="NavigationAgent" type="Node"]
+script = ExtResource("1_xrax5")

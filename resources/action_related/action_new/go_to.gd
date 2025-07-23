@@ -37,7 +37,7 @@ func close() -> void:
 # HELPER METHODS
 func _generate_navigation_path(navigation_target: Vector2) -> void:
 	_path_point_count = 0
-	_path = character.nav_layer.get_good_nav_path(Vector2(character.position.x, character.npc_floor_level), navigation_target)
+	_path = character.navigation_layer.get_good_nav_path(Vector2(character.position.x, character.npc_floor_level), navigation_target)
 	character.queue_redraw()
 
 func _handle_naviation_path_finished(delta: float) -> void:
