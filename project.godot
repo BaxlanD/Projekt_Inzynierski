@@ -46,6 +46,7 @@ folder_colors={
 "res://components/": "green",
 "res://levels/": "purple",
 "res://resources/": "yellow",
+"res://tests/": "gray",
 "res://tools/": "gray"
 }
 

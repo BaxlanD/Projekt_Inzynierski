@@ -20,11 +20,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	npc_floor_level = ray_cast_2d.get_collision_point().y
 	
-	if Input.is_action_just_pressed("RMB"):
-		sequence_controller.push_instant(Sequence.new().with_fleeting().from_actions([
-			#PlayAnim.new().create(self, get_global_mouse_position(), "Death")
-			NewGoTo.new().create(self, get_global_mouse_position())
-		]))
+	#if Input.is_action_just_pressed("RMB"):
+		#sequence_controller.push_instant(Sequence.new().with_fleeting().from_actions([
+			##PlayAnim.new().create(self, get_global_mouse_position(), "Death")
+			#NewGoTo.new().create(self, get_global_mouse_position())
+		#]))
 	
 	sequence_controller.update(delta)
 

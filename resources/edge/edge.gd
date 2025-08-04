@@ -12,6 +12,9 @@ func _to_string() -> String:
 	return "Edge(%s, %s)" % [a, b]
 
 func project_point(point: Vector2) -> float:
-		var ab: Vector2 = b - a
-		var ap: Vector2 = point - a
-		return ab.dot(ap) / ab.dot(ab)
+	var ab: Vector2 = b - a
+	var ap: Vector2 = point - a
+	return ab.dot(ap) / ab.dot(ab)
+
+func lenght() -> float:
+	return (a - b).length()

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqtb7na636l0b"]
+
+[ext_resource type="Script" uid="uid://orjlyfut8wxs" path="res://tests/astar_anchor_test/astar_anchor_test.gd" id="1_t8qe6"]
+
+[node name="AstarAnchorTest" type="Node2D"]
+script = ExtResource("1_t8qe6")

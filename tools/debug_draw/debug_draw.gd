@@ -32,7 +32,7 @@ func draw() -> void:
 func _draw() -> void:
 	if debug_draw:
 		for edge in _edges:
-			draw_line(edge.a, edge.b, line_color, line_width, true)
+			draw_line(edge.a, edge.b, line_color, line_width, false)
 		for point in _points:
 			draw_circle(point, point_width, point_color, true)
 			

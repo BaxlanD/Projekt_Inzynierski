@@ -335,3 +335,6 @@ func generate_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 	_recent_path = path
 	queue_redraw()
 	return path
+
+func get_pos(point_id: int) -> Vector2:
+	return astar.get_point_position(point_id)

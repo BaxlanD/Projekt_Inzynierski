@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://6wnhogcikohv"]
+[gd_scene load_steps=11 format=4 uid="uid://6wnhogcikohv"]
 
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="1_23q0u"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_related/navigation_layer/navigation_layer.gd" id="2_06hfj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c88ggfjg5jrv0" path="res://components/navigation_related/navigation_agent/navigation_agent.gd" id="5_p0rx7"]
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="5_teggt"]
 [ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="6_yno6h"]
+[ext_resource type="Script" uid="uid://orjlyfut8wxs" path="res://tests/astar_anchor_test/astar_anchor_test.gd" id="9_hmo2e"]
 [ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="11_xfcj1"]
 [ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="12_xfcj1"]
 
@@ -32,10 +33,7 @@ projection_draw = NodePath("../DebugDraws/ProjectionDraw")
 metadata/_edit_lock_ = true
 
 [node name="PlayerDemo" parent="." instance=ExtResource("4_06hfj")]
-position = Vector2(-16, 0)
-
-[node name="Camera2D" type="Camera2D" parent="PlayerDemo"]
-position = Vector2(0, -54.285)
+position = Vector2(-936, 152)
 
 [node name="HeldItemIcon" type="Sprite2D" parent="PlayerDemo"]
 position = Vector2(0, -40)
@@ -59,12 +57,30 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 script = ExtResource("11_xfcj1")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
+[node name="AstarAnchorTest" type="Node2D" parent="." node_paths=PackedStringArray("navigation_layer", "navigation_agent", "anchor_test_draw")]
+position = Vector2(-912, 160)
+script = ExtResource("9_hmo2e")
+navigation_layer = NodePath("../NavLayer")
+navigation_agent = NodePath("../NPCActions/NavigationAgent")
+anchor_test_draw = NodePath("../DebugDraws/AnchorTestDraw")
+
+[node name="Camera2D" type="Camera2D" parent="AstarAnchorTest"]
+metadata/_edit_lock_ = true
+
 [node name="DebugDraws" type="Node2D" parent="."]
 
 [node name="ProjectionDraw" type="Node2D" parent="DebugDraws"]
 script = ExtResource("12_xfcj1")
+debug_draw = false
 line_color = Color(0.972279, 0.597819, 0.890059, 1)
 line_width = 7.0
 point_color = Color(0.972549, 0.596078, 0.890196, 1)
 point_width = 9.0
+metadata/_custom_type_script = "uid://c1abhovivd2ej"
+
+[node name="AnchorTestDraw" type="Node2D" parent="DebugDraws"]
+script = ExtResource("12_xfcj1")
+line_color = Color(1, 0, 0, 1)
+point_color = Color(1, 0, 0, 0.498039)
+point_width = 10.0
 metadata/_custom_type_script = "uid://c1abhovivd2ej"

@@ -8,6 +8,7 @@ var _navigation_layer: NavigationLayer
 
 var _path: PackedVector2Array = []
 var _index: int = 0
+var _next: Vector2
 
 func initialize(character: NPCActions, navigation_layer: NavigationLayer) -> void:
 	_character = character
@@ -16,6 +17,7 @@ func initialize(character: NPCActions, navigation_layer: NavigationLayer) -> voi
 func set_navigation_target(target: Vector2) -> void:
 	_index = 0
 	_path = _navigation_layer.generate_path(_character.position, target)
+	_next = _path[0]
 
 func get_next_path_position() -> Vector2:
 	## Should check is_navigaton_finished() before calling lol

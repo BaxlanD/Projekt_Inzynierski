@@ -49,7 +49,7 @@ func _draw() -> void:
 
 func _process(_delta: float) -> void:
 	#test_on_click(true)
-	test_random(false)
+	test_random(true)
 
 func test_on_click(draw_debug: bool) -> void:
 	if Input.is_action_just_pressed("RMB"):
