@@ -28,7 +28,7 @@ const _JUMP_VELOCITY = -250.0 #unused - npc can't jump
 
 ## Action-related
 @onready var schedule_npc: ScheduleNPC = $ScheduleNPC
-var action: Action = Action.new()
+var action: ActionV1 = ActionV1.new()
 
 # Godot method overrides
 func _ready() -> void:
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 # Public methods
-func set_action(new_action: Action, cancel: bool = true) -> void:
+func set_action(new_action: ActionV1, cancel: bool = true) -> void:
 	if cancel:
 		action.cancel()
 	action = new_action
@@ -63,12 +63,12 @@ func _actor_setup() -> void:
 	schedule_npc.start_schedule()
 
 func _on_schedule_entry_finished() -> void:
-	if action.type != Action.anchor.OVERRIDE:
+	if action.type != ActionV1.anchor.OVERRIDE:
 		set_action(schedule_npc.get_current_action())
 
 func _on_action_finished() -> void:
-	if action.type == Action.anchor.SCHEDULE:
-		set_action(Action.new(), false) # Don't call cancel - action has finished
+	if action.type == ActionV1.anchor.SCHEDULE:
+		set_action(ActionV1.new(), false) # Don't call cancel - action has finished
 	else:
 		set_action(schedule_npc.get_current_action(), false) # Don't call cancel - action has finished
 		

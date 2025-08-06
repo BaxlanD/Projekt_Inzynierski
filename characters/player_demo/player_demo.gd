@@ -47,7 +47,6 @@ func execute_exclusive_action(action: Callable) -> void:
 func get_inventory() -> Inventory:
 	return get_node("Inventory") as Inventory
 
-
 ## Private methods
 func _handle_ramps_collision() -> void:
 	if Input.is_action_pressed("ui_up") or ray_cast_2d.get_collision_normal() != Vector2.UP:

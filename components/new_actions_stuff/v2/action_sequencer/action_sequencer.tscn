@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnv7gr02fgu2f"]
+
+[ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="1_d8thc"]
+
+[node name="ActionSequencer" type="Node"]
+script = ExtResource("1_d8thc")
