@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://d07h4xw17iwo0"]
+
+[ext_resource type="Script" uid="uid://6wjvwbjd3gkt" path="res://resources/interactions/interacting_comp.gd" id="1_cfn4p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bikkb"]
+radius = 17.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfn4p"]
+font_size = 10
+
+[node name="InteractingComp" type="Node2D"]
+script = ExtResource("1_cfn4p")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_bikkb")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -40.0
+offset_right = 72.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press E to interact"
+label_settings = SubResource("LabelSettings_cfn4p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

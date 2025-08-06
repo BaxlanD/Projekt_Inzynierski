@@ -23,18 +23,6 @@ func add_item(item: Item) -> bool:
 
 func get_items() -> Array[Item]:
 	return items
-
-func hold_item(index: int) -> void:
-	if index < 0 or index >= items.size():
-		return
-
-	var item: Item = items[index]
-	if item:
-		var player := player_ref as Player
-		if player:
-			player.hold_item(item)
-	else:
-		print("Invalid item instance")
 		
 
 func get_item(index: int) -> Item:

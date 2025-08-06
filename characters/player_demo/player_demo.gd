@@ -21,13 +21,10 @@ const _JUMP_VELOCITY = -250.0
 var _direction: float = 0.0
 var _snap: bool = false
 var _exclusive_action: bool = false
-var held_item: Item = null
 
 
 ## Godot method overrides
 
-func _ready() -> void:
-	update_held_item_icon()
 	
 func _physics_process(delta: float) -> void:
 	# Kind of shitty but left it in anyway as an example
@@ -47,46 +44,9 @@ func execute_exclusive_action(action: Callable) -> void:
 	_exclusive_action = false
 	
 
-func try_interact(target: Node2D) -> void:
-	var max_range := 50.0
-	if global_position.distance_to(target.global_position) > max_range:
-		print("Too far to interact.")
-		return
-
-	if target is Interactable:
-		var interactable_target := target as Interactable
-		if held_item and held_item.can_interact_with(interactable_target):
-			held_item.interact_with(interactable_target, self)
-		else:
-			interactable_target.interact(self, held_item)
-	
-	elif target.has_method("interact"):
-		@warning_ignore("unsafe_method_access")
-		target.interact(self, held_item)
-
-		
-func hold_item(item: Item) -> void:
-	if held_item:
-		print("Changed held item:", held_item.get_display_name(), "->", item.get_display_name())
-	else:
-		print("Item held:", item.get_display_name())
-	held_item = item
-	update_held_item_icon()
-
 func get_inventory() -> Inventory:
 	return get_node("Inventory") as Inventory
-	
-func update_held_item_icon() -> void:
-	if held_item:
-		held_item_icon.texture = held_item.get_icon()
-		held_item_icon.visible = true
-	else:
-		held_item_icon.texture = null
-		held_item_icon.visible = false
-		
-func clear_held_item() -> void:
-	held_item = null
-	update_held_item_icon()
+
 
 ## Private methods
 func _handle_ramps_collision() -> void:

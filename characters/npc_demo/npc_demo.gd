@@ -19,6 +19,8 @@ var npc_floor_level: float = 0
 @onready var pickup_timer := Timer.new()
 @onready var npc_inventory: Inventory = $Inventory
 @onready var bad_day: int = 0
+@onready var interactable: Interactable = $Interactable
+
 
 ## Private variables
 const _SPEED = 120.0
@@ -35,6 +37,7 @@ func _ready() -> void:
 	pickup_timer.connect("timeout", Callable(self, "_on_pickup_timer_timeout"))
 	add_child(pickup_timer)
 	_actor_setup.call_deferred()
+	interactable.interact = _on_interact
 
 func _physics_process(delta: float) -> void:
 	npc_floor_level = ray_cast_2d.get_collision_point().y
@@ -69,10 +72,7 @@ func _on_action_finished() -> void:
 	else:
 		set_action(schedule_npc.get_current_action(), false) # Don't call cancel - action has finished
 		
-func interact(_player: Player, item: Item) -> void:
-	if item != null:
-		return
-
+func _on_interact() -> void:
 	var schedule: ScheduleNPC = get_node_or_null("ScheduleNPC")
 	if schedule:
 		var action_to_check: ReactAtPointAction = schedule.schedule[schedule.entry_index].action

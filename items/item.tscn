@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6t5dimvaybx3"]
+[gd_scene load_steps=6 format=3 uid="uid://b6t5dimvaybx3"]
 
 [ext_resource type="Script" uid="uid://bks6swqd4eurh" path="res://items/item.gd" id="1_862ai"]
 [ext_resource type="Texture2D" uid="uid://citavnfpas0ib" path="res://assets/icon.svg" id="1_gve6a"]
+[ext_resource type="PackedScene" uid="uid://cqaaih8cao801" path="res://resources/interactions/interactable.tscn" id="3_k7rtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_buahv"]
 size = Vector2(19, 19)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd4ji"]
+radius = 13.0
 
 [node name="Item" type="Area2D" groups=["items"]]
 collision_layer = 16
@@ -19,3 +23,10 @@ texture = ExtResource("1_gve6a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.760002, -0.375999)
 shape = SubResource("RectangleShape2D_buahv")
+
+[node name="Interactable" parent="." instance=ExtResource("3_k7rtb")]
+interact_name = "Take item"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_cd4ji")

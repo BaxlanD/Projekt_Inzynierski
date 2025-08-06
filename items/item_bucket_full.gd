@@ -1,10 +1,10 @@
 extends Item
 class_name Bucket_Full
 
-func can_interact_with(target: Interactable) -> bool:
+func can_interact_with(target: Node2D) -> bool:
 	return target is Field
 
-func interact_with(target: Interactable, player: Player) -> void:
+func interact_with(target: Node2D, player: Player) -> void:
 	var field := target as Field
 	if field.curr_state == Field.state.unwatered:
 		field.set_state(Field.state.watered)
@@ -20,9 +20,6 @@ func interact_with(target: Interactable, player: Player) -> void:
 		if empty_bucket:
 			empty_bucket.initialize()
 			inventory.add_item(empty_bucket)
-			player.hold_item(empty_bucket)
-			
-		player.update_held_item_icon()
 
 func initialize() -> void:
 	origin_scene_path = "res://items/item_bucket_full.tscn"
