@@ -6,9 +6,8 @@ signal inventory_updated(items: Array)
 @export var max_items: int = 4
 var items: Array[Item] = []
 @onready var player_ref: Node2D = $".."
-var drop_radius := 50.0
+var drop_radius : float = 32.0
 
-var is_placing_item := false
 var item_to_place : Item = null
 var item_index_to_remove := -1
 
@@ -38,45 +37,22 @@ func remove_item(index: int) -> void:
 func drop_item(index: int) -> void:
 	if index < 0 or index >= items.size():
 		return
-	item_to_place = items[index]
-	item_index_to_remove = index
-	is_placing_item = true
-	print("Ready to place item in world...")
+
+	var item: Item = items[index]
+	var center: Vector2 = player_ref.global_position
+	var radius_step : float = 8.0
+	var placed: bool = false
 	
-func try_place_selected_item(pos: Vector2) -> void:
-	if not is_placing_item:
-		return
-
-	var space_state : PhysicsDirectSpaceState2D = (get_tree().current_scene as Node2D).get_world_2d().direct_space_state
-
-	var query := PhysicsPointQueryParameters2D.new()
-	query.position = pos
-	query.collide_with_areas = true
-	query.collide_with_bodies = true
-
-	var result: Array[Dictionary] = space_state.intersect_point(query, 1)
-
-	for r in result:
-		if r.has("collider") and r["collider"] is NPC:
-			var npc: NPC = r["collider"]
-			print(npc)
-			if npc.npc_inventory.add_item_data(item_to_place):
-				print("Item given to NPC")
-				items.remove_at(item_index_to_remove)
-				emit_signal("inventory_updated", items)
-			else:
-				print("NPC inventory full")
-			_reset_placement_state()
-			return
-
-	var success := place_item_in_world(pos, item_to_place, item_index_to_remove)
-	if success:
-		_reset_placement_state()
-		
-func _reset_placement_state() -> void:
-	is_placing_item = false
-	item_to_place = null
-	item_index_to_remove = -1
+	for r in range(0, int(drop_radius)+1, radius_step):
+		for angle_deg in range(-90, 91, 30):
+			var angle: float = deg_to_rad(angle_deg)
+			var pos: Vector2 = center + Vector2(cos(angle), sin(angle)) * r
+			if await place_item_in_world(pos, item, index):
+				placed = true
+				break
+		if placed:
+			break
+	
 	
 func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
 	var space_state: PhysicsDirectSpaceState2D = (get_tree().current_scene as Node2D).get_world_2d().direct_space_state
@@ -98,6 +74,7 @@ func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
 	if result.is_empty():
 		item.global_position = transform.origin
 		get_tree().current_scene.add_child(item)
+		await get_tree().process_frame
 		items.remove_at(index)
 		emit_signal("inventory_updated", items)
 		return true

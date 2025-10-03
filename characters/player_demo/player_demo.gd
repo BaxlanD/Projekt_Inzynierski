@@ -13,6 +13,7 @@ class_name Player
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var held_item_icon: Sprite2D = $HeldItemIcon
+@onready var inventory_ui: InventoryUI = $"../UI/InventoryUI"
 
 ## Private variables
 const _SPEED = 180.0
@@ -29,6 +30,14 @@ var _exclusive_action: bool = false
 func _physics_process(delta: float) -> void:
 	# Kind of shitty but left it in anyway as an example
 	if _exclusive_action:
+		return
+		
+	if inventory_ui and inventory_ui.is_open:
+		_direction = 0.0
+		velocity.x = move_toward(velocity.x, 0.0, 2000.0 * delta)
+		velocity += get_gravity() * delta
+		move_and_slide()
+		_handle_animations()
 		return
 	
 	_handle_ramps_collision()
@@ -72,7 +81,7 @@ func _handle_movement(delta: float) -> void:
 	_direction = Input.get_axis("ui_left", "ui_right")
 	velocity.x = _direction * _SPEED
 	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = _JUMP_VELOCITY
 	
 	## APPLYING GRAVITY

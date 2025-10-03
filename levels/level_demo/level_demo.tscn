@@ -301,8 +301,8 @@ script = ExtResource("7_ope82")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
 columns = 4
 
 [node name="Button" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
@@ -395,12 +395,16 @@ size = Vector2i(100, 60)
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 56.0
+offset_right = 104.0
+offset_bottom = 70.0
 
 [node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 text = "Drop"
+
+[node name="Close" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Close"
 
 [node name="InteractionMenu" parent="UI" instance=ExtResource("30_tgief")]

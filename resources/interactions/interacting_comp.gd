@@ -1,4 +1,5 @@
 extends Node2D
+class_name InteractingComponent
 
 @onready var label: Label = $Label
 var current_interactions: Array = []
@@ -21,9 +22,15 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(_sort_by_nearest)
-		if current_interactions[0].is_interactable:
-			label.text = current_interactions[0].interact_name
-			label.show()
+		var target: Interactable = current_interactions[0]
+		if target is Interactable and "is_interactable" in target:
+			if target.is_interactable:
+				label.text = target.interact_name
+				label.show()
+			else:
+				label.hide()
+		else:
+			label.hide()
 	else:
 		label.hide()
 		
@@ -33,7 +40,14 @@ func _sort_by_nearest(a1: Node2D, a2: Node2D) -> bool:
 	return a1_dist < a2_dist
 
 func _on_range_area_entered(area: Area2D) -> void:
-	current_interactions.push_back(area)
+	if area is Interactable:
+		current_interactions.push_back(area)
+	else:
+		call_deferred("_add_area_later", area)
+
+func _add_area_later(area: Area2D) -> void:
+	if area is Interactable:
+		current_interactions.push_back(area)
 
 func _on_range_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)
