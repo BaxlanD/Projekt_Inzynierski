@@ -4,11 +4,14 @@ class_name AstarAnchorTest
 @export var navigation_layer: NavigationLayer
 @export var navigation_agent: NavigationAgent
 @export var anchor_test_draw: DebugDraw
+@onready var path_draw: DebugDraw = $"../DebugDraws/PathDraw"
 
 var current_edge_ids: Vector2i = Vector2i.ZERO
 var progress: float
-var _path: PackedVector2Array = []
+
+var _path: Array[PointWithId] = []
 var _path_index: int = 0
+var _target: Vector2
 
 func _ready() -> void:
 	current_edge_ids = navigation_layer.nav_graph.edges[99]
@@ -25,7 +28,21 @@ func _physics_process(delta: float) -> void:
 	
 	## Then navigate 
 	if Input.is_action_just_pressed("RMB"):
-		_path = navigation_layer.generate_path(position, get_global_mouse_position())
+		#_path = navigation_layer.generate_path(position, get_global_mouse_position())
+		_path = navigation_layer.gen(current_edge_ids, progress, get_global_mouse_position())
+		_path_index = 0
+		_target = navigation_layer.project_point_on_graph(get_global_mouse_position()).get_point_position()
+		for i in _path.size() - 1:
+			path_draw.add_line(Edge.new(_path[i].pos, _path[i+1].pos))
+		path_draw.draw()
+		print("CLICK")
+		print("current_edge_ids:", current_edge_ids)
+		print("first path node id:", _path[0].id)
+		
+		# Align current edge to point towards path start
+		if navigation_layer.get_pos(current_edge_ids[0]) == _path[0].pos:
+			current_edge_ids = Vector2i(current_edge_ids[1], current_edge_ids[0])
+			progress = 1 - progress
 	navigate_move(180 * delta)
 	
 	anchor_test_draw.add_line(Edge.new(position, position + Vector2(dir.x, 0) * 30))
@@ -66,26 +83,39 @@ func navigate_move(distance: float) -> void:
 	if _path.is_empty():
 		return
 	
-	position += position.direction_to(_path[_path_index]) * min(distance, position.distance_to(_path[_path_index]))
-	if position.distance_to(_path[_path_index]) < 1:
-		_path_index += 1
-		
-	if _path_index >= _path.size():
-		_path.clear()
-		_path_index = 0
-	
-	#while distance > 0 and _path_index < _path.size():
-		#print(distance)
-		#var next_link: Vector2 = _path[0]
-		#if position.distance_to(next_link) > distance:
-			#position += (next_link - position).normalized() * distance
-			#distance = 0
-			#_path_index += 1
-		#else:
-			#position = next_link
-			#distance -= (next_link - position).length()
-	
-	
+	while 0 < distance:
+		# IF LAST EDGE 
+		if _path_index == _path.size() - 1:
+			var dist_to_target: float = self.position.distance_to(_target)
+			var current_edge_len: float = navigation_layer.get_len(current_edge_ids[0], current_edge_ids[1])
+			# IF OVERSHOT TARGET -> STOP AT TARGET
+			if distance > dist_to_target:
+				progress += dist_to_target / current_edge_len
+				distance = 0
+				_path.clear()
+				_path_index = 0
+			# ELSE MOVE AS FAR AS YOU NEED
+			else:
+				progress += distance / current_edge_len
+				distance = 0
+		# IF NOT LAST EDGE
+		else:
+			var dist_to_edge_end: float = self.position.distance_to(_path[_path_index].pos)
+			var current_edge_len: float = navigation_layer.get_len(current_edge_ids[0], current_edge_ids[1])
+			# IF OVERSHOT EDGE END
+			#print("dist: %s | dist_to_edge_end: %s | current_edge: %s | progress: %s | pos: %s " % [distance, dist_to_edge_end, current_edge_ids, progress, position])
+			if distance > dist_to_edge_end:
+				progress = 0
+				distance -= dist_to_edge_end
+				## PROGRESS TO NEXT EDGE 
+				_path_index += 1
+				current_edge_ids = Vector2i(current_edge_ids[1], _path[_path_index].id)
+				## TODO
+			# ELSE MOVE AS FAR AS YOU NEED
+			else:
+				progress += distance / current_edge_len
+				distance = 0
+	position = get_world_position()
 
 func _align_current_edge_direction(direction: Vector2) -> bool:
 	var min_dot: float = 0.25

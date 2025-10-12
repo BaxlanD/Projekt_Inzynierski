@@ -65,15 +65,15 @@ navigation_agent = NodePath("../NPCActions/NavigationAgent")
 anchor_test_draw = NodePath("../DebugDraws/AnchorTestDraw")
 
 [node name="Camera2D" type="Camera2D" parent="AstarAnchorTest"]
+zoom = Vector2(0.5, 0.5)
 metadata/_edit_lock_ = true
 
 [node name="DebugDraws" type="Node2D" parent="."]
 
 [node name="ProjectionDraw" type="Node2D" parent="DebugDraws"]
 script = ExtResource("12_xfcj1")
-debug_draw = false
 line_color = Color(0.972279, 0.597819, 0.890059, 1)
-line_width = 7.0
+line_width = 5.0
 point_color = Color(0.972549, 0.596078, 0.890196, 1)
 point_width = 9.0
 metadata/_custom_type_script = "uid://c1abhovivd2ej"
@@ -83,4 +83,16 @@ script = ExtResource("12_xfcj1")
 line_color = Color(1, 0, 0, 1)
 point_color = Color(1, 0, 0, 0.498039)
 point_width = 10.0
+metadata/_custom_type_script = "uid://c1abhovivd2ej"
+
+[node name="PathDraw" type="Node2D" parent="DebugDraws"]
+script = ExtResource("12_xfcj1")
+line_color = Color(0.497057, 0.000175437, 0.497053, 1)
+line_width = 7.0
+metadata/_custom_type_script = "uid://c1abhovivd2ej"
+
+[node name="DebugDraw" type="Node2D" parent="DebugDraws"]
+script = ExtResource("12_xfcj1")
+line_color = Color(0.53882, 0.00143439, 0.716553, 1)
+point_color = Color(0.537255, 0, 0.717647, 1)
 metadata/_custom_type_script = "uid://c1abhovivd2ej"
