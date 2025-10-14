@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://degsdm4j13kk6"]
+
+[ext_resource type="Script" uid="uid://cb82vhlpjmmas" path="res://tests/edge_anchoring_test/edge_anchoring_test.gd" id="1_b46j6"]
+[ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="2_35ttv"]
+[ext_resource type="Script" uid="uid://bkasou6rcor2q" path="res://tests/edge_anchoring_test/anchor.gd" id="3_y25jv"]
+
+[node name="EdgeAnchoringTest" type="Node2D"]
+script = ExtResource("1_b46j6")
+
+[node name="DebugDraw" type="Node2D" parent="."]
+script = ExtResource("2_35ttv")
+metadata/_custom_type_script = "uid://c1abhovivd2ej"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Anchor" type="Marker2D" parent="."]
+script = ExtResource("3_y25jv")
+
+[node name="AnchorDraw" type="Node2D" parent="Anchor"]
+script = ExtResource("2_35ttv")
+line_color = Color(1, 0, 0, 1)
+point_color = Color(1, 0, 0, 1)
+point_width = 3.0
+metadata/_custom_type_script = "uid://c1abhovivd2ej"

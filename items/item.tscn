@@ -3,21 +3,19 @@
 [ext_resource type="Script" uid="uid://bks6swqd4eurh" path="res://items/item.gd" id="1_862ai"]
 [ext_resource type="Texture2D" uid="uid://citavnfpas0ib" path="res://assets/icon.svg" id="1_gve6a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_862ai"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buahv"]
 size = Vector2(19, 19)
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Item" type="Area2D" parent="." groups=["items"]]
+[node name="Item" type="Area2D" groups=["items"]]
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("1_862ai")
 
-[node name="Sprite2D" type="Sprite2D" parent="Item"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.760002, -0.375999)
 scale = Vector2(0.16, 0.166)
 texture = ExtResource("1_gve6a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.760002, -0.375999)
-shape = SubResource("RectangleShape2D_862ai")
+shape = SubResource("RectangleShape2D_buahv")

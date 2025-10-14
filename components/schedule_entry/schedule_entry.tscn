@@ -4,4 +4,3 @@
 
 [node name="ScheduleEntry" type="Node"]
 script = ExtResource("1_dkpah")
-duration = 1.0

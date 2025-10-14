@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 ## There is a lot of code dupe between this and NPC so that's something
 ## that should be fixed, but besides that it's mostly cleaned up
 
@@ -11,7 +12,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
-
+@onready var held_item_icon: Sprite2D = $HeldItemIcon
+@onready var anchored_agent: AnchoredAgent = $AnchoredAgent
 
 ## Private variables
 const _SPEED = 180.0
@@ -20,26 +22,81 @@ const _JUMP_VELOCITY = -250.0
 var _direction: float = 0.0
 var _snap: bool = false
 var _exclusive_action: bool = false
+var held_item: Item = null
 
 
 ## Godot method overrides
+
+func _ready() -> void:
+	update_held_item_icon()
+	anchored_agent.initialize(self)
+	
 func _physics_process(delta: float) -> void:
 	# Kind of shitty but left it in anyway as an example
 	if _exclusive_action:
 		return
 	
-	_handle_ramps_collision()
-	_handle_alt_platfs_collision()
-	_handle_movement(delta)
-	_handle_animations()
-
+	#_handle_ramps_collision()
+	#_handle_alt_platfs_collision()
+	#_handle_movement(delta)
+	#_handle_animations()
+	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if direction:
+		anchored_agent.move_via_input(self, delta, direction)
+		animated_sprite_2d.play("Run")
+	else:
+		animated_sprite_2d.play("Idle")
+	_set_sprite_flip(direction.x)
+	
 
 ## Public methods
 func execute_exclusive_action(action: Callable) -> void:
 	_exclusive_action = true
 	await action.call()
 	_exclusive_action = false
+	
 
+func try_interact(target: Node2D) -> void:
+	var max_range := 50.0
+	if global_position.distance_to(target.global_position) > max_range:
+		print("Too far to interact.")
+		return
+
+	if target is Interactable:
+		var interactable_target := target as Interactable
+		if held_item and held_item.can_interact_with(interactable_target):
+			held_item.interact_with(interactable_target, self)
+		else:
+			interactable_target.interact(self, held_item)
+	
+	elif target.has_method("interact"):
+		@warning_ignore("unsafe_method_access")
+		target.interact(self, held_item)
+
+		
+func hold_item(item: Item) -> void:
+	if held_item:
+		print("Changed held item:", held_item.get_display_name(), "->", item.get_display_name())
+	else:
+		print("Item held:", item.get_display_name())
+	held_item = item
+	update_held_item_icon()
+
+func get_inventory() -> Inventory:
+	return get_node("Inventory") as Inventory
+	
+func update_held_item_icon() -> void:
+	if held_item:
+		held_item_icon.texture = held_item.get_icon()
+		held_item_icon.visible = true
+	#else:
+		## lol, if item is null, then dont access it's properties
+		#held_item_icon.texture = null
+		#held_item_icon.visible = false
+		
+func clear_held_item() -> void:
+	held_item = null
+	update_held_item_icon()
 
 ## Private methods
 func _handle_ramps_collision() -> void:
@@ -107,6 +164,12 @@ func _handle_landing() -> void:
 	animated_sprite_2d.play("Land")
 	await animated_sprite_2d.animation_finished
 
+func _set_sprite_flip(facing: float) -> void:
+	if facing > 0:
+		animated_sprite_2d.flip_h = false
+	if facing < 0:
+		animated_sprite_2d.flip_h = true
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	animated_sprite_2d.play("Idle")
+	

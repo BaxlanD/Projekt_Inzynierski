@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=11 format=3 uid="uid://chdvtxw78xmli"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_ulybs"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="2_hn7pm"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_snpc5"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="3_6s00f"]
+[ext_resource type="Resource" uid="uid://byqgy7rmmb2w4" path="res://characters/npc_actions/seq/planned_override.tres" id="3_kl5iu"]
+[ext_resource type="Resource" uid="uid://ddboyjemfccud" path="res://characters/npc_actions/ret/memory.tres" id="3_xv55m"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="5_kl5iu"]
+
+[sub_resource type="Resource" id="Resource_xv55m"]
+script = ExtResource("2_hn7pm")
+where = Vector2(100, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_kl5iu"]
+script = ExtResource("3_6s00f")
+retain = ExtResource("3_xv55m")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("3_kl5iu")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_vjart"]
+script = ExtResource("5_kl5iu")
+animation = "PickUpWall"
+where = Vector2(0, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("2_snpc5")
+_fleeting = false
+_actions = Array[ExtResource("1_ulybs")]([SubResource("Resource_xv55m"), SubResource("Resource_kl5iu"), SubResource("Resource_vjart")])
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

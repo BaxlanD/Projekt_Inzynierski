@@ -2,6 +2,7 @@ extends Node
 class_name ScheduleNPC
 
 signal new_shedule_entry_started
+var search_attempts := 0
 
 var schedule: Array[ScheduleEntry] = []
 var timer: Timer
@@ -9,10 +10,10 @@ var entry_index: int = 0
 
 @export var npc: NPC
 
-func get_current_action() -> Action:
+func get_current_action() -> ActionV1:
 	if entry_index < schedule.size():
 		return schedule[entry_index].action.copy()
-	return Action.new()
+	return ActionV1.new()
 
 func _ready() -> void:
 	for i in get_child_count():
@@ -40,3 +41,12 @@ func _on_timer_timeout() -> void:
 	else:
 		new_shedule_entry_started.emit()
 		print("Finished schedule")
+		
+func modify_entry_duration(index: int, new_duration: float) -> void:
+	if index >= 0 and index < schedule.size():
+		schedule[index].duration = new_duration
+		
+func modify_entry_animation(index: int, new_animation_name: String) -> void:
+	if index >= 0 and index < schedule.size():
+		var action: AnimateAtPointAction = schedule[index].action
+		action.animation_name = new_animation_name

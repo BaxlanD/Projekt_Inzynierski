@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://g1frat7ee5hi"]
+
+[ext_resource type="Script" uid="uid://fykdhte1igt" path="res://components/navigation_related/navigation_layer/navigation_layer_v2.gd" id="1_7nt5k"]
+[ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="2_elyu0"]
+
+[node name="NavLayerV2" type="Node2D"]
+script = ExtResource("1_7nt5k")
+nav_graph = ExtResource("2_elyu0")
