@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://6wnhogcikohv"]
+[gd_scene load_steps=10 format=4 uid="uid://6wnhogcikohv"]
 
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="1_23q0u"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_related/navigation_layer/navigation_layer.gd" id="2_06hfj"]
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="3_2xiy3"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="4_06hfj"]
-[ext_resource type="Script" uid="uid://c88ggfjg5jrv0" path="res://components/navigation_related/navigation_agent/navigation_agent.gd" id="5_p0rx7"]
+[ext_resource type="Script" uid="uid://fykdhte1igt" path="res://components/navigation_related/navigation_layer/navigation_layer_v2.gd" id="4_xfcj1"]
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="5_teggt"]
 [ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="6_yno6h"]
-[ext_resource type="Script" uid="uid://orjlyfut8wxs" path="res://tests/astar_anchor_test/astar_anchor_test.gd" id="9_hmo2e"]
+[ext_resource type="Script" uid="uid://bqd2sdlukp24l" path="res://components/navigation_related/anchored_agent/anchored_agent.gd" id="7_p0rx7"]
 [ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="11_xfcj1"]
-[ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="12_xfcj1"]
 
 [node name="LevelScheduleTest" type="Node2D"]
 
@@ -24,29 +23,45 @@ tile_set = ExtResource("1_23q0u")
 tile_map_data = PackedByteArray("AADa/w0AAAADAAAAAADb/wwAAAADAAAAAADc/wsAAAADAAAAAADd/woAAAADAAAAAADe/wkAAAADAAAAAADf/wgAAAADAAAAAADg/wcAAAADAAAAAADh/wYAAAADAAAAAADi/wUAAAADAAAAAADp/wkAAAADAAAAAADq/wgAAAADAAAAAADq/wQAAAADAAAAAADr/wMAAAADAAAAAADv/wIAAAADAAAAAADw/wEAAAADAAAAAADx/wAAAAADAAAAAADk/wEAAAADAAAAAADl/wAAAAADAAAAAADm////AAADAAAAAADh//7/AAADAAAAAADi//3/AAADAAAAAADj//z/AAADAAAAAADa//v/AAADAAAAAADb//r/AAADAAAAAADa//f/AAADAAAAAADb//b/AAADAAAAAADa//P/AAADAAAAAADb//L/AAADAAAAAADc//H/AAADAAAAAADa//T/AAAFAAAAAADb//X/AAAFAAAAAADa//j/AAAFAAAAAADb//n/AAAFAAAAAADa//z/AAAFAAAAAADb//3/AAAFAAAAAADc//7/AAAFAAAAAADd////AAAFAAAAAADe/wAAAAAFAAAAAADf/wEAAAAFAAAAAADg/wsAAAAFAAAAAADh/wwAAAAFAAAAAADg/woAAAADAAAAAADn/w0AAAAFAAAAAADo/w4AAAAFAAAAAADp/w8AAAAFAAAAAADp/woAAAAFAAAAAADq/wsAAAAFAAAAAADr/wwAAAAFAAAAAADz/wwAAAAFAAAAAAD0/w0AAAAFAAAAAAD1/w4AAAAFAAAAAAD2/w8AAAAFAAAAAADt/wwAAAADAAAAAAD1/wgAAAADAAAAAAD2/wcAAAADAAAAAAD2/wYAAAAFAAAAAAD1/wUAAAAFAAAAAAD0/wQAAAAFAAAAAADz/wMAAAAFAAAAAAD3/wIAAAACAAAAAAD2/wEAAAACAAAAAAD1/wAAAAACAAAAAAD4////AAADAAAAAAD5//7/AAADAAAAAAD6//3/AAADAAAAAAABAPz/AAADAAAAAAACAPv/AAADAAAAAAADAPr/AAADAAAAAAAEAPn/AAADAAAAAAAFAPj/AAADAAAAAAD///z/AAAFAAAAAAD+//v/AAAFAAAAAAD9//r/AAAFAAAAAAD0//n/AAADAAAAAAD1//j/AAADAAAA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")
 tile_set = ExtResource("1_23q0u")
 
-[node name="NavLayer" type="Node2D" parent="." node_paths=PackedStringArray("projection_draw")]
+[node name="NavLayer" type="Node2D" parent="."]
 script = ExtResource("2_06hfj")
 nav_graph = ExtResource("3_2xiy3")
 debug_show_graph = true
 _logging = false
-projection_draw = NodePath("../DebugDraws/ProjectionDraw")
+metadata/_edit_lock_ = true
+
+[node name="NavLayerV2" type="Node2D" parent="."]
+script = ExtResource("4_xfcj1")
+nav_graph = ExtResource("3_2xiy3")
+debug_show_graph = true
+metadata/_custom_type_script = "uid://fykdhte1igt"
 metadata/_edit_lock_ = true
 
 [node name="PlayerDemo" parent="." instance=ExtResource("4_06hfj")]
 position = Vector2(-936, 152)
 
+[node name="AnchoredAgent" type="Node" parent="PlayerDemo" node_paths=PackedStringArray("navigation_layer")]
+script = ExtResource("7_p0rx7")
+navigation_layer = NodePath("../../NavLayerV2")
+metadata/_custom_type_script = "uid://bqd2sdlukp24l"
+
 [node name="HeldItemIcon" type="Sprite2D" parent="PlayerDemo"]
 position = Vector2(0, -40)
 scale = Vector2(0.05, 0.05)
 
-[node name="NPCActions" parent="." node_paths=PackedStringArray("navigation_layer", "navigation_agent") instance=ExtResource("5_teggt")]
+[node name="NPCActions" parent="." node_paths=PackedStringArray("navigation_layer", "anchored_agent") instance=ExtResource("5_teggt")]
+position = Vector2(-848, 152)
 navigation_layer = NodePath("../NavLayer")
-navigation_agent = NodePath("NavigationAgent")
+anchored_agent = NodePath("AnchoredAgent")
 
-[node name="NavigationAgent" type="Node" parent="NPCActions"]
-script = ExtResource("5_p0rx7")
-_link_desired_distance = 5
-metadata/_custom_type_script = "uid://c88ggfjg5jrv0"
+[node name="Camera2D" type="Camera2D" parent="NPCActions"]
+zoom = Vector2(0.7, 0.7)
+
+[node name="AnchoredAgent" type="Node" parent="NPCActions" node_paths=PackedStringArray("navigation_layer")]
+script = ExtResource("7_p0rx7")
+SPEED = 230.0
+navigation_layer = NodePath("../../NavLayerV2")
+metadata/_custom_type_script = "uid://bqd2sdlukp24l"
 
 [node name="SequenceController" type="Node" parent="NPCActions" node_paths=PackedStringArray("_action_sequencer")]
 script = ExtResource("6_yno6h")
@@ -56,43 +71,3 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 [node name="ActionSequencer" type="Node" parent="NPCActions/SequenceController"]
 script = ExtResource("11_xfcj1")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
-
-[node name="AstarAnchorTest" type="Node2D" parent="." node_paths=PackedStringArray("navigation_layer", "navigation_agent", "anchor_test_draw")]
-position = Vector2(-912, 160)
-script = ExtResource("9_hmo2e")
-navigation_layer = NodePath("../NavLayer")
-navigation_agent = NodePath("../NPCActions/NavigationAgent")
-anchor_test_draw = NodePath("../DebugDraws/AnchorTestDraw")
-
-[node name="Camera2D" type="Camera2D" parent="AstarAnchorTest"]
-zoom = Vector2(0.5, 0.5)
-metadata/_edit_lock_ = true
-
-[node name="DebugDraws" type="Node2D" parent="."]
-
-[node name="ProjectionDraw" type="Node2D" parent="DebugDraws"]
-script = ExtResource("12_xfcj1")
-line_color = Color(0.972279, 0.597819, 0.890059, 1)
-line_width = 5.0
-point_color = Color(0.972549, 0.596078, 0.890196, 1)
-point_width = 9.0
-metadata/_custom_type_script = "uid://c1abhovivd2ej"
-
-[node name="AnchorTestDraw" type="Node2D" parent="DebugDraws"]
-script = ExtResource("12_xfcj1")
-line_color = Color(1, 0, 0, 1)
-point_color = Color(1, 0, 0, 0.498039)
-point_width = 10.0
-metadata/_custom_type_script = "uid://c1abhovivd2ej"
-
-[node name="PathDraw" type="Node2D" parent="DebugDraws"]
-script = ExtResource("12_xfcj1")
-line_color = Color(0.497057, 0.000175437, 0.497053, 1)
-line_width = 7.0
-metadata/_custom_type_script = "uid://c1abhovivd2ej"
-
-[node name="DebugDraw" type="Node2D" parent="DebugDraws"]
-script = ExtResource("12_xfcj1")
-line_color = Color(0.53882, 0.00143439, 0.716553, 1)
-point_color = Color(0.537255, 0, 0.717647, 1)
-metadata/_custom_type_script = "uid://c1abhovivd2ej"

@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=5 format=3 uid="uid://byqgy7rmmb2w4"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=7 format=3 uid="uid://byqgy7rmmb2w4"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_cwnik"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_drrfh"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_svgbx"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="3_drrfh"]
 
 [sub_resource type="Resource" id="Resource_jnusm"]
 script = ExtResource("2_drrfh")
@@ -12,8 +13,17 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
+[sub_resource type="Resource" id="Resource_c2fcn"]
+script = ExtResource("3_drrfh")
+operation = 0
+value = 0
+mode = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
 [resource]
 script = ExtResource("2_svgbx")
 _fleeting = false
-_actions = Array[ExtResource("1_cwnik")]([SubResource("Resource_jnusm")])
+_actions = Array[ExtResource("1_cwnik")]([SubResource("Resource_jnusm"), SubResource("Resource_c2fcn"), null, null])
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

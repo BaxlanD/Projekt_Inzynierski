@@ -306,31 +306,6 @@ func project_on_edges(point: Vector2) -> Vector2i:
 	projection_draw.add_line(closest_edge)
 	projection_draw.add_point(hits[0])
 	return closest_id
-@onready var debug_draw: DebugDraw = $"../DebugDraws/DebugDraw"
-
-## NEW
-func project_point_on_graph(point: Vector2) -> ProjectedPoint:
-	var hits: Array[ProjectedPoint] = []
-	for connection in nav_graph.edges:
-		var edge: Edge = Edge.new(nav_graph.points[connection.x], nav_graph.points[connection.y])
-		var progress: float = edge.project_point(point)
-		if 0 <= progress and progress <= 1:
-			var hit_point: Vector2 = edge.a + (edge.b - edge.a) * progress
-			if hit_point.y >= point.y:
-				hits.push_back(ProjectedPoint.new(astar, connection, progress))
-	
-	hits.sort_custom(func(a: ProjectedPoint, b: ProjectedPoint) -> bool: 
-		return a.get_point_position().distance_squared_to(point) < b.get_point_position().distance_squared_to(point)
-	)
-	for hit in hits:
-		debug_draw.add_line(Edge.new(point, hit.get_point_position()))
-		debug_draw.add_point(hit.get_point_position())
-	debug_draw.draw()
-	# HELPER DRAW
-	projection_draw.add_line(Edge.new(point, hits[0].get_point_position()))
-	projection_draw.add_point(hits[0].get_point_position())
-	projection_draw.draw()
-	return hits[0]
 
 func generate_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 	var start_edge: Vector2i = project_on_edges(from)
@@ -363,69 +338,5 @@ func generate_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 func get_pos(point_id: int) -> Vector2:
 	return astar.get_point_position(point_id)
 
-## New pathfinding that respects graph edges using point projections
-
-func gen(origin_edge_ids: Vector2i, origin_progress: float, target: Vector2) -> Array[PointWithId]:
-	# Find edges that origin and target are on
-	#var projected_origin: ProjectedPoint = project_point_on_graph(origin)
-	var projected_origin: ProjectedPoint = ProjectedPoint.new(astar, origin_edge_ids, origin_progress)
-	var projected_target: ProjectedPoint = project_point_on_graph(target)
-	
-	# If origin_edge is the same as target_edge
-	if projected_origin.edge_ids == projected_target.edge_ids:
-		if projected_origin.progress < projected_target.progress:
-			return [PointWithId.new(projected_origin.edge.b, projected_origin.edge_ids[1])]
-		else:
-			return [PointWithId.new(projected_origin.edge.a, projected_origin.edge_ids[0])]
-	
-	# If origin_edge is next to target_edge
-	if projected_target.edge_ids[0] == projected_origin.edge_ids[0] or projected_target.edge_ids[0] == projected_origin.edge_ids[1]:
-		return [PointWithId.new(projected_target.edge.a, projected_target.edge_ids[0]), PointWithId.new(projected_target.edge.b, projected_target.edge_ids[1])]
-	if projected_target.edge_ids[1] == projected_origin.edge_ids[0] or projected_target.edge_ids[1] == projected_origin.edge_ids[1]:
-		return [PointWithId.new(projected_target.edge.b, projected_target.edge_ids[1]), PointWithId.new(projected_target.edge.a, projected_target.edge_ids[0])]
-	
-	# If edges are further apart
-	var path_id: PackedInt64Array = astar.get_id_path(projected_origin.get_closer_id(), projected_target.get_closer_id())
-	
-	# Slice begining if further origin point of edge exists in path anyway
-	var further: int = path_id.find(projected_origin.get_further_id())
-	if further != -1:
-		path_id = path_id.slice(further, path_id.size())
-	
-	# Append further target point at the end if it doesn't exist in path already
-	if !path_id.has(projected_target.get_further_id()):
-		path_id.append(projected_target.get_further_id())
-	
-	var path: Array[PointWithId]
-	for id in path_id:
-		path.push_back(PointWithId.new(astar.get_point_position(id), id))
-		
-	return path
-
 func get_len(id1: int, id2: int) -> float:
 	return (astar.get_point_position(id1) - astar.get_point_position(id2)).length()
-
-class ProjectedPoint:
-	var edge_ids: Vector2i
-	var edge: Edge
-	var progress: float
-	
-	func _init(astar_: AStar2D, ids_: Vector2i, progress_: float) -> void:
-		edge_ids = ids_
-		edge = Edge.new(astar_.get_point_position(ids_[0]), astar_.get_point_position(ids_[1]))
-		progress = progress_
-	
-	func get_point_position() -> Vector2:
-		return edge.a + (edge.b - edge.a) * progress
-	
-	func get_closer() -> Vector2:
-		return edge.a if progress < 0.5 else edge.b
-	
-	func get_further() -> Vector2:
-		return edge.a if progress >= 0.5 else edge.b
-	
-	func get_closer_id() -> int:
-		return edge_ids[0] if progress < 0.5 else edge_ids[1]
-
-	func get_further_id() -> int:
-		return edge_ids[1] if progress < 0.5 else edge_ids[0]

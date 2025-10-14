@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://t2f4ro45ibm8"]
+
+[ext_resource type="Script" uid="uid://bqd2sdlukp24l" path="res://components/navigation_related/anchored_agent/anchored_agent.gd" id="1_y8ppk"]
+
+[node name="AnchoredAgent" type="Node"]
+script = ExtResource("1_y8ppk")

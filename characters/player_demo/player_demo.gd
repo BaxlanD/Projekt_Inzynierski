@@ -13,6 +13,7 @@ class_name Player
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var held_item_icon: Sprite2D = $HeldItemIcon
+@onready var anchored_agent: AnchoredAgent = $AnchoredAgent
 
 ## Private variables
 const _SPEED = 180.0
@@ -28,17 +29,25 @@ var held_item: Item = null
 
 func _ready() -> void:
 	update_held_item_icon()
+	anchored_agent.initialize(self)
 	
 func _physics_process(delta: float) -> void:
 	# Kind of shitty but left it in anyway as an example
 	if _exclusive_action:
 		return
 	
-	_handle_ramps_collision()
-	_handle_alt_platfs_collision()
-	_handle_movement(delta)
-	_handle_animations()
-
+	#_handle_ramps_collision()
+	#_handle_alt_platfs_collision()
+	#_handle_movement(delta)
+	#_handle_animations()
+	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if direction:
+		anchored_agent.move_via_input(self, delta, direction)
+		animated_sprite_2d.play("Run")
+	else:
+		animated_sprite_2d.play("Idle")
+	_set_sprite_flip(direction.x)
+	
 
 ## Public methods
 func execute_exclusive_action(action: Callable) -> void:
@@ -155,6 +164,11 @@ func _handle_landing() -> void:
 	animated_sprite_2d.play("Land")
 	await animated_sprite_2d.animation_finished
 
+func _set_sprite_flip(facing: float) -> void:
+	if facing > 0:
+		animated_sprite_2d.flip_h = false
+	if facing < 0:
+		animated_sprite_2d.flip_h = true
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	animated_sprite_2d.play("Idle")
