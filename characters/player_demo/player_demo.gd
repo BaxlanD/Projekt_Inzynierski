@@ -13,7 +13,8 @@ class_name Player
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var held_item_icon: Sprite2D = $HeldItemIcon
-@onready var anchored_agent: AnchoredAgent = $AnchoredAgent
+#@onready var anchored_agent: AnchoredAgent = $AnchoredAgent
+@onready var anchored_agent: AnchoredAgentV2 = $AnchoredAgentV2
 
 ## Private variables
 const _SPEED = 180.0
@@ -40,11 +41,17 @@ func _physics_process(delta: float) -> void:
 	#_handle_alt_platfs_collision()
 	#_handle_movement(delta)
 	#_handle_animations()
+	
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	
+	if Input.is_action_just_pressed("RMB"):
+		anchored_agent.set_destination(get_global_mouse_position())
+		
 	if direction:
 		anchored_agent.move_via_input(self, delta, direction)
 		animated_sprite_2d.play("Run")
 	else:
+		anchored_agent.move_via_navigation(self, delta)
 		animated_sprite_2d.play("Idle")
 	_set_sprite_flip(direction.x)
 	

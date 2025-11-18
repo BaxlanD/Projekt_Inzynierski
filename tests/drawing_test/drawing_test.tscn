@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmkv0wcdn3sbe"]
+
+[ext_resource type="Script" uid="uid://1vsom4mgppvi" path="res://tools/nav_layer_draw_tool/nav_layer_draw_tool.gd" id="1_bj767"]
+[ext_resource type="Script" uid="uid://h6vmtlbd7hl2" path="res://tools/nav_point/nav_point.gd" id="3_des3t"]
+
+[node name="Drawing Test" type="Node2D"]
+
+[node name="NavLayerDrawTool" type="Node2D" parent="."]
+script = ExtResource("1_bj767")
+metadata/_custom_type_script = "uid://1vsom4mgppvi"
+
+[node name="point-left" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(64, 40)
+script = ExtResource("3_des3t")
+point_name = "point-left"
+
+[node name="@Marker2D@44399" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(152, 32)
+script = ExtResource("3_des3t")
+
+[node name="point-right" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(184, 120)
+script = ExtResource("3_des3t")
+point_name = "point-right"
+
+[node name="@Marker2D@44401" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(256, 72)
+script = ExtResource("3_des3t")
+
+[node name="@Marker2D@44402" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(248, 184)
+script = ExtResource("3_des3t")
+
+[node name="@Marker2D@44403" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(136, 200)
+script = ExtResource("3_des3t")
+
+[node name="@Marker2D@44404" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(40, 120)
+script = ExtResource("3_des3t")

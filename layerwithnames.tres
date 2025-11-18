@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NavLayer" load_steps=2 format=3 uid="uid://idhq60bl46jt"]
+
+[ext_resource type="Script" uid="uid://y8mwdms4kul6" path="res://resources/nav_layer/nav_layer.gd" id="1_1p5fq"]
+
+[resource]
+script = ExtResource("1_1p5fq")
+points = Array[Vector2]([Vector2(64, 40), Vector2(152, 32), Vector2(184, 120), Vector2(256, 72), Vector2(248, 184), Vector2(136, 200), Vector2(40, 120)])
+connections = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 3), Vector2i(3, 4), Vector2i(4, 5), Vector2i(5, 6), Vector2i(6, 0), Vector2i(2, 0)])
+named_points = Dictionary[String, int]({
+"point-left": 0,
+"point-right": 2
+})
