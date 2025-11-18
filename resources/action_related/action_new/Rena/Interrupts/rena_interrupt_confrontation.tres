@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=18 format=3 uid="uid://nynm0jdvb4pg"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_i735b"]
+[ext_resource type="Resource" uid="uid://cbt66wklpoir2" path="res://resources/action_related/action_new/Rena/Interrupts/rena_ending5.tres" id="2_kq5hu"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_nae4i"]
+[ext_resource type="Resource" uid="uid://bci0mki0ai8da" path="res://resources/action_related/action_new/story_retains/rena_reconciled.tres" id="3_ljfp2"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_8q2be"]
+[ext_resource type="Resource" uid="uid://56o8xtco3j05" path="res://resources/action_related/action_new/Rena/Interrupts/rena_ending4.tres" id="5_jg8od"]
+[ext_resource type="Resource" uid="uid://ckuvd52i3a7m" path="res://resources/action_related/action_new/story_retains/rena_convinced.tres" id="6_0ncl5"]
+[ext_resource type="Resource" uid="uid://db1k1x6p24sd4" path="res://resources/action_related/action_new/Rena/Interrupts/rena_check_trust.tres" id="7_21b23"]
+[ext_resource type="Resource" uid="uid://b1g7jx26gflpv" path="res://resources/action_related/action_new/story_retains/rena_ingredients.tres" id="8_dwxvq"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="9_hlo7i"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="10_8resd"]
+
+[sub_resource type="Resource" id="Resource_cgeay"]
+script = ExtResource("4_8q2be")
+retain = ExtResource("3_ljfp2")
+operation = 2
+value = 3
+mode = 0
+fallback_sequence = ExtResource("2_kq5hu")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_a1gt4"]
+script = ExtResource("4_8q2be")
+retain = ExtResource("6_0ncl5")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("5_jg8od")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_m5r02"]
+script = ExtResource("4_8q2be")
+retain = ExtResource("8_dwxvq")
+operation = 2
+value = 2
+mode = 0
+fallback_sequence = ExtResource("7_21b23")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_m17il"]
+script = ExtResource("9_hlo7i")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_pf242"]
+script = ExtResource("10_8resd")
+animation = "Punch"
+duration = 1.0
+where = Vector2(1050, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_t1ecm"]
+script = ExtResource("10_8resd")
+animation = "Talk"
+duration = 3.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("2_nae4i")
+_fleeting = true
+_actions = Array[ExtResource("1_i735b")]([SubResource("Resource_cgeay"), SubResource("Resource_a1gt4"), SubResource("Resource_m5r02"), SubResource("Resource_m17il"), SubResource("Resource_pf242"), SubResource("Resource_t1ecm")])
+sequence_name = "Confront"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

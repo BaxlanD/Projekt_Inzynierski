@@ -12,9 +12,10 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var held_item_icon: Sprite2D = $HeldItemIcon
+@onready var inventory_ui: InventoryUI = $"../UI/InventoryUI"
 #@onready var anchored_agent: AnchoredAgent = $AnchoredAgent
 @onready var anchored_agent: AnchoredAgentV2 = $AnchoredAgentV2
+
 
 ## Private variables
 const _SPEED = 180.0
@@ -23,18 +24,25 @@ const _JUMP_VELOCITY = -250.0
 var _direction: float = 0.0
 var _snap: bool = false
 var _exclusive_action: bool = false
-var held_item: Item = null
 
 
 ## Godot method overrides
 
 func _ready() -> void:
-	update_held_item_icon()
 	anchored_agent.initialize(self)
+
 	
 func _physics_process(delta: float) -> void:
 	# Kind of shitty but left it in anyway as an example
 	if _exclusive_action:
+		return
+		
+	if inventory_ui and inventory_ui.is_open:
+		_direction = 0.0
+		velocity.x = move_toward(velocity.x, 0.0, 2000.0 * delta)
+		velocity += get_gravity() * delta
+		move_and_slide()
+		_handle_animations()
 		return
 	
 	#_handle_ramps_collision()
@@ -63,47 +71,8 @@ func execute_exclusive_action(action: Callable) -> void:
 	_exclusive_action = false
 	
 
-func try_interact(target: Node2D) -> void:
-	var max_range := 50.0
-	if global_position.distance_to(target.global_position) > max_range:
-		print("Too far to interact.")
-		return
-
-	if target is Interactable:
-		var interactable_target := target as Interactable
-		if held_item and held_item.can_interact_with(interactable_target):
-			held_item.interact_with(interactable_target, self)
-		else:
-			interactable_target.interact(self, held_item)
-	
-	elif target.has_method("interact"):
-		@warning_ignore("unsafe_method_access")
-		target.interact(self, held_item)
-
-		
-func hold_item(item: Item) -> void:
-	if held_item:
-		print("Changed held item:", held_item.get_display_name(), "->", item.get_display_name())
-	else:
-		print("Item held:", item.get_display_name())
-	held_item = item
-	update_held_item_icon()
-
 func get_inventory() -> Inventory:
 	return get_node("Inventory") as Inventory
-	
-func update_held_item_icon() -> void:
-	if held_item:
-		held_item_icon.texture = held_item.get_icon()
-		held_item_icon.visible = true
-	#else:
-		## lol, if item is null, then dont access it's properties
-		#held_item_icon.texture = null
-		#held_item_icon.visible = false
-		
-func clear_held_item() -> void:
-	held_item = null
-	update_held_item_icon()
 
 ## Private methods
 func _handle_ramps_collision() -> void:
@@ -130,7 +99,7 @@ func _handle_movement(delta: float) -> void:
 	_direction = Input.get_axis("ui_left", "ui_right")
 	velocity.x = _direction * _SPEED
 	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = _JUMP_VELOCITY
 	
 	## APPLYING GRAVITY

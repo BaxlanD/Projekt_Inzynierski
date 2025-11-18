@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://v34fcp4fs3rd"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_44afq"]
+[ext_resource type="Script" uid="uid://bhk4tgsy001lr" path="res://items/item_water_jug.gd" id="2_v1xio"]
+[ext_resource type="Texture2D" uid="uid://17c0trwx7i2x" path="res://assets/water_jug.jpg" id="3_x7d88"]
+
+[node name="Water_Jug" instance=ExtResource("1_44afq")]
+script = ExtResource("2_v1xio")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.155, 0.00949979)
+scale = Vector2(0.0166455, 0.0163464)
+texture = ExtResource("3_x7d88")

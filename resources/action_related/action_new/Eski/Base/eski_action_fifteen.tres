@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=14 format=3 uid="uid://7dnf1w1ftguq"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_ivy1w"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="2_ng5jp"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_wxyrl"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="4_7ps6m"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="5_0aiea"]
+
+[sub_resource type="Resource" id="Resource_4delx"]
+script = ExtResource("2_ng5jp")
+where = Vector2(50, 450)
+speed_multiplier = 0.6
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_y4xvp"]
+script = ExtResource("3_wxyrl")
+animation = "Wait"
+duration = 3.0
+where = Vector2(50, 450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_j1y6v"]
+script = ExtResource("2_ng5jp")
+where = Vector2(-50, 450)
+speed_multiplier = 0.6
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_k2k3x"]
+script = ExtResource("3_wxyrl")
+animation = "Wait"
+duration = 3.0
+where = Vector2(-50, 450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_7mxqo"]
+script = ExtResource("4_7ps6m")
+item = "Mozaic"
+search_duration = 1.0
+where = Vector2(-50, 450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_sge06"]
+script = ExtResource("2_ng5jp")
+where = Vector2(-75, 450)
+speed_multiplier = 0.6
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_385yh"]
+script = ExtResource("3_wxyrl")
+animation = "Wait"
+duration = 3.0
+where = Vector2(-75, 450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_p2cs5"]
+script = ExtResource("4_7ps6m")
+item = "Bread"
+search_duration = 1.0
+where = Vector2(-75, 450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[resource]
+script = ExtResource("5_0aiea")
+_fleeting = false
+_actions = Array[ExtResource("1_ivy1w")]([SubResource("Resource_4delx"), SubResource("Resource_y4xvp"), SubResource("Resource_j1y6v"), SubResource("Resource_k2k3x"), SubResource("Resource_7mxqo"), SubResource("Resource_sge06"), SubResource("Resource_385yh"), SubResource("Resource_p2cs5")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

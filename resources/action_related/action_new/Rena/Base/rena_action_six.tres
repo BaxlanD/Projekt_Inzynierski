@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://cbs4itj2bd38j"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_rstuq"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_l2y6c"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="2_nfm8o"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_7wrpb"]
+
+[sub_resource type="Resource" id="Resource_aa3kc"]
+script = ExtResource("2_nfm8o")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "Npc_1_Random2"
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_kpm7r"]
+script = ExtResource("2_nfm8o")
+anim_self = "Punch"
+anim_target = "Punch"
+anim_duration = 1.0
+target_name = "Npc_1_Random2"
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_gduf4"]
+script = ExtResource("2_nfm8o")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 8.0
+target_name = "Npc_1_Random2"
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_lqp1c"]
+script = ExtResource("3_7wrpb")
+animation = "Wait"
+duration = 5.0
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_t4m02"]
+script = ExtResource("3_7wrpb")
+animation = "PickUpWall"
+duration = 3.0
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("2_l2y6c")
+_fleeting = true
+_actions = Array[ExtResource("1_rstuq")]([SubResource("Resource_aa3kc"), SubResource("Resource_kpm7r"), SubResource("Resource_gduf4"), SubResource("Resource_lqp1c"), SubResource("Resource_t4m02")])
+sequence_name = "Rena_action_six"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=13 format=3 uid="uid://cbt66wklpoir2"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_f4poo"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_6y2g1"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_o30qn"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_lq12s"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="4_duhvg"]
+[ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="5_duhvg"]
+
+[sub_resource type="Resource" id="Resource_lq12s"]
+script = ExtResource("2_o30qn")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_k3lxd"]
+script = ExtResource("3_lq12s")
+animation = "Use"
+duration = 2.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_iq6dj"]
+script = ExtResource("2_o30qn")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_27bqw"]
+script = ExtResource("4_duhvg")
+retain_name = "story_done"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_fgehq"]
+script = ExtResource("3_lq12s")
+animation = "Wait"
+duration = 1200.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_bpmfh"]
+script = ExtResource("5_duhvg")
+mode = 1
+skip_count = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dybysqari256p"
+
+[resource]
+script = ExtResource("2_6y2g1")
+_fleeting = false
+_actions = Array[ExtResource("1_f4poo")]([SubResource("Resource_lq12s"), SubResource("Resource_k3lxd"), SubResource("Resource_iq6dj"), SubResource("Resource_27bqw"), SubResource("Resource_fgehq"), SubResource("Resource_bpmfh")])
+sequence_name = "Rena_ending5"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

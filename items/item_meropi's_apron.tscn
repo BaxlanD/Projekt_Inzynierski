@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ullcu7xy7xgc"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_0ktk0"]
+[ext_resource type="Script" uid="uid://urtndsdpqkyt" path="res://items/item_meropi's_apron.gd" id="2_qebm6"]
+[ext_resource type="Texture2D" uid="uid://henqy3dx5g0n" path="res://assets/painting_apron.jpg" id="3_tj8jc"]
+
+[node name="Meropi\'s Apron" instance=ExtResource("1_0ktk0")]
+script = ExtResource("2_qebm6")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.00555, 0.245887)
+scale = Vector2(0.019968, 0.0133618)
+texture = ExtResource("3_tj8jc")

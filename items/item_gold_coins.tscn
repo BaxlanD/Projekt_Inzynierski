@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bab2cqq7bm4p5"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_exeqy"]
+[ext_resource type="Script" uid="uid://dhdhyqhg8b7dj" path="res://items/item_gold_coins.gd" id="2_p6rnl"]
+[ext_resource type="Texture2D" uid="uid://ggc1euodfvuu" path="res://assets/gold_coins.jpeg" id="3_jebjk"]
+
+[node name="Gold Coins" instance=ExtResource("1_exeqy")]
+script = ExtResource("2_p6rnl")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.36, 0.287619)
+scale = Vector2(0.0150968, 0.0225428)
+texture = ExtResource("3_jebjk")

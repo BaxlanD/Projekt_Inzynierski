@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=16 format=3 uid="uid://dtwl0n8uhld1y"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_q3clq"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="2_xtlxg"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="3_dsad6"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_ip7cg"]
+[ext_resource type="Resource" uid="uid://teisk4d5cxpy" path="res://resources/action_related/action_new/Titus/Interrupts/titus_interrupt_mirror.tres" id="5_0goi8"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="5_ualew"]
+[ext_resource type="Resource" uid="uid://dnvo3gj6a0csc" path="res://resources/action_related/action_new/story_retains/titus_mirror.tres" id="6_5jf4h"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="7_lvb77"]
+
+[sub_resource type="Resource" id="Resource_w6leb"]
+script = ExtResource("2_xtlxg")
+item = "Chair"
+search_duration = 1.0
+where = Vector2(-500, -25)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_piqm3"]
+script = ExtResource("3_dsad6")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(-600, 70)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_2senm"]
+script = ExtResource("2_xtlxg")
+item = "Rope"
+search_duration = 1.0
+where = Vector2(-460, -25)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_pxrvf"]
+script = ExtResource("4_ip7cg")
+animation = "Wait"
+duration = 4.0
+where = Vector2(-450, 70)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_emsig"]
+script = ExtResource("7_lvb77")
+retain = ExtResource("6_5jf4h")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("5_0goi8")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_rh5am"]
+script = ExtResource("4_ip7cg")
+animation = "Use"
+duration = 1.0
+where = Vector2(-600, 70)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_iwdps"]
+script = ExtResource("4_ip7cg")
+animation = "Death"
+duration = 1.0
+where = Vector2(-600, 70)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("5_ualew")
+_fleeting = false
+_actions = Array[ExtResource("1_q3clq")]([SubResource("Resource_w6leb"), SubResource("Resource_piqm3"), SubResource("Resource_2senm"), SubResource("Resource_pxrvf"), SubResource("Resource_emsig"), SubResource("Resource_rh5am"), SubResource("Resource_iwdps")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

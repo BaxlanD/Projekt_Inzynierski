@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=13 format=3 uid="uid://cgyn6ob8s0yoy"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_2dwwh"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_iovyn"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_m3s51"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_rqubo"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="5_l8f7b"]
+
+[sub_resource type="Resource" id="Resource_w6leb"]
+script = ExtResource("2_iovyn")
+animation = "Use"
+duration = 4.0
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_piqm3"]
+script = ExtResource("3_m3s51")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "NPC_Meropi"
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_2senm"]
+script = ExtResource("3_m3s51")
+anim_self = "Use"
+anim_target = "Use"
+anim_duration = 4.0
+target_name = "NPC_Meropi"
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_pxrvf"]
+script = ExtResource("3_m3s51")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 6.0
+target_name = "NPC_Meropi"
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_rh5am"]
+script = ExtResource("3_m3s51")
+anim_self = "Use"
+anim_target = "Use"
+anim_duration = 3.0
+target_name = "NPC_Meropi"
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_iwdps"]
+script = ExtResource("2_iovyn")
+animation = "Talk"
+duration = 4.0
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_g5bf3"]
+script = ExtResource("4_rqubo")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[resource]
+script = ExtResource("5_l8f7b")
+_fleeting = false
+_actions = Array[ExtResource("1_2dwwh")]([SubResource("Resource_w6leb"), SubResource("Resource_piqm3"), SubResource("Resource_2senm"), SubResource("Resource_pxrvf"), SubResource("Resource_rh5am"), SubResource("Resource_iwdps"), SubResource("Resource_g5bf3")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

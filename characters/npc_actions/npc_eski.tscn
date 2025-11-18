@@ -1,0 +1,495 @@
+[gd_scene load_steps=103 format=3 uid="uid://dlhmvlbb3uox2"]
+
+[ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_jyf6u"]
+[ext_resource type="Script" uid="uid://dqsp2pb4disbt" path="res://characters/npc_actions/npc_eski.gd" id="2_othd8"]
+[ext_resource type="Texture2D" uid="uid://dq4o00mypr31m" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_0.png" id="2_u4naa"]
+[ext_resource type="Texture2D" uid="uid://cua4m2loc8gxs" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_1.png" id="3_othd8"]
+[ext_resource type="Texture2D" uid="uid://dk5622qiolgwj" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_2.png" id="4_ob6v2"]
+[ext_resource type="Texture2D" uid="uid://dv0a4htgounpo" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_3.png" id="5_8etxb"]
+[ext_resource type="Texture2D" uid="uid://dhkher2tq6alx" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_4.png" id="6_hyto1"]
+[ext_resource type="Texture2D" uid="uid://c2qgkvo48nikj" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_5.png" id="7_si6hb"]
+[ext_resource type="Texture2D" uid="uid://bciqvcajeow3e" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_6.png" id="8_0yncl"]
+[ext_resource type="Texture2D" uid="uid://cb2k8sabiy12r" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_7.png" id="9_4jyox"]
+[ext_resource type="Texture2D" uid="uid://18abjc2oanep" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_8.png" id="10_82mxq"]
+[ext_resource type="Texture2D" uid="uid://ccb10guhtlcf2" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_climb_9.png" id="11_m4jei"]
+[ext_resource type="Texture2D" uid="uid://ca2nckor0yqq4" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_damage_0.png" id="12_epuxq"]
+[ext_resource type="Texture2D" uid="uid://b5gh6t2wgukww" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_damage_1.png" id="13_omr3p"]
+[ext_resource type="Texture2D" uid="uid://cgty4snwk5ol2" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_0.png" id="14_wc0he"]
+[ext_resource type="Texture2D" uid="uid://blf7dpv5k6tr1" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_1.png" id="15_k4een"]
+[ext_resource type="Texture2D" uid="uid://bbccv2x1i8fa0" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_2.png" id="16_8mp3m"]
+[ext_resource type="Texture2D" uid="uid://cg5ckmpin6gxx" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_3.png" id="17_q5sbk"]
+[ext_resource type="Texture2D" uid="uid://de5qv2cbch8db" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_4.png" id="18_gflvy"]
+[ext_resource type="Texture2D" uid="uid://b5r0bhrfx5caj" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_5.png" id="19_nysvc"]
+[ext_resource type="Texture2D" uid="uid://dbekvwtvk684b" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_death_6.png" id="20_2es1u"]
+[ext_resource type="Texture2D" uid="uid://cdxv7ie66hern" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_fall_0.png" id="21_0e3u6"]
+[ext_resource type="Texture2D" uid="uid://dasdkteob87k3" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_fall_1.png" id="22_l2a30"]
+[ext_resource type="Texture2D" uid="uid://butj06cpuqhvg" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_0.png" id="23_vgeiq"]
+[ext_resource type="Texture2D" uid="uid://dcvjtyrg57t5s" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_1.png" id="24_n36l6"]
+[ext_resource type="Texture2D" uid="uid://cnxbsqs3g8aya" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_2.png" id="25_pxvq8"]
+[ext_resource type="Texture2D" uid="uid://hkjwce6pcc6k" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_3.png" id="26_6dodw"]
+[ext_resource type="Texture2D" uid="uid://dgj1pqgmr4hxk" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_4.png" id="27_67vv6"]
+[ext_resource type="Texture2D" uid="uid://bk5y1d7cfh0yq" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_5.png" id="28_awtai"]
+[ext_resource type="Texture2D" uid="uid://by212a3k7264e" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_6.png" id="29_ni0la"]
+[ext_resource type="Texture2D" uid="uid://jd7s0exqfgld" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_idle_7.png" id="30_qewg1"]
+[ext_resource type="Texture2D" uid="uid://dw6hm8d1kwofd" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_jump_0.png" id="31_sq4d0"]
+[ext_resource type="Texture2D" uid="uid://ch7j33naocvum" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_jump_1.png" id="32_wi62h"]
+[ext_resource type="Texture2D" uid="uid://8ebhqm4ndwer" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_land_0.png" id="33_54p51"]
+[ext_resource type="Texture2D" uid="uid://b87e8rxs7bhrh" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_land_1.png" id="34_mw0ue"]
+[ext_resource type="Texture2D" uid="uid://c0rgw80yv6uoq" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_0.png" id="35_dbbl6"]
+[ext_resource type="Texture2D" uid="uid://dbi5u30awskot" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_1.png" id="36_3agg0"]
+[ext_resource type="Texture2D" uid="uid://ck7f2o7yf7bup" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_2.png" id="37_87n8p"]
+[ext_resource type="Texture2D" uid="uid://dkxmsy1djb2hg" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_3.png" id="38_xlsb3"]
+[ext_resource type="Texture2D" uid="uid://c2q5d17ovxomi" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_4.png" id="39_j45e4"]
+[ext_resource type="Texture2D" uid="uid://b5gcq80ec0ag4" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_5.png" id="40_dd4li"]
+[ext_resource type="Texture2D" uid="uid://cho0poswwlr8s" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_6.png" id="41_88osm"]
+[ext_resource type="Texture2D" uid="uid://bi4ac0m6trxql" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_ground_7.png" id="42_r1dmi"]
+[ext_resource type="Texture2D" uid="uid://dxqafbw7p0d4y" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_0.png" id="43_u2df5"]
+[ext_resource type="Texture2D" uid="uid://m6j67bo4fyxg" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_1.png" id="44_q4mi7"]
+[ext_resource type="Texture2D" uid="uid://c3gqn6l0pxlw8" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_2.png" id="45_vjow6"]
+[ext_resource type="Texture2D" uid="uid://bmxevpqmsiydx" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_3.png" id="46_qhv24"]
+[ext_resource type="Texture2D" uid="uid://bimwmi0wnguj0" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_4.png" id="47_vh1ar"]
+[ext_resource type="Texture2D" uid="uid://dysnwoio88yp" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_5.png" id="48_4lo0b"]
+[ext_resource type="Texture2D" uid="uid://bdafy75rkjk0s" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_6.png" id="49_54b48"]
+[ext_resource type="Texture2D" uid="uid://cnv2ey71uhp0t" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_7.png" id="50_l0tsg"]
+[ext_resource type="Texture2D" uid="uid://bto1c1ir1eiwe" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_8.png" id="51_kvmh5"]
+[ext_resource type="Texture2D" uid="uid://b550qw8uesmh7" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_pickup_wall_9.png" id="52_8nuu5"]
+[ext_resource type="Texture2D" uid="uid://wksillr3bsaq" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_punch_0.png" id="53_ma25a"]
+[ext_resource type="Texture2D" uid="uid://twkdjtra5cwy" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_punch_1.png" id="54_4vxem"]
+[ext_resource type="Texture2D" uid="uid://0ci3oghebd5y" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_punch_2.png" id="55_76l7d"]
+[ext_resource type="Texture2D" uid="uid://bwim71kh6lncg" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_punch_3.png" id="56_wd3do"]
+[ext_resource type="Texture2D" uid="uid://ojqvmfsl41i5" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_punch_4.png" id="57_jj17f"]
+[ext_resource type="Texture2D" uid="uid://bs7ridnh50wcw" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_punch_5.png" id="58_ly04l"]
+[ext_resource type="Texture2D" uid="uid://d4c3o8an6pm1o" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_0.png" id="59_dbsc0"]
+[ext_resource type="Texture2D" uid="uid://dn2fmbngpbty4" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_1.png" id="60_dloh1"]
+[ext_resource type="Texture2D" uid="uid://vbgpow6yjs32" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_2.png" id="61_h6oas"]
+[ext_resource type="Texture2D" uid="uid://bjc72ib7v4dsi" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_3.png" id="62_xsyab"]
+[ext_resource type="Texture2D" uid="uid://wvtui3ovud4e" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_4.png" id="63_wsj4d"]
+[ext_resource type="Texture2D" uid="uid://2aefbstogaly" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_5.png" id="64_ih5oq"]
+[ext_resource type="Texture2D" uid="uid://dw8fgtmxdb1vo" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_6.png" id="65_yn30m"]
+[ext_resource type="Texture2D" uid="uid://ddct6fkx2d0vp" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_run_7.png" id="66_cx0m8"]
+[ext_resource type="Texture2D" uid="uid://nsegx1le5ww" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_0.png" id="67_3situ"]
+[ext_resource type="Texture2D" uid="uid://djw06eymmthiw" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_1.png" id="68_x4egl"]
+[ext_resource type="Texture2D" uid="uid://b1xmyluvxr11s" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_2.png" id="69_yrw0k"]
+[ext_resource type="Texture2D" uid="uid://bgjljc7bbe2tt" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_3.png" id="70_n04sx"]
+[ext_resource type="Texture2D" uid="uid://bkanlnsdu46cy" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_4.png" id="71_1qpmh"]
+[ext_resource type="Texture2D" uid="uid://bw8l2730dxemq" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_5.png" id="72_a8akr"]
+[ext_resource type="Texture2D" uid="uid://dx0g18sm8x3g7" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_talk_6.png" id="73_wqq15"]
+[ext_resource type="Texture2D" uid="uid://brw7bpg5kpu6g" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_00.png" id="74_6de2p"]
+[ext_resource type="Texture2D" uid="uid://d2cjjsyo01rni" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_01.png" id="75_sfhsh"]
+[ext_resource type="Texture2D" uid="uid://c0h1i6lap3mql" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_02.png" id="76_nsflj"]
+[ext_resource type="Texture2D" uid="uid://dnmfdml63qpv1" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_03.png" id="77_37kwv"]
+[ext_resource type="Texture2D" uid="uid://cs8ve34imt637" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_04.png" id="78_lyhwt"]
+[ext_resource type="Texture2D" uid="uid://biekhweg8510t" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_05.png" id="79_aiqd6"]
+[ext_resource type="Texture2D" uid="uid://bha0agr3i7epb" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_06.png" id="80_kw3hg"]
+[ext_resource type="Texture2D" uid="uid://bw1d4kqe34g5" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_07.png" id="81_xn0j2"]
+[ext_resource type="Texture2D" uid="uid://bydst3u1rc280" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_08.png" id="82_tdcwa"]
+[ext_resource type="Texture2D" uid="uid://d01ej7d1bt6h3" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_09.png" id="83_wtnp2"]
+[ext_resource type="Texture2D" uid="uid://lbmrf741nk11" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_10.png" id="84_nikce"]
+[ext_resource type="Texture2D" uid="uid://bfllcb4whnxdu" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_11.png" id="85_mtc5s"]
+[ext_resource type="Texture2D" uid="uid://cii6x3341g547" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_use_12.png" id="86_aab0y"]
+[ext_resource type="Texture2D" uid="uid://mi487kife3ho" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_wait_0.png" id="87_24654"]
+[ext_resource type="Texture2D" uid="uid://crk83prajemhd" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_wait_1.png" id="88_4dg2v"]
+[ext_resource type="Texture2D" uid="uid://dn0wdanx14kxc" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_wait_2.png" id="89_o6i3c"]
+[ext_resource type="Texture2D" uid="uid://xvfgjkqq1akj" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_wait_3.png" id="90_rml15"]
+[ext_resource type="Texture2D" uid="uid://cnhmh5xouu1kf" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_wait_4.png" id="91_oybex"]
+[ext_resource type="Texture2D" uid="uid://chs5e5vlyjlcc" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_wait_5.png" id="92_h6ymw"]
+[ext_resource type="Texture2D" uid="uid://58ia5kk5domm" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_0.png" id="93_bv1uk"]
+[ext_resource type="Texture2D" uid="uid://bwsd7qpj26mc1" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_1.png" id="94_f0n16"]
+[ext_resource type="Texture2D" uid="uid://bvsbfflu8j73x" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_2.png" id="95_u023j"]
+[ext_resource type="Texture2D" uid="uid://esfafvmg0dg6" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_3.png" id="96_uhh6e"]
+[ext_resource type="Texture2D" uid="uid://b2dhcyauw32v1" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_4.png" id="97_a6bys"]
+[ext_resource type="Texture2D" uid="uid://b5rwrwah3d8qe" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_5.png" id="98_br32l"]
+[ext_resource type="Texture2D" uid="uid://dqe23p5bq241e" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_6.png" id="99_ct3rm"]
+[ext_resource type="Texture2D" uid="uid://clype7lu4u0q5" path="res://assets/character_animation_pack/Male/Character 3/Clothes 3/Character3M_3_walk_7.png" id="100_331bf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iaalj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u4naa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_othd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ob6v2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8etxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hyto1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_si6hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0yncl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4jyox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_82mxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4jei")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_epuxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_omr3p")
+}],
+"loop": true,
+"name": &"Damage",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wc0he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k4een")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8mp3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_q5sbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gflvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nysvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2es1u")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_0e3u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_l2a30")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_vgeiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_n36l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_pxvq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6dodw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_67vv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_awtai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ni0la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qewg1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_sq4d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wi62h")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_54p51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_mw0ue")
+}],
+"loop": true,
+"name": &"Land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_dbbl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_3agg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_87n8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_xlsb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_j45e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_dd4li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_88osm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_r1dmi")
+}],
+"loop": false,
+"name": &"PickUpGround",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_u2df5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_q4mi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_vjow6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_qhv24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_vh1ar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_4lo0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_54b48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_l0tsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_kvmh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_8nuu5")
+}],
+"loop": true,
+"name": &"PickUpWall",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_ma25a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_4vxem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_76l7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_wd3do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_jj17f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_ly04l")
+}],
+"loop": true,
+"name": &"Punch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("59_dbsc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_dloh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_h6oas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_xsyab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_wsj4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_ih5oq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_yn30m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_cx0m8")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("67_3situ")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_x4egl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_yrw0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_n04sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_1qpmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_a8akr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_wqq15")
+}],
+"loop": true,
+"name": &"Talk",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_6de2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_sfhsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_nsflj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_37kwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_lyhwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_aiqd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_kw3hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_xn0j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_tdcwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_wtnp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_nikce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_mtc5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_aab0y")
+}],
+"loop": true,
+"name": &"Use",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("87_24654")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_4dg2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_o6i3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_rml15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_oybex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_h6ymw")
+}],
+"loop": true,
+"name": &"Wait",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_bv1uk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_f0n16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_u023j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_uhh6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_a6bys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_br32l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_ct3rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_331bf")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.0
+}]
+
+[node name="NPC_Eski" groups=["Eski"] instance=ExtResource("1_jyf6u")]
+collision_mask = 23
+script = ExtResource("2_othd8")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_iaalj")
+animation = &"PickUpGround"
+autoplay = "Idle"
+
+[node name="Inventory" parent="." index="3"]
+max_items = 2
+
+[node name="Interactable" parent="." index="4"]
+collision_mask = 24
+
+[node name="CollisionShape2D" parent="Interactable" index="0" groups=["Eski"]]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://63ip4mj32hex"]
+
+[ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_xhd7b"]
+[ext_resource type="Script" uid="uid://ctl0hn5nllsjw" path="res://characters/npc_actions/npc_titus.gd" id="2_jtyh1"]
+
+[node name="NPC_Titus" instance=ExtResource("1_xhd7b")]
+collision_mask = 23
+script = ExtResource("2_jtyh1")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"PickUpGround"

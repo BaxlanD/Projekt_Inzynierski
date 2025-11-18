@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmo2geo63cm2"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_chtax"]
+[ext_resource type="Texture2D" uid="uid://bdjkmym0x63qi" path="res://assets/rope.jpg" id="2_umk3e"]
+[ext_resource type="Script" uid="uid://des745tnqltvl" path="res://items/item_rope.gd" id="2_y0wwu"]
+
+[node name="Rope" instance=ExtResource("1_chtax")]
+script = ExtResource("2_y0wwu")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.26, -0.376)
+scale = Vector2(0.0514444, 0.0520889)
+texture = ExtResource("2_umk3e")

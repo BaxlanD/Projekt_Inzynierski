@@ -1,0 +1,2 @@
+extends NPCActions
+class_name NPC_Merchant

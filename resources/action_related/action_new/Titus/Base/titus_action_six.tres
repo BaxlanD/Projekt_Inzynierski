@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=18 format=3 uid="uid://bf5t4idc5l1r4"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_qcbbi"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_vyf5c"]
+[ext_resource type="Script" uid="uid://de3to7sjiy5rq" path="res://resources/action_related/action_new/change_place_state.gd" id="3_whnd1"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="4_g534c"]
+
+[sub_resource type="Resource" id="Resource_sc8ab"]
+script = ExtResource("2_vyf5c")
+animation = "Death"
+duration = 8.0
+where = Vector2(425, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_wgia5"]
+script = ExtResource("2_vyf5c")
+animation = "Punch"
+duration = 6.0
+where = Vector2(500, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_viarn"]
+script = ExtResource("3_whnd1")
+place_name = "Wall1"
+state_name = "curr_state"
+target_value_name = "damaged"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[sub_resource type="Resource" id="Resource_gt2kh"]
+script = ExtResource("2_vyf5c")
+animation = "Punch"
+duration = 6.0
+where = Vector2(625, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_kxuby"]
+script = ExtResource("3_whnd1")
+place_name = "Wall2"
+state_name = "curr_state"
+target_value_name = "damaged"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[sub_resource type="Resource" id="Resource_rb4oa"]
+script = ExtResource("2_vyf5c")
+animation = "Punch"
+duration = 6.0
+where = Vector2(800, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_mndei"]
+script = ExtResource("3_whnd1")
+place_name = "Wall3"
+state_name = "curr_state"
+target_value_name = "damaged"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[sub_resource type="Resource" id="Resource_icfh8"]
+script = ExtResource("2_vyf5c")
+animation = "Punch"
+duration = 5.0
+where = Vector2(750, -450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_3t6lc"]
+script = ExtResource("3_whnd1")
+place_name = "Wall4"
+state_name = "curr_state"
+target_value_name = "damaged"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[sub_resource type="Resource" id="Resource_ej4mf"]
+script = ExtResource("2_vyf5c")
+animation = "Punch"
+duration = 5.0
+where = Vector2(625, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_w6leb"]
+script = ExtResource("3_whnd1")
+place_name = "Wall2"
+state_name = "curr_state"
+target_value_name = "destroyed"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[sub_resource type="Resource" id="Resource_piqm3"]
+script = ExtResource("2_vyf5c")
+animation = "Punch"
+duration = 10.0
+where = Vector2(800, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_2senm"]
+script = ExtResource("3_whnd1")
+place_name = "Wall3"
+state_name = "curr_state"
+target_value_name = "destroyed"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[resource]
+script = ExtResource("4_g534c")
+_fleeting = false
+_actions = Array[ExtResource("1_qcbbi")]([SubResource("Resource_sc8ab"), SubResource("Resource_wgia5"), SubResource("Resource_viarn"), SubResource("Resource_gt2kh"), SubResource("Resource_kxuby"), SubResource("Resource_rb4oa"), SubResource("Resource_mndei"), SubResource("Resource_icfh8"), SubResource("Resource_3t6lc"), SubResource("Resource_ej4mf"), SubResource("Resource_w6leb"), SubResource("Resource_piqm3"), SubResource("Resource_2senm")])
+sequence_name = "Titus_action_six"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

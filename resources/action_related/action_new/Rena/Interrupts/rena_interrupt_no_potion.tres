@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=14 format=3 uid="uid://fr8rt5du4jim"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_0gbfq"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="2_7ldab"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_gujn6"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_cv8xm"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="4_5qjyf"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="5_1u30c"]
+[ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="6_8pcvh"]
+
+[sub_resource type="Resource" id="Resource_j2j65"]
+script = ExtResource("2_7ldab")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 6.0
+target_name = "Npc_1_Random"
+where = Vector2(850, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_2duf8"]
+script = ExtResource("3_cv8xm")
+where = Vector2(700, 0)
+speed_multiplier = 1.3
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_tj00q"]
+script = ExtResource("4_5qjyf")
+target_npc_name = "Npc_1_Random"
+action_resource = SubResource("Resource_2duf8")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_ackty"]
+script = ExtResource("5_1u30c")
+animation = "Punch"
+duration = 0.5
+where = Vector2(850, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_8xxl8"]
+script = ExtResource("5_1u30c")
+animation = "PickUpWall"
+duration = 200.0
+where = Vector2(150, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_itq4g"]
+script = ExtResource("6_8pcvh")
+mode = 1
+skip_count = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dybysqari256p"
+
+[resource]
+script = ExtResource("2_gujn6")
+_fleeting = true
+_actions = Array[ExtResource("1_0gbfq")]([SubResource("Resource_j2j65"), SubResource("Resource_tj00q"), SubResource("Resource_ackty"), SubResource("Resource_8xxl8"), SubResource("Resource_itq4g")])
+sequence_name = "Rena_interrupt_no_potion"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

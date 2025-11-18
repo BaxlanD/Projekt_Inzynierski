@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=18 format=3 uid="uid://c1011a7t33okd"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_fmtcy"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_aqwvf"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="2_fhq1n"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="3_847ok"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_rmmso"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="5_einqp"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="6_b53x5"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="7_h8rp6"]
+
+[sub_resource type="Resource" id="Resource_hjkk1"]
+script = ExtResource("2_fhq1n")
+target_npc_name = "NPC_Titus"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_6yply"]
+script = ExtResource("7_h8rp6")
+retain_name = "titus_sober"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_bxfqc"]
+script = ExtResource("3_847ok")
+anim_self = "Talk"
+anim_duration = 5.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(-550, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_xfbua"]
+script = ExtResource("4_rmmso")
+animation = "Use"
+duration = 3.0
+where = Vector2(-525, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_4qyfe"]
+script = ExtResource("4_rmmso")
+animation = "PickUpWall"
+duration = 2.0
+where = Vector2(-450, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_4air5"]
+script = ExtResource("4_rmmso")
+animation = "PickUpWall"
+duration = 2.0
+where = Vector2(-380, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_0lqy8"]
+script = ExtResource("4_rmmso")
+animation = "PickUpWall"
+duration = 2.0
+where = Vector2(-750, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_4ipw4"]
+script = ExtResource("5_einqp")
+item_scene_path = "res://items/item_eski_letter.tscn"
+target_npc_name = "NPC_Titus"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_l4wxm"]
+script = ExtResource("6_b53x5")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(-750, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[resource]
+script = ExtResource("2_aqwvf")
+_fleeting = false
+_actions = Array[ExtResource("1_fmtcy")]([SubResource("Resource_hjkk1"), SubResource("Resource_6yply"), SubResource("Resource_bxfqc"), SubResource("Resource_xfbua"), SubResource("Resource_4qyfe"), SubResource("Resource_4air5"), SubResource("Resource_0lqy8"), SubResource("Resource_4ipw4"), SubResource("Resource_l4wxm")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

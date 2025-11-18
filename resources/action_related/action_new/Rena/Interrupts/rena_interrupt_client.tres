@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=11 format=3 uid="uid://cicooo6qk8t4o"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_iqbiw"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_6ash2"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_8fhk3"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_rcwxl"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="4_6a20n"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="5_loc84"]
+
+[sub_resource type="Resource" id="Resource_fyvu0"]
+script = ExtResource("2_6ash2")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_0jfem"]
+script = ExtResource("3_rcwxl")
+animation = "PickUpWall"
+duration = 1.0
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_wewhj"]
+script = ExtResource("4_6a20n")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 3.0
+target_name = "Npc_1_Random2"
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_stme0"]
+script = ExtResource("5_loc84")
+retain_name = "rena_reconciled"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[resource]
+script = ExtResource("2_8fhk3")
+_fleeting = false
+_actions = Array[ExtResource("1_iqbiw")]([SubResource("Resource_fyvu0"), SubResource("Resource_0jfem"), SubResource("Resource_wewhj"), SubResource("Resource_stme0")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

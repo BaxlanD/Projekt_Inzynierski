@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=8 format=3 uid="uid://cf5l7sdqyanqb"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_pvbwa"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_qphe5"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_uo7rx"]
+[ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="3_0vnr1"]
+
+[sub_resource type="Resource" id="Resource_ytqy6"]
+script = ExtResource("2_uo7rx")
+animation = "PickUpWall"
+duration = 10.0
+where = Vector2(475, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_5754m"]
+script = ExtResource("2_uo7rx")
+animation = "Wait"
+duration = 3.0
+where = Vector2(400, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_5hmo3"]
+script = ExtResource("3_0vnr1")
+mode = 1
+skip_count = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dybysqari256p"
+
+[resource]
+script = ExtResource("2_qphe5")
+_fleeting = false
+_actions = Array[ExtResource("1_pvbwa")]([SubResource("Resource_ytqy6"), SubResource("Resource_5754m"), SubResource("Resource_5hmo3")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

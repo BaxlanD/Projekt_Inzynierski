@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkocm0gaksyrl"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_csxut"]
+[ext_resource type="Script" uid="uid://byevyht74lrun" path="res://items/item_broom.gd" id="2_1v72w"]
+[ext_resource type="Texture2D" uid="uid://dhd8awfilsght" path="res://assets/broom.jpg" id="3_2yp7c"]
+
+[node name="Broom" instance=ExtResource("1_csxut")]
+script = ExtResource("2_1v72w")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.005, -0.112)
+scale = Vector2(0.00703516, 0.00694375)
+texture = ExtResource("3_2yp7c")

@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=9 format=3 uid="uid://bnjb2g424a4sh"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_lsc4a"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_0b0tc"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="3_0b0tc"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="3_v5r33"]
+
+[sub_resource type="Resource" id="Resource_0yrl1"]
+script = ExtResource("2_0b0tc")
+animation = "Talk"
+duration = 3.0
+where = Vector2(650, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_aln1d"]
+script = ExtResource("2_0b0tc")
+animation = "Punch"
+duration = 0.5
+where = Vector2(650, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_tw5xt"]
+script = ExtResource("2_0b0tc")
+animation = "Talk"
+duration = 3.0
+where = Vector2(650, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_v5r33"]
+script = ExtResource("3_0b0tc")
+retain_name = "titus_determined"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[resource]
+script = ExtResource("3_v5r33")
+_fleeting = false
+_actions = Array[ExtResource("1_lsc4a")]([SubResource("Resource_0yrl1"), SubResource("Resource_aln1d"), SubResource("Resource_tw5xt"), SubResource("Resource_v5r33")])
+sequence_name = "Comfort"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

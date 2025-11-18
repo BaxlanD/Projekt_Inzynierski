@@ -2,6 +2,7 @@ extends Action
 class_name GoTo
 
 @export var where: Vector2
+@export var speed_multiplier: float = 1.0
 
 func create(character_: NPCActions, where_: Vector2) -> GoTo:
 	character = character_
@@ -30,6 +31,7 @@ func _set_sprite_flip() -> void:
 		character.animated_sprite_2d.flip_h = false
 	if facing < 0:
 		character.animated_sprite_2d.flip_h = true
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	character.animated_sprite_2d.play("Idle")

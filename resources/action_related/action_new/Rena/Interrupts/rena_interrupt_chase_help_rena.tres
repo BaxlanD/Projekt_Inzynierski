@@ -1,0 +1,105 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=20 format=3 uid="uid://dbqrnhi0liniq"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_txae7"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="2_mwerl"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_twb8r"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="3_vqhvw"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_a4tqe"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="5_pwmbm"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="6_rxlw8"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="7_6m2ei"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="8_a76yt"]
+
+[sub_resource type="Resource" id="Resource_pxgsm"]
+script = ExtResource("2_mwerl")
+where = Vector2(-200, 50)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_2bq2w"]
+script = ExtResource("3_vqhvw")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_pxgsm")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_0xr74"]
+script = ExtResource("4_a4tqe")
+animation = "Talk"
+duration = 3.0
+where = Vector2(-170, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_gn6xe"]
+script = ExtResource("5_pwmbm")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(-200, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_smb4j"]
+script = ExtResource("3_vqhvw")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_gn6xe")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_i6x5w"]
+script = ExtResource("2_mwerl")
+where = Vector2(50, 150)
+speed_multiplier = 1.5
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_cabwe"]
+script = ExtResource("3_vqhvw")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_i6x5w")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_qqjnc"]
+script = ExtResource("6_rxlw8")
+item = "Translated Notes"
+search_duration = 1.0
+where = Vector2(-200, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_ygw45"]
+script = ExtResource("7_6m2ei")
+retain_name = "rena_trust"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_qyvdv"]
+script = ExtResource("8_a76yt")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(-200, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[resource]
+script = ExtResource("2_twb8r")
+_fleeting = false
+_actions = Array[ExtResource("1_txae7")]([SubResource("Resource_2bq2w"), SubResource("Resource_0xr74"), SubResource("Resource_smb4j"), SubResource("Resource_cabwe"), SubResource("Resource_qqjnc"), SubResource("Resource_ygw45"), SubResource("Resource_qyvdv")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"
