@@ -12,7 +12,6 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var held_item_icon: Sprite2D = $HeldItemIcon
 @onready var inventory_ui: InventoryUI = $"../UI/InventoryUI"
 
 ## Private variables

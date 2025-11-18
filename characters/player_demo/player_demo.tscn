@@ -34,10 +34,6 @@ collision_mask = 7
 
 [node name="Inventory" parent="." instance=ExtResource("3_wak4a")]
 
-[node name="HeldItemIcon" type="Sprite2D" parent="."]
-position = Vector2(0, -40)
-scale = Vector2(0.05, 0.05)
-
 [node name="InteractingComp" parent="." instance=ExtResource("4_wak4a")]
 
 [node name="SpecialInventory" type="Node" parent="."]
