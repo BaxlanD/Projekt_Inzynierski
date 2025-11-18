@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6qpsgydk1hbm" path="res://levels/level_demo/level_demo.gd" id="1_tjlof"]
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="2_ope82"]
-[ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_layer/navigation_layer.gd" id="3_up1br"]
+[ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_related/navigation_layer/navigation_layer.gd" id="3_up1br"]
 [ext_resource type="Resource" uid="uid://c55ttup2slom" path="res://resources/navigation_graph/nav_level_demo.tres" id="4_l10i5"]
 [ext_resource type="Texture2D" uid="uid://b5enl2sg10sgh" path="res://assets/house.jpg" id="5_lhevo"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="5_tjlof"]

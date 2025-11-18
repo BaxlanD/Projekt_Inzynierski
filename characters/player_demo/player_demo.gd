@@ -13,6 +13,8 @@ class_name Player
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var inventory_ui: InventoryUI = $"../UI/InventoryUI"
+@onready var anchored_agent: AnchoredAgent = $AnchoredAgent
+
 
 ## Private variables
 const _SPEED = 180.0
@@ -24,6 +26,9 @@ var _exclusive_action: bool = false
 
 
 ## Godot method overrides
+
+func _ready() -> void:
+	anchored_agent.initialize(self)
 
 	
 func _physics_process(delta: float) -> void:
@@ -39,11 +44,18 @@ func _physics_process(delta: float) -> void:
 		_handle_animations()
 		return
 	
-	_handle_ramps_collision()
-	_handle_alt_platfs_collision()
-	_handle_movement(delta)
-	_handle_animations()
-
+	#_handle_ramps_collision()
+	#_handle_alt_platfs_collision()
+	#_handle_movement(delta)
+	#_handle_animations()
+	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if direction:
+		anchored_agent.move_via_input(self, delta, direction)
+		animated_sprite_2d.play("Run")
+	else:
+		animated_sprite_2d.play("Idle")
+	_set_sprite_flip(direction.x)
+	
 
 ## Public methods
 func execute_exclusive_action(action: Callable) -> void:
@@ -121,6 +133,11 @@ func _handle_landing() -> void:
 	animated_sprite_2d.play("Land")
 	await animated_sprite_2d.animation_finished
 
+func _set_sprite_flip(facing: float) -> void:
+	if facing > 0:
+		animated_sprite_2d.flip_h = false
+	if facing < 0:
+		animated_sprite_2d.flip_h = true
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	animated_sprite_2d.play("Idle")

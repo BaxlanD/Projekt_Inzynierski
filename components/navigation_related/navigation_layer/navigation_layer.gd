@@ -8,6 +8,7 @@ class_name NavigationLayer
 @export var debug_show_graph: bool = false
 
 @export var _logging: bool = true
+@export var projection_draw: DebugDraw
 
 var astar: AStar2D = AStar2D.new()
 var ray_cast_2d: RayCast2D = RayCast2D.new()
@@ -60,11 +61,11 @@ func _draw() -> void:
 			for i in _recent_path.size():
 				draw_circle(_recent_path[i], 9, Color.RED)
 				if i != 0:
-					draw_line(_recent_path[i-1], _recent_path[i], Color.CORAL, 3)
-	
+					draw_line(_recent_path[i-1], _recent_path[i], Color.CORAL, 5)
 
 
 ## Request path in form of Packed Array of points
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 func get_nav_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 	var path: PackedVector2Array = []
 	
@@ -78,6 +79,7 @@ func get_nav_path(from: Vector2, to: Vector2) -> PackedVector2Array:
 	path.append(end)
 	return path
 
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 func get_closest_point_with_same_elevation(from: Vector2) -> int:
 	var closest_id: int = -1
 	for id in nav_graph.points.size():
@@ -88,7 +90,7 @@ func get_closest_point_with_same_elevation(from: Vector2) -> int:
 				closest_id = id
 	return closest_id
 
-
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 func get_best_point_with_same_elevation(from: Vector2, target: Vector2) -> int:
 	var best_id: int = -1
 	var best_score: float = 10000.0
@@ -104,7 +106,7 @@ func get_best_point_with_same_elevation(from: Vector2, target: Vector2) -> int:
 				
 	return best_id
 
-
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 func get_good_nav_path(start: Vector2, target: Vector2) -> PackedVector2Array:
 	_log("=====================")
 	## Move both Vector2s to ground level (so they are reachable)
@@ -201,6 +203,7 @@ func get_good_nav_path(start: Vector2, target: Vector2) -> PackedVector2Array:
 	return path
 
 ## NOTE: Argument origin should be at floor level to accurately search graph
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 func find_reachable(origin: Vector2) -> Array[int]:
 	var reachable_ids: Array[int] = []
 	_log("-----")
@@ -256,7 +259,7 @@ func find_reachable(origin: Vector2) -> Array[int]:
 		
 		return reachable_ids
 
-
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 func sort_reachable(reachable: Array[int], origin: Vector2) -> Array[int]:
 	var vec1: Vector2 = astar.get_point_position(reachable[0])
 	var vec2: Vector2 = astar.get_point_position(reachable[1])
@@ -270,7 +273,8 @@ func sort_reachable(reachable: Array[int], origin: Vector2) -> Array[int]:
 func _log(content: String) -> void:
 	if _logging:
 		print(content)
-
+		
+## @deprecated: Legacy navigation function - use [NavigationLayer.generate_path]
 ## Dataclass to store points for quicker lookup time
 class IDtoPOINTmapping:
 	var ID: int
@@ -279,4 +283,60 @@ class IDtoPOINTmapping:
 	func _init(id: int, pos: Vector2) -> void:
 		ID = id
 		POS = pos
-		
+
+func project_on_edges(point: Vector2) -> Vector2i:
+	var closest_distance: float = INF
+	var closest_edge: Edge = null
+	var closest_id: Vector2i
+	var hits: Array[Vector2]
+	for edge in nav_graph.edges:
+		var e: Edge = Edge.new(nav_graph.points[edge.x], nav_graph.points[edge.y])
+		var t: float = e.project_point(point)
+		if 0 < t and t < 1:
+			var hit_point: Vector2 = e.a + (e.b - e.a) * t
+			if hit_point.y >= point.y:
+				if hit_point.distance_to(point) < closest_distance:
+					closest_distance = hit_point.distance_to(point)
+					closest_edge = e
+					closest_id = edge
+				hits.push_back(hit_point)
+	
+	hits.sort_custom(func(a: Vector2, b: Vector2) -> bool: return a.distance_to(point) < b.distance_to(point))
+	projection_draw.add_line(Edge.new(point, hits[0]))
+	projection_draw.add_line(closest_edge)
+	projection_draw.add_point(hits[0])
+	return closest_id
+
+func generate_path(from: Vector2, to: Vector2) -> PackedVector2Array:
+	var start_edge: Vector2i = project_on_edges(from)
+	var end_edge: Vector2i = project_on_edges(to)
+	projection_draw.draw()
+	
+	## I SHOULDN'T RECALCULATE THE IMPACT POINT AGAIN
+	## BUT IT'S WHATEVER FOR NOW
+	var hit_point: Vector2 = nav_graph.points[end_edge[0]] + (nav_graph.points[end_edge[1]] - nav_graph.points[end_edge[0]]) * Edge.new(nav_graph.points[end_edge[0]], nav_graph.points[end_edge[1]]).project_point(to)
+	
+	if start_edge == end_edge:
+		return PackedVector2Array([hit_point])
+	
+	var path: PackedVector2Array = astar.get_point_path(start_edge[0], end_edge[0])
+	
+	var front: int = path.find(nav_graph.points[start_edge[1]])
+	if front != -1:
+		path = path.slice(front)
+	
+	var back: int = path.find(nav_graph.points[end_edge[1]])
+	if back != -1:
+		path = path.slice(0, back+1)
+	
+	path.append(hit_point)
+	
+	_recent_path = path
+	queue_redraw()
+	return path
+
+func get_pos(point_id: int) -> Vector2:
+	return astar.get_point_position(point_id)
+
+func get_len(id1: int, id2: int) -> float:
+	return (astar.get_point_position(id1) - astar.get_point_position(id2)).length()
