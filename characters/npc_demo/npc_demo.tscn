@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dajsjvbbbj0qy"]
+[gd_scene load_steps=7 format=3 uid="uid://dajsjvbbbj0qy"]
 
 [ext_resource type="Script" uid="uid://bn8of6cfpkvko" path="res://characters/npc_demo/npc_demo.gd" id="1_uxi53"]
 [ext_resource type="SpriteFrames" uid="uid://cw87epsystrts" path="res://assets/character_animation_pack/sprite_frames/f2_c3_character_spriteframes.tres" id="2_681df"]
+[ext_resource type="PackedScene" uid="uid://co2ccyfvt2t6j" path="res://resources/inventory/inventory.tscn" id="3_hox5r"]
+[ext_resource type="PackedScene" uid="uid://cqaaih8cao801" path="res://resources/interactions/interactable.tscn" id="3_i07oc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfgjw"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hox5r"]
 radius = 8.0
 height = 32.0
 
@@ -28,5 +34,15 @@ debug_color = Color(0.0843397, 0.689209, 0, 0.42)
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
 collision_mask = 7
+
+[node name="Inventory" parent="." instance=ExtResource("3_hox5r")]
+max_items = 1
+
+[node name="Interactable" parent="." instance=ExtResource("3_i07oc")]
+interact_name = "Comfort"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_hox5r")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

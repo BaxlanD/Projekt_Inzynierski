@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://xanmn6qtlrg2"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_oy501"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_jhkvq"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="3_8omo6"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="4_4jnwt"]
+
+[sub_resource type="Resource" id="Resource_k2k3x"]
+script = ExtResource("2_jhkvq")
+animation = "Punch"
+duration = 0.5
+where = Vector2(500, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_7mxqo"]
+script = ExtResource("2_jhkvq")
+animation = "Talk"
+duration = 4.0
+where = Vector2(-550, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_sge06"]
+script = ExtResource("3_8omo6")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(-550, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_385yh"]
+script = ExtResource("2_jhkvq")
+animation = "PickUpWall"
+duration = 5.0
+where = Vector2(-550, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_p2cs5"]
+script = ExtResource("2_jhkvq")
+animation = "Punch"
+duration = 0.5
+where = Vector2(-620, 70)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("4_4jnwt")
+_fleeting = true
+_actions = Array[ExtResource("1_oy501")]([SubResource("Resource_k2k3x"), SubResource("Resource_7mxqo"), SubResource("Resource_sge06"), SubResource("Resource_385yh"), SubResource("Resource_p2cs5")])
+sequence_name = "Eski_action_seventeen"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

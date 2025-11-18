@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=7 format=3 uid="uid://812b3bsfroyv"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_ubqmc"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_38pjs"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_n7sfr"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="3_t5ym1"]
+
+[sub_resource type="Resource" id="Resource_dqkur"]
+script = ExtResource("2_n7sfr")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(0, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_yiyjk"]
+script = ExtResource("3_t5ym1")
+retain_name = "rena_convinced"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[resource]
+script = ExtResource("2_38pjs")
+_fleeting = false
+_actions = Array[ExtResource("1_ubqmc")]([SubResource("Resource_dqkur"), SubResource("Resource_yiyjk")])
+sequence_name = "Rena_interrupt_help_tint"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

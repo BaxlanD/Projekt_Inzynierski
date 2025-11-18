@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1lush4rd67w6"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_slibh"]
+[ext_resource type="Texture2D" uid="uid://btsk01pb6ofek" path="res://assets/mozaic.jpg" id="2_0hvef"]
+[ext_resource type="Script" uid="uid://ddawag3h23gvy" path="res://items/item_mozaic.gd" id="2_f02l7"]
+
+[node name="Mozaic" instance=ExtResource("1_slibh")]
+script = ExtResource("2_f02l7")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-0.999985, 0)
+scale = Vector2(0.01924, 0.019834)
+texture = ExtResource("2_0hvef")

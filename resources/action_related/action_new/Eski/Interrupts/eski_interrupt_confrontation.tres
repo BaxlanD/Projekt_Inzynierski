@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=16 format=3 uid="uid://bb5qmbswn85ow"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_bwjuj"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_1yis4"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="2_lv6xf"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="2_yp8un"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_oco73"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="3_ysae8"]
+[ext_resource type="Resource" uid="uid://dw0vbpy32ussn" path="res://resources/action_related/action_new/Titus/Interrupts/titus_interrupt_confrontation1.tres" id="4_yp8un"]
+[ext_resource type="Script" uid="uid://boncqoilhguea" path="res://resources/action_related/action_new/push_sequence.gd" id="5_ysae8"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="6_pr7ti"]
+
+[sub_resource type="Resource" id="Resource_pr7ti"]
+script = ExtResource("2_yp8un")
+target_npc_name = "NPC_Eski"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_8jmsj"]
+script = ExtResource("3_ysae8")
+item = "Mozaic"
+search_duration = 1.0
+where = Vector2(-50, 450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_y3jro"]
+script = ExtResource("2_lv6xf")
+retain_name = "eski_romance"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_tvi4c"]
+script = ExtResource("3_oco73")
+where = Vector2(400, -300)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_huqxq"]
+script = ExtResource("5_ysae8")
+_target_name = "NPC_Titus"
+_sequence = ExtResource("4_yp8un")
+_mode = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://boncqoilhguea"
+
+[sub_resource type="Resource" id="Resource_l78rm"]
+script = ExtResource("6_pr7ti")
+animation = "Wait"
+duration = 40.0
+where = Vector2(400, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("2_1yis4")
+_fleeting = true
+_actions = Array[ExtResource("1_bwjuj")]([SubResource("Resource_pr7ti"), SubResource("Resource_8jmsj"), SubResource("Resource_y3jro"), SubResource("Resource_tvi4c"), SubResource("Resource_huqxq"), SubResource("Resource_l78rm")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

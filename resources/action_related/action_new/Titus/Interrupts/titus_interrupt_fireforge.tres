@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=9 format=3 uid="uid://bkkb17tntxn5k"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_b0a5g"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_1kocr"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_c8utf"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="3_m2j1j"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_lyogh"]
+
+[sub_resource type="Resource" id="Resource_t1hl6"]
+script = ExtResource("2_1kocr")
+animation = "PickUpWall"
+duration = 3.0
+where = Vector2(400, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_ymexh"]
+script = ExtResource("3_m2j1j")
+item_scene_path = "res://items/item_nails.tscn"
+target_npc_name = "NPC_Titus"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_5eeyg"]
+script = ExtResource("4_lyogh")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(150, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[resource]
+script = ExtResource("2_c8utf")
+_fleeting = false
+_actions = Array[ExtResource("1_b0a5g")]([SubResource("Resource_t1hl6"), SubResource("Resource_ymexh"), SubResource("Resource_5eeyg"), null, null])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

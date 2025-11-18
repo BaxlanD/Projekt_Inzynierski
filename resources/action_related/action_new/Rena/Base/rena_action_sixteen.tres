@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=8 format=3 uid="uid://b5gitotrg1fpu"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_ackbb"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_d6lwv"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_bcyij"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="4_1d8vw"]
+
+[sub_resource type="Resource" id="Resource_fpdov"]
+script = ExtResource("2_d6lwv")
+animation = "Punch"
+duration = 1.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_fxtei"]
+script = ExtResource("2_d6lwv")
+animation = "Use"
+duration = 3.0
+where = Vector2(1000, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_ieff6"]
+script = ExtResource("3_bcyij")
+where = Vector2(150, 150)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[resource]
+script = ExtResource("4_1d8vw")
+_fleeting = false
+_actions = Array[ExtResource("1_ackbb")]([SubResource("Resource_fpdov"), SubResource("Resource_fxtei"), SubResource("Resource_ieff6")])
+sequence_name = "Rena_action_sixteen"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

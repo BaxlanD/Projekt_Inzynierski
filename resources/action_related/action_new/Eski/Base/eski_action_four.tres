@@ -1,0 +1,102 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=18 format=3 uid="uid://crf1soxj7p5af"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_vh8mu"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="2_p62u2"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="3_s1gcl"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="4_5hsim"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_p62u2"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="5_wbbe6"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="6_00uh4"]
+
+[sub_resource type="Resource" id="Resource_2xu01"]
+script = ExtResource("2_p62u2")
+item = "Hammer_Old"
+search_duration = 1.0
+where = Vector2(895, -80)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_5ebke"]
+script = ExtResource("3_s1gcl")
+target_npc_name = "NPC_Eski"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_s1gcl"]
+script = ExtResource("4_p62u2")
+animation = "Climb"
+duration = 1.5
+where = Vector2(895, -80)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_mt4mw"]
+script = ExtResource("4_5hsim")
+item_scene_path = "res://items/item_hammer_new.tscn"
+target_npc_name = "NPC_Eski"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_sd0f3"]
+script = ExtResource("5_wbbe6")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(895, -80)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_05apj"]
+script = ExtResource("2_p62u2")
+item = "Hammer_Old"
+search_duration = 1.0
+where = Vector2(810, -80)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_3crwe"]
+script = ExtResource("3_s1gcl")
+target_npc_name = "NPC_Eski"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_5hsim"]
+script = ExtResource("4_p62u2")
+animation = "Climb"
+duration = 1.5
+where = Vector2(810, -80)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_11846"]
+script = ExtResource("4_5hsim")
+item_scene_path = "res://items/item_hammer_new.tscn"
+target_npc_name = "NPC_Eski"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_xdshq"]
+script = ExtResource("5_wbbe6")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(810, -80)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[resource]
+script = ExtResource("6_00uh4")
+_fleeting = true
+_actions = Array[ExtResource("1_vh8mu")]([SubResource("Resource_2xu01"), SubResource("Resource_5ebke"), SubResource("Resource_s1gcl"), SubResource("Resource_mt4mw"), SubResource("Resource_sd0f3"), SubResource("Resource_05apj"), SubResource("Resource_3crwe"), SubResource("Resource_5hsim"), SubResource("Resource_11846"), SubResource("Resource_xdshq")])
+sequence_name = "Eski_action_four"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

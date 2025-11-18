@@ -1,0 +1,127 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=22 format=3 uid="uid://bcpj6yjlengoq"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_0togu"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_3x4m3"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_pwa7n"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_bhh6i"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="4_talo8"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="5_7if10"]
+[ext_resource type="Resource" uid="uid://gvb6q3ko51wn" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_meropi_talk.tres" id="6_7if10"]
+[ext_resource type="Resource" uid="uid://bbdxy67akavt3" path="res://resources/action_related/action_new/story_retains/rena_apron.tres" id="7_c3qf4"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="8_ho6us"]
+
+[sub_resource type="Resource" id="Resource_c3qf4"]
+script = ExtResource("2_3x4m3")
+animation = "Wait"
+duration = 3.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_ho6us"]
+script = ExtResource("3_bhh6i")
+where = Vector2(1230, 500)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_nva6n"]
+script = ExtResource("4_talo8")
+target_npc_name = "NPC_Meropi"
+action_resource = SubResource("Resource_ho6us")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_crev8"]
+script = ExtResource("2_3x4m3")
+animation = "PickUpWall"
+duration = 0.3
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_qqo8n"]
+script = ExtResource("5_7if10")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "NPC_Meropi"
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_ub6ou"]
+script = ExtResource("2_3x4m3")
+animation = "Use"
+duration = 1.0
+where = Vector2(1120, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_ld8y1"]
+script = ExtResource("4_talo8")
+target_npc_name = "NPC_Meropi"
+action_resource = SubResource("Resource_ub6ou")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_iv8cv"]
+script = ExtResource("2_3x4m3")
+animation = "Use"
+duration = 2.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_fj45u"]
+script = ExtResource("5_7if10")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 8.0
+target_name = "NPC_Meropi"
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_ode23"]
+script = ExtResource("8_ho6us")
+retain = ExtResource("7_c3qf4")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("6_7if10")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_2moh8"]
+script = ExtResource("3_bhh6i")
+where = Vector2(1100, 400)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_7irka"]
+script = ExtResource("4_talo8")
+target_npc_name = "NPC_Meropi"
+action_resource = SubResource("Resource_2moh8")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[resource]
+script = ExtResource("2_pwa7n")
+_fleeting = false
+_actions = Array[ExtResource("1_0togu")]([SubResource("Resource_c3qf4"), SubResource("Resource_nva6n"), SubResource("Resource_crev8"), SubResource("Resource_qqo8n"), SubResource("Resource_ld8y1"), SubResource("Resource_iv8cv"), SubResource("Resource_fj45u"), SubResource("Resource_ode23"), SubResource("Resource_7irka")])
+sequence_name = "Rena_action_twelve"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

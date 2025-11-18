@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdyag5c4d3o6d"]
+
+[ext_resource type="Script" uid="uid://1gsbsgr4lsad" path="res://Places/wall.gd" id="1_gfbfi"]
+[ext_resource type="Texture2D" uid="uid://t0byc6sfbjof" path="res://assets/wall.jpg" id="1_qmcg5"]
+[ext_resource type="Script" uid="uid://dpmxdm3j0la1f" path="res://resources/interactions/interactable.gd" id="2_gfbfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmcg5"]
+size = Vector2(51, 52)
+
+[node name="Wall" type="Node2D" groups=["Places"]]
+script = ExtResource("1_gfbfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.02, 0.027)
+texture = ExtResource("1_qmcg5")
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("2_gfbfi")
+metadata/_custom_type_script = "uid://dpmxdm3j0la1f"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_qmcg5")

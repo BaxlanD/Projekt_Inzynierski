@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d01cb41htsbdf"]
+
+[ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_451vr"]
+[ext_resource type="Script" uid="uid://dhitivl173n6h" path="res://characters/npc_actions/seq/npc_lucas.gd" id="2_e1ufs"]
+
+[node name="NPC_Lucas" instance=ExtResource("1_451vr")]
+script = ExtResource("2_e1ufs")

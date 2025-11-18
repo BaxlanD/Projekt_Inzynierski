@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=6 format=3 uid="uid://13dxf677i2i"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_v7ogq"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="2_1metc"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_qe7dq"]
+
+[sub_resource type="Resource" id="Resource_5nc7y"]
+script = ExtResource("2_1metc")
+retain_name = "story_done"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_xxr00"]
+script = ExtResource("2_1metc")
+retain_name = "titus_convinced"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[resource]
+script = ExtResource("2_qe7dq")
+_fleeting = false
+_actions = Array[ExtResource("1_v7ogq")]([SubResource("Resource_5nc7y"), SubResource("Resource_xxr00")])
+sequence_name = "Titus_ending6"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

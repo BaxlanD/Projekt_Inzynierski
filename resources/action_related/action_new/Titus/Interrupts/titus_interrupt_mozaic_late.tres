@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://xv67cy87r1w2"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_f0v2s"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_cafx0"]
+[ext_resource type="Resource" uid="uid://baqb83ctmhbs7" path="res://resources/action_related/action_new/Titus/Interrupts/titus_assert_determined.tres" id="3_grfcn"]
+[ext_resource type="Resource" uid="uid://cfevru21036xs" path="res://resources/action_related/action_new/story_retains/titus_sober.tres" id="4_b56lf"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="5_i3rc1"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="6_5p22e"]
+
+[sub_resource type="Resource" id="Resource_84px4"]
+script = ExtResource("2_cafx0")
+animation = "PickUpWall"
+duration = 1.0
+where = Vector2(350, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_c5p8d"]
+script = ExtResource("2_cafx0")
+animation = "Talk"
+duration = 10.0
+where = Vector2(350, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_4o5ej"]
+script = ExtResource("5_i3rc1")
+retain = ExtResource("4_b56lf")
+operation = 2
+value = 2
+mode = 0
+fallback_sequence = ExtResource("3_grfcn")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[resource]
+script = ExtResource("6_5p22e")
+_fleeting = false
+_actions = Array[ExtResource("1_f0v2s")]([SubResource("Resource_84px4"), SubResource("Resource_c5p8d"), SubResource("Resource_4o5ej")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

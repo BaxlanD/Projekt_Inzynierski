@@ -1,0 +1,131 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=24 format=3 uid="uid://d14wvf086keul"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_5gukm"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_h4qy8"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="2_vf0o0"]
+[ext_resource type="Resource" uid="uid://xk0aswtpal2r" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_wait.tres" id="2_xxqxm"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_7tplp"]
+[ext_resource type="Resource" uid="uid://b1g7jx26gflpv" path="res://resources/action_related/action_new/story_retains/rena_ingredients.tres" id="3_qo2ss"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="4_c10e5"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_yh212"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="5_7tplp"]
+[ext_resource type="Resource" uid="uid://dskikpqe6cla1" path="res://resources/action_related/action_new/Rena/Base/tint_sleep.tres" id="6_lq7yf"]
+[ext_resource type="Script" uid="uid://boncqoilhguea" path="res://resources/action_related/action_new/push_sequence.gd" id="7_i8jma"]
+
+[sub_resource type="Resource" id="Resource_efwxg"]
+script = ExtResource("4_yh212")
+retain = ExtResource("3_qo2ss")
+operation = 2
+value = 2
+mode = 0
+fallback_sequence = ExtResource("2_xxqxm")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_lq7yf"]
+script = ExtResource("2_vf0o0")
+item = "Wooden Spoon"
+search_duration = 1.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_i8jma"]
+script = ExtResource("3_7tplp")
+animation = "PickUpWall"
+duration = 3.0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_uhss4"]
+script = ExtResource("3_7tplp")
+animation = "Use"
+duration = 1.0
+where = Vector2(50, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_xxqxm"]
+script = ExtResource("3_7tplp")
+animation = "PickUpWall"
+duration = 3.0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_qo2ss"]
+script = ExtResource("3_7tplp")
+animation = "Use"
+duration = 1.0
+where = Vector2(50, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_yh212"]
+script = ExtResource("3_7tplp")
+animation = "PickUpGround"
+duration = 1.0
+where = Vector2(50, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_esmp1"]
+script = ExtResource("3_7tplp")
+animation = "PickUpWall"
+duration = 6.0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_tajko"]
+script = ExtResource("4_c10e5")
+anim_self = "Talk"
+anim_target = "Death"
+anim_duration = 4.0
+target_name = "NPC_Tint"
+where = Vector2(20, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_c10e5"]
+script = ExtResource("3_7tplp")
+animation = "Wait"
+duration = 120.0
+where = Vector2(175, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_al1u8"]
+script = ExtResource("5_7tplp")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_c10e5")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_q4yc5"]
+script = ExtResource("7_i8jma")
+_target_name = "NPC_Tint"
+_sequence = ExtResource("6_lq7yf")
+_mode = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://boncqoilhguea"
+
+[resource]
+script = ExtResource("2_h4qy8")
+_fleeting = false
+_actions = Array[ExtResource("1_5gukm")]([SubResource("Resource_efwxg"), SubResource("Resource_lq7yf"), SubResource("Resource_i8jma"), SubResource("Resource_uhss4"), SubResource("Resource_xxqxm"), SubResource("Resource_qo2ss"), SubResource("Resource_yh212"), SubResource("Resource_esmp1"), SubResource("Resource_tajko"), SubResource("Resource_al1u8"), SubResource("Resource_q4yc5")])
+sequence_name = "Rena_action_thirteen"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

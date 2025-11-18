@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://bif7i0ldg5xuh"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_l1hyt"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_88seo"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="2_wairq"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_5m0au"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_kskoc"]
+
+[sub_resource type="Resource" id="Resource_vqwc7"]
+script = ExtResource("2_wairq")
+item = "Wooden Spoon"
+search_duration = 1.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_ebmbw"]
+script = ExtResource("3_5m0au")
+animation = "PickUpWall"
+duration = 5.0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_sjayc"]
+script = ExtResource("3_5m0au")
+animation = "Use"
+duration = 3.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_rwbci"]
+script = ExtResource("4_kskoc")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[resource]
+script = ExtResource("2_88seo")
+_fleeting = true
+_actions = Array[ExtResource("1_l1hyt")]([SubResource("Resource_vqwc7"), SubResource("Resource_ebmbw"), SubResource("Resource_sjayc"), SubResource("Resource_rwbci")])
+sequence_name = "Rena_action_eleven"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

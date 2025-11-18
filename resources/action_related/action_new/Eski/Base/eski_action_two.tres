@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://c541fdh0wamrd"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_qhi0h"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_pgky3"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_8dht8"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="4_12454"]
+
+[sub_resource type="Resource" id="Resource_piqm3"]
+script = ExtResource("2_pgky3")
+animation = "Wait"
+duration = 10.0
+where = Vector2(300, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_2senm"]
+script = ExtResource("2_pgky3")
+animation = "Use"
+duration = 25.0
+where = Vector2(450, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_pxrvf"]
+script = ExtResource("3_8dht8")
+where = Vector2(600, -300)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_rh5am"]
+script = ExtResource("3_8dht8")
+where = Vector2(250, -300)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_iwdps"]
+script = ExtResource("2_pgky3")
+animation = "Wait"
+duration = 18.5
+where = Vector2(620, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("4_12454")
+_fleeting = false
+_actions = Array[ExtResource("1_qhi0h")]([SubResource("Resource_piqm3"), SubResource("Resource_2senm"), SubResource("Resource_pxrvf"), SubResource("Resource_rh5am"), SubResource("Resource_iwdps")])
+sequence_name = "Eski_action_two"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

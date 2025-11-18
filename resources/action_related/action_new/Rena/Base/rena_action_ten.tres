@@ -1,0 +1,150 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=27 format=3 uid="uid://bihbxa572dfh"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_x2tig"]
+[ext_resource type="Resource" uid="uid://dj8ihkxk2bn7j" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_no_tint.tres" id="2_2qr6l"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_bpkqn"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_d0ts0"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_7il6j"]
+[ext_resource type="Resource" uid="uid://otofoe0u78t4" path="res://resources/action_related/action_new/story_retains/rena_tint_missing.tres" id="3_mg0xo"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_0rf78"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="4_a7nu0"]
+[ext_resource type="Script" uid="uid://b84md3v15ll0" path="res://resources/action_related/action_new/follow_npc.gd" id="5_2qr6l"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="6_mg0xo"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="7_0rf78"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="8_3f6op"]
+
+[sub_resource type="Resource" id="Resource_3f6op"]
+script = ExtResource("4_0rf78")
+retain = ExtResource("3_mg0xo")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("2_2qr6l")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_8lbiy"]
+script = ExtResource("2_d0ts0")
+animation = "Punch"
+duration = 1.0
+where = Vector2(-90, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_3174n"]
+script = ExtResource("3_7il6j")
+where = Vector2(50, 100)
+speed_multiplier = 1.4
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_r32k5"]
+script = ExtResource("4_a7nu0")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_3174n")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_fox6j"]
+script = ExtResource("5_2qr6l")
+target_npc_name = "NPC_Tint"
+follow_distance = 40.0
+update_interval = 0.5
+speed_factor = 1.0
+walk_anim = "Walk"
+idle_timeout = 5.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b84md3v15ll0"
+
+[sub_resource type="Resource" id="Resource_mxxu6"]
+script = ExtResource("3_7il6j")
+where = Vector2(-370, -50)
+speed_multiplier = 1.4
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_3l40x"]
+script = ExtResource("4_a7nu0")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_mxxu6")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_mt3yq"]
+script = ExtResource("5_2qr6l")
+target_npc_name = "NPC_Tint"
+follow_distance = 10.0
+update_interval = 0.5
+speed_factor = 1.0
+walk_anim = "Walk"
+idle_timeout = 5.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b84md3v15ll0"
+
+[sub_resource type="Resource" id="Resource_wdl4i"]
+script = ExtResource("6_mg0xo")
+anim_self = "Talk"
+anim_target = "Use"
+anim_duration = 4.0
+target_name = "NPC_Tint"
+where = Vector2(-360, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_jfewn"]
+script = ExtResource("7_0rf78")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(-370, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_oewqf"]
+script = ExtResource("4_a7nu0")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_jfewn")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_28p8m"]
+script = ExtResource("3_7il6j")
+where = Vector2(50, 150)
+speed_multiplier = 1.5
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_0ydo1"]
+script = ExtResource("4_a7nu0")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_28p8m")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_8xy6l"]
+script = ExtResource("8_3f6op")
+item = "Translated Notes"
+search_duration = 1.0
+where = Vector2(-370, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[resource]
+script = ExtResource("2_bpkqn")
+_fleeting = true
+_actions = Array[ExtResource("1_x2tig")]([SubResource("Resource_3f6op"), SubResource("Resource_8lbiy"), SubResource("Resource_r32k5"), SubResource("Resource_fox6j"), SubResource("Resource_3l40x"), SubResource("Resource_mt3yq"), SubResource("Resource_wdl4i"), SubResource("Resource_oewqf"), SubResource("Resource_0ydo1"), SubResource("Resource_8xy6l")])
+sequence_name = "Rena_action_ten"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

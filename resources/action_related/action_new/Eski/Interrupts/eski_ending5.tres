@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=3 format=3 uid="uid://br8nxrt80151t"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_r0x3y"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_gxwad"]
+
+[resource]
+script = ExtResource("2_gxwad")
+_fleeting = false
+_actions = Array[ExtResource("1_r0x3y")]([])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

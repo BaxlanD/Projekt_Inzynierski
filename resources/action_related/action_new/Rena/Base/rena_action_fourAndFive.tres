@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=29 format=3 uid="uid://w4vcxwhnmpdq"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_hlxsq"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_mp3ao"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_v3x2r"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_tyti1"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="4_tyti1"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="4_u5t68"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="5_jtpin"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="6_u5t68"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="7_jtpin"]
+[ext_resource type="Resource" uid="uid://fr8rt5du4jim" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_no_potion.tres" id="7_peqfl"]
+[ext_resource type="Resource" uid="uid://b4eonpl3umyil" path="res://resources/action_related/action_new/story_retains/rena_potion.tres" id="8_dndcg"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="10_dndcg"]
+
+[sub_resource type="Resource" id="Resource_lcfgr"]
+script = ExtResource("2_v3x2r")
+animation = "Wait"
+duration = 3.0
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_peqfl"]
+script = ExtResource("3_tyti1")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "Npc_1_Random"
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_dndcg"]
+script = ExtResource("2_v3x2r")
+animation = "Wait"
+duration = 3.0
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_7lrkh"]
+script = ExtResource("3_tyti1")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 3.0
+target_name = "Npc_1_Random2"
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_u5t68"]
+script = ExtResource("4_tyti1")
+where = Vector2(850, 0)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_jtpin"]
+script = ExtResource("4_u5t68")
+target_npc_name = "Npc_1_Random3"
+action_resource = SubResource("Resource_u5t68")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_mh77n"]
+script = ExtResource("3_tyti1")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "Npc_1_Random3"
+where = Vector2(0, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_ln661"]
+script = ExtResource("4_tyti1")
+where = Vector2(900, 100)
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_gdw8o"]
+script = ExtResource("4_u5t68")
+target_npc_name = "Npc_1_Random3"
+action_resource = SubResource("Resource_ln661")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_63dhn"]
+script = ExtResource("2_v3x2r")
+animation = "PickUpWall"
+duration = 1.5
+where = Vector2(900, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_1syb1"]
+script = ExtResource("6_u5t68")
+retain_name = "rena_visited"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_sumst"]
+script = ExtResource("7_jtpin")
+retain = ExtResource("8_dndcg")
+operation = 0
+value = 1
+mode = 0
+fallback_sequence = ExtResource("7_peqfl")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_abff8"]
+script = ExtResource("3_tyti1")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 8.0
+target_name = "Npc_1_Random3"
+where = Vector2(850, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_runc6"]
+script = ExtResource("10_dndcg")
+target_npc_name = "NPC_Rena"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_3hvpp"]
+script = ExtResource("3_tyti1")
+anim_self = "PickUpWall"
+anim_target = "Punch"
+anim_duration = 1.0
+target_name = "Npc_1_Random3"
+where = Vector2(850, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_mqun8"]
+script = ExtResource("5_jtpin")
+item_scene_path = "res://items/item_translated_notes.tscn"
+target_npc_name = "NPC_Rena"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[resource]
+script = ExtResource("2_mp3ao")
+_fleeting = true
+_actions = Array[ExtResource("1_hlxsq")]([SubResource("Resource_lcfgr"), SubResource("Resource_peqfl"), SubResource("Resource_dndcg"), SubResource("Resource_7lrkh"), SubResource("Resource_jtpin"), SubResource("Resource_mh77n"), SubResource("Resource_gdw8o"), SubResource("Resource_63dhn"), SubResource("Resource_1syb1"), SubResource("Resource_sumst"), SubResource("Resource_abff8"), SubResource("Resource_runc6"), SubResource("Resource_3hvpp"), SubResource("Resource_mqun8")])
+sequence_name = "Rena_action_fourAndFive"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

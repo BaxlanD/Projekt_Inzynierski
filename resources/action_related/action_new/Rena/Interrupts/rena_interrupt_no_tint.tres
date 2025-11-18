@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=19 format=3 uid="uid://dj8ihkxk2bn7j"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_x4xe8"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_g14ye"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_henld"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_3brqv"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="4_2mri1"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="5_3brqv"]
+[ext_resource type="Script" uid="uid://dx05j1i02bv6d" path="res://resources/action_related/action_new/spawn_npc.gd" id="7_lyyq2"]
+
+[sub_resource type="Resource" id="Resource_ans8v"]
+script = ExtResource("2_g14ye")
+animation = "Wait"
+duration = 3.0
+where = Vector2(-200, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_lyyq2"]
+script = ExtResource("2_g14ye")
+animation = "Wait"
+duration = 3.0
+where = Vector2(-850, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_b0kdr"]
+script = ExtResource("2_g14ye")
+animation = "Wait"
+duration = 3.0
+where = Vector2(-150, -150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_g1lne"]
+script = ExtResource("2_g14ye")
+animation = "Wait"
+duration = 3.0
+where = Vector2(350, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_7dmgw"]
+script = ExtResource("3_3brqv")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 3.0
+target_name = "Npc_1_Random"
+where = Vector2(650, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_kltwl"]
+script = ExtResource("3_3brqv")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 3.0
+target_name = "Npc_1_Random_2"
+where = Vector2(750, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_km58w"]
+script = ExtResource("3_3brqv")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 8.0
+target_name = "NPC_Viviano"
+where = Vector2(-1200, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_e51v8"]
+script = ExtResource("4_2mri1")
+retain_name = "rena_reconciled"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_2mri1"]
+script = ExtResource("5_3brqv")
+where = Vector2(80, 150)
+speed_multiplier = 1.4
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_kaxs6"]
+script = ExtResource("7_lyyq2")
+npc_path = NodePath("NPCs/NPC_Tint")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dx05j1i02bv6d"
+
+[sub_resource type="Resource" id="Resource_x7dru"]
+script = ExtResource("4_2mri1")
+retain_name = "rena_tint_missing"
+change_amount = -1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[resource]
+script = ExtResource("2_henld")
+_fleeting = false
+_actions = Array[ExtResource("1_x4xe8")]([SubResource("Resource_ans8v"), SubResource("Resource_lyyq2"), SubResource("Resource_b0kdr"), SubResource("Resource_g1lne"), SubResource("Resource_7dmgw"), SubResource("Resource_kltwl"), SubResource("Resource_km58w"), SubResource("Resource_e51v8"), SubResource("Resource_2mri1"), SubResource("Resource_kaxs6"), SubResource("Resource_x7dru")])
+sequence_name = "Rena_interrupt_no_tint"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"
