@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=8 format=3 uid="uid://dt7gmapstof5r"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_maplq"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_snfuk"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_x6h5p"]
+
+[sub_resource type="Resource" id="Resource_55bde"]
+script = ExtResource("2_x6h5p")
+animation = "Wait"
+duration = 5.0
+where = Vector2(900, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_nk5fs"]
+script = ExtResource("2_x6h5p")
+animation = "Wait"
+duration = 5.0
+where = Vector2(1050, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_6qufq"]
+script = ExtResource("2_x6h5p")
+animation = "Wait"
+duration = 5.0
+where = Vector2(850, 300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_vf107"]
+script = ExtResource("2_x6h5p")
+animation = "Wait"
+duration = 5.0
+where = Vector2(600, 470)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("2_snfuk")
+_fleeting = false
+_actions = Array[ExtResource("1_maplq")]([SubResource("Resource_55bde"), SubResource("Resource_nk5fs"), SubResource("Resource_6qufq"), SubResource("Resource_vf107")])
+sequence_name = "Titus_interrupt_lookForEski"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

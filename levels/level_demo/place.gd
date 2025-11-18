@@ -12,3 +12,13 @@ func get_base_interactions() -> Array[Dictionary]:
 	
 func get_item_interactions(_item: Item) -> Array[Dictionary]:
 	return []
+	
+func get_place_interactions(_npc: NPCActions) -> Array[Dictionary]:
+	return []
+	
+func execute_place_interaction(_npc: NPCActions, _interaction_id: String) -> void:
+	pass
+	
+func update_visual() -> void:
+	pass
+				

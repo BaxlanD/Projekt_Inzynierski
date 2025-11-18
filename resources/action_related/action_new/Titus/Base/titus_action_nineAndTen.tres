@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=14 format=3 uid="uid://b7aa1dpois4ue"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_whhhp"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_qajow"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_oetdl"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="4_r0bbd"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="5_4rgdq"]
+
+[sub_resource type="Resource" id="Resource_wgia5"]
+script = ExtResource("2_qajow")
+animation = "Death"
+duration = 2.0
+where = Vector2(250, -190)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_viarn"]
+script = ExtResource("2_qajow")
+animation = "Death"
+duration = 2.0
+where = Vector2(-200, -220)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_kxuby"]
+script = ExtResource("2_qajow")
+animation = "Death"
+duration = 2.0
+where = Vector2(20, -325)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_mndei"]
+script = ExtResource("3_oetdl")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 10.0
+target_name = "NPC_OmirosWife"
+where = Vector2(-50, -460)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_icfh8"]
+script = ExtResource("3_oetdl")
+anim_self = "Death"
+anim_target = "Punch"
+anim_duration = 1.5
+target_name = "NPC_OmirosWife"
+where = Vector2(-50, -460)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_3t6lc"]
+script = ExtResource("2_qajow")
+animation = "Talk"
+duration = 5.0
+where = Vector2(860, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_ej4mf"]
+script = ExtResource("2_qajow")
+animation = "PickUpWall"
+duration = 1.0
+where = Vector2(860, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_w6leb"]
+script = ExtResource("4_r0bbd")
+item_scene_path = "res://items/item_beer.tscn"
+target_npc_name = "NPC_Titus"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[resource]
+script = ExtResource("5_4rgdq")
+_fleeting = false
+_actions = Array[ExtResource("1_whhhp")]([SubResource("Resource_wgia5"), SubResource("Resource_viarn"), SubResource("Resource_kxuby"), SubResource("Resource_mndei"), SubResource("Resource_icfh8"), SubResource("Resource_3t6lc"), SubResource("Resource_ej4mf"), SubResource("Resource_w6leb")])
+sequence_name = "Titus_action_nineAndTen"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

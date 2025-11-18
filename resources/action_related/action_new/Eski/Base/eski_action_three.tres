@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=12 format=3 uid="uid://by3cy2uv7hfdn"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_3rplm"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_by0h5"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="3_8k0ty"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_od5fn"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="5_yh5r4"]
+
+[sub_resource type="Resource" id="Resource_iwdps"]
+script = ExtResource("2_by0h5")
+animation = "PickUpWall"
+duration = 5.0
+where = Vector2(680, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_g5bf3"]
+script = ExtResource("3_8k0ty")
+item_scene_path = "res://items/item_nails.tscn"
+target_npc_name = "NPC_Eski"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_2xu01"]
+script = ExtResource("4_od5fn")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(680, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_05apj"]
+script = ExtResource("2_by0h5")
+animation = "PickUpWall"
+duration = 13.0
+where = Vector2(680, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_3crwe"]
+script = ExtResource("3_8k0ty")
+item_scene_path = "res://items/item_horseshoe.tscn"
+target_npc_name = "NPC_Eski"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_11846"]
+script = ExtResource("4_od5fn")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(680, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[resource]
+script = ExtResource("5_yh5r4")
+_fleeting = false
+_actions = Array[ExtResource("1_3rplm")]([SubResource("Resource_iwdps"), SubResource("Resource_g5bf3"), SubResource("Resource_2xu01"), SubResource("Resource_05apj"), SubResource("Resource_3crwe"), SubResource("Resource_11846")])
+sequence_name = "Eski_action_three"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

@@ -3,6 +3,7 @@ class_name Item
 
 @export var item_name: String = "item"
 @export var origin_scene_path : String = ""
+@export var use_special_inventory: bool = false
 @onready var interactable: Interactable = $Interactable
 
 var consumable: bool = false
@@ -32,7 +33,12 @@ func use() -> void:
 	print("Item used")
 	
 func _on_interact() -> void:
-		var inv := get_tree().get_root().get_node("LevelDemo/Player/Inventory") as Inventory
+		var player := get_tree().get_root().get_node("LevelDemo/Player")
+		var inv : Inventory
+		if use_special_inventory:
+			inv = get_tree().get_root().get_node("LevelDemo/Player/Inventory") as Inventory
+		else:
+			inv = get_tree().get_root().get_node("LevelDemo/Player/SpecialInventory") as Inventory
 		var scene := load(origin_scene_path) as PackedScene
 		if scene:
 			var new_item := scene.instantiate()

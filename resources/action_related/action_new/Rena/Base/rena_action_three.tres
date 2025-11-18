@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=22 format=3 uid="uid://cq8ufrl5npo51"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_x4652"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_jdo44"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="3_w6vmu"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_vqgqk"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="5_jdo44"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="6_rxh37"]
+[ext_resource type="Resource" uid="uid://b4eonpl3umyil" path="res://resources/action_related/action_new/story_retains/rena_potion.tres" id="6_w6vmu"]
+[ext_resource type="Resource" uid="uid://dj8ihkxk2bn7j" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_no_tint.tres" id="7_mfdxd"]
+[ext_resource type="Resource" uid="uid://otofoe0u78t4" path="res://resources/action_related/action_new/story_retains/rena_tint_missing.tres" id="8_rxh37"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="9_hl6ql"]
+
+[sub_resource type="Resource" id="Resource_hl6ql"]
+script = ExtResource("2_jdo44")
+animation = "Wait"
+duration = 3.0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_gwmos"]
+script = ExtResource("3_w6vmu")
+item = "Wooden Spoon"
+search_duration = 1.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_0h2de"]
+script = ExtResource("2_jdo44")
+animation = "PickUpWall"
+duration = 8.0
+where = Vector2(150, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_yex8f"]
+script = ExtResource("2_jdo44")
+animation = "Punch"
+duration = 1.5
+where = Vector2(150, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_vnfnw"]
+script = ExtResource("4_vqgqk")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_gjr52"]
+script = ExtResource("2_jdo44")
+animation = "PickUpWall"
+duration = 1.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_vqgqk"]
+script = ExtResource("5_jdo44")
+item_scene_path = "res://items/item_renas_potion.tscn"
+target_npc_name = "NPC_Rena"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_mfdxd"]
+script = ExtResource("4_vqgqk")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_rxh37"]
+script = ExtResource("2_jdo44")
+animation = "Wait"
+duration = 12.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_kpw33"]
+script = ExtResource("3_w6vmu")
+item = "Rena's Potion"
+search_duration = 1.0
+retain_to_change = ExtResource("6_w6vmu")
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_6gjtf"]
+script = ExtResource("9_hl6ql")
+retain = ExtResource("8_rxh37")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("7_mfdxd")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[resource]
+script = ExtResource("6_rxh37")
+_fleeting = false
+_actions = Array[ExtResource("1_x4652")]([SubResource("Resource_hl6ql"), SubResource("Resource_gwmos"), SubResource("Resource_0h2de"), SubResource("Resource_yex8f"), SubResource("Resource_vnfnw"), SubResource("Resource_gjr52"), SubResource("Resource_vqgqk"), SubResource("Resource_mfdxd"), SubResource("Resource_rxh37"), SubResource("Resource_kpw33"), SubResource("Resource_6gjtf")])
+sequence_name = "Rena_action_three"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

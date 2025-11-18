@@ -1,0 +1,99 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=18 format=3 uid="uid://c14r0t1q7errr"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_wfusr"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="2_7qfj7"]
+[ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="3_66a8h"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_1gbxt"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="5_1l8gx"]
+[ext_resource type="Resource" uid="uid://d00tfykk7mnyt" path="res://resources/action_related/action_new/Titus/Interrupts/titus_interrupt_beer1.tres" id="6_dbw03"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="6_litm7"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="7_5n26w"]
+[ext_resource type="Resource" uid="uid://02ogehwudka3" path="res://resources/action_related/action_new/story_retains/titus_alcohol_found.tres" id="7_08xpe"]
+
+[sub_resource type="Resource" id="Resource_rb4oa"]
+script = ExtResource("2_7qfj7")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "NPC_Eski"
+where = Vector2(840, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_mndei"]
+script = ExtResource("2_7qfj7")
+anim_self = "Punch"
+anim_target = "Damage"
+anim_duration = 1.0
+target_name = "NPC_Eski"
+where = Vector2(840, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_icfh8"]
+script = ExtResource("2_7qfj7")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 3.0
+target_name = "NPC_Eski"
+where = Vector2(840, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_piqm3"]
+script = ExtResource("3_66a8h")
+item = "Beer"
+search_duration = 1.0
+retain_to_change = ExtResource("7_08xpe")
+where = Vector2(100, -320)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://bybhqvju4b5wr"
+
+[sub_resource type="Resource" id="Resource_08xpe"]
+script = ExtResource("7_5n26w")
+retain = ExtResource("7_08xpe")
+operation = 0
+value = 1
+mode = 0
+fallback_sequence = ExtResource("6_dbw03")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_2senm"]
+script = ExtResource("4_1gbxt")
+animation = "Use"
+duration = 8.0
+where = Vector2(100, -320)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_pxrvf"]
+script = ExtResource("5_1l8gx")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(100, -320)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_viarn"]
+script = ExtResource("4_1gbxt")
+animation = "Wait"
+duration = 40.0
+where = Vector2(400, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("6_litm7")
+_fleeting = true
+_actions = Array[ExtResource("1_wfusr")]([SubResource("Resource_rb4oa"), SubResource("Resource_mndei"), SubResource("Resource_icfh8"), SubResource("Resource_piqm3"), SubResource("Resource_08xpe"), SubResource("Resource_2senm"), SubResource("Resource_pxrvf"), SubResource("Resource_viarn")])
+sequence_name = "Titus_action_sevenAndEight"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

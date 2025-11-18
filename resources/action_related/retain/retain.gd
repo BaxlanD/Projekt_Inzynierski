@@ -5,3 +5,6 @@ class_name Retain
 
 func get_value() -> int:
 	return _value
+	
+func set_value(i: int) -> void:
+	_value = i

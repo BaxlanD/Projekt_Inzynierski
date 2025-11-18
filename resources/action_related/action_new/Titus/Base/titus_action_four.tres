@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://dijqpe52hvrxh"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_lem5n"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_gtugg"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="3_3fqen"]
+[ext_resource type="Resource" uid="uid://cu7ybb8aplsff" path="res://resources/action_related/action_new/Titus/Interrupts/titus_interrupt_letter1.tres" id="3_uilcb"]
+[ext_resource type="Resource" uid="uid://ojpb6i7mktfu" path="res://resources/action_related/action_new/story_retains/titus_letter_shown.tres" id="4_jspwt"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="5_jbrrb"]
+
+[sub_resource type="Resource" id="Resource_tgief"]
+script = ExtResource("2_gtugg")
+animation = "Wait"
+duration = 18.0
+where = Vector2(600, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_xuyu2"]
+script = ExtResource("5_jbrrb")
+retain = ExtResource("4_jspwt")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("3_uilcb")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_slolm"]
+script = ExtResource("2_gtugg")
+animation = "Use"
+duration = 8.0
+where = Vector2(610, -170)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("3_3fqen")
+_fleeting = true
+_actions = Array[ExtResource("1_lem5n")]([SubResource("Resource_tgief"), SubResource("Resource_xuyu2"), SubResource("Resource_slolm")])
+sequence_name = "Titus_action_four"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

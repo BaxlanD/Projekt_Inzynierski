@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://teisk4d5cxpy"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_x38rl"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_hiabs"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_xqy3e"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="3_f7fx1"]
+[ext_resource type="Resource" uid="uid://b0w1jyacjdcxi" path="res://resources/action_related/action_new/Titus/Interrupts/titus_ending10.tres" id="3_ye2ke"]
+[ext_resource type="Resource" uid="uid://dam1av2vo3ham" path="res://resources/action_related/action_new/story_retains/titus_forge_fire.tres" id="4_emylh"]
+
+[sub_resource type="Resource" id="Resource_ye2ke"]
+script = ExtResource("2_xqy3e")
+animation = "PickUpWall"
+duration = 1.0
+where = Vector2(-550, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_emylh"]
+script = ExtResource("2_xqy3e")
+animation = "Wait"
+duration = 3.0
+where = Vector2(-550, 100)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_m217c"]
+script = ExtResource("3_f7fx1")
+retain = ExtResource("4_emylh")
+operation = 0
+value = 0
+mode = 0
+fallback_sequence = ExtResource("3_ye2ke")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[resource]
+script = ExtResource("2_hiabs")
+_fleeting = true
+_actions = Array[ExtResource("1_x38rl")]([SubResource("Resource_ye2ke"), SubResource("Resource_emylh"), SubResource("Resource_m217c")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

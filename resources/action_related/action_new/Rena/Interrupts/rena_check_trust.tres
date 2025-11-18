@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=12 format=3 uid="uid://db1k1x6p24sd4"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_5aatq"]
+[ext_resource type="Resource" uid="uid://csl8nshsqsf60" path="res://resources/action_related/action_new/Rena/Interrupts/rena_ending6.tres" id="2_c87dh"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_r1bdt"]
+[ext_resource type="Resource" uid="uid://dyjeultg2lf1c" path="res://resources/action_related/action_new/story_retains/rena_trust.tres" id="3_402fq"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_x43fo"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="5_8k0yn"]
+[ext_resource type="Script" uid="uid://de3to7sjiy5rq" path="res://resources/action_related/action_new/change_place_state.gd" id="6_d4cn7"]
+
+[sub_resource type="Resource" id="Resource_lf4w6"]
+script = ExtResource("4_x43fo")
+retain = ExtResource("3_402fq")
+operation = 3
+value = 4
+mode = 0
+fallback_sequence = ExtResource("2_c87dh")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_qfa6u"]
+script = ExtResource("5_8k0yn")
+animation = "Talk"
+duration = 3.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_lmrl4"]
+script = ExtResource("5_8k0yn")
+animation = "Use"
+duration = 10.0
+where = Vector2(1100, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_ohwsb"]
+script = ExtResource("6_d4cn7")
+place_name = "Field"
+state_name = "curr_state"
+target_value_name = "unwatered"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://de3to7sjiy5rq"
+
+[resource]
+script = ExtResource("2_r1bdt")
+_fleeting = true
+_actions = Array[ExtResource("1_5aatq")]([SubResource("Resource_lf4w6"), SubResource("Resource_qfa6u"), SubResource("Resource_lmrl4"), SubResource("Resource_ohwsb")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

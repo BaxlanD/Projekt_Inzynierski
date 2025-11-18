@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=16 format=3 uid="uid://d23de4jo3ljnq"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_qng32"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_kihtk"]
+[ext_resource type="Resource" uid="uid://dw0vbpy32ussn" path="res://resources/action_related/action_new/Titus/Interrupts/titus_interrupt_confrontation1.tres" id="3_kihtk"]
+[ext_resource type="Resource" uid="uid://c5mtvbxpmitl8" path="res://resources/action_related/action_new/story_retains/eski_forgiveness.tres" id="3_t2qed"]
+[ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_l8di7"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="5_4j610"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="6_ac6ye"]
+[ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="7_brliv"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="8_7esqi"]
+
+[sub_resource type="Resource" id="Resource_4v1xf"]
+script = ExtResource("2_kihtk")
+anim_self = "Talk"
+anim_duration = 3.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(550, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_umkqn"]
+script = ExtResource("4_l8di7")
+retain = ExtResource("3_t2qed")
+operation = 3
+value = 0
+mode = 0
+fallback_sequence = ExtResource("3_kihtk")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dgwa0inuiv824"
+
+[sub_resource type="Resource" id="Resource_lrhfh"]
+script = ExtResource("5_4j610")
+animation = "PickUpWall"
+duration = 1.0
+where = Vector2(470, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_jy7dh"]
+script = ExtResource("5_4j610")
+animation = "Talk"
+duration = 5.0
+where = Vector2(470, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_in74f"]
+script = ExtResource("6_ac6ye")
+retain_name = "eski_determined"
+change_amount = 5
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_32dyq"]
+script = ExtResource("7_brliv")
+mode = 1
+skip_count = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dybysqari256p"
+
+[resource]
+script = ExtResource("8_7esqi")
+_fleeting = true
+_actions = Array[ExtResource("1_qng32")]([SubResource("Resource_4v1xf"), SubResource("Resource_umkqn"), SubResource("Resource_lrhfh"), SubResource("Resource_jy7dh"), SubResource("Resource_in74f"), SubResource("Resource_32dyq")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

@@ -2,6 +2,7 @@ extends Action
 class_name GoTo
 
 @export var where: Vector2
+@export var speed_multiplier: float = 1.0
 
 var _path: PackedVector2Array = []
 var _path_point_count: int = 0
@@ -84,7 +85,7 @@ func _handle_movement(delta: float) -> void:
 		_direction = -1
 		character.animated_sprite_2d.flip_h = true
 	
-	var final_speed: float = min((_next-character.position).length()/ delta, character._SPEED)
+	var final_speed: float = min((_next-character.position).length()/ delta, character._SPEED * speed_multiplier)
 	character.velocity.x = _direction * final_speed
 	character.velocity += character.get_gravity() * delta
 	character.move_and_slide()

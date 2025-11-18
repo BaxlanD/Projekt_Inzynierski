@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1jpqsvhrt7kk"]
+
+[ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_kqmrr"]
+[ext_resource type="Script" uid="uid://i0u8wpeem1ik" path="res://characters/npc_actions/npc_tint.gd" id="2_p0ayo"]
+
+[node name="NPC_Tint" instance=ExtResource("1_kqmrr")]
+script = ExtResource("2_p0ayo")

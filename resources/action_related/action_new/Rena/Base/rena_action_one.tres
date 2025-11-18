@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://dtksmxfclkxn5"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_76txn"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_n46q1"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="3_dcq0i"]
+
+[sub_resource type="Resource" id="Resource_w2lb2"]
+script = ExtResource("2_n46q1")
+animation = "Wait"
+duration = 3.0
+where = Vector2(200, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_jhiig"]
+script = ExtResource("2_n46q1")
+animation = "Wait"
+duration = 4.0
+where = Vector2(100, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_t74sq"]
+script = ExtResource("2_n46q1")
+animation = "PickUpGround"
+duration = 3.0
+where = Vector2(1050, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_vnddi"]
+script = ExtResource("2_n46q1")
+animation = "Wait"
+duration = 1.0
+where = Vector2(1150, 350)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_yvj33"]
+script = ExtResource("2_n46q1")
+animation = "Wait"
+duration = 2.0
+where = Vector2(1075, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_rrjq8"]
+script = ExtResource("2_n46q1")
+animation = "PickUpGround"
+duration = 1.0
+where = Vector2(1110, 400)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("3_dcq0i")
+_fleeting = true
+_actions = Array[ExtResource("1_76txn")]([SubResource("Resource_w2lb2"), SubResource("Resource_jhiig"), SubResource("Resource_t74sq"), SubResource("Resource_vnddi"), SubResource("Resource_yvj33"), SubResource("Resource_rrjq8")])
+sequence_name = "Rena_action_one"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

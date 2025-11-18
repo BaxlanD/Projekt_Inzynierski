@@ -39,23 +39,21 @@ func drop_item(index: int) -> void:
 		return
 
 	var item: Item = items[index]
-	var center: Vector2 = player_ref.global_position
-	var radius_step : float = 8.0
-	var placed: bool = false
-	
-	for r in range(0, int(drop_radius)+1, radius_step):
-		for angle_deg in range(-90, 91, 30):
-			var angle: float = deg_to_rad(angle_deg)
-			var pos: Vector2 = center + Vector2(cos(angle), sin(angle)) * r
-			if await place_item_in_world(pos, item, index):
-				placed = true
-				break
-		if placed:
-			break
+	var center: Vector2 = (get_parent() as Node2D).global_position
+	var offset := 10.0
+
+	var pos_right := center + Vector2(offset, -15)
+	if await place_item_in_world(pos_right, item, index):
+		return
+
+	var pos_left := center + Vector2(-offset, -15)
+	await place_item_in_world(pos_left, item, index)
 	
 	
 func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
-	var space_state: PhysicsDirectSpaceState2D = (get_tree().current_scene as Node2D).get_world_2d().direct_space_state
+	var space_state: PhysicsDirectSpaceState2D = (
+		(get_tree().current_scene as Node2D).get_world_2d().direct_space_state
+	)
 
 	var shape := CircleShape2D.new()
 	shape.radius = 8.0
@@ -66,8 +64,11 @@ func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
 	var query := PhysicsShapeQueryParameters2D.new()
 	query.shape = shape
 	query.transform = transform
-	query.collide_with_areas = true
+
+	query.collision_mask = (1 << 0) | (1 << 1) | (1 << 2)
+
 	query.collide_with_bodies = true
+	query.collide_with_areas = true
 
 	var result: Array[Dictionary] = space_state.intersect_shape(query, 1)
 	
@@ -81,6 +82,8 @@ func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
 	else:
 		print("Collision: can't place item here.")
 		return false
+
+
 		
 func add_item_data(item: Item) -> bool:
 	return add_item(item)

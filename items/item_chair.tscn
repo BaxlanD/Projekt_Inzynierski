@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmncfy00b7ye7"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_hjbif"]
+[ext_resource type="Script" uid="uid://b068yq5hb8xu8" path="res://items/item_chair.gd" id="2_3rvi0"]
+[ext_resource type="Texture2D" uid="uid://bymh8cnp62ut3" path="res://assets/chair.png" id="2_jf335"]
+
+[node name="Chair" instance=ExtResource("1_hjbif")]
+script = ExtResource("2_3rvi0")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.1, -0.208653)
+scale = Vector2(0.036255, 0.023014)
+texture = ExtResource("2_jf335")

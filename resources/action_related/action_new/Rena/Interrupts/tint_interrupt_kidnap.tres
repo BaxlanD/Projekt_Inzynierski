@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=13 format=3 uid="uid://dst4tv0rj6ay8"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_k1g8e"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_adquj"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_k2emk"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="3_4ruqu"]
+[ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_4ruqu"]
+[ext_resource type="Script" uid="uid://da4apn8hx5go1" path="res://resources/action_related/action_new/delete_npc.gd" id="4_ayj4l"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="5_ayj4l"]
+
+[sub_resource type="Resource" id="Resource_rer2y"]
+script = ExtResource("2_k2emk")
+animation = "Punch"
+duration = 1.0
+where = Vector2(50, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_4857j"]
+script = ExtResource("3_4ruqu")
+item_scene_path = "res://items/item_tint.tscn"
+target_npc_name = "NPC_Tint"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_ayj4l"]
+script = ExtResource("4_4ruqu")
+drop_anim = "PickUpGround"
+drop_slot = 0
+where = Vector2(50, 150)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://cmxit1wulmvx7"
+
+[sub_resource type="Resource" id="Resource_h0j6m"]
+script = ExtResource("5_ayj4l")
+retain_name = "rena_tint_missing"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_kio4e"]
+script = ExtResource("4_ayj4l")
+npc_path = NodePath("NPCs/NPC_Tint")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://da4apn8hx5go1"
+
+[resource]
+script = ExtResource("2_adquj")
+_fleeting = false
+_actions = Array[ExtResource("1_k1g8e")]([SubResource("Resource_rer2y"), SubResource("Resource_4857j"), SubResource("Resource_ayj4l"), SubResource("Resource_h0j6m"), SubResource("Resource_kio4e")])
+sequence_name = "Kidnap"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

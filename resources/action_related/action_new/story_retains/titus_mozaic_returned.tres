@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Retain" load_steps=2 format=3 uid="uid://cfcffd1u2kbu1"]
+
+[ext_resource type="Script" uid="uid://dvsfr3k6n3a0s" path="res://resources/action_related/retain/retain.gd" id="1_4jchn"]
+
+[resource]
+script = ExtResource("1_4jchn")
+_value = 0
+metadata/_custom_type_script = "uid://dvsfr3k6n3a0s"

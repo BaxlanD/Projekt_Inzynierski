@@ -3,6 +3,7 @@ class_name Sequence
 
 @export var _fleeting: bool = false
 @export var _actions: Array[Action]
+@export var sequence_name: String = "Idle"
 
 func get_action() -> Action:
 	_flush_done_actions()

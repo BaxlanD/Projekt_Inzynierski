@@ -7,14 +7,18 @@ var can_interact:= true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact and current_interactions:
+		
+		var target: Interactable = current_interactions[0]
+		if not target or not target.is_interactable:
+			return
+			
 		can_interact = false
 		label.hide()
 			
-		var target: Interactable = current_interactions[0]
 		match target.interaction_type:
-			target.type.item, target.type.npc:
+			target.type.item:
 				await target.interact.call()
-			target.type.place:
+			target.type.place, target.type.npc:
 				await open_interaction_menu_for(target)
 			
 		can_interact = true
@@ -53,16 +57,22 @@ func _on_range_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)
 	
 func open_interaction_menu_for(target: Area2D) -> void:
-	var place: Place = target.get_parent()
+	var interaction_target: Node = target.get_parent()
 	var inventory: Inventory = get_tree().get_root().get_node("LevelDemo/Player/Inventory")
 	var options: Array[Dictionary] = []
 
-	if place.has_method("get_base_interactions"):
-		options += place.get_base_interactions()
+	if interaction_target.has_method("get_base_interactions"):
+		options += interaction_target.get_base_interactions()
 
-	if place.has_method("get_item_interactions"):
+	if interaction_target.has_method("get_item_interactions"):
 		for item in inventory.items:
-			options += place.get_item_interactions(item)
+			options += interaction_target.get_item_interactions(item)
+			
+	if interaction_target.has_method("get_place_interactions") and "target_npc_name" in interaction_target:
+		var npc_name: String = interaction_target.target_npc_name
+		var npc: NPCActions = NpcRegistry.get_npc(npc_name)
+		if npc:
+			options += interaction_target.get_place_interactions(npc)
 
 
 	var menu : InteractionMenu = get_tree().get_root().get_node_or_null("LevelDemo/UI/InteractionMenu")

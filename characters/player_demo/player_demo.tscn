@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0t63poihchnb"]
+[gd_scene load_steps=7 format=3 uid="uid://b0t63poihchnb"]
 
 [ext_resource type="Script" uid="uid://d3vq2uoasyyw4" path="res://characters/player_demo/player_demo.gd" id="1_rcvpf"]
 [ext_resource type="SpriteFrames" uid="uid://bia0aqqx0yvh0" path="res://assets/character_animation_pack/sprite_frames/m1_c1_character_spriteframes.tres" id="2_8gp0o"]
 [ext_resource type="PackedScene" uid="uid://co2ccyfvt2t6j" path="res://resources/inventory/inventory.tscn" id="3_wak4a"]
 [ext_resource type="PackedScene" uid="uid://d07h4xw17iwo0" path="res://resources/interactions/interacting_comp.tscn" id="4_wak4a"]
+[ext_resource type="Script" uid="uid://bglcd0xi5tfge" path="res://levels/level_demo/inventory.gd" id="5_wm3um"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fgci"]
 radius = 8.0
@@ -11,7 +12,7 @@ height = 32.0
 
 [node name="PlayerDemo" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 7
+collision_mask = 23
 floor_constant_speed = true
 floor_snap_length = 10.0
 script = ExtResource("1_rcvpf")
@@ -20,7 +21,7 @@ script = ExtResource("1_rcvpf")
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = ExtResource("2_8gp0o")
-animation = &"Use"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
@@ -38,5 +39,10 @@ position = Vector2(0, -40)
 scale = Vector2(0.05, 0.05)
 
 [node name="InteractingComp" parent="." instance=ExtResource("4_wak4a")]
+
+[node name="SpecialInventory" type="Node" parent="."]
+script = ExtResource("5_wm3um")
+max_items = 5
+metadata/_custom_type_script = "uid://bglcd0xi5tfge"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgv0br4aonun1"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_le2nb"]
+[ext_resource type="Script" uid="uid://bcpqibgswmwli" path="res://items/item_eski_letter.gd" id="2_mwns7"]
+[ext_resource type="Texture2D" uid="uid://bcxaejvg14iiq" path="res://assets/eski_letter.jpg" id="3_7c3pu"]
+
+[node name="Eski Letter" instance=ExtResource("1_le2nb")]
+script = ExtResource("2_mwns7")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-0.5, 1.19209e-07)
+scale = Vector2(0.00399832, 0.00568182)
+texture = ExtResource("3_7c3pu")

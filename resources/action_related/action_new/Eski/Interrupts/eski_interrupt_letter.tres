@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://bydjt7who2si3"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_s7xxs"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_d08da"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_dwp32"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_g7j6j"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="4_5hwk6"]
+
+[sub_resource type="Resource" id="Resource_ueynk"]
+script = ExtResource("2_dwp32")
+anim_self = "Talk"
+anim_duration = 5.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(0, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_3mbdy"]
+script = ExtResource("3_g7j6j")
+animation = "Wait"
+duration = 5.0
+where = Vector2(350, -300)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_elcw5"]
+script = ExtResource("4_5hwk6")
+retain_name = "eski_determined"
+change_amount = -1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[sub_resource type="Resource" id="Resource_a5b1p"]
+script = ExtResource("4_5hwk6")
+retain_name = "eski_forgiveness"
+change_amount = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://d2jek7p8byyjv"
+
+[resource]
+script = ExtResource("2_d08da")
+_fleeting = false
+_actions = Array[ExtResource("1_s7xxs")]([SubResource("Resource_ueynk"), SubResource("Resource_3mbdy"), SubResource("Resource_elcw5"), SubResource("Resource_a5b1p")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

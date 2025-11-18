@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=17 format=3 uid="uid://brytv6ws6rf0k"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_bunmm"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_6wqtt"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_sf2ey"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="3_54bsx"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="4_rc3t2"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="5_w36sh"]
+[ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="6_eopeh"]
+[ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="7_d4dvi"]
+
+[sub_resource type="Resource" id="Resource_gsamd"]
+script = ExtResource("2_6wqtt")
+animation = "Death"
+duration = 3.0
+where = Vector2(-400, 50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_0vem0"]
+script = ExtResource("2_6wqtt")
+animation = "Punch"
+duration = 2.0
+where = Vector2(-425, -50)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_q3q8j"]
+script = ExtResource("3_54bsx")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_0vem0")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_ssjbd"]
+script = ExtResource("4_rc3t2")
+target_npc_name = "NPC_Tint"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_tmp7c"]
+script = ExtResource("5_w36sh")
+where = Vector2(-200, 50)
+speed_multiplier = 1.5
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_cwf50"]
+script = ExtResource("3_54bsx")
+target_npc_name = "NPC_Tint"
+action_resource = SubResource("Resource_tmp7c")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
+[sub_resource type="Resource" id="Resource_hr8rh"]
+script = ExtResource("6_eopeh")
+anim_self = "Talk"
+anim_duration = 5.0
+detection_radius = 20.0
+approach_distance = 25.0
+search_timeout = 10.0
+where = Vector2(0, 0)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
+
+[sub_resource type="Resource" id="Resource_w7wwx"]
+script = ExtResource("7_d4dvi")
+mode = 1
+skip_count = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://dybysqari256p"
+
+[resource]
+script = ExtResource("2_sf2ey")
+_fleeting = false
+_actions = Array[ExtResource("1_bunmm")]([SubResource("Resource_gsamd"), SubResource("Resource_q3q8j"), SubResource("Resource_ssjbd"), SubResource("Resource_cwf50"), SubResource("Resource_hr8rh"), SubResource("Resource_w7wwx")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

@@ -11,6 +11,7 @@ size = Vector2(19, 19)
 radius = 13.0
 
 [node name="Item" type="Area2D" groups=["items"]]
+z_index = -1
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("1_862ai")

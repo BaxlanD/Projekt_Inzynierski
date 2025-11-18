@@ -2,14 +2,17 @@ extends Node
 class_name ActionSequencer
 
 @export var _stack: Array[Sequence]
+var character: NPCActions
 
 func start(character_: NPCActions) -> void:
 	## Reverse the stack it make it easier to edit stuff in the editor
 	## But be able to pop and push to the back of the array
+	character = character_ 
 	_stack.reverse()
 	for seq in _stack:
 		for act in seq._actions:
 			act.character = character_
+	character_.current_sequence_index = _stack.size() - 1
 
 func get_action() -> Action:
 	_flush_done_sequences()
@@ -37,6 +40,8 @@ func _flush_done_sequences() -> void:
 		var _action: Action = _stack[-1].get_action()
 		if _action == null:
 			_stack.pop_back()
+			if character:
+				character.current_sequence_index = _stack.size() - 1
 		else:
 			break
 

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=7 format=3 uid="uid://cwm23pj5hmnj3"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_nsl8y"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_hgkce"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="3_b5ns2"]
+
+[sub_resource type="Resource" id="Resource_lpqk3"]
+script = ExtResource("2_hgkce")
+animation = "Talk"
+duration = 2.0
+where = Vector2(-50, -450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_lagpa"]
+script = ExtResource("2_hgkce")
+animation = "Use"
+duration = 1.0
+where = Vector2(-50, -450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_5futx"]
+script = ExtResource("2_hgkce")
+animation = "Talk"
+duration = 3.0
+where = Vector2(-50, -450)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[resource]
+script = ExtResource("3_b5ns2")
+_fleeting = false
+_actions = Array[ExtResource("1_nsl8y")]([SubResource("Resource_lpqk3"), SubResource("Resource_lagpa"), SubResource("Resource_5futx")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

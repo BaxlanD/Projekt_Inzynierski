@@ -16,6 +16,10 @@ run/main_scene="res://levels/level_demo/level_demo.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://cxb8m30bj80l8"
 
+[autoload]
+
+NpcRegistry="*res://characters/npc_actions/NPCRegistry.gd"
+
 [debug]
 
 gdscript/warnings/unused_signal=0
@@ -47,6 +51,13 @@ folder_colors={
 "res://resources/": "yellow",
 "res://tools/": "gray"
 }
+
+[global_group]
+
+NPCs=""
+Grelda=""
+Eski=""
+Places=""
 
 [input]
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkvpofbgybeat"]
+
+[ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_ntcxw"]
+[ext_resource type="Script" uid="uid://c6lu4lqrya5mn" path="res://characters/npc_actions/npc_viviano.gd" id="2_vldgt"]
+
+[node name="NPC_Viviano" instance=ExtResource("1_ntcxw")]
+script = ExtResource("2_vldgt")

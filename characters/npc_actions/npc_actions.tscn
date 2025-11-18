@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdj5qqynp087o"]
+[gd_scene load_steps=7 format=3 uid="uid://cdj5qqynp087o"]
 
 [ext_resource type="Script" uid="uid://bb57xk7eo5uoh" path="res://characters/npc_actions/npc_actions.gd" id="1_ltbok"]
 [ext_resource type="SpriteFrames" uid="uid://cw87epsystrts" path="res://assets/character_animation_pack/sprite_frames/f2_c3_character_spriteframes.tres" id="2_641sm"]
+[ext_resource type="PackedScene" uid="uid://co2ccyfvt2t6j" path="res://resources/inventory/inventory.tscn" id="3_yyxgm"]
+[ext_resource type="PackedScene" uid="uid://cqaaih8cao801" path="res://resources/interactions/interactable.tscn" id="4_rw33i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfrtd"]
 radius = 8.0
 height = 32.0
 
-[node name="NPCActions" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0xxsk"]
+radius = 8.0
+height = 32.0
+
+[node name="NPCActions" type="CharacterBody2D" groups=["NPCs"]]
 collision_layer = 8
 collision_mask = 7
 floor_constant_speed = true
@@ -28,3 +34,14 @@ debug_color = Color(0.0843397, 0.689209, 0, 0.42)
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 32)
 collision_mask = 7
+
+[node name="Inventory" parent="." instance=ExtResource("3_yyxgm")]
+max_items = 1
+
+[node name="Interactable" parent="." instance=ExtResource("4_rw33i")]
+collision_mask = 24
+interaction_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_0xxsk")

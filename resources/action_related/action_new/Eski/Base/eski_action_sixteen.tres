@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Sequence" load_steps=12 format=3 uid="uid://bw8rojjknsx3l"]
+
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_ab5mf"]
+[ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="2_lq8hv"]
+[ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="2_u5cv5"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="3_mvmlh"]
+[ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="4_bqapx"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="5_rrhid"]
+
+[sub_resource type="Resource" id="Resource_8lv2x"]
+script = ExtResource("2_lq8hv")
+where = Vector2(300, 500)
+speed_multiplier = 0.6
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
+
+[sub_resource type="Resource" id="Resource_7mxqo"]
+script = ExtResource("2_u5cv5")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 5.0
+target_name = "NPC_Lucas"
+where = Vector2(575, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_sge06"]
+script = ExtResource("3_mvmlh")
+target_npc_name = "NPC_Eski"
+item_index = 1
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
+[sub_resource type="Resource" id="Resource_385yh"]
+script = ExtResource("4_bqapx")
+item_scene_path = "res://items/item_bread.tscn"
+target_npc_name = "NPC_Lucas"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b3o3vpc8msgim"
+
+[sub_resource type="Resource" id="Resource_p2cs5"]
+script = ExtResource("2_u5cv5")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 8.0
+target_name = "NPC_Lucas"
+where = Vector2(575, 500)
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[resource]
+script = ExtResource("5_rrhid")
+_fleeting = false
+_actions = Array[ExtResource("1_ab5mf")]([SubResource("Resource_8lv2x"), SubResource("Resource_7mxqo"), SubResource("Resource_sge06"), SubResource("Resource_385yh"), SubResource("Resource_p2cs5")])
+sequence_name = "Idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"

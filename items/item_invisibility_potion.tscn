@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvu45e4srmdxx"]
+
+[ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_2e8l0"]
+[ext_resource type="Script" uid="uid://c46rkjha1yalu" path="res://items/item_invisibility_potion.gd" id="2_6yde7"]
+[ext_resource type="Texture2D" uid="uid://4jam13fugtws" path="res://assets/invisibility_potion.png" id="2_amekj"]
+
+[node name="Invisibility Potion" instance=ExtResource("1_2e8l0")]
+script = ExtResource("2_6yde7")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-1.25292, -0.00231421)
+scale = Vector2(0.0154473, 0.0104073)
+texture = ExtResource("2_amekj")
