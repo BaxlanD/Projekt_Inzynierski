@@ -19,7 +19,7 @@ var _pause_timer: float = 0.0
 var _is_pausing: bool = false
 var _interrupted := false
 
-func create(character_: NPCActions, item_to_detect_: String) -> PaceAround:
+func create(character_: Character, item_to_detect_: String) -> PaceAround:
 	character = character_
 	item_to_detect = item_to_detect_
 	return self

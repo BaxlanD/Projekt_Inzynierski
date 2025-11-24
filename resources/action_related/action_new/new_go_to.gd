@@ -5,7 +5,7 @@ class_name NewGoTo
 var _snap: bool
 var _direction: int
 
-func create(character_: NPCActions, where_: Vector2) -> NewGoTo:
+func create(character_: Character, where_: Vector2) -> NewGoTo:
 	character = character_
 	where = where_
 	return self

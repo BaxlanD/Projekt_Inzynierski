@@ -15,7 +15,7 @@ var _grelda_target_pos: Vector2
 var _grelda_called: bool = false
 
 
-func create(character_: NPCActions, where_: Vector2, grelda_name_: String = "", anim_self_: String = "Talk", anim_target_: String = "Talk", duration_: float = 3.0) -> CallGrelda:
+func create(character_: Character, where_: Vector2, grelda_name_: String = "", anim_self_: String = "Talk", anim_target_: String = "Talk", duration_: float = 3.0) -> CallGrelda:
 	super._create(character_, where_)
 	if grelda_name_ != "":
 		grelda_name = grelda_name_

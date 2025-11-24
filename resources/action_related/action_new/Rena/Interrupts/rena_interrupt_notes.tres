@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_8kx5u"]
 [ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="2_dijs4"]
 [ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="3_4lma3"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="4_5ukmq"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="4_5ukmq"]
 
 [sub_resource type="Resource" id="Resource_r4khp"]
 script = ExtResource("2_dijs4")

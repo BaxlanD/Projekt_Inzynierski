@@ -10,7 +10,7 @@ var _finished: bool = false
 var _connected: bool = false
 var _search_timer: float = 0.0
 
-func create(character_: NPCActions, where_: Vector2, item_: String) -> TryPickup:
+func create(character_: Character, where_: Vector2, item_: String) -> TryPickup:
 	super._create(character_, where_)
 	item = item_
 	return self

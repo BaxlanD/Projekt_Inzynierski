@@ -4,7 +4,7 @@ class_name GoToAnd
 var _subaction: Action
 @export var where: Vector2
 
-func _create(character_: NPCActions, where_: Vector2) -> GoToAnd:
+func _create(character_: Character, where_: Vector2) -> GoToAnd:
 	character = character_
 	where = where_
 	return self

@@ -6,7 +6,7 @@ enum Mode { SKIP, CLEAR }
 @export var mode: Mode = Mode.SKIP
 @export var skip_count: int = 1
 
-func create(character_: NPCActions, mode_: Mode, skip_count_: int = 1) -> ModifyScheduleAction:
+func create(character_: Character, mode_: Mode, skip_count_: int = 1) -> ModifyScheduleAction:
 	character = character_
 	mode = mode_
 	skip_count = skip_count_

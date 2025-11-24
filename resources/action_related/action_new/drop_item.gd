@@ -9,7 +9,7 @@ var _finished: bool = false
 var _pending_item_list: Array = []
 var _connected: bool = false
 
-func create(character_: NPCActions, where_: Vector2, drop_anim_: String = "Throw") -> TryDropItem:
+func create(character_: Character, where_: Vector2, drop_anim_: String = "Throw") -> TryDropItem:
 	super._create(character_, where_)
 	drop_anim = drop_anim_
 	return self
@@ -30,7 +30,7 @@ func update(delta: float) -> void:
 	if _anim_started:
 		return
 
-	var item_list := character.npc_inventory.get_items()
+	var item_list := character.inventory.get_items()
 	if drop_slot >= item_list.size():
 		print("[TryDropItem] Brak przedmiotów do wyrzucenia.")
 		_complete()
@@ -64,7 +64,7 @@ func _on_drop_finished() -> void:
 		return
 	_finished = true
 
-	var item_list := character.npc_inventory.get_items()
+	var item_list := character.inventory.get_items()
 	if drop_slot < item_list.size():
 		var dropped_item: Item = item_list[drop_slot]
 		character.npc_inventory.drop_item(drop_slot)

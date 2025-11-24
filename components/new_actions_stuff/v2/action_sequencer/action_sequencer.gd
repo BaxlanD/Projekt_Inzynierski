@@ -2,9 +2,9 @@ extends Node
 class_name ActionSequencer
 
 @export var _stack: Array[Sequence]
-var character: NPCActions
+var character: Character
 
-func start(character_: NPCActions) -> void:
+func start(character_: Character) -> void:
 	## Reverse the stack it make it easier to edit stuff in the editor
 	## But be able to pop and push to the back of the array
 	character = character_ 

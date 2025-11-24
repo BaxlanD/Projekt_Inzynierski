@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="4_tyti1"]
 [ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="4_u5t68"]
 [ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="5_jtpin"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="6_u5t68"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="6_u5t68"]
 [ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="7_jtpin"]
 [ext_resource type="Resource" uid="uid://fr8rt5du4jim" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_no_potion.tres" id="7_peqfl"]
 [ext_resource type="Resource" uid="uid://b4eonpl3umyil" path="res://resources/action_related/action_new/story_retains/rena_potion.tres" id="8_dndcg"]

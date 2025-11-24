@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_a4tqe"]
 [ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="5_pwmbm"]
 [ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="6_rxlw8"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="7_6m2ei"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="7_6m2ei"]
 [ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="8_a76yt"]
 
 [sub_resource type="Resource" id="Resource_pxgsm"]

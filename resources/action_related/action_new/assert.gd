@@ -23,7 +23,7 @@ enum PushMode{
 @export var fallback_sequence: Sequence
 
 
-func create(character_: NPCActions, retain_: Retain, operation_: Op, value_: int, mode_: PushMode, fallback_: Sequence) -> Assert:
+func create(character_: Character, retain_: Retain, operation_: Op, value_: int, mode_: PushMode, fallback_: Sequence) -> Assert:
 	character = character_
 	retain = retain_
 	operation = operation_

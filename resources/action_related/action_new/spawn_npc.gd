@@ -3,7 +3,7 @@ class_name SpawnNPC
 
 @export var npc_path: NodePath
 
-func create(character_: NPCActions) -> SpawnNPC:
+func create(character_: Character) -> SpawnNPC:
 	character = character_
 	return self
 

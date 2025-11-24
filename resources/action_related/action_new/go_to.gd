@@ -4,7 +4,9 @@ class_name GoTo
 @export var where: Vector2
 @export var speed_multiplier: float = 1.0
 
-func create(character_: NPCActions, where_: Vector2) -> GoTo:
+var _subaction: Action
+
+func create(character_: Character, where_: Vector2) -> GoTo:
 	character = character_
 	where = where_
 	return self
@@ -16,7 +18,19 @@ func open() -> void:
 
 func update(delta: float) -> void:
 	super(delta)
+	
+	if _subaction != null:
+		_subaction.update(delta)
+		return
+	
 	character.anchored_agent.move_via_navigation(character, delta)
+	
+	var new_transition: Action = character.anchored_agent.get_current_transition()
+	if new_transition != null:
+		_subaction = BasicLayerTransition.new().create(character, "Death")
+		_subaction.action_closed.connect(_on_subaction_closed)
+		_subaction.open()
+	
 	_set_sprite_flip()
 	if character.anchored_agent.is_navigation_done():
 		character.animated_sprite_2d.play("Idle")
@@ -32,6 +46,9 @@ func _set_sprite_flip() -> void:
 	if facing < 0:
 		character.animated_sprite_2d.flip_h = true
 
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	character.animated_sprite_2d.play("Idle")
+
+func _on_subaction_closed() -> void:
+	_subaction = null
+	character.animated_sprite_2d.play("Walk")

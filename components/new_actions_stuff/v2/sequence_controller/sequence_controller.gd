@@ -7,7 +7,7 @@ var _started: bool = false
 var _elapsed_time: float
 var _current_action: Action
 
-func start(character: NPCActions) -> void:
+func start(character: Character) -> void:
 	assert(_action_sequencer)
 	_started = true
 	_elapsed_time = 0.0

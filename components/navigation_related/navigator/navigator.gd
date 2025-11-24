@@ -88,6 +88,14 @@ func is_transition(connection: Vector2i) -> bool:
 			return true
 	return false
 
+func get_transition(connection: Vector2i) -> Action:
+	for t in transitions:
+		if Vector2i(t.from, t.to) == connection:
+			return t.action
+		if Vector2i(t.to, t.from) == connection:
+			return t.reverse_action
+	return null
+
 ## IMPL DETAILS
 class ProjectedPoint:
 	var edge_ids: Vector2i
@@ -134,7 +142,7 @@ func _project_point_on_graph(point: Vector2) -> ProjectedPoint:
 
 func _collect_nav_layers() -> void:
 	for child in get_children():
-		if child is TempLevel:
+		if child is LevelLayer:
 			@warning_ignore("unsafe_property_access") # There is type-check but Godot forgot
 			var nav_layer: NavLayer = child.nav_layer
 			if nav_layer != null:

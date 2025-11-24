@@ -6,7 +6,7 @@ class_name GiveItem
 
 var _npc_ref: NPCActions = null
 
-func create(character_: NPCActions, item_scene_path_: String, target_npc_name_: String) -> GiveItem:
+func create(character_: Character, item_scene_path_: String, target_npc_name_: String) -> GiveItem:
 	character = character_
 	item_scene_path = item_scene_path_
 	target_npc_name = target_npc_name_

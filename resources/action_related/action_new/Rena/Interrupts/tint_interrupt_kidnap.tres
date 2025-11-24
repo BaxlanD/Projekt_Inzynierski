@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_k2emk"]
 [ext_resource type="Script" uid="uid://b3o3vpc8msgim" path="res://resources/action_related/action_new/give_item.gd" id="3_4ruqu"]
 [ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="4_4ruqu"]
-[ext_resource type="Script" uid="uid://da4apn8hx5go1" path="res://resources/action_related/action_new/delete_npc.gd" id="4_ayj4l"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="5_ayj4l"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/delete_npc.gd" id="4_ayj4l"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="5_ayj4l"]
 
 [sub_resource type="Resource" id="Resource_rer2y"]
 script = ExtResource("2_k2emk")

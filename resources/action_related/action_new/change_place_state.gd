@@ -7,7 +7,7 @@ class_name ChangePlaceState
 
 var _place_ref: Place = null
 
-func create(character_: NPCActions, place_name_: String, state_name_: String, target_value_name_: String) -> ChangePlaceState:
+func create(character_: Character, place_name_: String, state_name_: String, target_value_name_: String) -> ChangePlaceState:
 	character = character_
 	place_name = place_name_
 	state_name = state_name_

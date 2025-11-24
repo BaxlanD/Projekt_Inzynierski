@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=4 uid="uid://bgtl10w5p31i0"]
+
+[ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/level_layer/level_layer.gd" id="1_271ib"]
+[ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="2_qu7un"]
+
+[node name="LVL1" type="Node2D"]
+script = ExtResource("1_271ib")
+metadata/_custom_type_script = "uid://c51cwx8ejhqut"
+
+[node name="Tilemaps" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer-Platforms" type="TileMapLayer" parent="Tilemaps"]
+tile_map_data = PackedByteArray("AAD9/wAAAAABAAAAAAD+/wAAAAABAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAKAAMAAAABAAAAAAANAAEAAAABAAAAAAAOAAEAAAABAAAAAAAPAAEAAAABAAAAAAAQAAEAAAABAAAAAAARAAEAAAABAAAAAAASAAEAAAABAAAAAAD4/wQAAAABAAAAAAD3/wQAAAABAAAAAAD2/wQAAAABAAAAAAD1/wQAAAABAAAAAAD4//z/AAABAAAAAAD3//z/AAABAAAAAAD2//z/AAABAAAAAAD1//z/AAABAAAAAAD8/wAAAAABAAAAAAD7/wAAAAABAAAAAAD6/wAAAAABAAAAAAD5/wAAAAABAAAAAAD4/wAAAAABAAAAAAD3/wAAAAABAAAAAAD2/wAAAAABAAAAAAD1/wAAAAABAAAAAAA=")
+tile_set = ExtResource("2_qu7un")
+
+[node name="TileMapLayer-Ramps" type="TileMapLayer" parent="Tilemaps"]
+tile_map_data = PackedByteArray("AAADAAAAAAACAAAAAAAEAAEAAAACAAAAAAAFAAIAAAACAAAAAAALAAIAAAAAAAAAAAAMAAEAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD5/wMAAAAAAAAAAAD8////AAACAAAAAAD7//7/AAACAAAAAAD6//3/AAACAAAAAAD5//z/AAACAAAAAAA=")
+tile_set = ExtResource("2_qu7un")

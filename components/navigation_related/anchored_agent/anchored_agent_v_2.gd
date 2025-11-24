@@ -9,6 +9,8 @@ class_name AnchoredAgentV2 # using Navigator API
 @export var navigator: Navigator
 @export var debug_draw_path: DebugDraw
 
+var actor_layer: int = -1
+
 # Position should be counted from id0 towards id1
 var current_edge_ids: Vector2i
 var progress: float
@@ -26,6 +28,7 @@ func initialize(actor: Node2D) -> void:
 	var projected_position := navigator._project_point_on_graph(actor.position)
 	current_edge_ids = projected_position.edge_ids
 	progress = projected_position.progress
+	actor_layer = navigator.get_point_data(current_edge_ids[0]).get_layer_id()
 
 func set_destination(target: Vector2) -> void:
 	_path = navigator.generate_path(current_edge_ids, progress, target)
@@ -47,14 +50,6 @@ func move_via_navigation(actor: Node2D, delta: float) -> void:
 	
 	while 0 < distance:
 		_update_last_direction()
-		
-		## TEMP SOLUTION
-		if navigator.is_transition(current_edge_ids):
-			# PROGRESS TO NEXT EDGE 
-			progress = 0
-			_path_index += 1
-			current_edge_ids = Vector2i(current_edge_ids[1], _path[_path_index].id)
-			pass
 			
 		# IF LAST EDGE 
 		if _path_index == _path.size() - 1:
@@ -76,11 +71,8 @@ func move_via_navigation(actor: Node2D, delta: float) -> void:
 			var current_edge_len: float = navigator.get_len(current_edge_ids[0], current_edge_ids[1])
 			# IF OVERSHOT EDGE END
 			if distance > dist_to_edge_end:
-				progress = 0
 				distance -= dist_to_edge_end
-				## PROGRESS TO NEXT EDGE 
-				_path_index += 1
-				current_edge_ids = Vector2i(current_edge_ids[1], _path[_path_index].id)
+				progress_to_next_edge()
 			# ELSE MOVE AS FAR AS YOU NEED
 			else:
 				progress += distance / current_edge_len
@@ -117,6 +109,15 @@ func move_via_input(actor: Node2D, delta: float, dir: Vector2) -> void:
 		distance = (progress - 1) * edge_length
 	
 	_update_actors_world_position(actor)
+
+func get_current_transition() -> Action:
+	return navigator.get_transition(current_edge_ids)
+
+func progress_to_next_edge() -> void:
+	progress = 0
+	_path_index += 1
+	current_edge_ids = Vector2i(current_edge_ids[1], _path[_path_index].id)
+	actor_layer = navigator.get_point_data(current_edge_ids[0]).get_layer_id()
 
 ## IMPL DETAILS
 func _reverse_current_edge() -> void:

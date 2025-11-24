@@ -1,14 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://cncx23dbg8rlw"]
+[gd_scene load_steps=17 format=3 uid="uid://cncx23dbg8rlw"]
 
 [ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_b6ebu"]
 [ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_1hi8c"]
-[ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/navigator/temp_level.gd" id="2_v4i6i"]
+[ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/level_layer/level_layer.gd" id="2_v4i6i"]
 [ext_resource type="Resource" uid="uid://bjthnnh05wo6j" path="res://ONE.tres" id="3_1hi8c"]
 [ext_resource type="Resource" uid="uid://biqpxwm4hbdxm" path="res://TWO.tres" id="4_lmyum"]
 [ext_resource type="Resource" uid="uid://dmy5v4d4qnjy6" path="res://THREE.tres" id="5_htolm"]
 [ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="7_rhudg"]
 [ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="8_1nlwk"]
 [ext_resource type="Script" uid="uid://ddiph2m58srp0" path="res://components/navigation_related/anchored_agent/anchored_agent_v_2.gd" id="9_b6ebu"]
+[ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="10_lmyum"]
+[ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="10_rhudg"]
+[ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="11_htolm"]
+[ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="11_vutqn"]
+[ext_resource type="PackedScene" uid="uid://cleresp8aqg0s" path="res://resources/interactions/interaction_menu.tscn" id="12_rhudg"]
 
 [sub_resource type="Resource" id="Resource_v4i6i"]
 script = ExtResource("2_1hi8c")
@@ -51,10 +56,160 @@ metadata/_custom_type_script = "uid://c51cwx8ejhqut"
 script = ExtResource("7_rhudg")
 metadata/_custom_type_script = "uid://c1abhovivd2ej"
 
-[node name="PlayerDemo" parent="." instance=ExtResource("8_1nlwk")]
+[node name="Player" parent="." instance=ExtResource("8_1nlwk")]
 position = Vector2(96, 24)
 
-[node name="AnchoredAgentV2" type="Node" parent="PlayerDemo" node_paths=PackedStringArray("navigator")]
+[node name="AnchoredAgentV2" type="Node" parent="Player" node_paths=PackedStringArray("navigator")]
 script = ExtResource("9_b6ebu")
 navigator = NodePath("../../Navigator")
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" type="Node" parent="Player" node_paths=PackedStringArray("_action_sequencer")]
+script = ExtResource("10_rhudg")
+_action_sequencer = NodePath("ActionSequencer")
+metadata/_custom_type_script = "uid://typ11exqa0fj"
+
+[node name="ActionSequencer" type="Node" parent="Player/SequenceController"]
+script = ExtResource("11_vutqn")
+metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -14.0
+offset_right = -42.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_lmyum")
+
+[node name="InvPanel" type="Panel" parent="UI/InventoryUI"]
+visible = false
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 220.0
+script = ExtResource("11_htolm")
+
+[node name="GridContainer" type="GridContainer" parent="UI/InventoryUI/InvPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="Button" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button2"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button2/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button2/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button3"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button3/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button3/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button4" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button4"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button4/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button4/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ItemPopupPanel" type="PopupPanel" parent="UI/InventoryUI"]
+auto_translate_mode = 1
+size = Vector2i(100, 60)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 104.0
+offset_bottom = 70.0
+
+[node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Drop"
+
+[node name="Close" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="InteractionMenu" parent="UI" instance=ExtResource("12_rhudg")]

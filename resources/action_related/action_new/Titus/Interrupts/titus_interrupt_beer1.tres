@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_0dv6v"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_hp2gm"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_tqnxq"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="3_48110"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="3_48110"]
 [ext_resource type="Resource" uid="uid://dt7gmapstof5r" path="res://resources/action_related/action_new/Titus/Interrupts/titus_interrupt_lookForEski.tres" id="4_2hjo8"]
 [ext_resource type="Resource" uid="uid://cogx4h82qq1mh" path="res://resources/action_related/action_new/story_retains/always_0_retain.tres" id="4_jf2hr"]
 [ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="5_2hjo8"]

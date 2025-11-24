@@ -8,7 +8,7 @@ var _anim_started: bool = false
 var _timer: float = 0.0
 
 
-func create(character_: NPCActions, where_: Vector2, animation_: String,  duration_: float = 3.0) -> PlayAnim:
+func create(character_: Character, where_: Vector2, animation_: String,  duration_: float = 3.0) -> PlayAnim:
 	# Call to super _create() because GDScript doesn't have argument overloading
 	# This handles GoTo 'subaction'
 	super._create(character_, where_)

@@ -3,7 +3,7 @@ class_name DeleteItem
 
 @export var item_name: String
 
-func create(character_: NPCActions, item_: Item) -> DeleteItem:
+func create(character_: Character, item_: Item) -> DeleteItem:
 	character = character_
 	item_name = item_.name
 	return self

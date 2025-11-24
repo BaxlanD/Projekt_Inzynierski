@@ -5,7 +5,7 @@ class_name PartnerAnim
 @export var duration: float = 3.0
 var _timer: float = 0.0
 
-func create(character_: NPCActions, anim_name_: String = "Talk", duration_: float = 3.0) -> PartnerAnim:
+func create(character_: Character, anim_name_: String = "Talk", duration_: float = 3.0) -> PartnerAnim:
 	character = character_
 	anim_name = anim_name_
 	duration = duration_

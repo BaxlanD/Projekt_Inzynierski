@@ -5,7 +5,7 @@ class_name PushInstantAction
 @export var action_resource: Action
 
 
-func create(character_: NPCActions, npc_name_: String, action_resource_: Action) -> PushInstantAction:
+func create(character_: Character, npc_name_: String, action_resource_: Action) -> PushInstantAction:
 	character = character_
 	target_npc_name = npc_name_
 	action_resource = action_resource_

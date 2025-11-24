@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_rqxvs"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_k6gkk"]
 [ext_resource type="Script" uid="uid://de3to7sjiy5rq" path="res://resources/action_related/action_new/change_place_state.gd" id="4_osdui"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="5_k6gkk"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="5_k6gkk"]
 
 [sub_resource type="Resource" id="Resource_w72su"]
 script = ExtResource("2_rqxvs")
