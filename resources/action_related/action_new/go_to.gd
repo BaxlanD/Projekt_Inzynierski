@@ -2,13 +2,15 @@ extends Action
 class_name GoTo
 
 @export var where: Vector2
+@export var layer: int = -1
 @export var speed_multiplier: float = 1.0
 
 var _subaction: Action
 
-func create(character_: Character, where_: Vector2) -> GoTo:
+func create(character_: Character, where_: Vector2, layer_: int = -1) -> GoTo:
 	character = character_
 	where = where_
+	layer = layer_
 	return self
 
 func open() -> void:
@@ -27,7 +29,9 @@ func update(delta: float) -> void:
 	
 	var new_transition: Action = character.anchored_agent.get_current_transition()
 	if new_transition != null:
-		_subaction = BasicLayerTransition.new().create(character, "Death")
+		var a: Action = new_transition.duplicate()
+		a.character = character
+		_subaction = a
 		_subaction.action_closed.connect(_on_subaction_closed)
 		_subaction.open()
 	

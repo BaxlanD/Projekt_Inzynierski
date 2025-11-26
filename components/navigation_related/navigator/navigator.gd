@@ -17,18 +17,18 @@ func _ready() -> void:
 	_initialize_points()
 	_initialize_connections()
 	if debug_draw: debug_draw.draw()
-	print(graph_connections)
+	#print(graph_connections)
 
 # PointData includes: ID, LayerID, Position, Name ("" if none)
 func get_point_data(id: int) -> PointData:
 	return point_data_map[id]
 
 ## API
-func generate_path(origin_edge_ids: Vector2i, origin_progress: float, target: Vector2) -> Array[PointWithId]:
+func generate_path(origin_edge_ids: Vector2i, origin_progress: float, target: Vector2, layer: int = -1) -> Array[PointWithId]:
 	# Find edges that origin and target are on
 	#var projected_origin: ProjectedPoint = project_point_on_graph(origin)
 	var projected_origin: ProjectedPoint = ProjectedPoint.new(astar, origin_edge_ids, origin_progress)
-	var projected_target: ProjectedPoint = _project_point_on_graph(target)
+	var projected_target: ProjectedPoint = _project_point_on_graph_layer(target, layer)
 	
 	# If origin_edge is the same as target_edge and is aligned in same direction
 	if projected_origin.edge_ids == projected_target.edge_ids:
@@ -81,10 +81,8 @@ func get_pos(id: int) -> Vector2:
 func is_transition(connection: Vector2i) -> bool:
 	for t in transitions:
 		if Vector2i(t.from, t.to) == connection:
-			print("TRANSITION EDGE")
 			return true
 		if Vector2i(t.to, t.from) == connection:
-			print("REVERSE TRANSITION EDGE")
 			return true
 	return false
 
@@ -137,6 +135,26 @@ func _project_point_on_graph(point: Vector2) -> ProjectedPoint:
 		return a.get_point_position().distance_squared_to(point) < b.get_point_position().distance_squared_to(point)
 	)
 	return hits[0]
+
+
+func _project_point_on_graph_layer(point: Vector2, layer: int = -1) -> ProjectedPoint:
+	if layer != -1:
+		var hits: Array[ProjectedPoint] = []
+		for connection in graph_connections:
+			if get_point_data(connection.x).get_layer_id() == layer and get_point_data(connection.y).get_layer_id() == layer:
+				var edge: Edge = Edge.new(get_pos(connection.x), get_pos(connection.y))
+				var progress: float = edge.project_point(point)
+				if 0 <= progress and progress <= 1:
+					var hit_point: Vector2 = edge.a + (edge.b - edge.a) * progress
+					if hit_point.y >= point.y:
+						hits.push_back(ProjectedPoint.new(astar, connection, progress))
+						
+		hits.sort_custom(func(a: ProjectedPoint, b: ProjectedPoint) -> bool: 
+			return a.get_point_position().distance_squared_to(point) < b.get_point_position().distance_squared_to(point)
+		)
+		return hits[0]
+	else:
+		return _project_point_on_graph(point)
 
 #region BUILDING_GRAPH
 

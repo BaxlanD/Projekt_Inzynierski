@@ -24,6 +24,9 @@ func _ready() -> void:
 	sequence_controller.start(self)
 
 func _physics_process(delta: float) -> void:
+	if !sequence_controller._started:
+		return
+	
 	npc_floor_level = ray_cast_2d.get_collision_point().y
 	
 	if Input.is_action_just_pressed("LMB"):

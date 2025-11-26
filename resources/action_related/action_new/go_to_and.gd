@@ -3,10 +3,12 @@ class_name GoToAnd
 
 var _subaction: Action
 @export var where: Vector2
+@export var layer: int = -1
 
-func _create(character_: Character, where_: Vector2) -> GoToAnd:
+func _create(character_: Character, where_: Vector2, layer_: int = -1) -> GoToAnd:
 	character = character_
 	where = where_
+	layer = layer_
 	return self
 
 func open() -> void:

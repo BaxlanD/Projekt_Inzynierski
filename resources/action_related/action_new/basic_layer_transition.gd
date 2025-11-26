@@ -1,7 +1,7 @@
 extends Action
 class_name BasicLayerTransition
 
-var animation: String
+@export var animation: String = "Death"
 
 func create(character_: Character, animation_: String) -> BasicLayerTransition:
 	character = character_

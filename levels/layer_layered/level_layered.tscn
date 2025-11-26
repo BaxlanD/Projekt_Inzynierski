@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://c0muifmabuljh" path="res://resources/action_related/action_new/basic_layer_transition.gd" id="3_g3730"]
 [ext_resource type="Resource" uid="uid://bnkn4bbwgus5b" path="res://levels/layer_layered/sublevels/lvl1map.tres" id="3_q7h2f"]
 [ext_resource type="Script" uid="uid://ddiph2m58srp0" path="res://components/navigation_related/anchored_agent/anchored_agent_v_2.gd" id="4_rm1jw"]
-[ext_resource type="PackedScene" uid="uid://biotk3mddhgk6" path="res://levels/level-village/sublevels/level_outside.tscn" id="4_samao"]
 [ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="5_virxb"]
 [ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="6_w2k2p"]
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="7_q7h2f"]
@@ -17,15 +16,18 @@
 [ext_resource type="PackedScene" uid="uid://cleresp8aqg0s" path="res://resources/interactions/interaction_menu.tscn" id="9_hk7xp"]
 [ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="10_w2k2p"]
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="11_4y7dk"]
+[ext_resource type="PackedScene" uid="uid://c4uy0pnckhfcj" path="res://components/game_clock/game_clock.tscn" id="18_n4mnj"]
 
 [sub_resource type="Resource" id="Resource_samao"]
 script = ExtResource("3_g3730")
+animation = "Death"
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c0muifmabuljh"
 
 [sub_resource type="Resource" id="Resource_g3730"]
 script = ExtResource("3_g3730")
+animation = "Death"
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c0muifmabuljh"
@@ -47,9 +49,6 @@ debug_draw = NodePath("../_DebugDraws/NavigationDraw")
 metadata/_custom_type_script = "uid://c64ex26cc1h7g"
 metadata/_edit_lock_ = true
 
-[node name="LevelOutside" parent="Navigator" instance=ExtResource("4_samao")]
-position = Vector2(456, 168)
-
 [node name="LVL2" parent="Navigator" instance=ExtResource("2_hk7xp")]
 position = Vector2(528, -56)
 nav_layer = ExtResource("3_csps3")
@@ -69,9 +68,10 @@ script = ExtResource("4_rm1jw")
 navigator = NodePath("../../Navigator")
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
-[node name="SequenceController" type="Node" parent="Player" node_paths=PackedStringArray("_action_sequencer")]
+[node name="SequenceController" type="Node" parent="Player" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
 script = ExtResource("5_virxb")
 _action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../GameClock")
 metadata/_custom_type_script = "uid://typ11exqa0fj"
 
 [node name="ActionSequencer" type="Node" parent="Player/SequenceController"]
@@ -79,16 +79,17 @@ script = ExtResource("6_w2k2p")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
 [node name="NPCActions" parent="." instance=ExtResource("11_4y7dk")]
-position = Vector2(232, 88)
+position = Vector2(488, 48)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCActions" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_rm1jw")
 navigator = NodePath("../../Navigator")
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
-[node name="SequenceController" type="Node" parent="NPCActions" node_paths=PackedStringArray("_action_sequencer")]
+[node name="SequenceController" type="Node" parent="NPCActions" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
 script = ExtResource("5_virxb")
 _action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../GameClock")
 metadata/_custom_type_script = "uid://typ11exqa0fj"
 
 [node name="ActionSequencer" type="Node" parent="NPCActions/SequenceController"]
@@ -244,3 +245,5 @@ layout_mode = 2
 text = "Close"
 
 [node name="InteractionMenu" parent="UI" instance=ExtResource("9_hk7xp")]
+
+[node name="GameClock" parent="." instance=ExtResource("18_n4mnj")]
