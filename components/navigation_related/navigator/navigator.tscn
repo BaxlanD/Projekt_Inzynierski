@@ -1,13 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bswk2o7ijo0oa"]
+[gd_scene load_steps=5 format=3 uid="uid://bswk2o7ijo0oa"]
 
 [ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_p37mf"]
-[ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/navigator/temp_level.gd" id="2_vedr3"]
 [ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_w3a2x"]
-[ext_resource type="Resource" uid="uid://bjthnnh05wo6j" path="res://ONE.tres" id="4_w3a2x"]
-[ext_resource type="Resource" uid="uid://biqpxwm4hbdxm" path="res://TWO.tres" id="5_ajssa"]
-[ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="5_cmbhe"]
-[ext_resource type="Script" uid="uid://y8mwdms4kul6" path="res://resources/nav_layer/nav_layer.gd" id="7_ajssa"]
-[ext_resource type="Resource" uid="uid://dmy5v4d4qnjy6" path="res://THREE.tres" id="9_fsmp1"]
 
 [sub_resource type="Resource" id="Resource_fsmp1"]
 script = ExtResource("2_w3a2x")
@@ -21,38 +15,7 @@ from_point = "TWO"
 to_point = "THREE2"
 metadata/_custom_type_script = "uid://l8mmlejeqwqc"
 
-[sub_resource type="Resource" id="Resource_g3u37"]
-script = ExtResource("7_ajssa")
-points = Array[Vector2]([Vector2(20, 100), Vector2(300, 100)])
-connections = Array[Vector2i]([Vector2i(0, 1)])
-named_points = Dictionary[String, int]({})
-metadata/_custom_type_script = "uid://y8mwdms4kul6"
-
 [node name="Navigator" type="Node2D" node_paths=PackedStringArray("debug_draw")]
 script = ExtResource("1_p37mf")
 transitions = Array[ExtResource("2_w3a2x")]([SubResource("Resource_fsmp1"), SubResource("Resource_w3a2x")])
-debug_draw = NodePath("DebugDraw")
-
-[node name="TempLevel" type="Node2D" parent="."]
-script = ExtResource("2_vedr3")
-nav_layer = ExtResource("4_w3a2x")
-metadata/_custom_type_script = "uid://c51cwx8ejhqut"
-
-[node name="TempLevel2" type="Node2D" parent="."]
-script = ExtResource("2_vedr3")
-nav_layer = ExtResource("5_ajssa")
-metadata/_custom_type_script = "uid://c51cwx8ejhqut"
-
-[node name="TempLevel3" type="Node2D" parent="."]
-script = ExtResource("2_vedr3")
-nav_layer = ExtResource("9_fsmp1")
-metadata/_custom_type_script = "uid://c51cwx8ejhqut"
-
-[node name="TempLevel4" type="Node2D" parent="."]
-script = ExtResource("2_vedr3")
-nav_layer = SubResource("Resource_g3u37")
-metadata/_custom_type_script = "uid://c51cwx8ejhqut"
-
-[node name="DebugDraw" type="Node2D" parent="."]
-script = ExtResource("5_cmbhe")
-metadata/_custom_type_script = "uid://c1abhovivd2ej"
+debug_draw = NodePath("")

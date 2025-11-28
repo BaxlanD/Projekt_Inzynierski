@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://6wnhogcikohv"]
+[gd_scene load_steps=13 format=4 uid="uid://6wnhogcikohv"]
 
 [ext_resource type="TileSet" uid="uid://dk3o2ox10yc4c" path="res://assets/tiles/tiles_demo.tres" id="1_23q0u"]
 [ext_resource type="Script" uid="uid://m8w0xw0t2elk" path="res://components/navigation_related/navigation_layer/navigation_layer.gd" id="2_06hfj"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="5_teggt"]
 [ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="6_yno6h"]
 [ext_resource type="Script" uid="uid://bqd2sdlukp24l" path="res://components/navigation_related/anchored_agent/anchored_agent.gd" id="7_p0rx7"]
+[ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="11_3yjgp"]
 [ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="11_xfcj1"]
+[ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="12_visgg"]
+[ext_resource type="PackedScene" uid="uid://cleresp8aqg0s" path="res://resources/interactions/interaction_menu.tscn" id="13_sdlsx"]
 
 [node name="LevelScheduleTest" type="Node2D"]
 
@@ -37,22 +40,17 @@ debug_show_graph = true
 metadata/_custom_type_script = "uid://fykdhte1igt"
 metadata/_edit_lock_ = true
 
-[node name="PlayerDemo" parent="." instance=ExtResource("4_06hfj")]
+[node name="Player" parent="." instance=ExtResource("4_06hfj")]
 position = Vector2(-936, 152)
 
-[node name="AnchoredAgent" type="Node" parent="PlayerDemo" node_paths=PackedStringArray("navigation_layer")]
+[node name="AnchoredAgent" type="Node" parent="Player" node_paths=PackedStringArray("navigation_layer")]
 script = ExtResource("7_p0rx7")
 navigation_layer = NodePath("../../NavLayerV2")
 metadata/_custom_type_script = "uid://bqd2sdlukp24l"
 
-[node name="HeldItemIcon" type="Sprite2D" parent="PlayerDemo"]
-position = Vector2(0, -40)
-scale = Vector2(0.05, 0.05)
-
-[node name="NPCActions" parent="." node_paths=PackedStringArray("navigation_layer", "anchored_agent") instance=ExtResource("5_teggt")]
+[node name="NPCActions" parent="." node_paths=PackedStringArray("navigation_layer") instance=ExtResource("5_teggt")]
 position = Vector2(-848, 152)
 navigation_layer = NodePath("../NavLayer")
-anchored_agent = NodePath("AnchoredAgent")
 
 [node name="Camera2D" type="Camera2D" parent="NPCActions"]
 zoom = Vector2(0.7, 0.7)
@@ -71,3 +69,144 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 [node name="ActionSequencer" type="Node" parent="NPCActions/SequenceController"]
 script = ExtResource("11_xfcj1")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -14.0
+offset_right = -42.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_3yjgp")
+
+[node name="InvPanel" type="Panel" parent="UI/InventoryUI"]
+visible = false
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 220.0
+script = ExtResource("12_visgg")
+
+[node name="GridContainer" type="GridContainer" parent="UI/InventoryUI/InvPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="Button" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button2"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button2/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button2/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button3"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button3/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button3/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button4" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button4"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button4/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button4/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ItemPopupPanel" type="PopupPanel" parent="UI/InventoryUI"]
+auto_translate_mode = 1
+size = Vector2i(100, 60)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 104.0
+offset_bottom = 70.0
+
+[node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Drop"
+
+[node name="Close" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="InteractionMenu" parent="UI" instance=ExtResource("13_sdlsx")]

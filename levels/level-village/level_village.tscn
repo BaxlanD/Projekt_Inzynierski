@@ -1,0 +1,241 @@
+[gd_scene load_steps=19 format=3 uid="uid://taudbpavjp4y"]
+
+[ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_gityk"]
+[ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_dlr5x"]
+[ext_resource type="PackedScene" uid="uid://chu8twb05blnn" path="res://levels/level-village/sublevels/village_outside.tscn" id="2_hd8j8"]
+[ext_resource type="Script" uid="uid://c0muifmabuljh" path="res://resources/action_related/action_new/basic_layer_transition.gd" id="3_6wlod"]
+[ext_resource type="PackedScene" uid="uid://b0t63poihchnb" path="res://characters/player_demo/player_demo.tscn" id="3_hd8j8"]
+[ext_resource type="PackedScene" uid="uid://b6vwuroos1kov" path="res://levels/level-village/sublevels/village_transition_test.tscn" id="3_ro3nk"]
+[ext_resource type="Script" uid="uid://ddiph2m58srp0" path="res://components/navigation_related/anchored_agent/anchored_agent_v_2.gd" id="4_1n2bu"]
+[ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="5_gbap6"]
+[ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="6_qwxvw"]
+[ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="7_gmu0f"]
+[ext_resource type="PackedScene" uid="uid://c4uy0pnckhfcj" path="res://components/game_clock/game_clock.tscn" id="7_nw76t"]
+[ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="8_nw76t"]
+[ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="9_gmu0f"]
+[ext_resource type="PackedScene" uid="uid://cleresp8aqg0s" path="res://resources/interactions/interaction_menu.tscn" id="10_ro3nk"]
+[ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="13_av7lr"]
+
+[sub_resource type="Resource" id="Resource_auta7"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_qsj4p"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_v35xo"]
+script = ExtResource("2_dlr5x")
+from_point = "outside-door"
+to_point = "inside-door"
+action = SubResource("Resource_auta7")
+reverse_action = SubResource("Resource_qsj4p")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[node name="LevelVillage" type="Node2D"]
+
+[node name="Navigator" type="Node2D" parent="." node_paths=PackedStringArray("debug_draw")]
+script = ExtResource("1_gityk")
+transitions = Array[ExtResource("2_dlr5x")]([SubResource("Resource_v35xo")])
+debug_draw = NodePath("../DebugDraws/NavDraw")
+metadata/_custom_type_script = "uid://c64ex26cc1h7g"
+
+[node name="VillageOutside" parent="Navigator" instance=ExtResource("2_hd8j8")]
+
+[node name="VillageTransitionTest" parent="Navigator" instance=ExtResource("3_ro3nk")]
+position = Vector2(-48, 120)
+
+[node name="Player" parent="." instance=ExtResource("3_hd8j8")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.81, 0.81)
+
+[node name="AnchoredAgentV2" type="Node" parent="Player" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" type="Node" parent="Player" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
+script = ExtResource("5_gbap6")
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../GameClock")
+metadata/_custom_type_script = "uid://typ11exqa0fj"
+
+[node name="ActionSequencer" type="Node" parent="Player/SequenceController"]
+script = ExtResource("6_qwxvw")
+metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
+
+[node name="BasicNPC" parent="." instance=ExtResource("7_gmu0f")]
+position = Vector2(-64, 0)
+
+[node name="AnchoredAgentV2" type="Node" parent="BasicNPC" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" type="Node" parent="BasicNPC" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
+script = ExtResource("5_gbap6")
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../GameClock")
+metadata/_custom_type_script = "uid://typ11exqa0fj"
+
+[node name="ActionSequencer" type="Node" parent="BasicNPC/SequenceController"]
+script = ExtResource("6_qwxvw")
+metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
+
+[node name="GameClock" parent="." instance=ExtResource("7_nw76t")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -14.0
+offset_right = -42.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_nw76t")
+
+[node name="InvPanel" type="Panel" parent="UI/InventoryUI"]
+visible = false
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 220.0
+script = ExtResource("9_gmu0f")
+
+[node name="GridContainer" type="GridContainer" parent="UI/InventoryUI/InvPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="Button" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button2"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button2/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button2/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button3"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button3/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button3/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Button4" type="Button" parent="UI/InventoryUI/InvPanel/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/InvPanel/GridContainer/Button4"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 91.0
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InventoryUI/InvPanel/GridContainer/Button4/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/InventoryUI/InvPanel/GridContainer/Button4/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ItemPopupPanel" type="PopupPanel" parent="UI/InventoryUI"]
+auto_translate_mode = 1
+size = Vector2i(100, 60)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 104.0
+offset_bottom = 70.0
+
+[node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+text = "Drop"
+
+[node name="Close" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="InteractionMenu" parent="UI" instance=ExtResource("10_ro3nk")]
+
+[node name="DebugDraws" type="Node2D" parent="."]
+
+[node name="NavDraw" type="Node2D" parent="DebugDraws"]
+script = ExtResource("13_av7lr")
+line_color = Color(1, 0, 0, 1)
+point_color = Color(1, 0, 0.623529, 1)
+metadata/_custom_type_script = "uid://c1abhovivd2ej"

@@ -11,7 +11,7 @@ var _phase_started: bool = false
 var _target_ref: NPCActions = null
 
 
-func create(character_: NPCActions, where_: Vector2, target_name_: String = "", duration_: float = 3.0) -> AnimWith:
+func create(character_: Character, where_: Vector2, target_name_: String = "", duration_: float = 3.0) -> AnimWith:
 	super._create(character_, where_)
 	target_name = target_name_
 	anim_duration = duration_

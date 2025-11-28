@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_o42ja"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_hd0ru"]
 [ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="4_8gfp7"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="5_7gjpl"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="5_7gjpl"]
 
 [sub_resource type="Resource" id="Resource_fh6o3"]
 script = ExtResource("2_mfx6l")
@@ -14,6 +14,7 @@ anim_target = "Talk"
 anim_duration = 5.0
 target_name = "NPC_Eski"
 where = Vector2(660, -170)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
@@ -23,6 +24,7 @@ script = ExtResource("3_hd0ru")
 animation = "Wait"
 duration = 15.0
 where = Vector2(600, -170)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"

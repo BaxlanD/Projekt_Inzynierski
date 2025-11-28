@@ -6,7 +6,7 @@ class_name RemoveItem
 
 var _npc_ref: NPCActions = null
 
-func create(character_: NPCActions, target_npc_name_: String, item_index_: int) -> RemoveItem:
+func create(character_: Character, target_npc_name_: String, item_index_: int) -> RemoveItem:
 	character = character_
 	target_npc_name = target_npc_name_
 	item_index = item_index_

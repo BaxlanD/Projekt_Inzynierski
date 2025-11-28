@@ -3,7 +3,7 @@ class_name Action
 
 signal action_closed
 
-var character: NPCActions
+var character: Character
 var _done: bool = false
 
 @export var _fleeting: bool = false

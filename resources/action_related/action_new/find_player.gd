@@ -16,7 +16,7 @@ var _search_timer: float = 0.0
 var _search_active: bool = false
 
 
-func create(character_: NPCActions, anim_: String = "Talk", duration_: float = 3.0, timeout_: float = 10.0) -> FindPlayer:
+func create(character_: Character, anim_: String = "Talk", duration_: float = 3.0, timeout_: float = 10.0) -> FindPlayer:
 	super._create(character_, character_.global_position)
 	anim_self = anim_
 	anim_duration = duration_

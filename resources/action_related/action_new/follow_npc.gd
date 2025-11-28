@@ -15,7 +15,7 @@ var _subaction: GoTo = null
 var _last_position: Vector2
 
 
-func create(character_: NPCActions, target_npc_name_: String, distance_: float = 40.0) -> FollowNPC:
+func create(character_: Character, target_npc_name_: String, distance_: float = 40.0) -> FollowNPC:
 	character = character_
 	target_npc_name = target_npc_name_
 	follow_distance = distance_

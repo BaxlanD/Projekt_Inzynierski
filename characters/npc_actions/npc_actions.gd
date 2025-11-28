@@ -1,36 +1,38 @@
-extends CharacterBody2D
+extends Character
 class_name NPCActions
 
 @export var navigation_layer: NavigationLayer
-@export var anchored_agent: AnchoredAgent
-
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+#@export var anchored_agent: AnchoredAgent # IN CHARACTER
+#
+#@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D # IN CHARACTER
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 var npc_floor_level: float = 0
-var current_sequence_index: int = -1
+#var current_sequence_index: int = -1 # IN CHARACTER
 
-@onready var npc_inventory: Inventory = $Inventory
-@onready var interactable: Interactable = $Interactable
+#@onready var inventory: Inventory = $Inventory # IN CHARACTER
+#@onready var interactable: Interactable = $Interactable # IN CHARACTER
 @onready var interupt_manager: InteruptManager = InteruptManager.new()
 
 const _SPEED = 120.0
 const _JUMP_VELOCITY = -250.0 #unused - npc can't jump
 
-@onready var sequence_controller: SequenceController = $SequenceController
+#@onready var sequence_controller: SequenceController = $SequenceController # IN CHARACTER
 
 func _ready() -> void:
-	
 	assert(sequence_controller, "NPCActions doesn't have SequenceController asigned")
 	anchored_agent.initialize(self)
 	sequence_controller.start(self)
 
 func _physics_process(delta: float) -> void:
+	if !sequence_controller._started:
+		return
+	
 	npc_floor_level = ray_cast_2d.get_collision_point().y
 	
-	#if Input.is_action_just_pressed("RMB"):
-		#sequence_controller.push_instant(Sequence.new().with_fleeting().from_actions([
-			#PlayAnim.new().create(self, get_global_mouse_position(), "Death")
-		#]))
+	if Input.is_action_just_pressed("LMB"):
+		sequence_controller.push_instant(Sequence.new().with_fleeting().from_actions([
+			PlayAnim.new().create(self, get_global_mouse_position(), "Death")
+		]))
 	
 	sequence_controller.update(delta)
 

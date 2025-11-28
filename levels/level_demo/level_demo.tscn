@@ -80,9 +80,9 @@
 [ext_resource type="PackedScene" uid="uid://cgv0br4aonun1" path="res://items/item_eski_letter.tscn" id="54_5ynr0"]
 [ext_resource type="Resource" uid="uid://bcpj6yjlengoq" path="res://resources/action_related/action_new/Rena/Base/rena_action_twelve.tres" id="54_x17ya"]
 [ext_resource type="Resource" uid="uid://d14wvf086keul" path="res://resources/action_related/action_new/Rena/Base/rena_action_thirteen.tres" id="55_p1nkj"]
-[ext_resource type="Script" uid="uid://reptlajlob58" path="res://levels/level_demo/shed.gd" id="55_p2cs5"]
+[ext_resource type="Script" path="res://levels/level_demo/shed.gd" id="55_p2cs5"]
 [ext_resource type="PackedScene" uid="uid://bulrax3lngchx" path="res://items/item_little_mirror.tscn" id="55_ua22m"]
-[ext_resource type="Script" uid="uid://cmq4w4ojpblx0" path="res://levels/level_demo/house.gd" id="56_p5caf"]
+[ext_resource type="Script" path="res://levels/level_demo/house.gd" id="56_p5caf"]
 [ext_resource type="Resource" uid="uid://qqhv4ug2daqh" path="res://resources/action_related/action_new/Rena/Base/rena_action_fourteen.tres" id="56_p8urd"]
 [ext_resource type="Resource" uid="uid://3gw24m1jlwo1" path="res://resources/action_related/action_new/Rena/Base/rena_action_fifteen.tres" id="57_14xxt"]
 [ext_resource type="Resource" uid="uid://ojpb6i7mktfu" path="res://resources/action_related/action_new/story_retains/titus_letter_shown.tres" id="57_a38rp"]
@@ -107,6 +107,7 @@ script = ExtResource("60_55x34")
 animation = "Idle"
 duration = 1200.0
 where = Vector2(-1220, 100)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -159,10 +160,9 @@ position = Vector2(0, -54.285)
 
 [node name="NPCs" type="Node" parent="."]
 
-[node name="NPC_Titus" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("21_5te35")]
+[node name="NPC_Titus" parent="NPCs" instance=ExtResource("21_5te35")]
 z_index = 1
 position = Vector2(-526, -1)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Titus" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
@@ -170,47 +170,42 @@ _action_sequencer = NodePath("ActionSequencer")
 [node name="ActionSequencer" parent="NPCs/NPC_Titus/SequenceController" instance=ExtResource("8_krlq4")]
 _stack = Array[ExtResource("9_1vihk")]([ExtResource("10_65ni7"), ExtResource("11_xvh2u"), ExtResource("12_ooqtc"), ExtResource("13_xvh2u"), ExtResource("14_slolm"), ExtResource("15_sc8ab"), ExtResource("16_sc8ab"), ExtResource("17_viarn"), ExtResource("18_mndei")])
 
-[node name="Npc_1_Random" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("7_7xcv2")]
+[node name="Npc_1_Random" parent="NPCs" instance=ExtResource("7_7xcv2")]
 position = Vector2(698, 29)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/Npc_1_Random" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
 
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random/SequenceController" instance=ExtResource("8_krlq4")]
 
-[node name="Npc_1_Random2" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("7_7xcv2")]
+[node name="Npc_1_Random2" parent="NPCs" instance=ExtResource("7_7xcv2")]
 position = Vector2(814, 30)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/Npc_1_Random2" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
 
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random2/SequenceController" instance=ExtResource("8_krlq4")]
 
-[node name="Npc_1_Random3" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("7_7xcv2")]
+[node name="Npc_1_Random3" parent="NPCs" instance=ExtResource("7_7xcv2")]
 position = Vector2(930, 31)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/Npc_1_Random3" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
 
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random3/SequenceController" instance=ExtResource("8_krlq4")]
 
-[node name="NPC_Grelda" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("8_5te35")]
+[node name="NPC_Grelda" parent="NPCs" instance=ExtResource("8_5te35")]
 z_index = 1
 position = Vector2(1083, 31)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Grelda" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
 
 [node name="ActionSequencer" parent="NPCs/NPC_Grelda/SequenceController" instance=ExtResource("8_krlq4")]
 
-[node name="NPC_Eski" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("9_j1bom")]
+[node name="NPC_Eski" parent="NPCs" instance=ExtResource("9_j1bom")]
 z_index = 1
 position = Vector2(-128, -8)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Eski" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
@@ -218,27 +213,24 @@ _action_sequencer = NodePath("ActionSequencer")
 [node name="ActionSequencer" parent="NPCs/NPC_Eski/SequenceController" instance=ExtResource("8_krlq4")]
 _stack = Array[ExtResource("9_1vihk")]([ExtResource("22_icfh8"), ExtResource("23_3t6lc"), ExtResource("24_w6leb"), ExtResource("25_2senm"), ExtResource("26_2senm"), ExtResource("27_iwdps"), ExtResource("28_rh5am"), ExtResource("29_iwdps"), ExtResource("30_g5bf3"), ExtResource("31_5ebke"), ExtResource("32_3crwe"), ExtResource("33_oacgn"), ExtResource("34_qvtmx"), ExtResource("35_4delx"), ExtResource("36_y4xvp")])
 
-[node name="NPC_OmirosWife" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("21_wgia5")]
+[node name="NPC_OmirosWife" parent="NPCs" instance=ExtResource("21_wgia5")]
 position = Vector2(-15, -420)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_OmirosWife" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
 
 [node name="ActionSequencer" parent="NPCs/NPC_OmirosWife/SequenceController" instance=ExtResource("8_krlq4")]
 
-[node name="NPC_Meropi" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("21_viarn")]
+[node name="NPC_Meropi" parent="NPCs" instance=ExtResource("21_viarn")]
 position = Vector2(1093, 411)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Meropi" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
 
 [node name="ActionSequencer" parent="NPCs/NPC_Meropi/SequenceController" instance=ExtResource("8_krlq4")]
 
-[node name="NPC_Merchant" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("34_5ebke")]
+[node name="NPC_Merchant" parent="NPCs" instance=ExtResource("34_5ebke")]
 position = Vector2(28, 475)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" type="Node" parent="NPCs/NPC_Merchant" node_paths=PackedStringArray("_action_sequencer")]
 script = ExtResource("35_sd0f3")
@@ -249,9 +241,8 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 script = ExtResource("36_05apj")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
-[node name="NPC_Lucas" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("37_05apj")]
+[node name="NPC_Lucas" parent="NPCs" instance=ExtResource("37_05apj")]
 position = Vector2(303, 411)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" type="Node" parent="NPCs/NPC_Lucas" node_paths=PackedStringArray("_action_sequencer")]
 script = ExtResource("35_sd0f3")
@@ -262,9 +253,8 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 script = ExtResource("36_05apj")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
-[node name="NPC_Rena" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("43_bh3dp")]
+[node name="NPC_Rena" parent="NPCs" instance=ExtResource("43_bh3dp")]
 position = Vector2(155, 157)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Rena" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
@@ -272,9 +262,8 @@ _action_sequencer = NodePath("ActionSequencer")
 [node name="ActionSequencer" parent="NPCs/NPC_Rena/SequenceController" instance=ExtResource("8_krlq4")]
 _stack = Array[ExtResource("9_1vihk")]([ExtResource("44_ae5f6"), ExtResource("45_jhiig"), ExtResource("46_t74sq"), ExtResource("47_vnddi"), ExtResource("48_yvj33"), ExtResource("49_rrjq8"), ExtResource("50_bnn8t"), ExtResource("51_j8wuw"), ExtResource("52_yb1dr"), ExtResource("53_r60nd"), ExtResource("54_x17ya"), ExtResource("55_p1nkj"), ExtResource("56_p8urd"), ExtResource("57_14xxt"), ExtResource("58_55x34")])
 
-[node name="NPC_Tint" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("58_p1nkj")]
+[node name="NPC_Tint" parent="NPCs" instance=ExtResource("58_p1nkj")]
 position = Vector2(48, 157)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Tint" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")
@@ -282,9 +271,8 @@ _action_sequencer = NodePath("ActionSequencer")
 [node name="ActionSequencer" parent="NPCs/NPC_Tint/SequenceController" instance=ExtResource("8_krlq4")]
 _stack = Array[ExtResource("9_1vihk")]([ExtResource("60_tsvl8")])
 
-[node name="NPC_Viviano" parent="NPCs" node_paths=PackedStringArray("nav_layer") instance=ExtResource("59_pxwy2")]
+[node name="NPC_Viviano" parent="NPCs" instance=ExtResource("59_pxwy2")]
 position = Vector2(-1223, 156)
-nav_layer = NodePath("../../NavLayer")
 
 [node name="SequenceController" parent="NPCs/NPC_Viviano" node_paths=PackedStringArray("_action_sequencer") instance=ExtResource("7_5dwxk")]
 _action_sequencer = NodePath("ActionSequencer")

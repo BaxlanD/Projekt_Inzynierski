@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_g14ye"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_henld"]
 [ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_3brqv"]
-[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="4_2mri1"]
+[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="4_2mri1"]
 [ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="5_3brqv"]
 [ext_resource type="Script" uid="uid://dx05j1i02bv6d" path="res://resources/action_related/action_new/spawn_npc.gd" id="7_lyyq2"]
 
@@ -13,6 +13,7 @@ script = ExtResource("2_g14ye")
 animation = "Wait"
 duration = 3.0
 where = Vector2(-200, 50)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -22,6 +23,7 @@ script = ExtResource("2_g14ye")
 animation = "Wait"
 duration = 3.0
 where = Vector2(-850, 150)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -31,6 +33,7 @@ script = ExtResource("2_g14ye")
 animation = "Wait"
 duration = 3.0
 where = Vector2(-150, -150)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -40,6 +43,7 @@ script = ExtResource("2_g14ye")
 animation = "Wait"
 duration = 3.0
 where = Vector2(350, 50)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -51,6 +55,7 @@ anim_target = "Talk"
 anim_duration = 3.0
 target_name = "Npc_1_Random"
 where = Vector2(650, 0)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
@@ -62,6 +67,7 @@ anim_target = "Talk"
 anim_duration = 3.0
 target_name = "Npc_1_Random_2"
 where = Vector2(750, 0)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
@@ -73,6 +79,7 @@ anim_target = "Talk"
 anim_duration = 8.0
 target_name = "NPC_Viviano"
 where = Vector2(-1200, 100)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
@@ -88,6 +95,7 @@ metadata/_custom_type_script = "uid://d2jek7p8byyjv"
 [sub_resource type="Resource" id="Resource_2mri1"]
 script = ExtResource("5_3brqv")
 where = Vector2(80, 150)
+layer = -1
 speed_multiplier = 1.4
 _fleeting = false
 _timeout = 0

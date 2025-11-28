@@ -11,7 +11,7 @@ enum PushMode{
 @export var _sequence: Sequence
 @export var _mode : PushMode = PushMode.INSTANT
 
-func create(character_: NPCActions, target_name: String, sequence: Sequence, mode := PushMode.INSTANT) -> Action:
+func create(character_: Character, target_name: String, sequence: Sequence, mode := PushMode.INSTANT) -> Action:
 	character = character_
 	_target_name = target_name
 	_sequence = sequence

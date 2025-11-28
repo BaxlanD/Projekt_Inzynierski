@@ -3,7 +3,7 @@ extends Node2D
 class_name NavLayerDrawTool
 
 @export var editting: bool = false
-@export_tool_button("Undo PointConnection") var undo_button: Callable = load_graph_from_resource
+@export_tool_button("Undo PointConnection") var undo_button: Callable = _undo_connection
 
 @export_group("Load")
 @export var nav_layer_to_load: NavLayer
