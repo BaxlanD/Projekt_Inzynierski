@@ -12,6 +12,7 @@ script = ExtResource("2_m5n60")
 animation = "Talk"
 duration = 3.0
 where = Vector2(-200, 50)
+layer = -1
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"

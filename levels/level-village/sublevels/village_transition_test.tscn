@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=4 uid="uid://b6vwuroos1kov"]
+
+[ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/level_layer/level_layer.gd" id="1_xlbor"]
+[ext_resource type="TileSet" uid="uid://bc8nt5ys647b5" path="res://assets/tiles/village/walkable.tres" id="2_gf6qo"]
+[ext_resource type="Resource" uid="uid://csyn7mj4s68ha" path="res://levels/level-village/sublevels/village-transition-test-map.tres" id="2_s5aa8"]
+[ext_resource type="TileSet" uid="uid://dika1b3npot23" path="res://assets/tiles/village/village-housing.tres" id="3_s5aa8"]
+
+[node name="VillageTransitionTest" type="Node2D"]
+script = ExtResource("1_xlbor")
+nav_layer = ExtResource("2_s5aa8")
+metadata/_custom_type_script = "uid://c51cwx8ejhqut"
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Tilemaps"]
+tile_map_data = PackedByteArray("AAADAAAAAAAHAA4AAAACAAAAAAAEAA4AAAABAAAAAAAEAA4AAAAAAAAAAAACAA4AAAD//wAAAAACAA4AAAD+/wAAAAACAA4AAAD9/wAAAAACAA4AAAD8/wAAAAAGAA4AAAADAAIAAAAKAAkAAAADAAEAAAAPAAsAAAACAAIAAAAMAA4AAAACAAEAAAACAA8AAAABAAIAAAALAA4AAAABAAEAAAACAA8AAAAAAAIAAAAMAA4AAAAAAAEAAAADAA8AAAD//wIAAAALAA4AAAD//wEAAAAEAA8AAAD+/wIAAAANAA4AAAD+/wEAAAAEAA8AAAD9/wIAAAAMAA4AAAD9/wEAAAACAA8AAAD8/wIAAAAOAAkAAAD8/wEAAAAJAAoAAAA=")
+tile_set = ExtResource("2_gf6qo")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Tilemaps"]
+tile_map_data = PackedByteArray("AAD9//z/AQAwADoAAAD9//3/AQAwADsAAAD9//7/AQAwADwAAAD9////AQAwAD0AAAD+//z/AQAxADoAAAD+//3/AQAxADsAAAD+//7/AQAxADwAAAD+////AQAxAD0AAAD///z/AQAyADoAAAD///3/AQAyADsAAAD///7/AQAyADwAAAD/////AQAyAD0AAAA=")
+tile_set = ExtResource("3_s5aa8")
