@@ -58,7 +58,7 @@ func _on_range_area_exited(area: Area2D) -> void:
 	
 func open_interaction_menu_for(target: Area2D) -> void:
 	var interaction_target: Node = target.get_parent()
-	var inventory: Inventory = get_tree().get_root().get_node("LevelDemo/Player/Inventory")
+	var inventory: Inventory = get_tree().get_root().get_node("LevelVillage/Player/Inventory")
 	var options: Array[Dictionary] = []
 
 	if interaction_target.has_method("get_base_interactions"):
@@ -75,7 +75,7 @@ func open_interaction_menu_for(target: Area2D) -> void:
 			options += interaction_target.get_place_interactions(npc)
 
 
-	var menu : InteractionMenu = get_tree().get_root().get_node_or_null("LevelDemo/UI/InteractionMenu")
+	var menu : InteractionMenu = get_tree().get_root().get_node_or_null("LevelVillage/UI/InteractionMenu")
 	if menu:
 		get_tree().paused = true
 		await get_tree().process_frame

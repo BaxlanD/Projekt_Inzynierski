@@ -67,7 +67,7 @@ func _on_drop_finished() -> void:
 	var item_list := character.inventory.get_items()
 	if drop_slot < item_list.size():
 		var dropped_item: Item = item_list[drop_slot]
-		character.npc_inventory.drop_item(drop_slot)
+		character.inventory.drop_item(drop_slot)
 		print("[TryDropItem] NPC wyrzucił przedmiot:", dropped_item.name)
 	else:
 		print("[TryDropItem] Slot był pusty w momencie dropa")

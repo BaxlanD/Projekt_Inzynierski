@@ -38,7 +38,7 @@ func open() -> void:
 		if players.size() > 0:
 			_player_ref = players[0]
 		else:
-			var candidate: Player = character.get_tree().get_root().get_node_or_null("LevelDemo/Player")
+			var candidate: Player = character.get_tree().get_root().get_node_or_null("LevelVillage/Player")
 			if candidate:
 				_player_ref = candidate
 

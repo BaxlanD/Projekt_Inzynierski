@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_kcib3"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_b8tij"]
 [ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="2_cp5jh"]
-[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="3_u0nmh"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="3_u0nmh"]
 [ext_resource type="Resource" uid="uid://dchuxailvi7ga" path="res://resources/action_related/action_new/Eski/Interrupts/eski_ending_smith.tres" id="4_u0nmh"]
 [ext_resource type="Script" uid="uid://boncqoilhguea" path="res://resources/action_related/action_new/push_sequence.gd" id="4_ypbhg"]
 [ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="5_3dt06"]
