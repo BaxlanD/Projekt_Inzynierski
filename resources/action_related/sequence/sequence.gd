@@ -19,7 +19,7 @@ func from_actions(list: Array[Action]) -> Sequence:
 		_actions.push_back(action)
 	return self
 
-func initialize_with_character(character: NPCActions) -> void:
+func initialize_with_character(character: Character) -> void:
 	for action in _actions:
 		action.character = character
 

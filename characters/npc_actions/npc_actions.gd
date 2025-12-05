@@ -48,9 +48,6 @@ func on_interaction_started(interaction_type: String) -> void:
 func on_interaction_ended() -> void:
 	character_stop()
 	animated_sprite_2d.play("Idle")
-
-func character_stop() -> void:
-	velocity = Vector2.ZERO
 	
 func can_accept_item(_item: Item) -> bool:
 	return false

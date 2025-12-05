@@ -13,7 +13,7 @@
 script = ExtResource("2_xtlxg")
 item = "Chair"
 search_duration = 1.0
-where = Vector2(-650, 0)
+where = Vector2(-650, -100)
 layer = 0
 _fleeting = false
 _timeout = 0

@@ -84,7 +84,6 @@ func _call_grelda() -> void:
 		_complete()
 		return
 
-	# Grelda idzie w kierunku ustalonego punktu
 	var anim_action := AnimWith.new()
 	anim_action.create(_grelda_ref, _grelda_target_pos, character.name, anim_duration)
 	anim_action.anim_self = anim_target

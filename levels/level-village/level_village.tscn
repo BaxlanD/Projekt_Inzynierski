@@ -144,6 +144,7 @@ metadata/_custom_type_script = "uid://c64ex26cc1h7g"
 position = Vector2(-48, 120)
 
 [node name="Player" parent="." instance=ExtResource("3_hd8j8")]
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.81, 0.81)
@@ -184,7 +185,6 @@ metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC_Titus" parent="NPCs" instance=ExtResource("11_uedw8")]
-z_index = 1
 position = Vector2(-858, 64)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Titus" node_paths=PackedStringArray("navigator")]
@@ -200,6 +200,7 @@ _game_clock = NodePath("../../../GameClock")
 _stack = Array[ExtResource("14_nw52c")]([ExtResource("15_4gptj"), ExtResource("16_8whmi"), ExtResource("17_mqq74"), ExtResource("18_5ocsh"), ExtResource("19_x38mr"), ExtResource("20_txt11"), ExtResource("21_hdiov"), ExtResource("22_ua4im"), ExtResource("23_q7bwh")])
 
 [node name="Npc_1_Random" parent="NPCs" instance=ExtResource("24_x5bxp")]
+z_index = 0
 position = Vector2(690, 128)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random" node_paths=PackedStringArray("navigator")]
@@ -214,6 +215,7 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="Npc_1_Random2" parent="NPCs" instance=ExtResource("24_x5bxp")]
+z_index = 0
 position = Vector2(804, 128)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random2" node_paths=PackedStringArray("navigator")]
@@ -228,6 +230,7 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random2/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="Npc_1_Random3" parent="NPCs" instance=ExtResource("24_x5bxp")]
+z_index = 0
 position = Vector2(929, 128)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random3" node_paths=PackedStringArray("navigator")]
@@ -242,7 +245,6 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random3/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="NPC_Grelda" parent="NPCs" instance=ExtResource("25_lgrit")]
-z_index = 1
 position = Vector2(1075, 128)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Grelda" node_paths=PackedStringArray("navigator")]
@@ -257,7 +259,6 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/NPC_Grelda/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="NPC_Eski" parent="NPCs" instance=ExtResource("26_bo4ge")]
-z_index = 1
 position = Vector2(-552, 335)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Eski" node_paths=PackedStringArray("navigator")]
@@ -273,6 +274,7 @@ _game_clock = NodePath("../../../GameClock")
 _stack = Array[ExtResource("14_nw52c")]([ExtResource("27_i7qhu"), ExtResource("28_o5oct"), ExtResource("29_j6x4q"), ExtResource("30_i4xk5"), ExtResource("31_gjl38"), ExtResource("32_g2uin"), ExtResource("33_ov2c1"), ExtResource("34_2ck5w"), ExtResource("35_o3178"), ExtResource("36_dlh1j"), ExtResource("37_phw3e"), ExtResource("38_bopi1"), ExtResource("39_fu748"), ExtResource("40_7vdcx"), ExtResource("41_70oa2")])
 
 [node name="NPC_OmirosWife" parent="NPCs" instance=ExtResource("42_vbxrf")]
+z_index = 0
 position = Vector2(412, 126)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_OmirosWife" node_paths=PackedStringArray("navigator")]
@@ -287,6 +289,7 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/NPC_OmirosWife/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="NPC_Meropi" parent="NPCs" instance=ExtResource("43_es07k")]
+z_index = 0
 position = Vector2(216, 336)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Meropi" node_paths=PackedStringArray("navigator")]
@@ -301,6 +304,7 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/NPC_Meropi/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="NPC_Merchant" parent="NPCs" instance=ExtResource("44_n4w7d")]
+z_index = 0
 position = Vector2(-891, -192)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Merchant" node_paths=PackedStringArray("navigator")]
@@ -319,6 +323,7 @@ script = ExtResource("6_qwxvw")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
 [node name="NPC_Lucas" parent="NPCs" instance=ExtResource("45_1xjhp")]
+z_index = 0
 position = Vector2(-506, -193)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Lucas" node_paths=PackedStringArray("navigator")]
@@ -337,6 +342,7 @@ script = ExtResource("6_qwxvw")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
 [node name="NPC_Rena" parent="NPCs" instance=ExtResource("46_jf1dk")]
+z_index = 0
 position = Vector2(238, -208)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Rena" node_paths=PackedStringArray("navigator")]
@@ -352,6 +358,7 @@ _game_clock = NodePath("../../../GameClock")
 _stack = Array[ExtResource("14_nw52c")]([ExtResource("47_p1cto"), ExtResource("48_12okd"), ExtResource("49_qnk40"), ExtResource("50_xkdb4"), ExtResource("51_ex1j2"), ExtResource("52_0plac"), ExtResource("53_8vowb"), ExtResource("54_m2qkg"), ExtResource("55_lg4m2"), ExtResource("56_ofvgp"), ExtResource("57_qkjx7"), ExtResource("58_pw31w"), ExtResource("59_3n8ix"), ExtResource("60_l1nfq"), ExtResource("61_ho1sf")])
 
 [node name="NPC_Tint" parent="NPCs" instance=ExtResource("62_uhdyn")]
+z_index = 0
 position = Vector2(327, -208)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Tint" node_paths=PackedStringArray("navigator")]
@@ -367,6 +374,7 @@ _game_clock = NodePath("../../../GameClock")
 _stack = Array[ExtResource("14_nw52c")]([ExtResource("63_aafip")])
 
 [node name="NPC_Viviano" parent="NPCs" instance=ExtResource("64_tdaon")]
+z_index = 0
 position = Vector2(-967, 272)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Viviano" node_paths=PackedStringArray("navigator")]
@@ -511,8 +519,8 @@ size = Vector2i(100, 60)
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 104.0
-offset_bottom = 70.0
+offset_right = 96.0
+offset_bottom = 56.0
 
 [node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 20)
@@ -536,103 +544,78 @@ metadata/_custom_type_script = "uid://c1abhovivd2ej"
 [node name="Items" type="Node" parent="."]
 
 [node name="Beer" parent="Items" instance=ExtResource("72_i4xk5")]
-z_index = 0
 position = Vector2(-746, 51)
 
 [node name="Beer2" parent="Items" instance=ExtResource("72_i4xk5")]
-z_index = 0
 position = Vector2(-806, 51)
 
 [node name="Beer3" parent="Items" instance=ExtResource("72_i4xk5")]
-z_index = 0
 position = Vector2(-949, 53)
 
 [node name="Beer4" parent="Items" instance=ExtResource("72_i4xk5")]
-z_index = 0
 position = Vector2(-777, 51)
 
 [node name="Beer5" parent="Items" instance=ExtResource("72_i4xk5")]
-z_index = 0
 position = Vector2(-898, 52)
 full = true
 
 [node name="Beer6" parent="Items" instance=ExtResource("72_i4xk5")]
-z_index = 0
 position = Vector2(-649, 322)
 
 [node name="item_chair" parent="Items" instance=ExtResource("73_gjl38")]
-z_index = 0
-position = Vector2(-642, -11)
+position = Vector2(-648, -74)
 
 [node name="item_rope" parent="Items" instance=ExtResource("74_g2uin")]
-z_index = 0
 position = Vector2(-550, -12)
 
 [node name="Hammer_Old" parent="Items" instance=ExtResource("75_ov2c1")]
-z_index = 0
 position = Vector2(-98, 323)
 
 [node name="Hammer_Old2" parent="Items" instance=ExtResource("75_ov2c1")]
-z_index = 0
 position = Vector2(2, 322)
 
 [node name="Bread" parent="Items" instance=ExtResource("76_2ck5w")]
-z_index = 0
 position = Vector2(-995, -205)
 
 [node name="Mozaic" parent="Items" instance=ExtResource("77_o3178")]
-z_index = 0
 position = Vector2(-944, -204)
 
 [node name="Water_Jug" parent="Items" instance=ExtResource("78_dlh1j")]
-z_index = 0
 position = Vector2(-29, -12)
 
 [node name="Red Coat" parent="Items" instance=ExtResource("79_phw3e")]
-z_index = 0
 position = Vector2(33, -13)
 
 [node name="Iron Bars" parent="Items" instance=ExtResource("80_bopi1")]
-z_index = 0
 position = Vector2(136, -12)
 
 [node name="Gold Coins" parent="Items" instance=ExtResource("81_fu748")]
-z_index = 0
 position = Vector2(-111, -11)
 
 [node name="Broom" parent="Items" instance=ExtResource("82_7vdcx")]
-z_index = 0
 position = Vector2(-142, -12)
 
 [node name="Eski Letter" parent="Items" instance=ExtResource("83_70oa2")]
-z_index = 0
 position = Vector2(-172, -12)
 
 [node name="Little Mirror" parent="Items" instance=ExtResource("84_vbxrf")]
-z_index = 0
 position = Vector2(172, -11)
 
 [node name="Prix" parent="Items" instance=ExtResource("85_es07k")]
-z_index = 0
 position = Vector2(404, -376)
 
 [node name="Wooden Spoon" parent="Items" instance=ExtResource("86_n4w7d")]
-z_index = 0
 position = Vector2(302, -219)
 item_name = "Wooden Spoon"
 
 [node name="Herbs" parent="Items" instance=ExtResource("87_1xjhp")]
-z_index = 0
 position = Vector2(359, 116)
 
 [node name="Translated_Notes" parent="Items" instance=ExtResource("88_jf1dk")]
-z_index = 0
 position = Vector2(323, 114)
 
 [node name="Healing Scroll" parent="Items" instance=ExtResource("89_p1cto")]
-z_index = 0
 position = Vector2(485, 119)
 
 [node name="Meropi\'s Apron" parent="Items" instance=ExtResource("90_12okd")]
-z_index = 0
 position = Vector2(449, 118)

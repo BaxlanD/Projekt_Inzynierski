@@ -21,4 +21,6 @@ func execute_place_interaction(_npc: NPCActions, _interaction_id: String) -> voi
 	
 func update_visual() -> void:
 	pass
-				
+
+func set_state(_value: Variant) -> void:
+	pass
