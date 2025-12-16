@@ -9,8 +9,8 @@ func open() -> void:
 		_complete()
 		return
 
-	var scene_root = character.get_tree().current_scene
-	var npc := scene_root.get_node_or_null(npc_path)
+	var scene_root: Node2D = character.get_tree().current_scene
+	var npc : NPCActions = scene_root.get_node_or_null(npc_path)
 
 	if npc and npc is NPCActions:
 		npc.visible = false

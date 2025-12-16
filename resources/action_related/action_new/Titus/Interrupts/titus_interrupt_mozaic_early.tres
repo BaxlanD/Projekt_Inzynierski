@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://c5mtvbxpmitl8" path="res://resources/action_related/action_new/story_retains/eski_forgiveness.tres" id="3_t2qed"]
 [ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_l8di7"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="5_4j610"]
-[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="6_ac6ye"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="6_ac6ye"]
 [ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="7_brliv"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="8_7esqi"]
 

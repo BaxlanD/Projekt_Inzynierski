@@ -8,3 +8,12 @@ var current_sequence_index: int = -1
 @onready var inventory: Inventory = $Inventory
 @onready var interactable: Interactable = $Interactable
 @onready var sequence_controller: SequenceController = $SequenceController
+
+func character_stop() -> void:
+	velocity = Vector2.ZERO
+	
+func on_interaction_started(_interaction_type: String) -> void:
+	pass
+
+func on_interaction_ended() -> void:
+	pass

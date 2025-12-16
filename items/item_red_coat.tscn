@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://043ieslk8fu7" path="res://assets/red_coat.jpg" id="3_48snh"]
 
 [node name="Red Coat" instance=ExtResource("1_dkspp")]
+z_index = 0
 script = ExtResource("2_ioexi")
 
 [node name="Sprite2D" parent="." index="0"]

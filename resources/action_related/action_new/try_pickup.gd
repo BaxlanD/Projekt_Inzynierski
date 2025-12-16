@@ -27,7 +27,7 @@ func update(delta: float) -> void:
 		super(delta)
 		return
 	
-	if character.npc_inventory.get_items().size() == character.npc_inventory.max_items:
+	if character.inventory.get_items().size() == character.inventory.max_items:
 		print("NPC inventory full.")
 		_complete()
 		return
@@ -77,7 +77,7 @@ func _on_pickup_finished(area: Item) -> void:
 	var scene := load(area.origin_scene_path) as PackedScene
 	if scene:
 		var npc_item := scene.instantiate() as Item
-		if character.npc_inventory.add_item(npc_item):
+		if character.inventory.add_item(npc_item):
 			print("NPC picked up item instance")
 			area.queue_free()
 			if retain_to_change:

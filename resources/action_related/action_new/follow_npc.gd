@@ -91,7 +91,7 @@ func _update_target_position() -> void:
 		if _subaction:
 			_subaction.close()
 
-		_subaction = GoTo.new().create(character, target_pos)
+		_subaction = GoTo.new().create(character, target_pos, _target_npc.anchored_agent.actor_layer)
 		_subaction.speed_multiplier = speed_factor
 		_subaction.open()
 	else:

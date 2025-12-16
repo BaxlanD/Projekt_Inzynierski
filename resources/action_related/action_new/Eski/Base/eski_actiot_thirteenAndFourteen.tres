@@ -9,8 +9,8 @@
 
 [sub_resource type="Resource" id="Resource_y4xvp"]
 script = ExtResource("2_bdxwo")
-where = Vector2(200, 370)
-layer = -1
+where = Vector2(-600, -250)
+layer = 0
 speed_multiplier = 1.0
 _fleeting = false
 _timeout = 0
@@ -18,8 +18,8 @@ metadata/_custom_type_script = "uid://3jtmcorivr82"
 
 [sub_resource type="Resource" id="Resource_oacgn"]
 script = ExtResource("2_bdxwo")
-where = Vector2(600, 500)
-layer = -1
+where = Vector2(-50, -400)
+layer = 0
 speed_multiplier = 1.0
 _fleeting = false
 _timeout = 0
@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
 [sub_resource type="Resource" id="Resource_k2k3x"]
 script = ExtResource("4_u4jvy")
 target_npc_name = "NPC_Lucas"
-follow_distance = 80.0
+follow_distance = 40.0
 update_interval = 0.5
 speed_factor = 0.6
 walk_anim = "Walk"
@@ -51,8 +51,8 @@ anim_self = "Talk"
 anim_target = "Talk"
 anim_duration = 15.0
 target_name = "NPC_Lucas"
-where = Vector2(575, 500)
-layer = -1
+where = Vector2(-100, -400)
+layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"

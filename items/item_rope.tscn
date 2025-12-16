@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://des745tnqltvl" path="res://items/item_rope.gd" id="2_y0wwu"]
 
 [node name="Rope" instance=ExtResource("1_chtax")]
+z_index = 0
 script = ExtResource("2_y0wwu")
 
 [node name="Sprite2D" parent="." index="0"]

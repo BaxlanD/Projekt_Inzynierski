@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://taudbpavjp4y"]
+[gd_scene load_steps=96 format=3 uid="uid://taudbpavjp4y"]
 
 [ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_gityk"]
 [ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_dlr5x"]
@@ -14,7 +14,82 @@
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="8_nw76t"]
 [ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="9_gmu0f"]
 [ext_resource type="PackedScene" uid="uid://cleresp8aqg0s" path="res://resources/interactions/interaction_menu.tscn" id="10_ro3nk"]
+[ext_resource type="PackedScene" uid="uid://63ip4mj32hex" path="res://characters/npc_actions/npc_titus.tscn" id="11_uedw8"]
+[ext_resource type="PackedScene" uid="uid://binlp6uwekpq3" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.tscn" id="12_s631t"]
 [ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="13_av7lr"]
+[ext_resource type="PackedScene" uid="uid://cnv7gr02fgu2f" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.tscn" id="13_q63eb"]
+[ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="14_nw52c"]
+[ext_resource type="Resource" uid="uid://civiaynlm1iou" path="res://resources/action_related/action_new/Titus/Base/titus_action_one.tres" id="15_4gptj"]
+[ext_resource type="Resource" uid="uid://dwv58upa22kr2" path="res://resources/action_related/action_new/Titus/Base/titus_action_twoAndThree.tres" id="16_8whmi"]
+[ext_resource type="Resource" uid="uid://dijqpe52hvrxh" path="res://resources/action_related/action_new/Titus/Base/titus_action_four.tres" id="17_mqq74"]
+[ext_resource type="Resource" uid="uid://c4tqdbtpgwk8q" path="res://resources/action_related/action_new/Titus/Base/titus_action_five.tres" id="18_5ocsh"]
+[ext_resource type="Resource" uid="uid://bf5t4idc5l1r4" path="res://resources/action_related/action_new/Titus/Base/titus_action_six.tres" id="19_x38mr"]
+[ext_resource type="Resource" uid="uid://c14r0t1q7errr" path="res://resources/action_related/action_new/Titus/Base/titus_action_sevenAndEight.tres" id="20_txt11"]
+[ext_resource type="Resource" uid="uid://b7aa1dpois4ue" path="res://resources/action_related/action_new/Titus/Base/titus_action_nineAndTen.tres" id="21_hdiov"]
+[ext_resource type="Resource" uid="uid://cgyn6ob8s0yoy" path="res://resources/action_related/action_new/Titus/Base/titus_action_eleven.tres" id="22_ua4im"]
+[ext_resource type="Resource" uid="uid://dtwl0n8uhld1y" path="res://resources/action_related/action_new/Titus/Base/titus_action_twelveAndThirteen.tres" id="23_q7bwh"]
+[ext_resource type="PackedScene" uid="uid://bqh6ti2c7dnxo" path="res://characters/npc_actions/npc_1_random.tscn" id="24_x5bxp"]
+[ext_resource type="PackedScene" uid="uid://dgib617h7g48k" path="res://characters/npc_actions/npc_grelda.tscn" id="25_lgrit"]
+[ext_resource type="PackedScene" uid="uid://dlhmvlbb3uox2" path="res://characters/npc_actions/npc_eski.tscn" id="26_bo4ge"]
+[ext_resource type="Resource" uid="uid://cvboiam7korda" path="res://resources/action_related/action_new/Eski/Base/eski_action_one.tres" id="27_i7qhu"]
+[ext_resource type="Resource" uid="uid://c541fdh0wamrd" path="res://resources/action_related/action_new/Eski/Base/eski_action_two.tres" id="28_o5oct"]
+[ext_resource type="Resource" uid="uid://by3cy2uv7hfdn" path="res://resources/action_related/action_new/Eski/Base/eski_action_three.tres" id="29_j6x4q"]
+[ext_resource type="Resource" uid="uid://crf1soxj7p5af" path="res://resources/action_related/action_new/Eski/Base/eski_action_four.tres" id="30_i4xk5"]
+[ext_resource type="Resource" uid="uid://bmpp07i2ae7k0" path="res://resources/action_related/action_new/Eski/Base/eski_action_fiveAndSix.tres" id="31_gjl38"]
+[ext_resource type="Resource" uid="uid://i1kwf2sntbgu" path="res://resources/action_related/action_new/Eski/Base/eski_action_seven.tres" id="32_g2uin"]
+[ext_resource type="Resource" uid="uid://bat7yxyoj5gcv" path="res://resources/action_related/action_new/Eski/Base/eski_action_eightAndNine.tres" id="33_ov2c1"]
+[ext_resource type="Resource" uid="uid://e4uhkv3gm5b7" path="res://resources/action_related/action_new/Eski/Base/eski_action_ten.tres" id="34_2ck5w"]
+[ext_resource type="Resource" uid="uid://cwm23pj5hmnj3" path="res://resources/action_related/action_new/Eski/Base/eski_action_eleven.tres" id="35_o3178"]
+[ext_resource type="Resource" uid="uid://btc2y2bn043nc" path="res://resources/action_related/action_new/Eski/Base/eski_action_twelve.tres" id="36_dlh1j"]
+[ext_resource type="Resource" uid="uid://cikw0tyoo8n7l" path="res://resources/action_related/action_new/Eski/Base/eski_actiot_thirteenAndFourteen.tres" id="37_phw3e"]
+[ext_resource type="Resource" uid="uid://7dnf1w1ftguq" path="res://resources/action_related/action_new/Eski/Base/eski_action_fifteen.tres" id="38_bopi1"]
+[ext_resource type="Resource" uid="uid://bw8rojjknsx3l" path="res://resources/action_related/action_new/Eski/Base/eski_action_sixteen.tres" id="39_fu748"]
+[ext_resource type="Resource" uid="uid://xanmn6qtlrg2" path="res://resources/action_related/action_new/Eski/Base/eski_action_seventeen.tres" id="40_7vdcx"]
+[ext_resource type="Resource" uid="uid://ndy2mu5qs6kv" path="res://resources/action_related/action_new/Eski/Base/eski_action_eighteen.tres" id="41_70oa2"]
+[ext_resource type="PackedScene" uid="uid://dfedja1evl4fm" path="res://characters/npc_actions/npc_omiros_wife.tscn" id="42_vbxrf"]
+[ext_resource type="PackedScene" uid="uid://bmgjgepm7osah" path="res://characters/npc_actions/npc_meropi.tscn" id="43_es07k"]
+[ext_resource type="PackedScene" uid="uid://eo6an8alcerx" path="res://characters/npc_actions/npc_merchant.tscn" id="44_n4w7d"]
+[ext_resource type="PackedScene" uid="uid://d01cb41htsbdf" path="res://characters/npc_actions/npc_lucas.tscn" id="45_1xjhp"]
+[ext_resource type="PackedScene" uid="uid://cvwew1d6pb47x" path="res://characters/npc_actions/npc_rena.tscn" id="46_jf1dk"]
+[ext_resource type="Resource" uid="uid://dtksmxfclkxn5" path="res://resources/action_related/action_new/Rena/Base/rena_action_one.tres" id="47_p1cto"]
+[ext_resource type="Resource" uid="uid://cbs3s0302bfn5" path="res://resources/action_related/action_new/Rena/Base/rena_action_two.tres" id="48_12okd"]
+[ext_resource type="Resource" uid="uid://cq8ufrl5npo51" path="res://resources/action_related/action_new/Rena/Base/rena_action_three.tres" id="49_qnk40"]
+[ext_resource type="Resource" uid="uid://w4vcxwhnmpdq" path="res://resources/action_related/action_new/Rena/Base/rena_action_fourAndFive.tres" id="50_xkdb4"]
+[ext_resource type="Resource" uid="uid://cbs4itj2bd38j" path="res://resources/action_related/action_new/Rena/Base/rena_action_six.tres" id="51_ex1j2"]
+[ext_resource type="Resource" uid="uid://bvew211pou774" path="res://resources/action_related/action_new/Rena/Base/rena_action_seven.tres" id="52_0plac"]
+[ext_resource type="Resource" uid="uid://b3choe4ntvhmj" path="res://resources/action_related/action_new/Rena/Base/rena_action_eight.tres" id="53_8vowb"]
+[ext_resource type="Resource" uid="uid://cra2liau3lfis" path="res://resources/action_related/action_new/Rena/Base/rena_action_nine.tres" id="54_m2qkg"]
+[ext_resource type="Resource" uid="uid://bihbxa572dfh" path="res://resources/action_related/action_new/Rena/Base/rena_action_ten.tres" id="55_lg4m2"]
+[ext_resource type="Resource" uid="uid://bif7i0ldg5xuh" path="res://resources/action_related/action_new/Rena/Base/rena_action_eleven.tres" id="56_ofvgp"]
+[ext_resource type="Resource" uid="uid://bcpj6yjlengoq" path="res://resources/action_related/action_new/Rena/Base/rena_action_twelve.tres" id="57_qkjx7"]
+[ext_resource type="Resource" uid="uid://d14wvf086keul" path="res://resources/action_related/action_new/Rena/Base/rena_action_thirteen.tres" id="58_pw31w"]
+[ext_resource type="Resource" uid="uid://qqhv4ug2daqh" path="res://resources/action_related/action_new/Rena/Base/rena_action_fourteen.tres" id="59_3n8ix"]
+[ext_resource type="Resource" uid="uid://3gw24m1jlwo1" path="res://resources/action_related/action_new/Rena/Base/rena_action_fifteen.tres" id="60_l1nfq"]
+[ext_resource type="Resource" uid="uid://b5gitotrg1fpu" path="res://resources/action_related/action_new/Rena/Base/rena_action_sixteen.tres" id="61_ho1sf"]
+[ext_resource type="PackedScene" uid="uid://d1jpqsvhrt7kk" path="res://characters/npc_actions/npc_tint.tscn" id="62_uhdyn"]
+[ext_resource type="Resource" uid="uid://bugrbofmj2j1h" path="res://resources/action_related/action_new/Rena/Base/tint_idle.tres" id="63_aafip"]
+[ext_resource type="PackedScene" uid="uid://bkvpofbgybeat" path="res://characters/npc_actions/npc_viviano.tscn" id="64_tdaon"]
+[ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="65_xqr3w"]
+[ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="66_kn0po"]
+[ext_resource type="PackedScene" uid="uid://1w3wlklnd5qk" path="res://items/item_beer.tscn" id="72_i4xk5"]
+[ext_resource type="PackedScene" uid="uid://cmncfy00b7ye7" path="res://items/item_chair.tscn" id="73_gjl38"]
+[ext_resource type="PackedScene" uid="uid://bmo2geo63cm2" path="res://items/item_rope.tscn" id="74_g2uin"]
+[ext_resource type="PackedScene" uid="uid://c7bkcf27kw4us" path="res://items/item_hammer_old.tscn" id="75_ov2c1"]
+[ext_resource type="PackedScene" uid="uid://byq8q5m4u5hvr" path="res://items/item_bread.tscn" id="76_2ck5w"]
+[ext_resource type="PackedScene" uid="uid://c1lush4rd67w6" path="res://items/item_mozaic.tscn" id="77_o3178"]
+[ext_resource type="PackedScene" uid="uid://v34fcp4fs3rd" path="res://items/item_water_jug.tscn" id="78_dlh1j"]
+[ext_resource type="PackedScene" uid="uid://uju472fyensj" path="res://items/item_red_coat.tscn" id="79_phw3e"]
+[ext_resource type="PackedScene" uid="uid://g6ar1q5ch5rj" path="res://items/item_iron_bars.tscn" id="80_bopi1"]
+[ext_resource type="PackedScene" uid="uid://bab2cqq7bm4p5" path="res://items/item_gold_coins.tscn" id="81_fu748"]
+[ext_resource type="PackedScene" uid="uid://dkocm0gaksyrl" path="res://items/item_broom.tscn" id="82_7vdcx"]
+[ext_resource type="PackedScene" uid="uid://cgv0br4aonun1" path="res://items/item_eski_letter.tscn" id="83_70oa2"]
+[ext_resource type="PackedScene" uid="uid://bulrax3lngchx" path="res://items/item_little_mirror.tscn" id="84_vbxrf"]
+[ext_resource type="PackedScene" uid="uid://detiarxqk8p6w" path="res://items/item_prix.tscn" id="85_es07k"]
+[ext_resource type="PackedScene" uid="uid://dj4qd85pxqwet" path="res://items/item_wooden_spoon.tscn" id="86_n4w7d"]
+[ext_resource type="PackedScene" uid="uid://dsvdgqm8xpg6c" path="res://items/item_herbs.tscn" id="87_1xjhp"]
+[ext_resource type="PackedScene" uid="uid://fknag02hxsr6" path="res://items/item_translated_notes.tscn" id="88_jf1dk"]
+[ext_resource type="PackedScene" uid="uid://bdx2ljxryl4ga" path="res://items/item_healing_scroll.tscn" id="89_p1cto"]
+[ext_resource type="PackedScene" uid="uid://ullcu7xy7xgc" path="res://items/item_meropi's_apron.tscn" id="90_12okd"]
 
 [sub_resource type="Resource" id="Resource_auta7"]
 script = ExtResource("3_6wlod")
@@ -38,6 +113,23 @@ action = SubResource("Resource_auta7")
 reverse_action = SubResource("Resource_qsj4p")
 metadata/_custom_type_script = "uid://l8mmlejeqwqc"
 
+[sub_resource type="Resource" id="Resource_lpauf"]
+script = ExtResource("66_kn0po")
+animation = "Idle"
+duration = 1200.0
+where = Vector2(-970, 250)
+layer = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_55x34"]
+script = ExtResource("14_nw52c")
+_fleeting = false
+_actions = Array[ExtResource("65_xqr3w")]([SubResource("Resource_lpauf")])
+sequence_name = "Viviano_idle"
+metadata/_custom_type_script = "uid://0myr8cfdcslv"
+
 [node name="LevelVillage" type="Node2D"]
 
 [node name="Navigator" type="Node2D" parent="." node_paths=PackedStringArray("debug_draw")]
@@ -52,6 +144,7 @@ metadata/_custom_type_script = "uid://c64ex26cc1h7g"
 position = Vector2(-48, 120)
 
 [node name="Player" parent="." instance=ExtResource("3_hd8j8")]
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -38.565)
@@ -73,7 +166,7 @@ script = ExtResource("6_qwxvw")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
 [node name="BasicNPC" parent="." instance=ExtResource("7_gmu0f")]
-position = Vector2(-64, 0)
+position = Vector2(253, -64)
 
 [node name="AnchoredAgentV2" type="Node" parent="BasicNPC" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
@@ -90,11 +183,219 @@ metadata/_custom_type_script = "uid://typ11exqa0fj"
 script = ExtResource("6_qwxvw")
 metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
+[node name="NPCs" type="Node" parent="."]
+
+[node name="NPC_Titus" parent="NPCs" instance=ExtResource("11_uedw8")]
+position = Vector2(-858, 64)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Titus" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Titus" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Titus/SequenceController" instance=ExtResource("13_q63eb")]
+_stack = Array[ExtResource("14_nw52c")]([ExtResource("15_4gptj"), ExtResource("16_8whmi"), ExtResource("17_mqq74"), ExtResource("18_5ocsh"), ExtResource("19_x38mr"), ExtResource("20_txt11"), ExtResource("21_hdiov"), ExtResource("22_ua4im"), ExtResource("23_q7bwh")])
+
+[node name="Npc_1_Random" parent="NPCs" instance=ExtResource("24_x5bxp")]
+z_index = 0
+position = Vector2(690, 128)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/Npc_1_Random" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/Npc_1_Random/SequenceController" instance=ExtResource("13_q63eb")]
+
+[node name="Npc_1_Random2" parent="NPCs" instance=ExtResource("24_x5bxp")]
+z_index = 0
+position = Vector2(804, 128)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random2" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/Npc_1_Random2" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/Npc_1_Random2/SequenceController" instance=ExtResource("13_q63eb")]
+
+[node name="Npc_1_Random3" parent="NPCs" instance=ExtResource("24_x5bxp")]
+z_index = 0
+position = Vector2(929, 128)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random3" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/Npc_1_Random3" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/Npc_1_Random3/SequenceController" instance=ExtResource("13_q63eb")]
+
+[node name="NPC_Grelda" parent="NPCs" instance=ExtResource("25_lgrit")]
+position = Vector2(1075, 128)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Grelda" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Grelda" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Grelda/SequenceController" instance=ExtResource("13_q63eb")]
+
+[node name="NPC_Eski" parent="NPCs" instance=ExtResource("26_bo4ge")]
+position = Vector2(-552, 335)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Eski" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Eski" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Eski/SequenceController" instance=ExtResource("13_q63eb")]
+_stack = Array[ExtResource("14_nw52c")]([ExtResource("27_i7qhu"), ExtResource("28_o5oct"), ExtResource("29_j6x4q"), ExtResource("30_i4xk5"), ExtResource("31_gjl38"), ExtResource("32_g2uin"), ExtResource("33_ov2c1"), ExtResource("34_2ck5w"), ExtResource("35_o3178"), ExtResource("36_dlh1j"), ExtResource("37_phw3e"), ExtResource("38_bopi1"), ExtResource("39_fu748"), ExtResource("40_7vdcx"), ExtResource("41_70oa2")])
+
+[node name="NPC_OmirosWife" parent="NPCs" instance=ExtResource("42_vbxrf")]
+z_index = 0
+position = Vector2(412, 126)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_OmirosWife" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_OmirosWife" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_OmirosWife/SequenceController" instance=ExtResource("13_q63eb")]
+
+[node name="NPC_Meropi" parent="NPCs" instance=ExtResource("43_es07k")]
+z_index = 0
+position = Vector2(216, 336)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Meropi" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Meropi" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Meropi/SequenceController" instance=ExtResource("13_q63eb")]
+
+[node name="NPC_Merchant" parent="NPCs" instance=ExtResource("44_n4w7d")]
+z_index = 0
+position = Vector2(-891, -192)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Merchant" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" type="Node" parent="NPCs/NPC_Merchant" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
+script = ExtResource("5_gbap6")
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+metadata/_custom_type_script = "uid://typ11exqa0fj"
+
+[node name="ActionSequencer" type="Node" parent="NPCs/NPC_Merchant/SequenceController"]
+script = ExtResource("6_qwxvw")
+metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
+
+[node name="NPC_Lucas" parent="NPCs" instance=ExtResource("45_1xjhp")]
+z_index = 0
+position = Vector2(-506, -193)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Lucas" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" type="Node" parent="NPCs/NPC_Lucas" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
+script = ExtResource("5_gbap6")
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+metadata/_custom_type_script = "uid://typ11exqa0fj"
+
+[node name="ActionSequencer" type="Node" parent="NPCs/NPC_Lucas/SequenceController"]
+script = ExtResource("6_qwxvw")
+metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
+
+[node name="NPC_Rena" parent="NPCs" instance=ExtResource("46_jf1dk")]
+z_index = 0
+position = Vector2(238, -208)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Rena" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Rena" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Rena/SequenceController" instance=ExtResource("13_q63eb")]
+_stack = Array[ExtResource("14_nw52c")]([ExtResource("47_p1cto"), ExtResource("48_12okd"), ExtResource("49_qnk40"), ExtResource("50_xkdb4"), ExtResource("51_ex1j2"), ExtResource("52_0plac"), ExtResource("53_8vowb"), ExtResource("54_m2qkg"), ExtResource("55_lg4m2"), ExtResource("56_ofvgp"), ExtResource("57_qkjx7"), ExtResource("58_pw31w"), ExtResource("59_3n8ix"), ExtResource("60_l1nfq"), ExtResource("61_ho1sf")])
+
+[node name="NPC_Tint" parent="NPCs" instance=ExtResource("62_uhdyn")]
+z_index = 0
+position = Vector2(327, -208)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Tint" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Tint" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Tint/SequenceController" instance=ExtResource("13_q63eb")]
+_stack = Array[ExtResource("14_nw52c")]([ExtResource("63_aafip")])
+
+[node name="NPC_Viviano" parent="NPCs" instance=ExtResource("64_tdaon")]
+z_index = 0
+position = Vector2(-967, 272)
+
+[node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Viviano" node_paths=PackedStringArray("navigator")]
+script = ExtResource("4_1n2bu")
+navigator = NodePath("../../../Navigator")
+metadata/_custom_type_script = "uid://ddiph2m58srp0"
+
+[node name="SequenceController" parent="NPCs/NPC_Viviano" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
+_action_sequencer = NodePath("ActionSequencer")
+_game_clock = NodePath("../../../GameClock")
+
+[node name="ActionSequencer" parent="NPCs/NPC_Viviano/SequenceController" instance=ExtResource("13_q63eb")]
+_stack = Array[ExtResource("14_nw52c")]([SubResource("Resource_55x34")])
+
 [node name="GameClock" parent="." instance=ExtResource("7_nw76t")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryUI" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,3 +541,82 @@ script = ExtResource("13_av7lr")
 line_color = Color(1, 0, 0, 1)
 point_color = Color(1, 0, 0.623529, 1)
 metadata/_custom_type_script = "uid://c1abhovivd2ej"
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Beer" parent="Items" instance=ExtResource("72_i4xk5")]
+position = Vector2(-746, 51)
+
+[node name="Beer2" parent="Items" instance=ExtResource("72_i4xk5")]
+position = Vector2(-806, 51)
+
+[node name="Beer3" parent="Items" instance=ExtResource("72_i4xk5")]
+position = Vector2(-949, 53)
+
+[node name="Beer4" parent="Items" instance=ExtResource("72_i4xk5")]
+position = Vector2(-777, 51)
+
+[node name="Beer5" parent="Items" instance=ExtResource("72_i4xk5")]
+position = Vector2(-898, 52)
+full = true
+
+[node name="Beer6" parent="Items" instance=ExtResource("72_i4xk5")]
+position = Vector2(-649, 322)
+
+[node name="item_chair" parent="Items" instance=ExtResource("73_gjl38")]
+position = Vector2(-648, -74)
+
+[node name="item_rope" parent="Items" instance=ExtResource("74_g2uin")]
+position = Vector2(-550, -12)
+
+[node name="Hammer_Old" parent="Items" instance=ExtResource("75_ov2c1")]
+position = Vector2(-98, 323)
+
+[node name="Hammer_Old2" parent="Items" instance=ExtResource("75_ov2c1")]
+position = Vector2(2, 322)
+
+[node name="Bread" parent="Items" instance=ExtResource("76_2ck5w")]
+position = Vector2(-995, -205)
+
+[node name="Mozaic" parent="Items" instance=ExtResource("77_o3178")]
+position = Vector2(-944, -204)
+
+[node name="Water_Jug" parent="Items" instance=ExtResource("78_dlh1j")]
+position = Vector2(-29, -12)
+
+[node name="Red Coat" parent="Items" instance=ExtResource("79_phw3e")]
+position = Vector2(33, -13)
+
+[node name="Iron Bars" parent="Items" instance=ExtResource("80_bopi1")]
+position = Vector2(136, -12)
+
+[node name="Gold Coins" parent="Items" instance=ExtResource("81_fu748")]
+position = Vector2(-111, -11)
+
+[node name="Broom" parent="Items" instance=ExtResource("82_7vdcx")]
+position = Vector2(-142, -12)
+
+[node name="Eski Letter" parent="Items" instance=ExtResource("83_70oa2")]
+position = Vector2(-172, -12)
+
+[node name="Little Mirror" parent="Items" instance=ExtResource("84_vbxrf")]
+position = Vector2(172, -11)
+
+[node name="Prix" parent="Items" instance=ExtResource("85_es07k")]
+position = Vector2(404, -376)
+
+[node name="Wooden Spoon" parent="Items" instance=ExtResource("86_n4w7d")]
+position = Vector2(302, -219)
+item_name = "Wooden Spoon"
+
+[node name="Herbs" parent="Items" instance=ExtResource("87_1xjhp")]
+position = Vector2(359, 116)
+
+[node name="Translated_Notes" parent="Items" instance=ExtResource("88_jf1dk")]
+position = Vector2(323, 114)
+
+[node name="Healing Scroll" parent="Items" instance=ExtResource("89_p1cto")]
+position = Vector2(485, 119)
+
+[node name="Meropi\'s Apron" parent="Items" instance=ExtResource("90_12okd")]
+position = Vector2(449, 118)

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dhd8awfilsght" path="res://assets/broom.jpg" id="3_2yp7c"]
 
 [node name="Broom" instance=ExtResource("1_csxut")]
+z_index = 0
 script = ExtResource("2_1v72w")
 
 [node name="Sprite2D" parent="." index="0"]

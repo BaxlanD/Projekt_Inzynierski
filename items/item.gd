@@ -33,12 +33,11 @@ func use() -> void:
 	print("Item used")
 	
 func _on_interact() -> void:
-		var player := get_tree().get_root().get_node("LevelDemo/Player")
 		var inv : Inventory
 		if use_special_inventory:
-			inv = get_tree().get_root().get_node("LevelDemo/Player/SpecialInventory") as Inventory
+			inv = get_tree().get_root().get_node("LevelVillage/Player/SpecialInventory") as Inventory
 		else:
-			inv = get_tree().get_root().get_node("LevelDemo/Player/Inventory") as Inventory
+			inv = get_tree().get_root().get_node("LevelVillage/Player/Inventory") as Inventory
 		var scene := load(origin_scene_path) as PackedScene
 		if scene:
 			var new_item := scene.instantiate()

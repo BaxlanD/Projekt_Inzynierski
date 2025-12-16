@@ -29,10 +29,10 @@ func _physics_process(delta: float) -> void:
 	
 	npc_floor_level = ray_cast_2d.get_collision_point().y
 	
-	if Input.is_action_just_pressed("LMB"):
-		sequence_controller.push_instant(Sequence.new().with_fleeting().from_actions([
-			PlayAnim.new().create(self, get_global_mouse_position(), "Death")
-		]))
+	#if Input.is_action_just_pressed("LMB"):
+		#sequence_controller.push_instant(Sequence.new().with_fleeting().from_actions([
+			#PlayAnim.new().create(self, get_global_mouse_position(), "Death")
+		#]))
 	
 	sequence_controller.update(delta)
 
@@ -48,9 +48,6 @@ func on_interaction_started(interaction_type: String) -> void:
 func on_interaction_ended() -> void:
 	character_stop()
 	animated_sprite_2d.play("Idle")
-
-func character_stop() -> void:
-	velocity = Vector2.ZERO
 	
 func can_accept_item(_item: Item) -> bool:
 	return false
@@ -125,7 +122,7 @@ func talk_with_npc() -> void:
 func _on_give_item(item: Item, def: InteruptDefinition) -> void:
 	print("Player gave:", item.get_display_name())
 
-	var player_inv := get_tree().get_root().get_node("LevelDemo/Player/Inventory") as Inventory
+	var player_inv := get_tree().get_root().get_node("LevelVillage/Player/Inventory") as Inventory
 	for i in range(player_inv.items.size()):
 		if player_inv.items[i].get_display_name() == item.get_display_name():
 			player_inv.items[i].queue_free()

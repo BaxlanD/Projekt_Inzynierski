@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctrc7j6sxl6ou" path="res://assets/prix_mushroom.png" id="3_oni6n"]
 
 [node name="Prix" instance=ExtResource("1_nu86g")]
+z_index = 0
 script = ExtResource("2_x4o45")
 
 [node name="Sprite2D" parent="." index="0"]

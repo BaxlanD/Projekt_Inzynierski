@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c163vcruv0ool" path="res://assets/iron_bars.jpg" id="3_tpaug"]
 
 [node name="Iron Bars" instance=ExtResource("1_ok7c4")]
+z_index = 0
 script = ExtResource("2_ic4ti")
 
 [node name="Sprite2D" parent="." index="0"]
