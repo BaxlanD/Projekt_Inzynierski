@@ -219,8 +219,8 @@ size = Vector2i(100, 60)
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 104.0
-offset_bottom = 70.0
+offset_right = 96.0
+offset_bottom = 56.0
 
 [node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 20)
