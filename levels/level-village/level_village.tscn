@@ -54,7 +54,8 @@ position = Vector2(-48, 120)
 [node name="Player" parent="." instance=ExtResource("3_hd8j8")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.81, 0.81)
+offset = Vector2(0, -38.565)
+zoom = Vector2(5, 5)
 
 [node name="AnchoredAgentV2" type="Node" parent="Player" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
