@@ -124,6 +124,8 @@ func _project_point_on_graph(point: Vector2) -> ProjectedPoint:
 	var hits: Array[ProjectedPoint] = []
 
 	for connection in graph_connections:
+		if is_transition(connection):
+			continue ## Shouldn't match to transition edges as valid targets
 		var edge: Edge = Edge.new(get_pos(connection.x), get_pos(connection.y))
 		var progress: float = edge.project_point(point)
 		if 0 <= progress and progress <= 1:
@@ -141,6 +143,8 @@ func _project_point_on_graph_layer(point: Vector2, layer: int = -1) -> Projected
 	if layer != -1:
 		var hits: Array[ProjectedPoint] = []
 		for connection in graph_connections:
+			if is_transition(connection):
+				continue ## Shouldn't match to transition edges as valid targets
 			if get_point_data(connection.x).get_layer_id() == layer and get_point_data(connection.y).get_layer_id() == layer:
 				var edge: Edge = Edge.new(get_pos(connection.x), get_pos(connection.y))
 				var progress: float = edge.project_point(point)
@@ -155,6 +159,8 @@ func _project_point_on_graph_layer(point: Vector2, layer: int = -1) -> Projected
 		return hits[0]
 	else:
 		return _project_point_on_graph(point)
+
+
 
 #region BUILDING_GRAPH
 

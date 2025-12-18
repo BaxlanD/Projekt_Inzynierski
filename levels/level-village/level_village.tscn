@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://taudbpavjp4y"]
+[gd_scene load_steps=146 format=3 uid="uid://taudbpavjp4y"]
 
 [ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_gityk"]
 [ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_dlr5x"]
@@ -8,20 +8,32 @@
 [ext_resource type="PackedScene" uid="uid://b6vwuroos1kov" path="res://levels/level-village/sublevels/village_transition_test.tscn" id="3_ro3nk"]
 [ext_resource type="Script" uid="uid://ddiph2m58srp0" path="res://components/navigation_related/anchored_agent/anchored_agent_v_2.gd" id="4_1n2bu"]
 [ext_resource type="Script" uid="uid://typ11exqa0fj" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.gd" id="5_gbap6"]
+[ext_resource type="PackedScene" uid="uid://dc367kw76ki7f" path="res://levels/level-village/sublevels/houses_interior/artist.tscn" id="6_gjl38"]
 [ext_resource type="Script" uid="uid://dsbvkkqaqle4m" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.gd" id="6_qwxvw"]
+[ext_resource type="PackedScene" uid="uid://db1p1doxddlo5" path="res://levels/level-village/sublevels/houses_interior/herbalist.tscn" id="7_g2uin"]
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="7_gmu0f"]
 [ext_resource type="PackedScene" uid="uid://c4uy0pnckhfcj" path="res://components/game_clock/game_clock.tscn" id="7_nw76t"]
+[ext_resource type="PackedScene" uid="uid://b813uqoobb1rm" path="res://levels/level-village/sublevels/houses_interior/tavern.tscn" id="8_2ck5w"]
 [ext_resource type="Script" uid="uid://b0voc0icifo5o" path="res://levels/level_demo/inventory_ui.gd" id="8_nw76t"]
+[ext_resource type="PackedScene" uid="uid://cuy26crydlgps" path="res://levels/level-village/sublevels/houses_interior/mc.tscn" id="9_2ck5w"]
 [ext_resource type="Script" uid="uid://djqu1e2c0tbcg" path="res://levels/level_demo/panel.gd" id="9_gmu0f"]
+[ext_resource type="PackedScene" uid="uid://yxw6ilvaaf8m" path="res://levels/level-village/sublevels/houses_interior/blacksmith.tscn" id="9_o3178"]
+[ext_resource type="PackedScene" uid="uid://chsglr0yp6scg" path="res://levels/level-village/sublevels/houses_interior/sherrifs_office.tscn" id="10_o3178"]
 [ext_resource type="PackedScene" uid="uid://cleresp8aqg0s" path="res://resources/interactions/interaction_menu.tscn" id="10_ro3nk"]
+[ext_resource type="PackedScene" uid="uid://bne6vmgvye10s" path="res://levels/level-village/sublevels/houses_interior/random_house_2.tscn" id="11_dlh1j"]
 [ext_resource type="PackedScene" uid="uid://63ip4mj32hex" path="res://characters/npc_actions/npc_titus.tscn" id="11_uedw8"]
+[ext_resource type="PackedScene" uid="uid://cod4dr0jmyquy" path="res://levels/level-village/sublevels/houses_interior/weird_house.tscn" id="12_phw3e"]
 [ext_resource type="PackedScene" uid="uid://binlp6uwekpq3" path="res://components/new_actions_stuff/v2/sequence_controller/sequence_controller.tscn" id="12_s631t"]
 [ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="13_av7lr"]
+[ext_resource type="PackedScene" uid="uid://c3iaimxv03e0l" path="res://levels/level-village/sublevels/houses_interior/random_house_1.tscn" id="13_bopi1"]
 [ext_resource type="PackedScene" uid="uid://cnv7gr02fgu2f" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.tscn" id="13_q63eb"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="14_nw52c"]
 [ext_resource type="Resource" uid="uid://civiaynlm1iou" path="res://resources/action_related/action_new/Titus/Base/titus_action_one.tres" id="15_4gptj"]
+[ext_resource type="PackedScene" uid="uid://dye05vnjsk1nh" path="res://levels/level-village/sublevels/houses_interior/random_house_3.tscn" id="15_7vdcx"]
 [ext_resource type="Resource" uid="uid://dwv58upa22kr2" path="res://resources/action_related/action_new/Titus/Base/titus_action_twoAndThree.tres" id="16_8whmi"]
+[ext_resource type="PackedScene" uid="uid://v2x0xi16tl27" path="res://levels/level-village/sublevels/houses_interior/random_house_4.tscn" id="16_70oa2"]
 [ext_resource type="Resource" uid="uid://dijqpe52hvrxh" path="res://resources/action_related/action_new/Titus/Base/titus_action_four.tres" id="17_mqq74"]
+[ext_resource type="Resource" uid="uid://soo8i4ppr006" path="res://levels/level-village/sublevels/houses_interior/interior-nav/random2-2-nav.tres" id="17_vbxrf"]
 [ext_resource type="Resource" uid="uid://c4tqdbtpgwk8q" path="res://resources/action_related/action_new/Titus/Base/titus_action_five.tres" id="18_5ocsh"]
 [ext_resource type="Resource" uid="uid://bf5t4idc5l1r4" path="res://resources/action_related/action_new/Titus/Base/titus_action_six.tres" id="19_x38mr"]
 [ext_resource type="Resource" uid="uid://c14r0t1q7errr" path="res://resources/action_related/action_new/Titus/Base/titus_action_sevenAndEight.tres" id="20_txt11"]
@@ -107,10 +119,288 @@ metadata/_custom_type_script = "uid://c0muifmabuljh"
 
 [sub_resource type="Resource" id="Resource_v35xo"]
 script = ExtResource("2_dlr5x")
-from_point = "outside-door"
+from_point = "sherrif-outside"
 to_point = "inside-door"
 action = SubResource("Resource_auta7")
 reverse_action = SubResource("Resource_qsj4p")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_vbxrf"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_es07k"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_70oa2"]
+script = ExtResource("2_dlr5x")
+from_point = "tavern-outside"
+to_point = "tavern-door"
+action = SubResource("Resource_vbxrf")
+reverse_action = SubResource("Resource_es07k")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_n4w7d"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_1xjhp"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_jf1dk"]
+script = ExtResource("2_dlr5x")
+from_point = "herbalist-outside"
+to_point = "herbalist-door"
+action = SubResource("Resource_n4w7d")
+reverse_action = SubResource("Resource_1xjhp")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_p1cto"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_12okd"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_qnk40"]
+script = ExtResource("2_dlr5x")
+from_point = "random4-outside"
+to_point = "random4-door"
+action = SubResource("Resource_p1cto")
+reverse_action = SubResource("Resource_12okd")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_xkdb4"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_ex1j2"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_0plac"]
+script = ExtResource("2_dlr5x")
+from_point = "weird-outside"
+to_point = "weird-door"
+action = SubResource("Resource_xkdb4")
+reverse_action = SubResource("Resource_ex1j2")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_8vowb"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_m2qkg"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_lg4m2"]
+script = ExtResource("2_dlr5x")
+from_point = "random1-outside"
+to_point = "random1-door"
+action = SubResource("Resource_8vowb")
+reverse_action = SubResource("Resource_m2qkg")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_ofvgp"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_qkjx7"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_pw31w"]
+script = ExtResource("2_dlr5x")
+from_point = "random2-outside"
+to_point = "random2-door"
+action = SubResource("Resource_ofvgp")
+reverse_action = SubResource("Resource_qkjx7")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_3n8ix"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_l1nfq"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_ho1sf"]
+script = ExtResource("2_dlr5x")
+from_point = "sherrif-outside"
+to_point = "sherrif-door"
+action = SubResource("Resource_3n8ix")
+reverse_action = SubResource("Resource_l1nfq")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_bopi1"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_fu748"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_phw3e"]
+script = ExtResource("2_dlr5x")
+from_point = "mc-outside"
+to_point = "mc-door"
+action = SubResource("Resource_bopi1")
+reverse_action = SubResource("Resource_fu748")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_uhdyn"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_aafip"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_tdaon"]
+script = ExtResource("2_dlr5x")
+from_point = "artist-outside"
+to_point = "artist-door"
+action = SubResource("Resource_uhdyn")
+reverse_action = SubResource("Resource_aafip")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_xqr3w"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_kn0po"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_prxl1"]
+script = ExtResource("2_dlr5x")
+from_point = "blacksmith-left-outside"
+to_point = "blacksmith-left-door"
+action = SubResource("Resource_xqr3w")
+reverse_action = SubResource("Resource_kn0po")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_pmb70"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_7qjw2"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_5gyqs"]
+script = ExtResource("2_dlr5x")
+from_point = "blacksmith-right-outside"
+to_point = "blacksmith-right-door"
+action = SubResource("Resource_pmb70")
+reverse_action = SubResource("Resource_7qjw2")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_ftsft"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_4duhx"]
+script = ExtResource("2_dlr5x")
+from_point = "random3-outside"
+to_point = "random3-door"
+action = SubResource("Resource_ftsft")
+metadata/_custom_type_script = "uid://l8mmlejeqwqc"
+
+[sub_resource type="Resource" id="Resource_vj1a4"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_5532f"]
+script = ExtResource("3_6wlod")
+animation = "Death"
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://c0muifmabuljh"
+
+[sub_resource type="Resource" id="Resource_iuhg8"]
+script = ExtResource("2_dlr5x")
+from_point = "random2-outside-2"
+to_point = "random2-2-door"
+action = SubResource("Resource_vj1a4")
+reverse_action = SubResource("Resource_5532f")
 metadata/_custom_type_script = "uid://l8mmlejeqwqc"
 
 [sub_resource type="Resource" id="Resource_lpauf"]
@@ -134,7 +424,7 @@ metadata/_custom_type_script = "uid://0myr8cfdcslv"
 
 [node name="Navigator" type="Node2D" parent="." node_paths=PackedStringArray("debug_draw")]
 script = ExtResource("1_gityk")
-transitions = Array[ExtResource("2_dlr5x")]([SubResource("Resource_v35xo")])
+transitions = Array[ExtResource("2_dlr5x")]([SubResource("Resource_v35xo"), SubResource("Resource_70oa2"), SubResource("Resource_jf1dk"), SubResource("Resource_qnk40"), SubResource("Resource_0plac"), SubResource("Resource_lg4m2"), SubResource("Resource_pw31w"), SubResource("Resource_ho1sf"), SubResource("Resource_phw3e"), SubResource("Resource_tdaon"), SubResource("Resource_prxl1"), SubResource("Resource_5gyqs"), SubResource("Resource_4duhx"), SubResource("Resource_iuhg8")])
 debug_draw = NodePath("../DebugDraws/NavDraw")
 metadata/_custom_type_script = "uid://c64ex26cc1h7g"
 
@@ -142,6 +432,55 @@ metadata/_custom_type_script = "uid://c64ex26cc1h7g"
 
 [node name="VillageTransitionTest" parent="Navigator" instance=ExtResource("3_ro3nk")]
 position = Vector2(-48, 120)
+
+[node name="artist" parent="Navigator" instance=ExtResource("6_gjl38")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(824, 64)
+
+[node name="Blacksmith" parent="Navigator" instance=ExtResource("9_o3178")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-224, 272)
+
+[node name="herbalist" parent="Navigator" instance=ExtResource("7_g2uin")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-80, -256)
+
+[node name="mc_house" parent="Navigator" instance=ExtResource("9_2ck5w")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(464, 80)
+
+[node name="sherrifs" parent="Navigator" instance=ExtResource("10_o3178")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-80, -48)
+
+[node name="tavern" parent="Navigator" instance=ExtResource("8_2ck5w")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-704, -256)
+
+[node name="Weird_house" parent="Navigator" instance=ExtResource("12_phw3e")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-1120, 0)
+
+[node name="R_H_1" parent="Navigator" instance=ExtResource("13_bopi1")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-816, -16)
+
+[node name="R_H_2" parent="Navigator" instance=ExtResource("11_dlh1j")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-432, 0)
+
+[node name="R_H_3" parent="Navigator" instance=ExtResource("15_7vdcx")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(496, 272)
+
+[node name="R_H_4" parent="Navigator" instance=ExtResource("16_70oa2")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(208, -272)
+
+[node name="R_H_2-2" parent="Navigator" instance=ExtResource("11_dlh1j")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(432, -272)
+nav_layer = ExtResource("17_vbxrf")
 
 [node name="Player" parent="." instance=ExtResource("3_hd8j8")]
 z_index = 1
@@ -520,8 +859,8 @@ size = Vector2i(100, 60)
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/InventoryUI/ItemPopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 56.0
+offset_right = 104.0
+offset_bottom = 70.0
 
 [node name="Drop" type="Button" parent="UI/InventoryUI/ItemPopupPanel/VBoxContainer"]
 custom_minimum_size = Vector2(100, 20)
