@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://taudbpavjp4y"]
+[gd_scene load_steps=147 format=3 uid="uid://taudbpavjp4y"]
 
 [ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_gityk"]
 [ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_dlr5x"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://c1abhovivd2ej" path="res://tools/debug_draw/debug_draw.gd" id="13_av7lr"]
 [ext_resource type="PackedScene" uid="uid://c3iaimxv03e0l" path="res://levels/level-village/sublevels/houses_interior/random_house_1.tscn" id="13_bopi1"]
 [ext_resource type="PackedScene" uid="uid://cnv7gr02fgu2f" path="res://components/new_actions_stuff/v2/action_sequencer/action_sequencer.tscn" id="13_q63eb"]
+[ext_resource type="Resource" uid="uid://d3k80d0wxsr4w" path="res://levels/level-village/sublevels/houses_interior/interior-nav/random1-nav.tres" id="14_es07k"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="14_nw52c"]
 [ext_resource type="Resource" uid="uid://civiaynlm1iou" path="res://resources/action_related/action_new/Titus/Base/titus_action_one.tres" id="15_4gptj"]
 [ext_resource type="PackedScene" uid="uid://dye05vnjsk1nh" path="res://levels/level-village/sublevels/houses_interior/random_house_3.tscn" id="15_7vdcx"]
@@ -464,6 +465,7 @@ position = Vector2(-1120, 0)
 [node name="R_H_1" parent="Navigator" instance=ExtResource("13_bopi1")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-816, -16)
+nav_layer = ExtResource("14_es07k")
 
 [node name="R_H_2" parent="Navigator" instance=ExtResource("11_dlh1j")]
 modulate = Color(1, 1, 1, 0)

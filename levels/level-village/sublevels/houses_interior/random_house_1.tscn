@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://c3iaimxv03e0l"]
+[gd_scene load_steps=6 format=4 uid="uid://c3iaimxv03e0l"]
 
 [ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/level_layer/level_layer.gd" id="1_dw27g"]
 [ext_resource type="TileSet" uid="uid://b2lusl6ko4qax" path="res://assets/tiles/village/houses_interior.tres" id="1_quxfq"]
 [ext_resource type="Texture2D" uid="uid://c1t8h2wvki1dw" path="res://assets/tiles/village/lamps_shape.tres" id="2_0nlo8"]
-[ext_resource type="Resource" uid="uid://cjhjq4ttkyrha" path="res://levels/level-village/sublevels/houses_interior/interior-nav/random1-nav.tres" id="6_bmoop"]
+[ext_resource type="Script" uid="uid://1vsom4mgppvi" path="res://tools/nav_layer_draw_tool/nav_layer_draw_tool.gd" id="4_y7qmf"]
+[ext_resource type="Script" uid="uid://h6vmtlbd7hl2" path="res://tools/nav_point/nav_point.gd" id="5_lx5yh"]
 
 [node name="R_H_1" type="Node2D"]
 script = ExtResource("1_dw27g")
-nav_layer = ExtResource("6_bmoop")
 metadata/_custom_type_script = "uid://c51cwx8ejhqut"
 
 [node name="Bg" type="TileMapLayer" parent="."]
@@ -28,3 +28,44 @@ tile_set = ExtResource("1_quxfq")
 position = Vector2(-117, 34)
 color = Color(0.956863, 0.8, 0.470588, 1)
 texture = ExtResource("2_0nlo8")
+
+[node name="NavLayerDrawTool" type="Node2D" parent="."]
+script = ExtResource("4_y7qmf")
+metadata/_custom_type_script = "uid://1vsom4mgppvi"
+
+[node name="@Marker2D@25618" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-120, 64)
+script = ExtResource("5_lx5yh")
+
+[node name="@Marker2D@25619" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-48, 64)
+script = ExtResource("5_lx5yh")
+
+[node name="random1-door" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(72, 64)
+script = ExtResource("5_lx5yh")
+point_name = "random1-door"
+
+[node name="@Marker2D@25621" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(120, 64)
+script = ExtResource("5_lx5yh")
+
+[node name="@Marker2D@25622" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-96, 16)
+script = ExtResource("5_lx5yh")
+
+[node name="@Marker2D@25623" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-120, 16)
+script = ExtResource("5_lx5yh")
+
+[node name="@Marker2D@25624" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-64, -16)
+script = ExtResource("5_lx5yh")
+
+[node name="@Marker2D@25625" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-120, -16)
+script = ExtResource("5_lx5yh")
+
+[node name="@Marker2D@25626" type="Marker2D" parent="NavLayerDrawTool"]
+position = Vector2(-24, -16)
+script = ExtResource("5_lx5yh")
