@@ -13,7 +13,7 @@ func _create(character_: Character, where_: Vector2, layer_: int = -1) -> GoToAn
 
 func open() -> void:
 	_done = false
-	_subaction = GoTo.new().create(character, where)
+	_subaction = GoTo.new().create(character, where, layer)
 	_subaction.action_closed.connect(_on_subaction_closed)
 	_subaction.open()
 
