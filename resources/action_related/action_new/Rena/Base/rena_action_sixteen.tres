@@ -9,7 +9,7 @@
 script = ExtResource("2_d6lwv")
 animation = "Punch"
 duration = 1.0
-where = Vector2(620, 300)
+where = Vector2(1490, 220)
 layer = 0
 _fleeting = false
 _timeout = 0
@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 script = ExtResource("2_d6lwv")
 animation = "Use"
 duration = 3.0
-where = Vector2(550, 300)
+where = Vector2(1400, 220)
 layer = 0
 _fleeting = false
 _timeout = 0
@@ -27,8 +27,8 @@ metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
 [sub_resource type="Resource" id="Resource_ieff6"]
 script = ExtResource("3_bcyij")
-where = Vector2(250, -250)
-layer = 0
+where = Vector2(0, -225)
+layer = 3
 speed_multiplier = 1.0
 _fleeting = false
 _timeout = 0

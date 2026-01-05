@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=14 format=3 uid="uid://dwv58upa22kr2"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=15 format=3 uid="uid://dwv58upa22kr2"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_yrseb"]
 [ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="2_exk7u"]
 [ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_tfuom"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="4_hgffy"]
-[ext_resource type="Script" uid="uid://clmejvm430q0j" path="res://resources/action_related/action_new/call_grelda.gd" id="5_agvuv"]
+[ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="5_5ojtl"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="6_4xc72"]
 
 [sub_resource type="Resource" id="Resource_slolm"]
@@ -60,11 +60,31 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
+[sub_resource type="Resource" id="Resource_m08sn"]
+script = ExtResource("3_tfuom")
+anim_self = "Talk"
+anim_target = "Talk"
+anim_duration = 8.0
+target_name = "NPC_Titus"
+where = Vector2(850, 100)
+layer = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
+
+[sub_resource type="Resource" id="Resource_l6yhr"]
+script = ExtResource("5_5ojtl")
+target_npc_name = "NPC_Grelda"
+action_resource = SubResource("Resource_m08sn")
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
+
 [sub_resource type="Resource" id="Resource_tgief"]
 script = ExtResource("3_tfuom")
 anim_self = "Punch"
 anim_target = "Punch"
-anim_duration = 15.0
+anim_duration = 20.0
 target_name = "Npc_1_Random3"
 where = Vector2(900, 100)
 layer = 0
@@ -72,23 +92,9 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
 
-[sub_resource type="Resource" id="Resource_wgia5"]
-script = ExtResource("5_agvuv")
-grelda_name = "NPC_Grelda"
-anim_self = "Talk"
-anim_target = "Talk"
-anim_duration = 15.0
-offset_distance = 30.0
-start_distance_threshold = 5.0
-where = Vector2(850, 100)
-layer = 0
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://clmejvm430q0j"
-
 [resource]
 script = ExtResource("6_4xc72")
 _fleeting = true
-_actions = Array[ExtResource("1_yrseb")]([SubResource("Resource_slolm"), SubResource("Resource_exqts"), SubResource("Resource_gt2kh"), SubResource("Resource_xvh2u"), SubResource("Resource_sc8ab"), SubResource("Resource_tgief"), SubResource("Resource_wgia5")])
+_actions = Array[ExtResource("1_yrseb")]([SubResource("Resource_slolm"), SubResource("Resource_exqts"), SubResource("Resource_gt2kh"), SubResource("Resource_xvh2u"), SubResource("Resource_sc8ab"), SubResource("Resource_l6yhr"), SubResource("Resource_tgief")])
 sequence_name = "Titus_action_twoAndThree"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

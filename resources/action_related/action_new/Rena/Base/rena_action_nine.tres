@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=25 format=3 uid="uid://cra2liau3lfis"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=23 format=3 uid="uid://cra2liau3lfis"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_vc6t6"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_cjhri"]
@@ -39,15 +39,6 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
-[sub_resource type="Resource" id="Resource_8nyt7"]
-script = ExtResource("3_j8nom")
-place_name = "Field"
-state_name = "curr_state"
-target_value_name = "unwatered"
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://de3to7sjiy5rq"
-
 [sub_resource type="Resource" id="Resource_40hd2"]
 script = ExtResource("4_o82gp")
 where = Vector2(500, -250)
@@ -82,7 +73,7 @@ anim_target = "Talk"
 anim_duration = 6.0
 target_name = "Npc_1_Random"
 where = Vector2(470, -250)
-layer = -1
+layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
@@ -114,21 +105,12 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
-[sub_resource type="Resource" id="Resource_dnw3y"]
-script = ExtResource("3_j8nom")
-place_name = "Field"
-state_name = "curr_state"
-target_value_name = "watered"
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://de3to7sjiy5rq"
-
 [sub_resource type="Resource" id="Resource_gtw0r"]
 script = ExtResource("7_tqp7o")
 item = "Translated_Notes"
 search_duration = 1.0
-where = Vector2(150, -250)
-layer = 0
+where = Vector2(0, -225)
+layer = 3
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://bybhqvju4b5wr"
@@ -163,6 +145,6 @@ metadata/_custom_type_script = "uid://de3to7sjiy5rq"
 [resource]
 script = ExtResource("2_dt88d")
 _fleeting = false
-_actions = Array[ExtResource("1_vc6t6")]([SubResource("Resource_f5vu8"), SubResource("Resource_8q7lf"), SubResource("Resource_0frij"), SubResource("Resource_8nyt7"), SubResource("Resource_61gjp"), SubResource("Resource_hpww8"), SubResource("Resource_ocjow"), SubResource("Resource_5a0p2"), SubResource("Resource_4pax5"), SubResource("Resource_dnw3y"), SubResource("Resource_bugxx"), SubResource("Resource_32njt"), SubResource("Resource_wqkws")])
+_actions = Array[ExtResource("1_vc6t6")]([SubResource("Resource_f5vu8"), SubResource("Resource_8q7lf"), SubResource("Resource_0frij"), SubResource("Resource_61gjp"), SubResource("Resource_hpww8"), SubResource("Resource_ocjow"), SubResource("Resource_5a0p2"), SubResource("Resource_4pax5"), SubResource("Resource_bugxx"), SubResource("Resource_32njt"), SubResource("Resource_wqkws")])
 sequence_name = "Rena_action_nine"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

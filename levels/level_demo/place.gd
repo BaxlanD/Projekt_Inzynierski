@@ -1,6 +1,8 @@
 extends Node2D
 class_name Place
 
+@export var actor_layer: int = -1
+
 func _on_interact() -> void:
 	pass
 		
@@ -20,7 +22,4 @@ func execute_place_interaction(_npc: NPCActions, _interaction_id: String) -> voi
 	pass
 	
 func update_visual() -> void:
-	pass
-
-func set_state(_value: Variant) -> void:
 	pass

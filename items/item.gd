@@ -4,6 +4,7 @@ class_name Item
 @export var item_name: String = "item"
 @export var origin_scene_path : String = ""
 @export var use_special_inventory: bool = false
+@export var actor_layer: int = -1
 @onready var interactable: Interactable = $Interactable
 
 var consumable: bool = false

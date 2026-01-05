@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=27 format=3 uid="uid://bihbxa572dfh"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=29 format=3 uid="uid://bihbxa572dfh"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_x2tig"]
 [ext_resource type="Resource" uid="uid://dj8ihkxk2bn7j" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_no_tint.tres" id="2_2qr6l"]
@@ -8,10 +8,10 @@
 [ext_resource type="Resource" uid="uid://otofoe0u78t4" path="res://resources/action_related/action_new/story_retains/rena_tint_missing.tres" id="3_mg0xo"]
 [ext_resource type="Script" uid="uid://dgwa0inuiv824" path="res://resources/action_related/action_new/assert.gd" id="4_0rf78"]
 [ext_resource type="Script" uid="uid://b5k1gqhanbsoa" path="res://resources/action_related/action_new/push_action.gd" id="4_a7nu0"]
-[ext_resource type="Script" uid="uid://b84md3v15ll0" path="res://resources/action_related/action_new/follow_npc.gd" id="5_2qr6l"]
 [ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="6_mg0xo"]
 [ext_resource type="Script" uid="uid://cmxit1wulmvx7" path="res://resources/action_related/action_new/drop_item.gd" id="7_0rf78"]
 [ext_resource type="Script" uid="uid://bybhqvju4b5wr" path="res://resources/action_related/action_new/try_pickup.gd" id="8_3f6op"]
+[ext_resource type="Script" uid="uid://ck2sqi2yvjdf8" path="res://resources/action_related/action_new/remove_item.gd" id="11_2qr6l"]
 
 [sub_resource type="Resource" id="Resource_3f6op"]
 script = ExtResource("4_0rf78")
@@ -28,16 +28,16 @@ metadata/_custom_type_script = "uid://dgwa0inuiv824"
 script = ExtResource("2_d0ts0")
 animation = "Punch"
 duration = 1.0
-where = Vector2(180, -250)
-layer = -1
+where = Vector2(-25, -225)
+layer = 3
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
 [sub_resource type="Resource" id="Resource_3174n"]
 script = ExtResource("3_7il6j")
-where = Vector2(-100, -250)
-layer = 0
+where = Vector2(-150, -225)
+layer = 3
 speed_multiplier = 1.4
 _fleeting = false
 _timeout = 0
@@ -51,17 +51,15 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
 
-[sub_resource type="Resource" id="Resource_fox6j"]
-script = ExtResource("5_2qr6l")
-target_npc_name = "NPC_Tint"
-follow_distance = 40.0
-update_interval = 0.5
-speed_factor = 1.0
-walk_anim = "Walk"
-idle_timeout = 5.0
+[sub_resource type="Resource" id="Resource_2qr6l"]
+script = ExtResource("2_d0ts0")
+animation = "Talk"
+duration = 3.0
+where = Vector2(-25, -225)
+layer = 3
 _fleeting = false
 _timeout = 0
-metadata/_custom_type_script = "uid://b84md3v15ll0"
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
 [sub_resource type="Resource" id="Resource_mxxu6"]
 script = ExtResource("3_7il6j")
@@ -80,17 +78,24 @@ _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
 
-[sub_resource type="Resource" id="Resource_mt3yq"]
-script = ExtResource("5_2qr6l")
-target_npc_name = "NPC_Tint"
-follow_distance = 10.0
-update_interval = 0.5
-speed_factor = 1.0
-walk_anim = "Walk"
-idle_timeout = 5.0
+[sub_resource type="Resource" id="Resource_mg0xo"]
+script = ExtResource("2_d0ts0")
+animation = "Punch"
+duration = 1.0
+where = Vector2(-25, -225)
+layer = 3
 _fleeting = false
 _timeout = 0
-metadata/_custom_type_script = "uid://b84md3v15ll0"
+metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
+
+[sub_resource type="Resource" id="Resource_0rf78"]
+script = ExtResource("3_7il6j")
+where = Vector2(-100, -200)
+layer = 0
+speed_multiplier = 1.0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://3jtmcorivr82"
 
 [sub_resource type="Resource" id="Resource_wdl4i"]
 script = ExtResource("6_mg0xo")
@@ -124,8 +129,8 @@ metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
 
 [sub_resource type="Resource" id="Resource_28p8m"]
 script = ExtResource("3_7il6j")
-where = Vector2(325, -250)
-layer = 0
+where = Vector2(25, -225)
+layer = 3
 speed_multiplier = 1.5
 _fleeting = false
 _timeout = 0
@@ -142,16 +147,24 @@ metadata/_custom_type_script = "uid://b5k1gqhanbsoa"
 [sub_resource type="Resource" id="Resource_8xy6l"]
 script = ExtResource("8_3f6op")
 item = "Translated Notes"
-search_duration = 1.0
+search_duration = 2.0
 where = Vector2(-450, -100)
 layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://bybhqvju4b5wr"
 
+[sub_resource type="Resource" id="Resource_fox6j"]
+script = ExtResource("11_2qr6l")
+target_npc_name = "NPC_Rena"
+item_index = 0
+_fleeting = false
+_timeout = 0
+metadata/_custom_type_script = "uid://ck2sqi2yvjdf8"
+
 [resource]
 script = ExtResource("2_bpkqn")
 _fleeting = true
-_actions = Array[ExtResource("1_x2tig")]([SubResource("Resource_3f6op"), SubResource("Resource_8lbiy"), SubResource("Resource_r32k5"), SubResource("Resource_fox6j"), SubResource("Resource_3l40x"), SubResource("Resource_mt3yq"), SubResource("Resource_wdl4i"), SubResource("Resource_oewqf"), SubResource("Resource_0ydo1"), SubResource("Resource_8xy6l")])
+_actions = Array[ExtResource("1_x2tig")]([SubResource("Resource_3f6op"), SubResource("Resource_8lbiy"), SubResource("Resource_r32k5"), SubResource("Resource_2qr6l"), SubResource("Resource_3l40x"), SubResource("Resource_mg0xo"), SubResource("Resource_0rf78"), SubResource("Resource_wdl4i"), SubResource("Resource_oewqf"), SubResource("Resource_0ydo1"), SubResource("Resource_8xy6l"), SubResource("Resource_fox6j")])
 sequence_name = "Rena_action_ten"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

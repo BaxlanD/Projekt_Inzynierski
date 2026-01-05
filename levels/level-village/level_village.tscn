@@ -1,6 +1,6 @@
+[gd_scene load_steps=146 format=3 uid="uid://taudbpavjp4y"]
 
-[gd_scene load_steps=147 format=3 uid="uid://taudbpavjp4y"]
-
+[ext_resource type="Script" uid="uid://bdjmx7lxv0jrq" path="res://levels/level-village/level_village.gd" id="1_es07k"]
 [ext_resource type="Script" uid="uid://c64ex26cc1h7g" path="res://components/navigation_related/navigator/navigator.gd" id="1_gityk"]
 [ext_resource type="Script" uid="uid://l8mmlejeqwqc" path="res://resources/transition/transition.gd" id="2_dlr5x"]
 [ext_resource type="PackedScene" uid="uid://chu8twb05blnn" path="res://levels/level-village/sublevels/village_outside.tscn" id="2_hd8j8"]
@@ -93,6 +93,8 @@
 [ext_resource type="PackedScene" uid="uid://v34fcp4fs3rd" path="res://items/item_water_jug.tscn" id="78_dlh1j"]
 [ext_resource type="PackedScene" uid="uid://uju472fyensj" path="res://items/item_red_coat.tscn" id="79_phw3e"]
 [ext_resource type="PackedScene" uid="uid://g6ar1q5ch5rj" path="res://items/item_iron_bars.tscn" id="80_bopi1"]
+[ext_resource type="PackedScene" uid="uid://bdyag5c4d3o6d" path="res://Places/wall.tscn" id="80_n4w7d"]
+[ext_resource type="PackedScene" uid="uid://dys705ns2odht" path="res://Places/shed.tscn" id="81_1xjhp"]
 [ext_resource type="PackedScene" uid="uid://bab2cqq7bm4p5" path="res://items/item_gold_coins.tscn" id="81_fu748"]
 [ext_resource type="PackedScene" uid="uid://dkocm0gaksyrl" path="res://items/item_broom.tscn" id="82_7vdcx"]
 [ext_resource type="PackedScene" uid="uid://cgv0br4aonun1" path="res://items/item_eski_letter.tscn" id="83_70oa2"]
@@ -386,8 +388,8 @@ metadata/_custom_type_script = "uid://l8mmlejeqwqc"
 script = ExtResource("66_kn0po")
 animation = "Idle"
 duration = 1200.0
-where = Vector2(-970, 250)
-layer = 0
+where = Vector2(-1025, 25)
+layer = 7
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -400,6 +402,7 @@ sequence_name = "Viviano_idle"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"
 
 [node name="LevelVillage" type="Node2D"]
+script = ExtResource("1_es07k")
 
 [node name="Navigator" type="Node2D" parent="." node_paths=PackedStringArray("debug_draw")]
 script = ExtResource("1_gityk")
@@ -459,8 +462,9 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(432, -272)
 nav_layer = ExtResource("17_vbxrf")
 
-[node name="Player" parent="." instance=ExtResource("3_hd8j8")]
+[node name="Player" parent="." node_paths=PackedStringArray("level") instance=ExtResource("3_hd8j8")]
 z_index = 1
+level = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -38.565)
@@ -502,12 +506,12 @@ metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 [node name="NPCs" type="Node" parent="."]
 
 [node name="NPC_Titus" parent="NPCs" instance=ExtResource("11_uedw8")]
-position = Vector2(-858, 64)
+position = Vector2(-860, -33)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Titus" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
-actor_layer = 0
+actor_layer = 8
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Titus" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -524,6 +528,7 @@ position = Vector2(690, 128)
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 0
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/Npc_1_Random" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -539,6 +544,7 @@ position = Vector2(804, 128)
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random2" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 0
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/Npc_1_Random2" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -554,6 +560,7 @@ position = Vector2(929, 128)
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/Npc_1_Random3" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 0
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/Npc_1_Random3" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -563,11 +570,12 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/Npc_1_Random3/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="NPC_Grelda" parent="NPCs" instance=ExtResource("25_lgrit")]
-position = Vector2(1075, 128)
+position = Vector2(-107, -20)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Grelda" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 5
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Grelda" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -577,11 +585,12 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/NPC_Grelda/SequenceController" instance=ExtResource("13_q63eb")]
 
 [node name="NPC_Eski" parent="NPCs" instance=ExtResource("26_bo4ge")]
-position = Vector2(-552, 335)
+position = Vector2(125, 238)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Eski" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 2
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Eski" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -593,11 +602,12 @@ _stack = Array[ExtResource("14_nw52c")]([ExtResource("27_i7qhu"), ExtResource("2
 
 [node name="NPC_OmirosWife" parent="NPCs" instance=ExtResource("42_vbxrf")]
 z_index = 0
-position = Vector2(412, 126)
+position = Vector2(415, 319)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_OmirosWife" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 10
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_OmirosWife" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -608,11 +618,12 @@ _game_clock = NodePath("../../../GameClock")
 
 [node name="NPC_Meropi" parent="NPCs" instance=ExtResource("43_es07k")]
 z_index = 0
-position = Vector2(216, 336)
+position = Vector2(1353, 224)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Meropi" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 0
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Meropi" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -628,6 +639,7 @@ position = Vector2(-891, -192)
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Merchant" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 0
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" type="Node" parent="NPCs/NPC_Merchant" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
@@ -647,6 +659,7 @@ position = Vector2(-506, -193)
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Lucas" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 0
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" type="Node" parent="NPCs/NPC_Lucas" node_paths=PackedStringArray("_action_sequencer", "_game_clock")]
@@ -661,11 +674,12 @@ metadata/_custom_type_script = "uid://dsbvkkqaqle4m"
 
 [node name="NPC_Rena" parent="NPCs" instance=ExtResource("46_jf1dk")]
 z_index = 0
-position = Vector2(238, -208)
+position = Vector2(-25, -210)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Rena" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 3
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Rena" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -677,11 +691,12 @@ _stack = Array[ExtResource("14_nw52c")]([ExtResource("47_p1cto"), ExtResource("4
 
 [node name="NPC_Tint" parent="NPCs" instance=ExtResource("62_uhdyn")]
 z_index = 0
-position = Vector2(327, -208)
+position = Vector2(27, -210)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Tint" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 3
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Tint" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -693,11 +708,12 @@ _stack = Array[ExtResource("14_nw52c")]([ExtResource("63_aafip")])
 
 [node name="NPC_Viviano" parent="NPCs" instance=ExtResource("64_tdaon")]
 z_index = 0
-position = Vector2(-967, 272)
+position = Vector2(-1034, 44)
 
 [node name="AnchoredAgentV2" type="Node" parent="NPCs/NPC_Viviano" node_paths=PackedStringArray("navigator")]
 script = ExtResource("4_1n2bu")
 navigator = NodePath("../../../Navigator")
+actor_layer = 7
 metadata/_custom_type_script = "uid://ddiph2m58srp0"
 
 [node name="SequenceController" parent="NPCs/NPC_Viviano" node_paths=PackedStringArray("_action_sequencer", "_game_clock") instance=ExtResource("12_s631t")]
@@ -707,11 +723,35 @@ _game_clock = NodePath("../../../GameClock")
 [node name="ActionSequencer" parent="NPCs/NPC_Viviano/SequenceController" instance=ExtResource("13_q63eb")]
 _stack = Array[ExtResource("14_nw52c")]([SubResource("Resource_55x34")])
 
+[node name="Places" type="Node" parent="."]
+
+[node name="Wall1" parent="Places" instance=ExtResource("80_n4w7d")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(126, 207)
+
+[node name="Wall2" parent="Places" instance=ExtResource("80_n4w7d")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(122, 290)
+
+[node name="Wall3" parent="Places" instance=ExtResource("80_n4w7d")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(26, 294)
+
+[node name="Wall4" parent="Places" instance=ExtResource("80_n4w7d")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-50, 293)
+
+[node name="Shed" parent="Places" instance=ExtResource("81_1xjhp")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-559, 292)
+actor_layer = 2
+
 [node name="GameClock" parent="." instance=ExtResource("7_nw76t")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryUI" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -861,35 +901,45 @@ metadata/_custom_type_script = "uid://c1abhovivd2ej"
 [node name="Items" type="Node" parent="."]
 
 [node name="Beer" parent="Items" instance=ExtResource("72_i4xk5")]
-position = Vector2(-746, 51)
+position = Vector2(-705, 37)
+actor_layer = 8
 
 [node name="Beer2" parent="Items" instance=ExtResource("72_i4xk5")]
-position = Vector2(-806, 51)
+position = Vector2(-845, 36)
+actor_layer = 8
 
 [node name="Beer3" parent="Items" instance=ExtResource("72_i4xk5")]
-position = Vector2(-949, 53)
+position = Vector2(-923, -11)
+actor_layer = 8
 
 [node name="Beer4" parent="Items" instance=ExtResource("72_i4xk5")]
-position = Vector2(-777, 51)
+position = Vector2(-776, 37)
+actor_layer = 8
 
 [node name="Beer5" parent="Items" instance=ExtResource("72_i4xk5")]
-position = Vector2(-898, 52)
+position = Vector2(-918, 35)
 full = true
+actor_layer = 8
 
 [node name="Beer6" parent="Items" instance=ExtResource("72_i4xk5")]
-position = Vector2(-649, 322)
+position = Vector2(-416, 229)
+actor_layer = 2
 
 [node name="item_chair" parent="Items" instance=ExtResource("73_gjl38")]
-position = Vector2(-648, -74)
+position = Vector2(-748, 37)
+actor_layer = 8
 
 [node name="item_rope" parent="Items" instance=ExtResource("74_g2uin")]
-position = Vector2(-550, -12)
+position = Vector2(-921, -43)
+actor_layer = 8
 
 [node name="Hammer_Old" parent="Items" instance=ExtResource("75_ov2c1")]
-position = Vector2(-98, 323)
+position = Vector2(-382, 309)
+actor_layer = 2
 
 [node name="Hammer_Old2" parent="Items" instance=ExtResource("75_ov2c1")]
-position = Vector2(2, 322)
+position = Vector2(-350, 310)
+actor_layer = 2
 
 [node name="Bread" parent="Items" instance=ExtResource("76_2ck5w")]
 position = Vector2(-995, -205)
@@ -899,40 +949,53 @@ position = Vector2(-944, -204)
 
 [node name="Water_Jug" parent="Items" instance=ExtResource("78_dlh1j")]
 position = Vector2(-29, -12)
+actor_layer = 0
 
 [node name="Red Coat" parent="Items" instance=ExtResource("79_phw3e")]
 position = Vector2(33, -13)
+actor_layer = 0
 
 [node name="Iron Bars" parent="Items" instance=ExtResource("80_bopi1")]
 position = Vector2(136, -12)
+actor_layer = 0
 
 [node name="Gold Coins" parent="Items" instance=ExtResource("81_fu748")]
 position = Vector2(-111, -11)
+actor_layer = 0
 
 [node name="Broom" parent="Items" instance=ExtResource("82_7vdcx")]
 position = Vector2(-142, -12)
+actor_layer = 0
 
 [node name="Eski Letter" parent="Items" instance=ExtResource("83_70oa2")]
 position = Vector2(-172, -12)
+actor_layer = 0
 
 [node name="Little Mirror" parent="Items" instance=ExtResource("84_vbxrf")]
 position = Vector2(172, -11)
+actor_layer = 0
 
 [node name="Prix" parent="Items" instance=ExtResource("85_es07k")]
 position = Vector2(404, -376)
+actor_layer = 0
 
 [node name="Wooden Spoon" parent="Items" instance=ExtResource("86_n4w7d")]
-position = Vector2(302, -219)
+position = Vector2(-45, -219)
 item_name = "Wooden Spoon"
+actor_layer = 3
 
 [node name="Herbs" parent="Items" instance=ExtResource("87_1xjhp")]
 position = Vector2(359, 116)
+actor_layer = 0
 
 [node name="Translated_Notes" parent="Items" instance=ExtResource("88_jf1dk")]
 position = Vector2(323, 114)
+actor_layer = 0
 
 [node name="Healing Scroll" parent="Items" instance=ExtResource("89_p1cto")]
 position = Vector2(485, 119)
+actor_layer = 0
 
 [node name="Meropi\'s Apron" parent="Items" instance=ExtResource("90_12okd")]
 position = Vector2(449, 118)
+actor_layer = 0

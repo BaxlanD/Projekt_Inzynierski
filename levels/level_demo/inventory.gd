@@ -73,8 +73,18 @@ func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
 	var result: Array[Dictionary] = space_state.intersect_shape(query, 1)
 	
 	if result.is_empty():
+		var layer := _get_owner_actor_layer()
+		if layer != -1:
+			item.actor_layer = layer
+		
 		item.global_position = transform.origin
-		get_tree().current_scene.add_child(item)
+		
+		var items_node := _get_level_items_node()
+		if items_node:
+			items_node.add_child(item)
+		else:
+			get_tree().current_scene.add_child(item)
+		
 		await get_tree().process_frame
 		items.remove_at(index)
 		emit_signal("inventory_updated", items)
@@ -82,9 +92,29 @@ func place_item_in_world(position: Vector2, item: Item, index: int) -> bool:
 	else:
 		print("Collision: can't place item here.")
 		return false
-
-
 		
 func add_item_data(item: Item) -> bool:
 	return add_item(item)
+	
+func _get_owner_actor_layer() -> int:
+	var item_owner := get_parent()
+	if not item_owner:
+		return -1
+		
+	for child in item_owner.get_children():
+		if child is AnchoredAgentV2:
+			@warning_ignore("unsafe_property_access")
+			return child.actor_layer
+			
+	if "actor_layer" in item_owner:
+		@warning_ignore("unsafe_property_access")
+		return item_owner.actor_layer
+		
+	return -1
+	
+func _get_level_items_node() -> Node:
+	var level := get_tree().current_scene as Level
+	if not level:
+		return null
+	return level.items
 			
