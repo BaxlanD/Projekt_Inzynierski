@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NavLayer" load_steps=2 format=3 uid="uid://c7kgp62l3rbfg"]
+
+[ext_resource type="Script" uid="uid://y8mwdms4kul6" path="res://resources/nav_layer/nav_layer.gd" id="1_trglb"]
+
+[resource]
+script = ExtResource("1_trglb")
+points = Array[Vector2]([Vector2(-120, 48), Vector2(-32, 48), Vector2(0, 48), Vector2(104, 48), Vector2(-112, -64), Vector2(-120, -64), Vector2(-8, -64)])
+connections = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 2), Vector2i(2, 3), Vector2i(2, 4), Vector2i(5, 4), Vector2i(4, 6)])
+named_points = Dictionary[String, int]({
+"weird-door": 1
+})

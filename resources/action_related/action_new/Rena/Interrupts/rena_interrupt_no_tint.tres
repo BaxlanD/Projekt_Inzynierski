@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_g14ye"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_henld"]
 [ext_resource type="Script" uid="uid://ccpgk5icdkqyj" path="res://resources/action_related/action_new/anim_with.gd" id="3_3brqv"]
-[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="4_2mri1"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="4_2mri1"]
 [ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="5_3brqv"]
 [ext_resource type="Script" uid="uid://dx05j1i02bv6d" path="res://resources/action_related/action_new/spawn_npc.gd" id="7_lyyq2"]
 

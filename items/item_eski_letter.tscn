@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bcxaejvg14iiq" path="res://assets/eski_letter.jpg" id="3_7c3pu"]
 
 [node name="Eski Letter" instance=ExtResource("1_le2nb")]
+z_index = 0
 script = ExtResource("2_mwns7")
 
 [node name="Sprite2D" parent="." index="0"]

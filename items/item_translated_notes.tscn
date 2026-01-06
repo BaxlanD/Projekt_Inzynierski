@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b2yi3r0phjsnc" path="res://items/item_translated_notes.gd" id="2_nhruo"]
 
 [node name="Translated_Notes" instance=ExtResource("1_i1iqu")]
+z_index = 0
 script = ExtResource("2_nhruo")
 
 [node name="Sprite2D" parent="." index="0"]

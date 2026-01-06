@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NavLayer" load_steps=2 format=3 uid="uid://cjhjq4ttkyrha"]
+
+[ext_resource type="Script" uid="uid://y8mwdms4kul6" path="res://resources/nav_layer/nav_layer.gd" id="1_gwpwg"]
+
+[resource]
+script = ExtResource("1_gwpwg")
+points = Array[Vector2]([Vector2(-120, 64), Vector2(-48, 64), Vector2(72, 64), Vector2(120, 64), Vector2(-96, 16), Vector2(-120, 16), Vector2(-64, -16), Vector2(-120, -16), Vector2(-24, -16)])
+connections = Array[Vector2i]([])
+named_points = Dictionary[String, int]({
+"random1-door": 2
+})

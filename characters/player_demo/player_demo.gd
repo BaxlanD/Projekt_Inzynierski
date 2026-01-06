@@ -47,11 +47,11 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if inventory_ui and inventory_ui.is_open:
+
+		velocity = Vector2.ZERO
 		_direction = 0.0
-		velocity.x = move_toward(velocity.x, 0.0, 2000.0 * delta)
-		velocity += get_gravity() * delta
-		move_and_slide()
-		_handle_animations()
+
+		animated_sprite_2d.play("Idle")
 		return
 	
 	if direction:
@@ -103,5 +103,5 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _display_only_current_player_layer() -> void:
 	var current_level: Node2D = anchored_agent.navigator.get_child(anchored_agent.actor_layer)
 	for lvl: Node2D in anchored_agent.navigator.get_children():
-		lvl.modulate.a = 0.5
+		lvl.modulate.a = 0
 	current_level.modulate.a = 1

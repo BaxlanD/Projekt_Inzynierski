@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c3a462s2tmc8b" path="res://assets/bread.jpg" id="2_rqx1a"]
 
 [node name="Bread" instance=ExtResource("1_381e7")]
+z_index = 0
 script = ExtResource("2_1i4km")
 
 [node name="Sprite2D" parent="." index="0"]

@@ -35,7 +35,7 @@ func _trigger_all_for_def(def: InteruptDefinition) -> void:
 	all_participants.append_array(def.linked_npcs)
 
 	all_participants = all_participants.duplicate()
-	all_participants = all_participants.map(func(n): return str(n))
+	all_participants = all_participants.map(func(n: Variant)-> String: return str(n))
 
 	var unique_participants: Array[String] = []
 	for n: String in all_participants:

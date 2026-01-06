@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_8lv2x"]
 script = ExtResource("2_lq8hv")
-where = Vector2(300, 500)
+where = Vector2(-100, -400)
 layer = -1
 speed_multiplier = 0.6
 _fleeting = false
@@ -22,8 +22,8 @@ anim_self = "Talk"
 anim_target = "Talk"
 anim_duration = 5.0
 target_name = "NPC_Lucas"
-where = Vector2(575, 500)
-layer = -1
+where = Vector2(-80, -400)
+layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"
@@ -50,8 +50,8 @@ anim_self = "Talk"
 anim_target = "Talk"
 anim_duration = 8.0
 target_name = "NPC_Lucas"
-where = Vector2(575, 500)
-layer = -1
+where = Vector2(-80, -400)
+layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://ccpgk5icdkqyj"

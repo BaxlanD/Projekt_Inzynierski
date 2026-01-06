@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="NavLayer" load_steps=2 format=3 uid="uid://dobcpckfiuyvu"]
+
+[ext_resource type="Script" uid="uid://y8mwdms4kul6" path="res://resources/nav_layer/nav_layer.gd" id="1_jhpjt"]
+
+[resource]
+script = ExtResource("1_jhpjt")
+points = Array[Vector2]([Vector2(-104, 32), Vector2(8, 32), Vector2(120, 32)])
+connections = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 2)])
+named_points = Dictionary[String, int]({
+"sherrif-door": 1
+})

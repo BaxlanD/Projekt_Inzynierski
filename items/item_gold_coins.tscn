@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ggc1euodfvuu" path="res://assets/gold_coins.jpeg" id="3_jebjk"]
 
 [node name="Gold Coins" instance=ExtResource("1_exeqy")]
+z_index = 0
 script = ExtResource("2_p6rnl")
 
 [node name="Sprite2D" parent="." index="0"]

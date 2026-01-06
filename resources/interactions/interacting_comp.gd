@@ -58,24 +58,28 @@ func _on_range_area_exited(area: Area2D) -> void:
 	
 func open_interaction_menu_for(target: Area2D) -> void:
 	var interaction_target: Node = target.get_parent()
-	var inventory: Inventory = get_tree().get_root().get_node("LevelDemo/Player/Inventory")
+	var inventory: Inventory = get_tree().get_root().get_node("LevelVillage/Player/Inventory")
 	var options: Array[Dictionary] = []
-
+	
 	if interaction_target.has_method("get_base_interactions"):
+		@warning_ignore("unsafe_method_access")
 		options += interaction_target.get_base_interactions()
 
 	if interaction_target.has_method("get_item_interactions"):
 		for item in inventory.items:
+			@warning_ignore("unsafe_method_access")
 			options += interaction_target.get_item_interactions(item)
 			
 	if interaction_target.has_method("get_place_interactions") and "target_npc_name" in interaction_target:
+		@warning_ignore("unsafe_property_access")
 		var npc_name: String = interaction_target.target_npc_name
 		var npc: NPCActions = NpcRegistry.get_npc(npc_name)
 		if npc:
+			@warning_ignore("unsafe_method_access")
 			options += interaction_target.get_place_interactions(npc)
 
 
-	var menu : InteractionMenu = get_tree().get_root().get_node_or_null("LevelDemo/UI/InteractionMenu")
+	var menu : InteractionMenu = get_tree().get_root().get_node_or_null("LevelVillage/UI/InteractionMenu")
 	if menu:
 		get_tree().paused = true
 		await get_tree().process_frame

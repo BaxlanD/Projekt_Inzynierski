@@ -8,8 +8,8 @@
 script = ExtResource("2_fodos")
 animation = "Wait"
 duration = 40.0
-where = Vector2(840, -300)
-layer = -1
+where = Vector2(-225, 300)
+layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"

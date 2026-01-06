@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://iejq3iic4ghu" path="res://assets/little_mirror.jpg" id="3_su3la"]
 
 [node name="Little Mirror" instance=ExtResource("1_fmwcj")]
+z_index = 0
 script = ExtResource("2_3up8r")
 
 [node name="Sprite2D" parent="." index="0"]

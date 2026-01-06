@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_j55n4"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_m5n60"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_p7xhj"]
-[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="3_cjte5"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="3_cjte5"]
 [ext_resource type="Resource" uid="uid://812b3bsfroyv" path="res://resources/action_related/action_new/Rena/Interrupts/rena_interrupt_help_tint.tres" id="4_jv8p1"]
 [ext_resource type="Script" uid="uid://boncqoilhguea" path="res://resources/action_related/action_new/push_sequence.gd" id="5_u3fpj"]
 

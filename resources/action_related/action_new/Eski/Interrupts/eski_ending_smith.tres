@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Sequence" load_steps=9 format=3 uid="uid://dchuxailvi7ga"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_xpu8u"]
-[ext_resource type="Script" path="res://resources/action_related/action_new/change_retain.gd" id="2_3eb4v"]
+[ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="2_3eb4v"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_de5fx"]
 [ext_resource type="Script" uid="uid://3jtmcorivr82" path="res://resources/action_related/action_new/go_to.gd" id="3_nn7mo"]
 [ext_resource type="Script" uid="uid://dybysqari256p" path="res://resources/action_related/action_new/modify_schedule.gd" id="4_nj7we"]

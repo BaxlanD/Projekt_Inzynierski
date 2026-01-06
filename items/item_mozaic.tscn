@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://ddawag3h23gvy" path="res://items/item_mozaic.gd" id="2_f02l7"]
 
 [node name="Mozaic" instance=ExtResource("1_slibh")]
+z_index = 0
 script = ExtResource("2_f02l7")
 
 [node name="Sprite2D" parent="." index="0"]

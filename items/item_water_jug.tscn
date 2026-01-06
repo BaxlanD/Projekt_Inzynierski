@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://17c0trwx7i2x" path="res://assets/water_jug.jpg" id="3_x7d88"]
 
 [node name="Water_Jug" instance=ExtResource("1_44afq")]
+z_index = 0
 script = ExtResource("2_v1xio")
 
 [node name="Sprite2D" parent="." index="0"]

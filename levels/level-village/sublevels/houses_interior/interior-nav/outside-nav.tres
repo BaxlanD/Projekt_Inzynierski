@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="NavLayer" load_steps=2 format=3 uid="uid://deqx4ikhmpwgc"]
+
+[ext_resource type="Script" uid="uid://y8mwdms4kul6" path="res://resources/nav_layer/nav_layer.gd" id="1_i04id"]
+
+[resource]
+script = ExtResource("1_i04id")
+points = Array[Vector2]([Vector2(-480, -464), Vector2(-112, -464), Vector2(-48, -496), Vector2(16, -496), Vector2(64, -464), Vector2(72, -464), Vector2(176, -352), Vector2(312, -352), Vector2(128, -304), Vector2(-40, -304), Vector2(16, -304), Vector2(320, -304), Vector2(384, -368), Vector2(488, -368), Vector2(544, -304), Vector2(640, -208), Vector2(752, -208), Vector2(800, -208), Vector2(112, -208), Vector2(80, -208), Vector2(64, -192), Vector2(-176, -192), Vector2(-336, -192), Vector2(-160, -368), Vector2(-48, -368), Vector2(-848, -192), Vector2(-992, -192), Vector2(-720, -64), Vector2(-640, -64), Vector2(-608, -96), Vector2(-368, -96), Vector2(-576, 0), Vector2(-536, 0), Vector2(-648, 0), Vector2(-640, 64), Vector2(-848, 64), Vector2(-1424, 64), Vector2(-320, 64), Vector2(-192, 0), Vector2(64, 0), Vector2(144, 0), Vector2(160, 0), Vector2(128, -64), Vector2(464, -64), Vector2(272, 128), Vector2(448, 128), Vector2(992, 128), Vector2(1104, 128), Vector2(1184, 224), Vector2(1496, 224), Vector2(240, 336), Vector2(632, 336), Vector2(-688, 336), Vector2(-816, 272), Vector2(-832, 272), Vector2(-976, 272), Vector2(-736, 176), Vector2(-656, 176), Vector2(-656, 176), Vector2(-696, -192), Vector2(-104, -192), Vector2(248, -208), Vector2(440, -208), Vector2(-72, 0), Vector2(408, 128), Vector2(840, 128), Vector2(440, 336), Vector2(88, 336), Vector2(-536, 336), Vector2(-744, 64), Vector2(-424, 64), Vector2(-1152, 64)])
+connections = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 2), Vector2i(2, 3), Vector2i(1, 4), Vector2i(4, 5), Vector2i(4, 6), Vector2i(6, 7), Vector2i(6, 8), Vector2i(9, 10), Vector2i(10, 8), Vector2i(8, 11), Vector2i(11, 12), Vector2i(12, 13), Vector2i(11, 14), Vector2i(14, 15), Vector2i(15, 16), Vector2i(16, 17), Vector2i(15, 62), Vector2i(62, 61), Vector2i(61, 18), Vector2i(18, 10), Vector2i(10, 24), Vector2i(24, 23), Vector2i(23, 22), Vector2i(22, 59), Vector2i(59, 25), Vector2i(25, 26), Vector2i(22, 21), Vector2i(21, 60), Vector2i(60, 20), Vector2i(20, 19), Vector2i(19, 18), Vector2i(16, 43), Vector2i(43, 42), Vector2i(42, 39), Vector2i(41, 40), Vector2i(40, 39), Vector2i(39, 63), Vector2i(63, 38), Vector2i(38, 37), Vector2i(37, 70), Vector2i(70, 34), Vector2i(34, 69), Vector2i(69, 35), Vector2i(35, 71), Vector2i(71, 36), Vector2i(34, 31), Vector2i(31, 32), Vector2i(31, 33), Vector2i(31, 28), Vector2i(28, 29), Vector2i(29, 30), Vector2i(30, 21), Vector2i(28, 27), Vector2i(27, 25), Vector2i(40, 44), Vector2i(44, 64), Vector2i(64, 45), Vector2i(45, 65), Vector2i(65, 46), Vector2i(46, 47), Vector2i(46, 48), Vector2i(48, 49), Vector2i(45, 50), Vector2i(51, 66), Vector2i(66, 50), Vector2i(50, 67), Vector2i(67, 68), Vector2i(68, 52), Vector2i(52, 53), Vector2i(53, 54), Vector2i(54, 55), Vector2i(54, 56), Vector2i(56, 58), Vector2i(56, 35)])
+named_points = Dictionary[String, int]({
+"artist-outside": 65,
+"blacksmith-left-outside": 68,
+"blacksmith-right-outside": 67,
+"herbalist-outside": 60,
+"mc-outside": 64,
+"random1-outside": 69,
+"random2-outside": 70,
+"random2-outside-2": 62,
+"random3-outside": 66,
+"random4-outside": 61,
+"sherrif-outside": 63,
+"tavern-outside": 59,
+"weird-outside": 71
+})
