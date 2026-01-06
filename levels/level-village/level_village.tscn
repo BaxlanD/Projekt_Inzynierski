@@ -447,7 +447,7 @@ nav_layer = ExtResource("14_es07k")
 
 [node name="R_H_2" parent="Navigator" instance=ExtResource("11_dlh1j")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-432, 0)
+position = Vector2(-386, 43)
 
 [node name="R_H_3" parent="Navigator" instance=ExtResource("15_7vdcx")]
 modulate = Color(1, 1, 1, 0)
@@ -943,9 +943,11 @@ actor_layer = 2
 
 [node name="Bread" parent="Items" instance=ExtResource("76_2ck5w")]
 position = Vector2(-995, -205)
+actor_layer = 0
 
 [node name="Mozaic" parent="Items" instance=ExtResource("77_o3178")]
 position = Vector2(-944, -204)
+actor_layer = 0
 
 [node name="Water_Jug" parent="Items" instance=ExtResource("78_dlh1j")]
 position = Vector2(-29, -12)
