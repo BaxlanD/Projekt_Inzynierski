@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://b6v2i28oi7ai6"]
+
+[ext_resource type="Texture2D" uid="uid://bpgq7qtfp8sv3" path="res://assets/tiles/village/testing/decorations/fountain.png" id="1_b5ylx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehopu"]
+atlas = ExtResource("1_b5ylx")
+region = Rect2(0, 0, 96, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_560r1"]
+atlas = ExtResource("1_b5ylx")
+region = Rect2(96, 0, 96, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g00ow"]
+atlas = ExtResource("1_b5ylx")
+region = Rect2(192, 0, 96, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw7y1"]
+atlas = ExtResource("1_b5ylx")
+region = Rect2(288, 0, 96, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f15m"]
+atlas = ExtResource("1_b5ylx")
+region = Rect2(384, 0, 96, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05tab"]
+atlas = ExtResource("1_b5ylx")
+region = Rect2(480, 0, 96, 121)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehopu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_560r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g00ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw7y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f15m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05tab")
+}],
+"loop": true,
+"name": &"fountain",
+"speed": 4.0
+}]
