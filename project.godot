@@ -19,6 +19,7 @@ config/icon="uid://cxb8m30bj80l8"
 [autoload]
 
 NpcRegistry="*res://characters/npc_actions/NPCRegistry.gd"
+SceneTransition="*res://components/scene_transition/scene_transition.tscn"
 
 [debug]
 

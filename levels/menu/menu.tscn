@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbnbkavj1niru"]
+[gd_scene load_steps=6 format=3 uid="uid://bbnbkavj1niru"]
 
 [ext_resource type="Script" uid="uid://ckgit365dky4f" path="res://levels/menu/menu.gd" id="1_1iesk"]
 [ext_resource type="Texture2D" uid="uid://co0rk8pm8hthv" path="res://assets/menu/16-9menu.png" id="2_1iesk"]
+[ext_resource type="Texture2D" uid="uid://cpfef1lfrxkhu" path="res://assets/menu/again.png" id="3_3cyc0"]
+[ext_resource type="Texture2D" uid="uid://cs84nafooy7tn" path="res://assets/menu/start.png" id="4_p0td0"]
+[ext_resource type="Texture2D" uid="uid://l8oui5lcu2m2" path="res://assets/menu/quit.png" id="5_vliw2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -21,12 +24,33 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1iesk")
 
-[node name="Button" type="Button" parent="."]
+[node name="title" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1384.0
-offset_top = 168.0
-offset_right = 1704.0
-offset_bottom = 312.0
-text = "PLAY BUTTON :)"
+offset_left = 1200.0
+offset_top = 90.0
+offset_right = 1314.0
+offset_bottom = 141.0
+scale = Vector2(6, 6)
+texture = ExtResource("3_3cyc0")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="start" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1578.0
+offset_top = 468.0
+offset_right = 1628.0
+offset_bottom = 502.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("4_p0td0")
+stretch_mode = 0
+
+[node name="quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1578.0
+offset_top = 750.0
+offset_right = 1628.0
+offset_bottom = 790.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("5_vliw2")
+
+[connection signal="pressed" from="start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
