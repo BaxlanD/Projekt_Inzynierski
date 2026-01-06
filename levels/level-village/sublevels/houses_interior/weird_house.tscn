@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://cod4dr0jmyquy"]
+[gd_scene load_steps=5 format=4 uid="uid://cod4dr0jmyquy"]
 
 [ext_resource type="TileSet" uid="uid://b2lusl6ko4qax" path="res://assets/tiles/village/houses_interior.tres" id="1_0fjve"]
-[ext_resource type="Texture2D" uid="uid://c1t8h2wvki1dw" path="res://assets/tiles/village/lamps_shape.tres" id="2_0fjve"]
 [ext_resource type="Script" uid="uid://c51cwx8ejhqut" path="res://components/navigation_related/level_layer/level_layer.gd" id="1_3dnfy"]
+[ext_resource type="Texture2D" uid="uid://c1t8h2wvki1dw" path="res://assets/tiles/village/lamps_shape.tres" id="2_0fjve"]
 [ext_resource type="Resource" uid="uid://c7kgp62l3rbfg" path="res://levels/level-village/sublevels/houses_interior/interior-nav/weird-nav.tres" id="5_po1wd"]
 
 [node name="Weird_house" type="Node2D"]

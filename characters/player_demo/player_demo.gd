@@ -104,4 +104,6 @@ func _display_only_current_player_layer() -> void:
 	var current_level: Node2D = anchored_agent.navigator.get_child(anchored_agent.actor_layer)
 	for lvl: Node2D in anchored_agent.navigator.get_children():
 		lvl.modulate.a = 0
+		lvl.visible = false
 	current_level.modulate.a = 1
+	current_level.visible = true
