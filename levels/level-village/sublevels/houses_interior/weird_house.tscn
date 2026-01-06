@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://cod4dr0jmyquy"]
+[gd_scene load_steps=3 format=4 uid="uid://cod4dr0jmyquy"]
 
 [ext_resource type="TileSet" uid="uid://b2lusl6ko4qax" path="res://assets/tiles/village/houses_interior.tres" id="1_0fjve"]
+[ext_resource type="Texture2D" uid="uid://c1t8h2wvki1dw" path="res://assets/tiles/village/lamps_shape.tres" id="2_0fjve"]
 
 [node name="Weird_house" type="Node2D"]
 
@@ -17,3 +18,18 @@ tile_map_data = PackedByteArray("AAD4//r/AgA7AEcAAAD4//v/AgA7AEgAAAD4//z/AgA7AEk
 tile_set = ExtResource("1_0fjve")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="PointLight2D2" type="PointLight2D" parent="Node2D"]
+position = Vector2(56, -42)
+color = Color(0.956863, 0.8, 0.470588, 1)
+texture = ExtResource("2_0fjve")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Node2D"]
+position = Vector2(-96, -139)
+color = Color(0.956863, 0.8, 0.470588, 1)
+texture = ExtResource("2_0fjve")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Node2D"]
+position = Vector2(-64, 15)
+color = Color(0.956863, 0.8, 0.470588, 1)
+texture = ExtResource("2_0fjve")
