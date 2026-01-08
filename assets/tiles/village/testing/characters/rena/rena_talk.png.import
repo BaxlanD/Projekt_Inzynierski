@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by7pnsi6b3svy"
-path="res://.godot/imported/eskie_walk.png-519f6f8741426723ea976498b9d51f75.ctex"
+uid="uid://do8oa5jm4f1q8"
+path="res://.godot/imported/rena_talk.png-d7826f9b290c975da0d72ff59fdf1baf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/eskie_walk.png"
-dest_files=["res://.godot/imported/eskie_walk.png-519f6f8741426723ea976498b9d51f75.ctex"]
+source_file="res://assets/tiles/village/testing/characters/rena/rena_talk.png"
+dest_files=["res://.godot/imported/rena_talk.png-d7826f9b290c975da0d72ff59fdf1baf.ctex"]
 
 [params]
 

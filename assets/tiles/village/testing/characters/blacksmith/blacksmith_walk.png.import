@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnskvefmwq7uo"
-path="res://.godot/imported/eski_idle.png-666775ff4802232d4bf5aaf734113f63.ctex"
+uid="uid://rkdrtacvkph4"
+path="res://.godot/imported/blacksmith_walk.png-38c66f9de6791ecef7e0d13817e7ddaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/eski_idle.png"
-dest_files=["res://.godot/imported/eski_idle.png-666775ff4802232d4bf5aaf734113f63.ctex"]
+source_file="res://assets/tiles/village/testing/characters/blacksmith/blacksmith_walk.png"
+dest_files=["res://.godot/imported/blacksmith_walk.png-38c66f9de6791ecef7e0d13817e7ddaa.ctex"]
 
 [params]
 

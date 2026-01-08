@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6f5tuv13jp5n"
-path="res://.godot/imported/blacksmith_idle.png-d2f6d7e3e41f60d9c0d1f1d69dcbcaaa.ctex"
+uid="uid://tni1ya7nr55b"
+path="res://.godot/imported/blacksmith_open_door.png-84f3e9bf342d1cdc7a5cedd926fa0914.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/blacksmith_idle.png"
-dest_files=["res://.godot/imported/blacksmith_idle.png-d2f6d7e3e41f60d9c0d1f1d69dcbcaaa.ctex"]
+source_file="res://assets/tiles/village/testing/characters/blacksmith/blacksmith_open_door.png"
+dest_files=["res://.godot/imported/blacksmith_open_door.png-84f3e9bf342d1cdc7a5cedd926fa0914.ctex"]
 
 [params]
 

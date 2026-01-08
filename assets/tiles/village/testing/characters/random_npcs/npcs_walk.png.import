@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfhj4o1us5c8i"
-path="res://.godot/imported/mc_idle.png-35256e3beebeaa4fac61f53ef2c5b679.ctex"
+uid="uid://csiwuogqt4so2"
+path="res://.godot/imported/npcs_walk.png-b9fb43092d800b6446bada5217c151e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/mc_idle.png"
-dest_files=["res://.godot/imported/mc_idle.png-35256e3beebeaa4fac61f53ef2c5b679.ctex"]
+source_file="res://assets/tiles/village/testing/characters/random_npcs/npcs_walk.png"
+dest_files=["res://.godot/imported/npcs_walk.png-b9fb43092d800b6446bada5217c151e9.ctex"]
 
 [params]
 

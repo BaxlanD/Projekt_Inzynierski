@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1xocrcjbko0r"
-path="res://.godot/imported/mc_walk.png-691912feda09ae13e8b768a6fd338f67.ctex"
+uid="uid://dqu50op8fgks2"
+path="res://.godot/imported/mc_talk.png-0cd72cb7862ac27611764588ef797eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/mc_walk.png"
-dest_files=["res://.godot/imported/mc_walk.png-691912feda09ae13e8b768a6fd338f67.ctex"]
+source_file="res://assets/tiles/village/testing/characters/mc/mc_talk.png"
+dest_files=["res://.godot/imported/mc_talk.png-0cd72cb7862ac27611764588ef797eeb.ctex"]
 
 [params]
 
