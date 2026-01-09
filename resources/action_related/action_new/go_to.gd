@@ -14,7 +14,7 @@ func create(character_: Character, where_: Vector2, layer_: int = -1) -> GoTo:
 	return self
 
 func open() -> void:
-	character.anchored_agent.set_destination(where)
+	character.anchored_agent.set_destination(where, layer)
 	character.animated_sprite_2d.play("Walk")
 	character.animated_sprite_2d.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
 

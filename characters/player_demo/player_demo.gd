@@ -10,6 +10,7 @@ class_name Player
 
 ## Public variables
 #   @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D # IN CHARACTER
+@export var level: Level
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var inventory_ui: InventoryUI = $"../UI/InventoryUI"
@@ -28,7 +29,7 @@ func _ready() -> void:
 	sequence_controller.start(self)
 	
 func _physics_process(delta: float) -> void:
-	_display_only_current_player_layer()
+	level.set_active_layer(anchored_agent.actor_layer)
 	
 	if !sequence_controller._started:
 		return

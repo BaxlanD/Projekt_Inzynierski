@@ -182,7 +182,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_6w00b")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -492,4 +492,5 @@ script = ExtResource("2_yefd1")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_hg7mp")
+animation = &"Death"
 autoplay = "Idle"

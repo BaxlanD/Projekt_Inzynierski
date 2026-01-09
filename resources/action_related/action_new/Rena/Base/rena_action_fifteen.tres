@@ -1,15 +1,14 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=8 format=3 uid="uid://3gw24m1jlwo1"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=6 format=3 uid="uid://3gw24m1jlwo1"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_5sn0d"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_105k5"]
-[ext_resource type="Script" uid="uid://de3to7sjiy5rq" path="res://resources/action_related/action_new/change_place_state.gd" id="3_0qkci"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="4_ur8v5"]
 
 [sub_resource type="Resource" id="Resource_52uao"]
 script = ExtResource("2_105k5")
 animation = "Wait"
 duration = 3.0
-where = Vector2(620, 300)
+where = Vector2(1480, 220)
 layer = 0
 _fleeting = false
 _timeout = 0
@@ -19,24 +18,15 @@ metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 script = ExtResource("2_105k5")
 animation = "Use"
 duration = 10.0
-where = Vector2(620, 300)
+where = Vector2(1490, 220)
 layer = 0
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
-[sub_resource type="Resource" id="Resource_w8iy0"]
-script = ExtResource("3_0qkci")
-place_name = "Field"
-state_name = "curr_state"
-target_value_name = "unwatered"
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://de3to7sjiy5rq"
-
 [resource]
 script = ExtResource("4_ur8v5")
 _fleeting = true
-_actions = Array[ExtResource("1_5sn0d")]([SubResource("Resource_52uao"), SubResource("Resource_0khfy"), SubResource("Resource_w8iy0")])
+_actions = Array[ExtResource("1_5sn0d")]([SubResource("Resource_52uao"), SubResource("Resource_0khfy")])
 sequence_name = "Rena_action_fifteen"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

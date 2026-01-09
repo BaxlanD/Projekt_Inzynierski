@@ -1,16 +1,15 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=11 format=3 uid="uid://cvboiam7korda"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=8 format=3 uid="uid://cvboiam7korda"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_bt0e0"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="2_akrsf"]
-[ext_resource type="Script" uid="uid://de3to7sjiy5rq" path="res://resources/action_related/action_new/change_place_state.gd" id="3_hiama"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="4_3448h"]
 
 [sub_resource type="Resource" id="Resource_w6leb"]
 script = ExtResource("2_akrsf")
 animation = "Wait"
 duration = 5.0
-where = Vector2(-550, 300)
-layer = 0
+where = Vector2(50, 200)
+layer = 2
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -19,8 +18,8 @@ metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 script = ExtResource("2_akrsf")
 animation = "PickUpWall"
 duration = 3.0
-where = Vector2(-400, 300)
-layer = 0
+where = Vector2(-150, 300)
+layer = 2
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
@@ -29,43 +28,25 @@ metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 script = ExtResource("2_akrsf")
 animation = "PickUpGround"
 duration = 10.0
-where = Vector2(-475, 300)
-layer = 0
+where = Vector2(-250, 300)
+layer = 2
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
-
-[sub_resource type="Resource" id="Resource_pxrvf"]
-script = ExtResource("3_hiama")
-place_name = "Field"
-state_name = "curr_state"
-target_value_name = "destroyed"
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://de3to7sjiy5rq"
 
 [sub_resource type="Resource" id="Resource_rh5am"]
 script = ExtResource("2_akrsf")
 animation = "Punch"
 duration = 9.0
-where = Vector2(-250, 300)
-layer = 0
+where = Vector2(-300, 300)
+layer = 2
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
 
-[sub_resource type="Resource" id="Resource_iwdps"]
-script = ExtResource("3_hiama")
-place_name = "Field"
-state_name = "curr_state"
-target_value_name = "watered"
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://de3to7sjiy5rq"
-
 [resource]
 script = ExtResource("4_3448h")
 _fleeting = true
-_actions = Array[ExtResource("1_bt0e0")]([SubResource("Resource_w6leb"), SubResource("Resource_piqm3"), SubResource("Resource_2senm"), SubResource("Resource_pxrvf"), SubResource("Resource_rh5am"), SubResource("Resource_iwdps")])
+_actions = Array[ExtResource("1_bt0e0")]([SubResource("Resource_w6leb"), SubResource("Resource_piqm3"), SubResource("Resource_2senm"), SubResource("Resource_rh5am")])
 sequence_name = "Eski_action_one"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

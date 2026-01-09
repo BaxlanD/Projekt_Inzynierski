@@ -6,37 +6,42 @@ var current_interactions: Array = []
 var can_interact:= true
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and can_interact and current_interactions:
-		
-		var target: Interactable = current_interactions[0]
-		if not target or not target.is_interactable:
-			return
-			
-		can_interact = false
-		label.hide()
-			
-		match target.interaction_type:
-			target.type.item:
-				await target.interact.call()
-			target.type.place, target.type.npc:
-				await open_interaction_menu_for(target)
-			
-		can_interact = true
+	if not event.is_action_pressed("interact") or not can_interact:
+		return
+
+	var valid := _get_valid_interactions()
+	if valid.is_empty():
+		return
+
+	valid.sort_custom(_sort_by_nearest)
+	var target: Interactable = valid[0]
+
+	can_interact = false
+	label.hide()
+
+	match target.interaction_type:
+		target.type.item:
+			await target.interact.call()
+		target.type.place, target.type.npc:
+			await open_interaction_menu_for(target)
+
+	can_interact = true
 
 func _process(_delta: float) -> void:
-	if current_interactions and can_interact:
-		current_interactions.sort_custom(_sort_by_nearest)
-		var target: Interactable = current_interactions[0]
-		if target is Interactable and "is_interactable" in target:
-			if target.is_interactable:
-				label.text = target.interact_name
-				label.show()
-			else:
-				label.hide()
-		else:
-			label.hide()
-	else:
+	if not can_interact:
 		label.hide()
+		return
+
+	var valid := _get_valid_interactions()
+	if valid.is_empty():
+		label.hide()
+		return
+
+	valid.sort_custom(_sort_by_nearest)
+	var target: Interactable = valid[0]
+
+	label.text = target.interact_name
+	label.show()
 		
 func _sort_by_nearest(a1: Node2D, a2: Node2D) -> bool:
 	var a1_dist: float = global_position.distance_to(a1.global_position)
@@ -55,6 +60,17 @@ func _add_area_later(area: Area2D) -> void:
 
 func _on_range_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)
+	
+func _get_valid_interactions() -> Array:
+	var player : Player = get_parent()
+	if not player:
+		return []
+		
+	var player_layer: int = player.anchored_agent.actor_layer
+	
+	return current_interactions.filter(func(i: Interactable) -> bool:
+		return i.is_interactable and i.get_actor_layer() == player_layer
+	)
 	
 func open_interaction_menu_for(target: Area2D) -> void:
 	var interaction_target: Node = target.get_parent()

@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dlw7weqbkho3l" path="res://items/item_beer.gd" id="2_myikg"]
 
 [node name="Beer" instance=ExtResource("1_p4b2k")]
-z_index = 0
 script = ExtResource("2_myikg")
 full = false
 item_name = "Beer"

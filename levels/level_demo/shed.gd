@@ -27,7 +27,7 @@ func get_item_interactions(item: Item) -> Array[Dictionary]:
 
 
 func _leave_eski_letter(item: Item) -> void:
-	var player := get_tree().get_root().get_node("LevelDemo/Player") as Player
+	var player := get_tree().get_root().get_node("LevelVillage/Player") as Player
 	var inventory := player.get_node("Inventory") as Inventory
 
 	var index := inventory.items.find(item)
@@ -41,8 +41,9 @@ func _leave_eski_letter(item: Item) -> void:
 	var scene := load("res://items/item_eski_letter.tscn") as PackedScene
 	if scene:
 		var new_letter := scene.instantiate() as Item
-		get_tree().get_root().get_node("LevelDemo").add_child(new_letter)
-		new_letter.global_position = global_position + Vector2(-40, 0)
+		get_tree().get_root().get_node("LevelVillage").add_child(new_letter)
+		new_letter.global_position = global_position
+		new_letter.actor_layer = player.anchored_agent.actor_layer
 		retain_to_change.set_value(1)
 	else:
 		print("Could not load Eski Letter.")

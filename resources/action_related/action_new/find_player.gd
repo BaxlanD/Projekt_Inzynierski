@@ -81,7 +81,8 @@ func update(delta: float) -> void:
 func _go_to_player_last_known_position() -> void:
 	if _player_ref:
 		var pos: Vector2 = _player_ref.global_position
-		_subaction = GoTo.new().create(character, pos)
+		var player_agent = _player_ref.find_child("AnchoredAgentV2")
+		_subaction = GoTo.new().create(character, pos, player_agent.actor_layer)
 		_subaction.action_closed.connect(_on_reached_last_known_position)
 		_subaction.open()
 		

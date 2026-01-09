@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Sequence" load_steps=12 format=3 uid="uid://rqw2i5uumy4r"]
+[gd_resource type="Resource" script_class="Sequence" load_steps=10 format=3 uid="uid://rqw2i5uumy4r"]
 
 [ext_resource type="Script" uid="uid://bmnfnv8pjuoef" path="res://resources/action_related/action_new/action.gd" id="1_vo3io"]
 [ext_resource type="Script" uid="uid://0myr8cfdcslv" path="res://resources/action_related/sequence/sequence.gd" id="2_khu1x"]
 [ext_resource type="Script" uid="uid://dtj8rc5l2l5tv" path="res://resources/action_related/action_new/find_player.gd" id="2_rqxvs"]
 [ext_resource type="Script" uid="uid://c7vfp1rqm4j61" path="res://resources/action_related/action_new/play_anim.gd" id="3_k6gkk"]
-[ext_resource type="Script" uid="uid://de3to7sjiy5rq" path="res://resources/action_related/action_new/change_place_state.gd" id="4_osdui"]
 [ext_resource type="Script" uid="uid://d2jek7p8byyjv" path="res://resources/action_related/action_new/change_retain.gd" id="5_k6gkk"]
 
 [sub_resource type="Resource" id="Resource_w72su"]
@@ -14,8 +13,8 @@ anim_duration = 3.0
 detection_radius = 20.0
 approach_distance = 25.0
 search_timeout = 10.0
-where = Vector2(420, -280)
-layer = -1
+where = Vector2(50, 300)
+layer = 2
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
@@ -24,20 +23,11 @@ metadata/_custom_type_script = "uid://dtj8rc5l2l5tv"
 script = ExtResource("3_k6gkk")
 animation = "PickUpWall"
 duration = 5.0
-where = Vector2(420, -280)
-layer = -1
+where = Vector2(-185, 300)
+layer = 2
 _fleeting = false
 _timeout = 0
 metadata/_custom_type_script = "uid://c7vfp1rqm4j61"
-
-[sub_resource type="Resource" id="Resource_8ntur"]
-script = ExtResource("4_osdui")
-place_name = "Field"
-state_name = "curr_state"
-target_value_name = "watered"
-_fleeting = false
-_timeout = 0
-metadata/_custom_type_script = "uid://de3to7sjiy5rq"
 
 [sub_resource type="Resource" id="Resource_osdui"]
 script = ExtResource("5_k6gkk")
@@ -58,6 +48,6 @@ metadata/_custom_type_script = "uid://d2jek7p8byyjv"
 [resource]
 script = ExtResource("2_khu1x")
 _fleeting = false
-_actions = Array[ExtResource("1_vo3io")]([SubResource("Resource_w72su"), SubResource("Resource_73dqp"), SubResource("Resource_8ntur"), SubResource("Resource_osdui"), SubResource("Resource_5t7t3")])
+_actions = Array[ExtResource("1_vo3io")]([SubResource("Resource_w72su"), SubResource("Resource_73dqp"), SubResource("Resource_osdui"), SubResource("Resource_5t7t3")])
 sequence_name = "Idle"
 metadata/_custom_type_script = "uid://0myr8cfdcslv"

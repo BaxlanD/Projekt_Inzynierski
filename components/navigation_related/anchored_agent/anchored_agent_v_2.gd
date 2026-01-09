@@ -9,7 +9,7 @@ class_name AnchoredAgentV2 # using Navigator API
 @export var navigator: Navigator
 @export var debug_draw_path: DebugDraw
 
-var actor_layer: int = -1
+@export var actor_layer: int = -1
 
 # Position should be counted from id0 towards id1
 var current_edge_ids: Vector2i
@@ -25,16 +25,16 @@ var last_direction: Vector2
 
 ## API
 func initialize(actor: Node2D) -> void:
-	var projected_position := navigator._project_point_on_graph(actor.position)
+	var projected_position := navigator._project_point_on_graph_layer(actor.position, actor_layer)
 	current_edge_ids = projected_position.edge_ids
 	progress = projected_position.progress
 	actor_layer = navigator.get_point_data(current_edge_ids[0]).get_layer_id()
 
-func set_destination(target: Vector2) -> void:
-	_path = navigator.generate_path(current_edge_ids, progress, target)
+func set_destination(target: Vector2, layer: int = -1) -> void:
+	_path = navigator.generate_path(current_edge_ids, progress, target, layer)
 	_path_index = 0
 	## TODO: Shouldn't run the projection on target twice - fix if possible
-	_target_position = navigator._project_point_on_graph(target).get_point_position()
+	_target_position = navigator._project_point_on_graph_layer(target, layer).get_point_position()
 	if current_edge_ids[1] != _path[0].id:
 		_reverse_current_edge()
 	_debug_draw_path_if_enabled()
