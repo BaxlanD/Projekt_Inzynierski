@@ -18,7 +18,7 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0.0196078, 0.140794, 0.823529, 0.986928)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cd72q"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_boej4"]
 gradient = SubResource("Gradient_boej4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qtkk1"]
@@ -35,7 +35,7 @@ angular_velocity_max = 30.0
 gravity = Vector3(0, 10, 0)
 scale_min = 0.2
 scale_max = 3.0
-color_ramp = SubResource("GradientTexture1D_cd72q")
+color_ramp = SubResource("GradientTexture1D_boej4")
 anim_offset_max = 1.0
 
 [node name="Node2D" type="Node2D"]
@@ -55,7 +55,6 @@ lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_qtkk1")
 
 [node name="Btns" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(320, 181)
 scale = Vector2(2.011, 2.011)
 texture = ExtResource("7_boej4")
@@ -66,16 +65,19 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_qtkk1")
 
 [node name="Btn1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(321, 101)
 scale = Vector2(2, 2)
 texture = ExtResource("2_qtkk1")
 
 [node name="Btn2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(319, 203)
 scale = Vector2(2, 2)
 texture = ExtResource("3_6h0k0")
 
 [node name="Btn3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(320, 297)
 scale = Vector2(2, 2)
 texture = ExtResource("4_ndlsv")

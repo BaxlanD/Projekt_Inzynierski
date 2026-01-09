@@ -1,10 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbnbkavj1niru"]
+[gd_scene load_steps=13 format=3 uid="uid://bbnbkavj1niru"]
 
 [ext_resource type="Script" uid="uid://ckgit365dky4f" path="res://levels/menu/menu.gd" id="1_1iesk"]
-[ext_resource type="Texture2D" uid="uid://co0rk8pm8hthv" path="res://assets/menu/16-9menu.png" id="2_1iesk"]
+[ext_resource type="Texture2D" uid="uid://bukd56vs7rmp1" path="res://assets/tiles/village/UI/main_menu_16.png" id="2_vliw2"]
 [ext_resource type="Texture2D" uid="uid://cpfef1lfrxkhu" path="res://assets/menu/again.png" id="3_3cyc0"]
+[ext_resource type="Texture2D" uid="uid://bpoyeehkhwuf1" path="res://assets/tiles/village/UI/buttons.png" id="3_bbh48"]
+[ext_resource type="Texture2D" uid="uid://c018ugl7px730" path="res://assets/tiles/village/UI/leaves_menu.png" id="3_iyeus"]
 [ext_resource type="Texture2D" uid="uid://cs84nafooy7tn" path="res://assets/menu/start.png" id="4_p0td0"]
 [ext_resource type="Texture2D" uid="uid://l8oui5lcu2m2" path="res://assets/menu/quit.png" id="5_vliw2"]
+[ext_resource type="Texture2D" uid="uid://wwlcq7omiehc" path="res://assets/tiles/village/UI/leaves.png" id="7_bbh48"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_afiiw"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_h3vgt"]
+offsets = PackedFloat32Array(0.0196078, 0.140794, 0.823529, 0.986928)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cd72q"]
+gradient = SubResource("Gradient_h3vgt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0iuqh"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.5, 0.5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1920, 1080, 1)
+direction = Vector3(0.8, 1, 0)
+spread = 20.0
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 30.0
+gravity = Vector3(0, 10, 0)
+scale_min = 4.0
+scale_max = 10.0
+color_ramp = SubResource("GradientTexture1D_cd72q")
+anim_offset_max = 1.0
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -22,35 +55,76 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_1iesk")
+texture = ExtResource("2_vliw2")
+
+[node name="buttonsbg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bbh48")
+
+[node name="leaves" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iyeus")
 
 [node name="title" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1200.0
+layout_mode = 2
+offset_left = 638.0
 offset_top = 90.0
-offset_right = 1314.0
+offset_right = 752.0
 offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(6, 6)
 texture = ExtResource("3_3cyc0")
 
 [node name="start" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1578.0
-offset_top = 468.0
-offset_right = 1628.0
-offset_bottom = 502.0
+layout_mode = 2
+offset_left = 832.0
+offset_top = 473.0
+offset_right = 882.0
+offset_bottom = 507.0
 scale = Vector2(6, 6)
 texture_normal = ExtResource("4_p0td0")
 stretch_mode = 0
 
 [node name="quit" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1578.0
-offset_top = 750.0
-offset_right = 1628.0
-offset_bottom = 790.0
+offset_left = 831.0
+offset_top = 762.0
+offset_right = 881.0
+offset_bottom = 796.0
 scale = Vector2(6, 6)
 texture_normal = ExtResource("5_vliw2")
+
+[node name="center" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="center"]
+material = SubResource("CanvasItemMaterial_afiiw")
+amount = 20
+texture = ExtResource("7_bbh48")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_0iuqh")
 
 [connection signal="pressed" from="start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
