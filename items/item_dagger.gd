@@ -11,4 +11,4 @@ func get_display_name() -> String:
 	return "Dagger"
 
 func get_icon() -> Texture:
-	return preload("res://assets/dagger.png")
+	return preload("res://assets/items/sztylet_2.png")

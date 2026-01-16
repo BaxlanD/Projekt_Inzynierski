@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cye4gj3k48ok3"]
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_2tdry"]
-[ext_resource type="Texture2D" uid="uid://uslt8bqka11d" path="res://assets/nowy_mlotek.jpg" id="2_cgjh2"]
 [ext_resource type="Script" uid="uid://chx8hnktb1aw0" path="res://items/item_hammer_new.gd" id="2_nenm1"]
+[ext_resource type="Texture2D" uid="uid://baliivhnh2tre" path="res://assets/items/hammer_1.png" id="3_cgjh2"]
 
 [node name="Hammer_New" instance=ExtResource("1_2tdry")]
 script = ExtResource("2_nenm1")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-0.940002, 0.276447)
-scale = Vector2(0.0604, 0.106626)
-texture = ExtResource("2_cgjh2")
+position = Vector2(-1, -2.98023e-08)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_cgjh2")

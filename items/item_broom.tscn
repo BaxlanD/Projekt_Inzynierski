@@ -2,13 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_csxut"]
 [ext_resource type="Script" uid="uid://byevyht74lrun" path="res://items/item_broom.gd" id="2_1v72w"]
-[ext_resource type="Texture2D" uid="uid://dhd8awfilsght" path="res://assets/broom.jpg" id="3_2yp7c"]
+[ext_resource type="Texture2D" uid="uid://b8lhdi3lm2uyv" path="res://assets/items/szczotka_1.png" id="3_csxut"]
 
 [node name="Broom" instance=ExtResource("1_csxut")]
-z_index = 0
 script = ExtResource("2_1v72w")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.005, -0.112)
-scale = Vector2(0.00703516, 0.00694375)
-texture = ExtResource("3_2yp7c")
+position = Vector2(-2.38419e-07, -3.55271e-15)
+scale = Vector2(0.8125, 0.395833)
+texture = ExtResource("3_csxut")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0.130001, 0.375999)

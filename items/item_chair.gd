@@ -11,5 +11,5 @@ func get_display_name() -> String:
 	return "Chair"
 
 func get_icon() -> Texture:
-	return preload("res://assets/chair.png")
+	return preload("res://assets/items/krzesło_2.png")
 	

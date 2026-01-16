@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://deei27o1ukpc0"]
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_rtuvx"]
-[ext_resource type="Texture2D" uid="uid://dqs7ow3akdwbb" path="res://assets/gwozdzie.jpg" id="2_1dfmq"]
 [ext_resource type="Script" uid="uid://dqrlcrlugyie6" path="res://items/item_nails.gd" id="2_vxql6"]
+[ext_resource type="Texture2D" uid="uid://cbgvjqew7y6ed" path="res://assets/items/sruba_3.png" id="3_1dfmq"]
 
 [node name="Nails" instance=ExtResource("1_rtuvx")]
 script = ExtResource("2_vxql6")
 item_name = "Nails"
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.13, -0.013001)
-scale = Vector2(0.00713281, 0.00704141)
-texture = ExtResource("2_1dfmq")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_1dfmq")

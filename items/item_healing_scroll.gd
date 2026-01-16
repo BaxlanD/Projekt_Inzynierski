@@ -8,4 +8,4 @@ func get_display_name() -> String:
 	return "Healing Scroll"
 
 func get_icon() -> Texture:
-	return preload("res://assets/spell-scroll.jpg")
+	return preload("res://assets/items/medicine_2.png")

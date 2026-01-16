@@ -8,4 +8,4 @@ func get_display_name() -> String:
 	return "Bread"
 
 func get_icon() -> Texture:
-	return preload("res://assets/bread.jpg")
+	return preload("res://assets/items/chleb_2.png")

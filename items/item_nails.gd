@@ -8,5 +8,5 @@ func get_display_name() -> String:
 	return "Nails"
 
 func get_icon() -> Texture:
-	return preload("res://assets/gwozdzie.jpg")
+	return preload("res://assets/items/sruba_2.png")
 	

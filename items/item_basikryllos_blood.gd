@@ -8,4 +8,4 @@ func get_display_name() -> String:
 	return "Basikryllos' Blood"
 
 func get_icon() -> Texture:
-	return preload("res://assets/basy_blood.jpg")
+	return preload("res://assets/items/basilisk_2.png")

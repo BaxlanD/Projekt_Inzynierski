@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_3ihem"]
 [ext_resource type="Script" uid="uid://d1p1g5ftbdw6y" path="res://items/item_herbs.gd" id="2_k2612"]
-[ext_resource type="Texture2D" uid="uid://cwpncdrek7wfp" path="res://assets/herbs.jpeg" id="2_ux6dq"]
+[ext_resource type="Texture2D" uid="uid://cppy5hpeyfgt0" path="res://assets/items/ziola_2.png" id="3_ux6dq"]
 
 [node name="Herbs" instance=ExtResource("1_3ihem")]
 script = ExtResource("2_k2612")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.155, 0.295218)
-scale = Vector2(0.00610333, 0.00982265)
-texture = ExtResource("2_ux6dq")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_ux6dq")

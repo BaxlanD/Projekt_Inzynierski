@@ -13,7 +13,7 @@ func get_display_name() -> String:
 	return "Beer"
 
 func get_icon() -> Texture:
-	return preload("res://assets/mocny_full.jpg")
+	return preload("res://assets/items/butelka_piwo_2.png")
 	
 func use() -> void:
 	if full:
