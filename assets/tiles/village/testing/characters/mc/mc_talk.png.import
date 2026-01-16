@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnskvefmwq7uo"
-path="res://.godot/imported/eski_idle.png-666775ff4802232d4bf5aaf734113f63.ctex"
+uid="uid://cvp6hisqytmj"
+path="res://.godot/imported/mc_talk.png-0cd72cb7862ac27611764588ef797eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/eski_idle.png"
-dest_files=["res://.godot/imported/eski_idle.png-666775ff4802232d4bf5aaf734113f63.ctex"]
+source_file="res://assets/tiles/village/testing/characters/mc/mc_talk.png"
+dest_files=["res://.godot/imported/mc_talk.png-0cd72cb7862ac27611764588ef797eeb.ctex"]
 
 [params]
 
