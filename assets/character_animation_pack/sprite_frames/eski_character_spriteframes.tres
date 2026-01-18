@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=82 format=3 uid="uid://c4aia0l5cw037"]
+[gd_resource type="SpriteFrames" load_steps=86 format=3 uid="uid://c4aia0l5cw037"]
 
 [ext_resource type="Texture2D" uid="uid://b7n3gargdvhmc" path="res://assets/tiles/village/testing/characters/eski/eski_idle.png" id="1_jih7v"]
 [ext_resource type="Texture2D" uid="uid://xk43juem2hrs" path="res://assets/tiles/village/testing/characters/eski/eski_open_door.png" id="2_fanjf"]
@@ -122,6 +122,14 @@ region = Rect2(128, 0, 32, 48)
 atlas = ExtResource("3_feeve")
 region = Rect2(160, 0, 32, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jih7v"]
+atlas = ExtResource("3_feeve")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fanjf"]
+atlas = ExtResource("3_feeve")
+region = Rect2(0, 0, 32, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pmuo"]
 atlas = ExtResource("3_feeve")
 region = Rect2(0, 0, 32, 48)
@@ -145,6 +153,14 @@ region = Rect2(128, 0, 32, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa6rj"]
 atlas = ExtResource("3_feeve")
 region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feeve"]
+atlas = ExtResource("3_feeve")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njw34"]
+atlas = ExtResource("3_feeve")
+region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_suki8"]
 atlas = ExtResource("1_jih7v")
@@ -321,7 +337,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Climb",
-"speed": 12.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -352,7 +368,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Death",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -372,7 +388,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall",
-"speed": 12.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -403,7 +419,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jump",
-"speed": 12.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -434,10 +450,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0jen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jih7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fanjf")
 }],
 "loop": false,
 "name": &"PickUpGround",
-"speed": 12.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -457,10 +479,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xa6rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feeve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njw34")
 }],
 "loop": false,
 "name": &"PickUpWall",
-"speed": 12.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -480,7 +508,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Punch",
-"speed": 12.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -509,7 +537,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 12.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -544,7 +572,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Talk",
-"speed": 12.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -564,7 +592,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Use",
-"speed": 12.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -584,7 +612,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Wait",
-"speed": 12.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
