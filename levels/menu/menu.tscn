@@ -58,10 +58,15 @@ grow_vertical = 2
 texture = ExtResource("2_vliw2")
 
 [node name="buttonsbg" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.26
+offset_top = -1.195
+offset_right = -7.26001
+offset_bottom = -1.19495
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_bbh48")
@@ -74,36 +79,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_iyeus")
-
-[node name="title" type="TextureRect" parent="."]
-layout_mode = 2
-offset_left = 638.0
-offset_top = 90.0
-offset_right = 752.0
-offset_bottom = 141.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(6, 6)
-texture = ExtResource("3_3cyc0")
-
-[node name="start" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 832.0
-offset_top = 473.0
-offset_right = 882.0
-offset_bottom = 507.0
-scale = Vector2(6, 6)
-texture_normal = ExtResource("4_p0td0")
-stretch_mode = 0
-
-[node name="quit" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 831.0
-offset_top = 762.0
-offset_right = 881.0
-offset_bottom = 796.0
-scale = Vector2(6, 6)
-texture_normal = ExtResource("5_vliw2")
 
 [node name="center" type="Control" parent="."]
 layout_mode = 1
@@ -125,6 +100,36 @@ amount = 20
 texture = ExtResource("7_bbh48")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_0iuqh")
+
+[node name="title" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 617.73
+offset_top = 94.0
+offset_right = 731.73
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+texture = ExtResource("3_3cyc0")
+
+[node name="start" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 808.5
+offset_top = 468.0
+offset_right = 858.5
+offset_bottom = 502.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("4_p0td0")
+stretch_mode = 0
+
+[node name="quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 808.5
+offset_top = 761.0
+offset_right = 858.5
+offset_bottom = 795.0
+scale = Vector2(6, 6)
+texture_normal = ExtResource("5_vliw2")
 
 [connection signal="pressed" from="start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
