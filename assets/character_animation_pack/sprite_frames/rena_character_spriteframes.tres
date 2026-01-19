@@ -551,7 +551,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 8.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -655,5 +655,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 6.0
+"speed": 7.0
 }]
