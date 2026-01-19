@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_ok7c4"]
 [ext_resource type="Script" uid="uid://6lr6b4y6npt4" path="res://items/item_iron_bars.gd" id="2_ic4ti"]
-[ext_resource type="Texture2D" uid="uid://c163vcruv0ool" path="res://assets/iron_bars.jpg" id="3_tpaug"]
+[ext_resource type="Texture2D" uid="uid://bdpq0aebgl1jh" path="res://assets/items/rura_1.png" id="3_ok7c4"]
 
 [node name="Iron Bars" instance=ExtResource("1_ok7c4")]
-z_index = 0
 script = ExtResource("2_ic4ti")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.31, 0.218499)
-scale = Vector2(0.01862, 0.0245827)
-texture = ExtResource("3_tpaug")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_ok7c4")

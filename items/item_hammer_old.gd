@@ -8,5 +8,5 @@ func get_display_name() -> String:
 	return "Hammer_Old"
 
 func get_icon() -> Texture:
-	return preload("res://assets/stary_mlotek.jpg")
+	return preload("res://assets/items/hammer_2.png")
 	

@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_dkspp"]
 [ext_resource type="Script" uid="uid://c53lduvg0gwvn" path="res://items/item_red_coat.gd" id="2_ioexi"]
-[ext_resource type="Texture2D" uid="uid://043ieslk8fu7" path="res://assets/red_coat.jpg" id="3_48snh"]
+[ext_resource type="Texture2D" uid="uid://ch0a7odd813wx" path="res://assets/items/czerwony_plaszcz_1.png" id="3_dkspp"]
 
 [node name="Red Coat" instance=ExtResource("1_dkspp")]
-z_index = 0
 script = ExtResource("2_ioexi")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-0.999996, 9.53674e-07)
-scale = Vector2(0.00762917, 0.00800251)
-texture = ExtResource("3_48snh")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_dkspp")

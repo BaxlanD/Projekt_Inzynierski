@@ -11,4 +11,4 @@ func get_display_name() -> String:
 	return "Invisibility Potion"
 
 func get_icon() -> Texture:
-	return preload("res://assets/invisibility_potion.png")
+	return preload("res://assets/items/ziola_1.png")

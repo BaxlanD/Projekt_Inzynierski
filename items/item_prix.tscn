@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_nu86g"]
 [ext_resource type="Script" uid="uid://bhgn8t81bx2xt" path="res://items/item_prix.gd" id="2_x4o45"]
-[ext_resource type="Texture2D" uid="uid://ctrc7j6sxl6ou" path="res://assets/prix_mushroom.png" id="3_oni6n"]
+[ext_resource type="Texture2D" uid="uid://drmxt244hbonx" path="res://assets/items/mushroom_1.png" id="3_oni6n"]
 
 [node name="Prix" instance=ExtResource("1_nu86g")]
-z_index = 0
 script = ExtResource("2_x4o45")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.13, 0.618999)
-scale = Vector2(0.084537, 0.06254)
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("3_oni6n")

@@ -8,5 +8,5 @@ func get_display_name() -> String:
 	return "Tint"
 
 func get_icon() -> Texture:
-	return preload("res://assets/tint.jpg")
+	return preload("res://assets/items/kalamarz_2.png")
 	

@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_381e7"]
 [ext_resource type="Script" uid="uid://dy8b83xp4o7rq" path="res://items/item_bread.gd" id="2_1i4km"]
-[ext_resource type="Texture2D" uid="uid://c3a462s2tmc8b" path="res://assets/bread.jpg" id="2_rqx1a"]
+[ext_resource type="Texture2D" uid="uid://bq4vhahiaida0" path="res://assets/items/chleb_1.png" id="3_rqx1a"]
 
 [node name="Bread" instance=ExtResource("1_381e7")]
-z_index = 0
 script = ExtResource("2_1i4km")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.33, -0.157999)
-scale = Vector2(0.0172778, 0.0169593)
-texture = ExtResource("2_rqx1a")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_rqx1a")

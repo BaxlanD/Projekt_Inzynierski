@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_mlygj"]
 [ext_resource type="Script" uid="uid://d4mnslbt06jwx" path="res://items/item_basikryllos_blood.gd" id="2_f6jnj"]
-[ext_resource type="Texture2D" uid="uid://c8chf58kdmkau" path="res://assets/basy_blood.jpg" id="2_fdmxo"]
+[ext_resource type="Texture2D" uid="uid://b53dmistxqter" path="res://assets/items/basilisk_1.png" id="3_fdmxo"]
 
 [node name="Basicrkyllos\' Blood" instance=ExtResource("1_mlygj")]
 script = ExtResource("2_f6jnj")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.29499, 0.395249)
-scale = Vector2(0.00968229, 0.0172437)
-texture = ExtResource("2_fdmxo")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_fdmxo")

@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_vj544"]
 [ext_resource type="Script" uid="uid://g4fsqy7koorn" path="res://items/item_healing_scroll.gd" id="2_jjiob"]
-[ext_resource type="Texture2D" uid="uid://c22qx0b8jh3hx" path="res://assets/spell-scroll.jpg" id="3_u8qsd"]
+[ext_resource type="Texture2D" uid="uid://c60xlyrysa27h" path="res://assets/items/medicine_1.png" id="3_u8qsd"]
 
 [node name="Healing Scroll" instance=ExtResource("1_vj544")]
 script = ExtResource("2_jjiob")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.06, -0.262998)
-scale = Vector2(0.02265, 0.0258743)
+position = Vector2(-1, -2.98023e-08)
+scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("3_u8qsd")

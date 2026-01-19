@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://fknag02hxsr6"]
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_i1iqu"]
-[ext_resource type="Texture2D" uid="uid://dmck2k477oxgn" path="res://assets/translated_notes.png" id="2_l13ei"]
 [ext_resource type="Script" uid="uid://b2yi3r0phjsnc" path="res://items/item_translated_notes.gd" id="2_nhruo"]
+[ext_resource type="Texture2D" uid="uid://dlkqd31n5csko" path="res://assets/items/papier_3.png" id="3_l13ei"]
 
 [node name="Translated_Notes" instance=ExtResource("1_i1iqu")]
-z_index = 0
 script = ExtResource("2_nhruo")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-0.999996, 3.8147e-06)
-scale = Vector2(0.0342773, 0.0381445)
-texture = ExtResource("2_l13ei")
+position = Vector2(-1, -5.96046e-08)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_l13ei")

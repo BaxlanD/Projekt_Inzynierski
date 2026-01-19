@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://b6t5dimvaybx3" path="res://items/item.tscn" id="1_gy3l8"]
 [ext_resource type="Script" uid="uid://dhjfbgjgr28ju" path="res://items/item_tint.gd" id="2_x2kku"]
-[ext_resource type="Texture2D" uid="uid://bd07nrg0eswcs" path="res://assets/tint.jpg" id="2_y6i22"]
+[ext_resource type="Texture2D" uid="uid://wf61kcuspkm3" path="res://assets/items/kalamarz_1.png" id="3_y6i22"]
 
 [node name="Tint" instance=ExtResource("1_gy3l8")]
 script = ExtResource("2_x2kku")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-1.155, 0.046999)
-scale = Vector2(0.01831, 0.017906)
-texture = ExtResource("2_y6i22")
+position = Vector2(-1, 0)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_y6i22")
