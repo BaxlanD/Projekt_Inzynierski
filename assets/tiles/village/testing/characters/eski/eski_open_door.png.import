@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfrn27kbbhns4"
-path="res://.godot/imported/rena_idle.png-e1277f64a80bad58a4a93fa2807f8f07.ctex"
+uid="uid://xk43juem2hrs"
+path="res://.godot/imported/eski_open_door.png-812f32ef467fac25bdee8342d1839e56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/rena_idle.png"
-dest_files=["res://.godot/imported/rena_idle.png-e1277f64a80bad58a4a93fa2807f8f07.ctex"]
+source_file="res://assets/tiles/village/testing/characters/eski/eski_open_door.png"
+dest_files=["res://.godot/imported/eski_open_door.png-812f32ef467fac25bdee8342d1839e56.ctex"]
 
 [params]
 

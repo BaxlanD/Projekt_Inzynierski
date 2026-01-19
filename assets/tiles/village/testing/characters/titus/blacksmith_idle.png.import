@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6f5tuv13jp5n"
-path="res://.godot/imported/blacksmith_idle.png-d2f6d7e3e41f60d9c0d1f1d69dcbcaaa.ctex"
+uid="uid://cun2r3epici15"
+path="res://.godot/imported/blacksmith_idle.png-771d8d2f47c6b8b3522cffed6540c258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/blacksmith_idle.png"
-dest_files=["res://.godot/imported/blacksmith_idle.png-d2f6d7e3e41f60d9c0d1f1d69dcbcaaa.ctex"]
+source_file="res://assets/tiles/village/testing/characters/titus/blacksmith_idle.png"
+dest_files=["res://.godot/imported/blacksmith_idle.png-771d8d2f47c6b8b3522cffed6540c258.ctex"]
 
 [params]
 

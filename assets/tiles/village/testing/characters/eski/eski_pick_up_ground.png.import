@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by7pnsi6b3svy"
-path="res://.godot/imported/eskie_walk.png-519f6f8741426723ea976498b9d51f75.ctex"
+uid="uid://bdlqdrt7co1w4"
+path="res://.godot/imported/eski_pick_up_ground.png-ecac323c9e8d948c2f32e6f6412de545.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/village/testing/characters/eskie_walk.png"
-dest_files=["res://.godot/imported/eskie_walk.png-519f6f8741426723ea976498b9d51f75.ctex"]
+source_file="res://assets/tiles/village/testing/characters/eski/eski_pick_up_ground.png"
+dest_files=["res://.godot/imported/eski_pick_up_ground.png-ecac323c9e8d948c2f32e6f6412de545.ctex"]
 
 [params]
 
