@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://eo6an8alcerx"]
+[gd_scene load_steps=4 format=3 uid="uid://eo6an8alcerx"]
 
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_mni08"]
 [ext_resource type="Script" uid="uid://djwpluy146vdo" path="res://characters/npc_actions/seq/npc_merchant.gd" id="2_tu6xj"]
+[ext_resource type="SpriteFrames" uid="uid://dwgvdad41gccu" path="res://assets/character_animation_pack/sprite_frames/npc_random_1_character_spriteframes.tres" id="3_tu6xj"]
 
 [node name="NPC_Merchant" instance=ExtResource("1_mni08")]
 script = ExtResource("2_tu6xj")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_tu6xj")

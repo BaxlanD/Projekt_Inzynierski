@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvwew1d6pb47x"]
+[gd_scene load_steps=4 format=3 uid="uid://cvwew1d6pb47x"]
 
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_2k6qx"]
 [ext_resource type="Script" uid="uid://duyuvyvct46ji" path="res://characters/npc_actions/npc_rena.gd" id="2_4v4ai"]
+[ext_resource type="SpriteFrames" uid="uid://cehp6ro5sh47l" path="res://assets/character_animation_pack/sprite_frames/rena_character_spriteframes.tres" id="3_5cdvm"]
 
 [node name="NPC_Rena" instance=ExtResource("1_2k6qx")]
 collision_mask = 23
 script = ExtResource("2_4v4ai")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -32)
+sprite_frames = ExtResource("3_5cdvm")
 autoplay = "Idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -24)
+
+[node name="RayCast2D" parent="." index="2"]
+position = Vector2(0, -8)
+
+[node name="Interactable" parent="." index="4"]
+position = Vector2(0, -8)

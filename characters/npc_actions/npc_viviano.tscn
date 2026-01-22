@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkvpofbgybeat"]
+[gd_scene load_steps=4 format=3 uid="uid://bkvpofbgybeat"]
 
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_ntcxw"]
 [ext_resource type="Script" uid="uid://c6lu4lqrya5mn" path="res://characters/npc_actions/npc_viviano.gd" id="2_vldgt"]
+[ext_resource type="SpriteFrames" uid="uid://dhv6arw7phbk0" path="res://assets/character_animation_pack/sprite_frames/npc_random_4_character_spriteframes.tres" id="3_2hick"]
 
 [node name="NPC_Viviano" instance=ExtResource("1_ntcxw")]
 script = ExtResource("2_vldgt")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_2hick")

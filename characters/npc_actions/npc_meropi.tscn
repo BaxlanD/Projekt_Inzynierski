@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmgjgepm7osah"]
+[gd_scene load_steps=3 format=3 uid="uid://bmgjgepm7osah"]
 
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_wejwk"]
+[ext_resource type="SpriteFrames" uid="uid://dhv6arw7phbk0" path="res://assets/character_animation_pack/sprite_frames/npc_random_4_character_spriteframes.tres" id="2_8vqla"]
 
 [node name="NPC_Meropi" instance=ExtResource("1_wejwk")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_8vqla")
 autoplay = "Idle"

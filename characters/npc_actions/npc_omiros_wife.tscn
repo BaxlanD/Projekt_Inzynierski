@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfedja1evl4fm"]
+[gd_scene load_steps=3 format=3 uid="uid://dfedja1evl4fm"]
 
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_v8cyy"]
+[ext_resource type="SpriteFrames" uid="uid://cvxklnok75jg3" path="res://assets/character_animation_pack/sprite_frames/npc_random_3_character_spriteframes.tres" id="2_2vufb"]
 
 [node name="NPC_OmirosWife" instance=ExtResource("1_v8cyy")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_2vufb")
 autoplay = "Idle"

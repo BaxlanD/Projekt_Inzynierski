@@ -1,15 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://b0t63poihchnb"]
 
 [ext_resource type="Script" uid="uid://d3vq2uoasyyw4" path="res://characters/player_demo/player_demo.gd" id="1_rcvpf"]
-[ext_resource type="SpriteFrames" uid="uid://bia0aqqx0yvh0" path="res://assets/character_animation_pack/sprite_frames/m1_c1_character_spriteframes.tres" id="2_8gp0o"]
+[ext_resource type="SpriteFrames" uid="uid://blj7s31oa1i7h" path="res://assets/character_animation_pack/sprite_frames/mc_character_spriteframes.tres" id="2_ical2"]
 [ext_resource type="PackedScene" uid="uid://co2ccyfvt2t6j" path="res://resources/inventory/inventory.tscn" id="3_wak4a"]
 [ext_resource type="PackedScene" uid="uid://d07h4xw17iwo0" path="res://resources/interactions/interacting_comp.tscn" id="4_wak4a"]
 [ext_resource type="Script" uid="uid://bglcd0xi5tfge" path="res://levels/level_demo/inventory.gd" id="5_wm3um"]
 [ext_resource type="PackedScene" uid="uid://cqaaih8cao801" path="res://resources/interactions/interactable.tscn" id="6_ical2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fgci"]
-radius = 8.0
-height = 32.0
+radius = 9.0
+height = 46.0
 
 [node name="PlayerDemo" type="CharacterBody2D"]
 collision_layer = 8
@@ -20,16 +20,17 @@ script = ExtResource("1_rcvpf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -16)
-sprite_frames = ExtResource("2_8gp0o")
+position = Vector2(0, -20)
+sprite_frames = ExtResource("2_ical2")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -19)
 shape = SubResource("CapsuleShape2D_0fgci")
 debug_color = Color(0.798029, 0.42248, 0, 0.42)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -4)
 target_position = Vector2(0, 32)
 collision_mask = 7
 
@@ -44,6 +45,7 @@ max_items = 5
 metadata/_custom_type_script = "uid://bglcd0xi5tfge"
 
 [node name="Interactable" parent="." instance=ExtResource("6_ical2")]
+position = Vector2(0, -4)
 collision_mask = 24
 interaction_type = 2
 

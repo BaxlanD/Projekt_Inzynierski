@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://63ip4mj32hex"]
+[gd_scene load_steps=4 format=3 uid="uid://63ip4mj32hex"]
 
 [ext_resource type="PackedScene" uid="uid://cdj5qqynp087o" path="res://characters/npc_actions/npc_actions.tscn" id="1_xhd7b"]
 [ext_resource type="Script" uid="uid://ctl0hn5nllsjw" path="res://characters/npc_actions/npc_titus.gd" id="2_jtyh1"]
+[ext_resource type="SpriteFrames" uid="uid://c1b361178dtxe" path="res://assets/character_animation_pack/sprite_frames/titus_character_spriteframes.tres" id="3_jtyh1"]
 
 [node name="NPC_Titus" instance=ExtResource("1_xhd7b")]
 collision_mask = 23
 script = ExtResource("2_jtyh1")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-animation = &"PickUpGround"
+position = Vector2(1, -31)
+sprite_frames = ExtResource("3_jtyh1")
+animation = &"Climb"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -24)
+
+[node name="RayCast2D" parent="." index="2"]
+position = Vector2(0, -10)
+
+[node name="Interactable" parent="." index="4"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0, -14)
